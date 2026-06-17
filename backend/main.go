@@ -556,16 +556,6 @@ func main() {
 		c.JSON(http.StatusOK, gin.H{"user": user})
 	})
 
-	r.GET("/api/me", func(c *gin.Context) {
-		user, ok := currentUser(c.Request, cookieCodec)
-		if !ok {
-			c.JSON(http.StatusOK, gin.H{"user": nil})
-			return
-		}
-
-		c.JSON(http.StatusOK, gin.H{"user": user})
-	})
-
 	r.GET("/me", func(c *gin.Context) {
 		user, ok := currentUser(c.Request, cookieCodec)
 		if !ok {
