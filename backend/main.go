@@ -11,22 +11,26 @@ import (
 	_ "modernc.org/sqlite"
 )
 
+type EgoSkill struct {
+	Name    string `json:"name"`
+	Img     string `json:"img"`
+	Details string `json:"details"`
+}
+
 type Partner struct {
-	UID                string `json:"uid"`
-	Name               string `json:"name"`
-	Img                string `json:"img"`
-	Class              string `json:"class"`
-	Rarity             string `json:"rarity"`
-	EPCost             string `json:"ep_cost"`
-	Attack             string `json:"attack"`
-	Defense            string `json:"defense"`
-	Health             string `json:"health"`
-	PassiveName        string `json:"passive_name"`
-	PassiveDescription string `json:"passive_description"`
-	EgoSkillName       string `json:"ego_skill_name"`
-	EgoSkillImg        string `json:"ego_skill_img"`
-	EgoSkillDetails    string `json:"ego_skill_details"`
-	SourceURL          string `json:"source_url"`
+	UID                string   `json:"uid"`
+	Name               string   `json:"name"`
+	Img                string   `json:"img"`
+	Class              string   `json:"class"`
+	Rarity             string   `json:"rarity"`
+	EPCost             string   `json:"ep_cost"`
+	Attack             string   `json:"attack"`
+	Defense            string   `json:"defense"`
+	Health             string   `json:"health"`
+	PassiveName        string   `json:"passive_name"`
+	PassiveDescription string   `json:"passive_description"`
+	EgoSkill           EgoSkill `json:"ego_skill"`
+	SourceURL          string   `json:"source_url"`
 }
 
 type Equipment struct {
@@ -334,6 +338,7 @@ func (s *Store) ListPartners(ctx context.Context) ([]Partner, error) {
 
 		for rows.Next() {
 			var p Partner
+			var egoName, egoImg, egoDetails string
 			if err := rows.Scan(
 				&p.UID,
 				&p.Name,
@@ -346,12 +351,18 @@ func (s *Store) ListPartners(ctx context.Context) ([]Partner, error) {
 				&p.Health,
 				&p.PassiveName,
 				&p.PassiveDescription,
-				&p.EgoSkillName,
-				&p.EgoSkillImg,
-				&p.EgoSkillDetails,
+				&egoName,
+				&egoImg,
+				&egoDetails,
 				&p.SourceURL,
 			); err != nil {
 				return nil, err
+			}
+
+			p.EgoSkill = EgoSkill{
+				Name:    egoName,
+				Img:     egoImg,
+				Details: egoDetails,
 			}
 
 			partners = append(partners, p)
