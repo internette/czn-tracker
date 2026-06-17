@@ -1,5 +1,4 @@
 import { randomUUID } from 'crypto';
-import fs from 'fs';
 import sqlite3 from 'sqlite3';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -18,6 +17,7 @@ export interface User {
   id: string;
   name: string;
   email: string;
+  characters_owned: string[];
 }
 
 export const createUsersTable = (): Promise<void> => {
@@ -27,7 +27,8 @@ export const createUsersTable = (): Promise<void> => {
       CREATE TABLE IF NOT EXISTS users (
         id TEXT PRIMARY KEY,
         name TEXT NOT NULL,
-        email TEXT NOT NULL UNIQUE
+        email TEXT NOT NULL UNIQUE,
+        characters_owned TEXT NOT NULL DEFAULT '[]'
       )
       `,
       (err) => {
@@ -42,19 +43,28 @@ export const createUsersTable = (): Promise<void> => {
   });
 };
 
-export const insertUser = (name: string, email: string): Promise<User> => {
+export const insertUser = (
+  name: string,
+  email: string,
+  charactersOwned: string[] = []
+): Promise<User> => {
   return new Promise((resolve, reject) => {
     const id = randomUUID();
 
     db.run(
-      `INSERT INTO users (id, name, email) VALUES (?, ?, ?)`,
-      [id, name, email],
+      `INSERT INTO users (id, name, email, characters_owned) VALUES (?, ?, ?, ?)`,
+      [id, name, email, JSON.stringify(charactersOwned)],
       (err) => {
         if (err) {
           reject(err);
           return;
         }
-        resolve({ id, name, email });
+        resolve({
+          id,
+          name,
+          email,
+          characters_owned: charactersOwned,
+        });
       }
     );
   });
