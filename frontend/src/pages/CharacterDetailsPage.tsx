@@ -66,6 +66,7 @@ export default function CharacterDetailsPage() {
         <div><img src={character.imageUrl}/></div>
         <p><strong>Best Partner:</strong></p>
         <div>
+          <div><img src={character.bestPartner.img}/></div>
           <p>{character.bestPartner.name}</p>
         </div>
         <p><strong>Best Equipment:</strong></p>
@@ -82,7 +83,7 @@ export default function CharacterDetailsPage() {
         {/* <div>{character.bestSets.map(set => {
 
         })}</div> */}
-        <p><strong>Teammate:</strong> {character.teammate}</p>
+        {/* <p><strong>Teammate:</strong> {character.teammate}</p> */}
       </section>
     </div>
   )
