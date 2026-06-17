@@ -93,7 +93,7 @@ func (s *Store) GetUserByEmail(ctx context.Context, email string) (*User, error)
 	var charactersOwned string
 
 	err := s.db.QueryRowContext(ctx, `
-		SELECT id, name, email, characters_owned
+		SELECT id, name, email, COALESCE(characters_owned, '[]')
 		FROM users
 		WHERE email = ?
 	`, email).Scan(
@@ -144,7 +144,7 @@ func (s *Store) GetUserByID(ctx context.Context, uid string) (*User, error) {
 	var charactersOwned string
 
 	err := s.db.QueryRowContext(ctx, `
-		SELECT id, name, email, characters_owned
+		SELECT id, name, email, COALESCE(characters_owned, '[]')
 		FROM users
 		WHERE id = ?
 	`, uid).Scan(
