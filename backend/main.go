@@ -48,143 +48,6 @@ type Store struct {
 	db        *sql.DB
 }
 
-// ListCharacters pulls relational data using an optimized 2-query map stitch
-func (s *Store) ListCharacters() ([]Character, error) {
-	if s.useSQLite {
-		// 1. Fetch all core characters and their flattened partner columns
-		rows, err := s.db.Query(`
-			SELECT
-				uid,
-				id,
-				name,
-				tier,
-				type,
-				faction,
-				rarity,
-				attribute,
-				image_url,
-				best_partner_uid,
-				best_partner_name
-			FROM characters
-		`)
-		if err != nil {
-			return nil, err
-		}
-		defer rows.Close()
-
-		var characters []Character
-		charMap := make(map[string]int)
-
-		for rows.Next() {
-			var char Character
-			var partnerUID sql.NullString
-			var partnerName sql.NullString
-
-			err := rows.Scan(
-				&char.UID,
-				&char.ID,
-				&char.Name,
-				&char.Tier,
-				&char.Type,
-				&char.Faction,
-				&char.Rarity,
-				&char.Attribute,
-				&char.ImageUrl,
-				&partnerUID,
-				&partnerName,
-			)
-			if err != nil {
-				return nil, err
-			}
-
-			if partnerUID.Valid && partnerUID.String != "" {
-				char.BestPartner = &Partner{
-					UID:  partnerUID.String,
-					Name: partnerName.String,
-				}
-			}
-
-			// Force initialized slice instance over 'null' inside JSON output arrays
-			char.BestEquipment = []Equipment{}
-			char.Stats = []Stat{}
-			characters = append(characters, char)
-
-			// Hold item reference memory address
-			charMap[char.UID] = len(characters) - 1
-		}
-		if err = rows.Err(); err != nil {
-			return nil, err
-		}
-
-		// 2. Query all equipment metrics in a bulk sweep
-		equipRows, err := s.db.Query(`
-			SELECT 
-				character_uid, type, name, url, img 
-			FROM character_equipment
-		`)
-		if err != nil {
-			return nil, err
-		}
-		defer equipRows.Close()
-
-		for equipRows.Next() {
-			var charUID string
-			var eq Equipment
-
-			err := equipRows.Scan(&charUID, &eq.Type, &eq.Name, &eq.URL, &eq.Img)
-			if err != nil {
-				return nil, err
-			}
-			if idx, exists := charMap[charUID]; exists {
-				characters[idx].BestEquipment = append(characters[idx].BestEquipment, eq)
-			}
-		}
-		if err = equipRows.Err(); err != nil {
-			return nil, err
-		}
-
-		statRows, err := s.db.Query(`
-			SELECT
-				character_uid,
-				id,
-				friendly_name,
-				value
-			FROM character_stats
-		`)
-		if err != nil {
-			return nil, err
-		}
-		defer statRows.Close()
-
-		for statRows.Next() {
-			var charUID string
-			var stat Stat
-
-			err := statRows.Scan(
-				&charUID,
-				&stat.ID,
-				&stat.FriendlyName,
-				&stat.Value,
-			)
-			if err != nil {
-				return nil, err
-			}
-
-			if idx, exists := charMap[charUID]; exists {
-				characters[idx].Stats = append(characters[idx].Stats, stat)
-			}
-		}
-
-		if err = statRows.Err(); err != nil {
-			return nil, err
-		}
-
-		return characters, nil
-	}
-
-	return []Character{}, nil
-}
-
 // GetCharacterByID returns a single character with its equipment and stats
 func (s *Store) GetCharacterByID(uid string) (Character, error) {
 	if s.useSQLite {
@@ -288,6 +151,143 @@ func (s *Store) GetCharacterByID(uid string) (Character, error) {
 	}
 
 	return Character{}, nil
+}
+
+func (s *Store) loadEquipment(uid string) ([]Equipment, error) {
+	rows, err := s.db.Query(`
+		SELECT type, name, url, img
+		FROM character_equipment
+		WHERE character_uid = ?
+	`, uid)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	var equipment []Equipment
+
+	for rows.Next() {
+		var eq Equipment
+		if err := rows.Scan(&eq.Type, &eq.Name, &eq.URL, &eq.Img); err != nil {
+			return nil, err
+		}
+		equipment = append(equipment, eq)
+	}
+
+	if err = rows.Err(); err != nil {
+		return nil, err
+	}
+
+	return equipment, nil
+}
+
+func (s *Store) loadStats(uid string) ([]Stat, error) {
+	rows, err := s.db.Query(`
+		SELECT id, friendly_name, value
+		FROM character_stats
+		WHERE character_uid = ?
+	`, uid)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	var stats []Stat
+
+	for rows.Next() {
+		var st Stat
+		if err := rows.Scan(&st.ID, &st.FriendlyName, &st.Value); err != nil {
+			return nil, err
+		}
+		stats = append(stats, st)
+	}
+
+	if err = rows.Err(); err != nil {
+		return nil, err
+	}
+
+	return stats, nil
+}
+
+// ListCharacters pulls relational data using an optimized 2-query map stitch
+func (s *Store) ListCharacters() ([]Character, error) {
+	if s.useSQLite {
+		// 1. Fetch all core characters and their flattened partner columns
+		rows, err := s.db.Query(`
+			SELECT
+				uid,
+				id,
+				name,
+				tier,
+				type,
+				faction,
+				rarity,
+				attribute,
+				image_url,
+				best_partner_uid,
+				best_partner_name
+			FROM characters
+		`)
+		if err != nil {
+			return nil, err
+		}
+		defer rows.Close()
+
+		var characters []Character
+		charMap := make(map[string]int)
+
+		for rows.Next() {
+			var char Character
+			var partnerUID sql.NullString
+			var partnerName sql.NullString
+
+			err := rows.Scan(
+				&char.UID,
+				&char.ID,
+				&char.Name,
+				&char.Tier,
+				&char.Type,
+				&char.Faction,
+				&char.Rarity,
+				&char.Attribute,
+				&char.ImageUrl,
+				&partnerUID,
+				&partnerName,
+			)
+			if err != nil {
+				return nil, err
+			}
+
+			if partnerUID.Valid && partnerUID.String != "" {
+				char.BestPartner = &Partner{
+					UID:  partnerUID.String,
+					Name: partnerName.String,
+				}
+			}
+
+			characters = append(characters, char)
+			charMap[char.UID] = len(characters) - 1
+
+			eq, err := s.loadEquipment(char.UID)
+			if err != nil {
+				return nil, err
+			}
+			characters[charMap[char.UID]].BestEquipment = eq
+
+			stats, err := s.loadStats(char.UID)
+			if err != nil {
+				return nil, err
+			}
+			characters[charMap[char.UID]].Stats = stats
+		}
+		if err = rows.Err(); err != nil {
+			return nil, err
+		}
+
+		return characters, nil
+	}
+
+	return []Character{}, nil
 }
 
 func main() {
