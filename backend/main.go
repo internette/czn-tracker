@@ -185,6 +185,105 @@ func (s *Store) ListCharacters() ([]Character, error) {
 	return []Character{}, nil
 }
 
+// GetCharacterByID returns a single character with its equipment and stats
+func (s *Store) GetCharacterByID(uid string) (Character, error) {
+	if s.useSQLite {
+		var char Character
+		var partnerUID sql.NullString
+		var partnerName sql.NullString
+
+		err := s.db.QueryRow(`
+			SELECT
+				uid,
+				id,
+				name,
+				tier,
+				type,
+				faction,
+				rarity,
+				attribute,
+				image_url,
+				best_partner_uid,
+				best_partner_name
+			FROM characters
+			WHERE uid = ?
+		`, uid).Scan(
+			&char.UID,
+			&char.ID,
+			&char.Name,
+			&char.Tier,
+			&char.Type,
+			&char.Faction,
+			&char.Rarity,
+			&char.Attribute,
+			&char.ImageUrl,
+			&partnerUID,
+			&partnerName,
+		)
+		if err != nil {
+			return Character{}, err
+		}
+
+		if partnerUID.Valid && partnerUID.String != "" {
+			char.BestPartner = &Partner{
+				UID:  partnerUID.String,
+				Name: partnerName.String,
+			}
+		}
+
+		char.BestEquipment = []Equipment{}
+		char.Stats = []Stat{}
+
+		// Load equipment
+		equipRows, err := s.db.Query(`
+			SELECT character_uid, type, name, url, img
+			FROM character_equipment
+			WHERE character_uid = ?
+		`, uid)
+		if err != nil {
+			return Character{}, err
+		}
+		defer equipRows.Close()
+
+		for equipRows.Next() {
+			var charUID string
+			var eq Equipment
+
+			if err := equipRows.Scan(&charUID, &eq.Type, &eq.Name, &eq.URL, &eq.Img); err != nil {
+				return Character{}, err
+			}
+
+			char.BestEquipment = append(char.BestEquipment, eq)
+		}
+
+		// Load stats
+		statRows, err := s.db.Query(`
+			SELECT character_uid, id, friendly_name, value
+			FROM character_stats
+			WHERE character_uid = ?
+		`, uid)
+		if err != nil {
+			return Character{}, err
+		}
+		defer statRows.Close()
+
+		for statRows.Next() {
+			var charUID string
+			var stat Stat
+
+			if err := statRows.Scan(&charUID, &stat.ID, &stat.FriendlyName, &stat.Value); err != nil {
+				return Character{}, err
+			}
+
+			char.Stats = append(char.Stats, stat)
+		}
+
+		return char, nil
+	}
+
+	return Character{}, nil
+}
+
 func main() {
 	dbPath := filepath.Clean("../data/czn-tracker.db")
 
@@ -212,6 +311,19 @@ func main() {
 		}
 
 		c.JSON(http.StatusOK, characters)
+	})
+
+	r.GET("/characters/:id", func(c *gin.Context) {
+		id := c.Param("id")
+
+		character, err := store.GetCharacterByID(id)
+		if err != nil {
+			log.Printf("Error pulling character by id: %v", err)
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "failed to load character"})
+			return
+		}
+
+		c.JSON(http.StatusOK, character)
 	})
 
 	log.Println("Gin server starting up on port :8080...")
