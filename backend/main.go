@@ -28,6 +28,7 @@ type User struct {
 }
 
 type Session struct {
+	UID   string `json:"uid"`
 	Email string `json:"email"`
 	Name  string `json:"name"`
 }
@@ -604,6 +605,7 @@ func main() {
 		}
 
 		sessionValue, err := cookieCodec.Encode(sessionCookieName, Session{
+			UID:   user.UID,
 			Email: email,
 			Name:  name,
 		})
@@ -747,7 +749,13 @@ func currentUser(r *http.Request, cookieCodec *securecookie.SecureCookie) (User,
 		return User{}, false
 	}
 
-	return User{Email: session.Email, Name: session.Name}, true
+	u := User{
+		UID:   session.UID,
+		Email: session.Email,
+		Name:  session.Name,
+	}
+
+	return u, true
 }
 
 func corsMiddleware() gin.HandlerFunc {
