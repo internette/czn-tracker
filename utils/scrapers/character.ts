@@ -6,11 +6,10 @@ export interface CharacterScrapeResult {
     uid: string;
     id: string;
     name: string;
-    rarity?: number;
+    rarity?: string;
     class?: string;
     attribute?: string;
     faction?: string;
-
     imageUrl?: string;
 
     bestEquipment: void | Gear[];
@@ -52,14 +51,7 @@ interface BestSets {
 }
 
 
-async function getTeamAndBuildUrl(url:string): Promise<string> {
-    const { data } = await axios.get(url, {
-        headers: {
-            "User-Agent":
-                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)"
-        }
-    });
-    const $ = cheerio.load(data);
+async function getTeamAndBuildUrl($: cheerio.CheerioAPI): Promise<string> {
     const teamAndBuildUrl = $("a.a-link").filter((_, el) =>
             $(el).text().trim().includes("Team and Build")
         ).first().attr("href");
@@ -220,10 +212,53 @@ function getMemoryFragments($: cheerio.CheerioAPI): BestSets | void {
     }
 }
 
+async function getCharacterInformation($: cheerio.CheerioAPI){
+    // Basic data
+    const characterData = getTableByChildText(["Tier", "Type", "Faction", "Rarity"], $, "all");
+    const tableRows = $(characterData).find("tr");
+    const firstRowData = tableRows.eq(0);
+    const image_url = firstRowData.find("img").attr("src");
+    const tierElm = firstRowData.find("th").next();
+    const tier = tierElm.find("img").attr("alt")!.replace(" Rank", "");
+    const type = tableRows.eq(1).find("td").find("div").text().trim();
+    const faction = tableRows.eq(2).find("td").find("div").text().trim();
+    const rarity = tableRows.eq(3).find("td").find("a").text();
+    const attribute = tableRows.eq(4).find("td").text().trim();
+    // character stats
+    const characterStatsData = getTableByChildText(["Attack", "Defense", "Health", "Critical Chance", "Critical Damage"], $, "all");
+    const statsTableRows = $(characterStatsData).find("tr");
+    const stats = Array.prototype.map.call(statsTableRows, (elm)=> {
+        const statFriendlyName = $(elm).find("th").text();
+        const statId = statFriendlyName.replace(" ", "_");
+        return {
+            friendlyName: statFriendlyName,
+            id: statId,
+            value: $(elm).find("td").text()
+        }
+    });
+    return {
+        image_url,
+        tier,
+        type,
+        faction,
+        rarity,
+        attribute,
+        stats
+    }
+}
+
 export async function scrapeCharacter(
     url: string
 ): Promise<CharacterScrapeResult> {
-    const teamAndBuildUrl = await getTeamAndBuildUrl(url);
+    const cardsAndMatsData = await axios.get(url, {
+        headers: {
+            "User-Agent":
+                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)"
+        }
+    });
+    const $cardsAndMats = cheerio.load(cardsAndMatsData.data);
+    const characterDetails = await getCharacterInformation($cardsAndMats);
+    const teamAndBuildUrl = await getTeamAndBuildUrl($cardsAndMats);
     const { data } = await axios.get(teamAndBuildUrl, {
         headers: {
             "User-Agent":
@@ -250,6 +285,7 @@ export async function scrapeCharacter(
         uid,
         id: uid,
         name,
+        ...characterDetails,
         bestEquipment: equipment,
         bestPartner: partner,
         bestTeammates: teammates,

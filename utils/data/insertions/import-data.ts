@@ -54,6 +54,12 @@ async function setupDatabase() {
             uid TEXT PRIMARY KEY,
             id TEXT,
             name TEXT,
+            image_url TEXT,
+            tier TEXT,
+            type TEXT,
+            faction TEXT,
+            rarity TEXT,
+            attribute TEXT,
             best_partner_uid TEXT,
             best_partner_name TEXT,
             memory_fragment_4pc_name TEXT,
@@ -65,7 +71,21 @@ async function setupDatabase() {
         )
     `);
 
-    // 3. Character Best Equipment Table (Many-to-One with Characters)
+    // 3. Character Stats Table (One-to-One)
+    await dbRun(`
+      CREATE TABLE IF NOT EXISTS character_stats (
+        character_uid TEXT NOT NULL,
+        id TEXT NOT NULL,
+        friendly_name TEXT NOT NULL,
+        value TEXT NOT NULL,
+        PRIMARY KEY (character_uid, id),
+        FOREIGN KEY (character_uid)
+        REFERENCES characters(uid)
+        ON DELETE CASCADE
+      );
+    `);
+
+    // 4. Character Best Equipment Table (Many-to-One with Characters)
     await dbRun(`
         CREATE TABLE IF NOT EXISTS character_equipment (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -78,7 +98,7 @@ async function setupDatabase() {
         )
     `);
 
-    // 4. Character Best Teammates Table (Many-to-One with Characters)
+    // 5. Character Best Teammates Table (Many-to-One with Characters)
     await dbRun(`
         CREATE TABLE IF NOT EXISTS character_teammates (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -90,7 +110,7 @@ async function setupDatabase() {
         )
     `);
 
-    // 5. Character Best Chaos Zones Table (Many-to-One with Characters)
+    // 6. Character Best Chaos Zones Table (Many-to-One with Characters)
     await dbRun(`
         CREATE TABLE IF NOT EXISTS character_chaos_zones (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -160,93 +180,106 @@ async function insertCharacters() {
     const rawData = fs.readFileSync(charactersJsonPath, 'utf8');
     const characters = JSON.parse(rawData);
 
-    return new Promise((resolve, reject) => {
-        db.serialize(() => {
-            db.run("BEGIN TRANSACTION");
+    await dbRun("BEGIN");
 
-            const stmtChar = db.prepare(`
-                INSERT OR REPLACE INTO characters (
-                    uid, id, name, best_partner_uid, best_partner_name,
-                    memory_fragment_4pc_name, memory_fragment_4pc_id,
-                    memory_fragment_2pc_name, memory_fragment_2pc_id,
-                    source_url, updated_at
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-            `);
+    try {
+        const stmtChar = db.prepare(`
+            INSERT OR REPLACE INTO characters (
+              uid, id, name, image_url, tier, type, faction, rarity, attribute,
+              best_partner_uid, best_partner_name,
+              memory_fragment_4pc_name, memory_fragment_4pc_id,
+              memory_fragment_2pc_name, memory_fragment_2pc_id,
+              source_url, updated_at
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        `);
 
-            const stmtEquip = db.prepare(`
-                INSERT INTO character_equipment (character_uid, type, name, url, img)
-                VALUES (?, ?, ?, ?, ?)
-            `);
+        const stmtEquip = db.prepare(`
+            INSERT INTO character_equipment (character_uid, type, name, url, img)
+            VALUES (?, ?, ?, ?, ?)
+        `);
 
-            const stmtTeam = db.prepare(`
-                INSERT INTO character_teammates (character_uid, role, name, url)
-                VALUES (?, ?, ?, ?)
-            `);
+        const stmtTeam = db.prepare(`
+            INSERT INTO character_teammates (character_uid, role, name, url)
+            VALUES (?, ?, ?, ?)
+        `);
 
-            const stmtZone = db.prepare(`
-                INSERT INTO character_chaos_zones (character_uid, zone_name)
-                VALUES (?, ?)
-            `);
+        const stmtStats = db.prepare(`
+            INSERT INTO character_stats (character_uid, id, friendly_name, value)
+            VALUES (?, ?, ?, ?)
+        `);
 
-            for (const char of characters) {
-                const bp = char.bestPartner || {};
-                const mf = char.bestMemoryFragments || {};
-                const mf4 = mf.fourPieceSet || {};
-                const mf2 = mf.twoPieceSet || {};
+        const stmtZone = db.prepare(`
+            INSERT INTO character_chaos_zones (character_uid, zone_name)
+            VALUES (?, ?)
+        `);
 
-                stmtChar.run([
-                    char.uid,
-                    char.id,
-                    char.name,
-                    bp.uid || null,
-                    bp.name || null,
-                    mf4.name || null,
-                    mf4.id || null,
-                    mf2.name || null,
-                    mf2.id || null,
-                    char.sourceUrl,
-                    char.updatedAt
-                ]);
+        for (const char of characters) {
+            const bp = char.bestPartner || {};
+            const mf = char.bestMemoryFragments || {};
+            const mf4 = mf.fourPieceSet || {};
+            const mf2 = mf.twoPieceSet || {};
 
-                // Clear previous relational details to handle idempotency updates cleanly
-                db.run(`DELETE FROM character_equipment WHERE character_uid = ?`, [char.uid]);
-                db.run(`DELETE FROM character_teammates WHERE character_uid = ?`, [char.uid]);
-                db.run(`DELETE FROM character_chaos_zones WHERE character_uid = ?`, [char.uid]);
+            stmtChar.run([
+                char.uid,
+                char.id,
+                char.name,
+                char.image_url,
+                char.tier,
+                char.type,
+                char.faction,
+                char.rarity,
+                char.attribute,
+                bp.uid || null,
+                bp.name || null,
+                mf4.name || null,
+                mf4.id || null,
+                mf2.name || null,
+                mf2.id || null,
+                char.sourceUrl,
+                char.updatedAt
+            ]);
 
-                if (Array.isArray(char.bestEquipment)) {
-                    for (const item of char.bestEquipment) {
-                        stmtEquip.run([char.uid, item.type, item.name, item.url, item.img]);
-                    }
-                }
+            await dbRun(`DELETE FROM character_equipment WHERE character_uid = ?`, [char.uid]);
+            await dbRun(`DELETE FROM character_teammates WHERE character_uid = ?`, [char.uid]);
+            await dbRun(`DELETE FROM character_stats WHERE character_uid = ?`, [char.uid]);
+            await dbRun(`DELETE FROM character_chaos_zones WHERE character_uid = ?`, [char.uid]);
 
-                if (Array.isArray(char.bestTeammates)) {
-                    for (const tm of char.bestTeammates) {
-                        stmtTeam.run([char.uid, tm.role, tm.name, tm.url]);
-                    }
-                }
-
-                if (Array.isArray(char.bestChaosZones)) {
-                    for (const zone of char.bestChaosZones) {
-                        stmtZone.run([char.uid, zone]);
-                    }
-                }
+            for (const item of char.bestEquipment ?? []) {
+                stmtEquip.run([char.uid, item.type, item.name, item.url, item.img]);
             }
 
-            stmtChar.finalize();
-            stmtEquip.finalize();
-            stmtTeam.finalize();
-            stmtZone.finalize((err) => {
-                if (err) {
-                    db.run("ROLLBACK");
-                    reject(err);
-                } else {
-                    db.run("COMMIT");
-                    console.log(`Successfully inserted/updated ${characters.length} characters and sub-tables.`);
-                    resolve();
-                }
-            });
-        });
-    });
+            for (const tm of char.bestTeammates ?? []) {
+                stmtTeam.run([char.uid, tm.role, tm.name, tm.url]);
+            }
+
+            for (const stat of char.stats ?? []) {
+                stmtStats.run([
+                    char.uid,
+                    stat.id,
+                    stat.friendlyName,
+                    stat.value
+                ]);
+            }
+
+            for (const zone of char.bestChaosZones ?? []) {
+                stmtZone.run([char.uid, zone]);
+            }
+        }
+
+        stmtChar.finalize();
+        stmtEquip.finalize();
+        stmtTeam.finalize();
+        stmtStats.finalize();
+        stmtZone.finalize();
+
+        await dbRun("COMMIT");
+
+        console.log(`Inserted ${characters.length} characters`);
+
+    } catch (err) {
+        await dbRun("ROLLBACK");
+        throw err;
+    }
 }
 
 async function main() {
