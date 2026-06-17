@@ -137,6 +137,33 @@ func (s *Store) CreateUser(ctx context.Context, name, email string) (*User, erro
 	}, nil
 }
 
+func (s *Store) GetUserByID(ctx context.Context, uid string) (*User, error) {
+	var user User
+	var charactersOwned string
+
+	err := s.db.QueryRowContext(ctx, `
+		SELECT id, name, email, characters_owned
+		FROM users
+		WHERE id = ?
+	`, uid).Scan(
+		&user.UID,
+		&user.Name,
+		&user.Email,
+		&charactersOwned,
+	)
+
+	if err == sql.ErrNoRows {
+		return nil, nil
+	}
+
+	if err != nil {
+		return nil, err
+	}
+
+	user.CharactersOwned = []string{}
+	return &user, nil
+}
+
 // GetCharacterByID returns a single character with its equipment and stats
 func (s *Store) GetCharacterByID(ctx context.Context, uid string) (Character, error) {
 	if s.useSQLite {
@@ -560,6 +587,24 @@ func main() {
 		user, ok := currentUser(c.Request, cookieCodec)
 		if !ok {
 			c.JSON(http.StatusOK, gin.H{"user": nil})
+			return
+		}
+
+		c.JSON(http.StatusOK, gin.H{"user": user})
+	})
+
+	r.GET("/users/:id", func(c *gin.Context) {
+		id := c.Param("id")
+
+		user, err := store.GetUserByID(c.Request.Context(), id)
+		if err != nil {
+			log.Printf("Error retrieving user by id: %v", err)
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "failed to retrieve user"})
+			return
+		}
+
+		if user == nil {
+			c.JSON(http.StatusNotFound, gin.H{"error": "user not found"})
 			return
 		}
 
