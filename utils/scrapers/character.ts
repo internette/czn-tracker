@@ -155,7 +155,7 @@ function getEquipment($: cheerio.CheerioAPI):Gear[] | void {
             const gearLinkElm = gearElement.find("a");
             const gearName = gearLinkElm.text().trim();
             const gearUrl = gearLinkElm.attr("href");
-            const gearImg = gearElement.find("img").attr("src");
+            const gearImg = gearElement.find("img").attr("data-src");
             return {
                 type: gearType,
                 name: gearName,
@@ -217,7 +217,7 @@ async function getCharacterInformation($: cheerio.CheerioAPI){
     const characterData = getTableByChildText(["Tier", "Type", "Faction", "Rarity"], $, "all");
     const tableRows = $(characterData).find("tr");
     const firstRowData = tableRows.eq(0);
-    const image_url = firstRowData.find("img").attr("src");
+    const image_url = firstRowData.find("img").attr("data-src");
     const tierElm = firstRowData.find("th").next();
     const tier = tierElm.find("img").attr("alt")!.replace(" Rank", "");
     const type = tableRows.eq(1).find("td").find("div").text().trim();

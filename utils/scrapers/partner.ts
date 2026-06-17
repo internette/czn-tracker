@@ -59,7 +59,7 @@ function getTableByChildText(texts: string[], $: cheerio.CheerioAPI, mode: "any"
 function getPartnerData($: cheerio.CheerioAPI){
     const partnerTable = getTableByChildText(["Class", "Rarity", "EP Cost", "Attack", "Defense", "Health"], $, "all");
     const partnerTableRows = $(partnerTable).find("tr");
-    const partnerImg = partnerTableRows.eq(0).find("td").find("img").attr("src");
+    const partnerImg = partnerTableRows.eq(0).find("td").find("img").attr("data-src");
     const partnerClass = partnerTableRows.eq(1).find("a").text();
     const partnerRarity = partnerTableRows.eq(3).find("td").first().text();
     const partnerEPCost = partnerTableRows.eq(3).find("td").last().text();
@@ -74,7 +74,7 @@ function getPartnerData($: cheerio.CheerioAPI){
     const egoSkillInfo = egoSkillRow.find("th").first();
     const egoSkill = {
         name: egoSkillInfo.find("a").text().trim(),
-        img: egoSkillInfo.find("img").attr("src"),
+        img: egoSkillInfo.find("img").attr("data-src"),
         details: egoSkillRow.find("td").first().text()
     }
 
