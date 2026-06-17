@@ -21,10 +21,10 @@ import (
 const sessionCookieName = "czn_session"
 
 type User struct {
-	UID             string   `json:"uid"`
-	Email           string   `json:"email"`
-	Name            string   `json:"name"`
-	CharactersOwned []string `json:"characters_owned"`
+	UID             string      `json:"uid"`
+	Email           string      `json:"email"`
+	Name            string      `json:"name"`
+	CharactersOwned []Character `json:"charactersOwned"`
 }
 
 type Session struct {
@@ -90,7 +90,7 @@ type Store struct {
 
 func (s *Store) GetUserByEmail(ctx context.Context, email string) (*User, error) {
 	var user User
-	var charactersOwned string
+	var charactersOwned sql.NullString
 
 	err := s.db.QueryRowContext(ctx, `
 		SELECT id, name, email, COALESCE(characters_owned, '[]')
@@ -111,7 +111,21 @@ func (s *Store) GetUserByEmail(ctx context.Context, email string) (*User, error)
 		return nil, err
 	}
 
-	user.CharactersOwned = []string{}
+	ids := []string{}
+
+	if charactersOwned.Valid && charactersOwned.String != "" {
+		_ = json.Unmarshal([]byte(charactersOwned.String), &ids)
+	}
+
+	for _, id := range ids {
+		char, err := s.GetCharacterByID(ctx, id)
+		if err == nil {
+			user.CharactersOwned = append(user.CharactersOwned, char)
+		}
+	}
+	if user.CharactersOwned == nil {
+		user.CharactersOwned = []Character{}
+	}
 	return &user, nil
 }
 
@@ -135,7 +149,7 @@ func (s *Store) CreateUser(ctx context.Context, name, email string) (*User, erro
 		UID:             uid,
 		Name:            name,
 		Email:           email,
-		CharactersOwned: []string{},
+		CharactersOwned: []Character{},
 	}, nil
 }
 
@@ -162,7 +176,20 @@ func (s *Store) GetUserByID(ctx context.Context, uid string) (*User, error) {
 		return nil, err
 	}
 
-	user.CharactersOwned = []string{}
+	var ids []string
+	if charactersOwned != "" {
+		_ = json.Unmarshal([]byte(charactersOwned), &ids)
+	}
+
+	for _, id := range ids {
+		char, err := s.GetCharacterByID(ctx, id)
+		if err == nil {
+			user.CharactersOwned = append(user.CharactersOwned, char)
+		}
+	}
+	if user.CharactersOwned == nil {
+		user.CharactersOwned = []Character{}
+	}
 	return &user, nil
 }
 
@@ -628,9 +655,15 @@ func main() {
 	})
 
 	r.GET("/me", func(c *gin.Context) {
-		user, ok := currentUser(c.Request, cookieCodec)
+		sessionUser, ok := currentUser(c.Request, cookieCodec)
 		if !ok {
 			c.JSON(http.StatusOK, gin.H{"user": nil})
+			return
+		}
+
+		user, err := store.GetUserByID(c.Request.Context(), sessionUser.UID)
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "failed to load user"})
 			return
 		}
 
@@ -750,9 +783,10 @@ func currentUser(r *http.Request, cookieCodec *securecookie.SecureCookie) (User,
 	}
 
 	u := User{
-		UID:   session.UID,
-		Email: session.Email,
-		Name:  session.Name,
+		UID:             session.UID,
+		Email:           session.Email,
+		Name:            session.Name,
+		CharactersOwned: []Character{},
 	}
 
 	return u, true
