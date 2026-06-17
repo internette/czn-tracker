@@ -11,6 +11,7 @@ interface CharacterCardProps {
 const characterCardStyles = {
   header: {
     display: 'flex',
+    flexDirection: 'column',
     justifyContent: 'space-between',
     alignItems: 'start',
     marginBottom: '12px',
@@ -69,18 +70,10 @@ export default function CharacterCard({ character, user }: CharacterCardProps) {
   return (
     <Card interactive style={{ transition: 'all 0.3s ease', backgroundImage: `url(${character.imageUrl})` }}>
       <div style={characterCardStyles.header}>
-        <div>
-          <h3 style={characterCardStyles.title}>{character.name}</h3>
-        </div>
-
-        <div
-          onClick={handleOwnershipToggle}
-          style={{ cursor: 'pointer' }}
-        >
-          <Badge>
-            {isOwned ? 'Owned' : 'Not Owned'}
-          </Badge>
-        </div>
+        <h3 style={characterCardStyles.title}>{character.name}</h3>
+        <Badge onClick={handleOwnershipToggle}>
+          {isOwned ? 'Owned' : 'Not Owned'}
+        </Badge>
       </div>
 
       <Link

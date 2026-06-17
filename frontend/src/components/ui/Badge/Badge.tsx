@@ -4,6 +4,7 @@ interface BadgeProps {
   children: React.ReactNode
   variant?: 'success' | 'info' | 'warning' | 'error'
   style?: CSSProperties
+  onClick?: () => void
 }
 
 const badgeStyles = {
@@ -33,12 +34,22 @@ const badgeStyles = {
   } as CSSProperties,
 }
 
-export default function Badge({ children, variant = 'info', style }: BadgeProps) {
+export default function Badge({ children, variant = 'info', style, onClick }: BadgeProps) {
   const badgeStyle = {
     ...badgeStyles.base,
     ...badgeStyles[variant],
     ...style,
   }
 
-  return <span style={badgeStyle}>{children}</span>
+  return (
+    <span
+      style={{
+        ...badgeStyle,
+        cursor: onClick ? 'pointer' : undefined,
+      }}
+      onClick={onClick}
+    >
+      {children}
+    </span>
+  )
 }
