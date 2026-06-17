@@ -29,21 +29,21 @@ async function setupDatabase() {
     // 1. Partners Table
     await dbRun(`
         CREATE TABLE IF NOT EXISTS partners (
-            uid TEXT PRIMARY KEY,
-            name TEXT,
-            img TEXT,
-            class TEXT,
-            rarity TEXT,
-            ep_cost TEXT,
-            attack TEXT,
-            defense TEXT,
-            health TEXT,
-            passive_name TEXT,
-            passive_description TEXT,
-            ego_skill_name TEXT,
-            ego_skill_img TEXT,
-            ego_skill_details TEXT,
-            source_url TEXT,
+            uid TEXT PRIMARY KEY NOT NULL,
+            name TEXT NOT NULL,
+            img TEXT NOT NULL DEFAULT '',
+            class TEXT NOT NULL DEFAULT '',
+            rarity TEXT NOT NULL DEFAULT '',
+            ep_cost TEXT NOT NULL DEFAULT '',
+            attack TEXT NOT NULL DEFAULT '',
+            defense TEXT NOT NULL DEFAULT '',
+            health TEXT NOT NULL DEFAULT '',
+            passive_name TEXT NOT NULL DEFAULT '',
+            passive_description TEXT NOT NULL DEFAULT '',
+            ego_skill_name TEXT NOT NULL DEFAULT '',
+            ego_skill_img TEXT NOT NULL DEFAULT '',
+            ego_skill_details TEXT NOT NULL DEFAULT '',
+            source_url TEXT NOT NULL DEFAULT '',
             updated_at TEXT
         )
     `);
