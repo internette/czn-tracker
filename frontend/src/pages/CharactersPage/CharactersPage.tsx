@@ -49,7 +49,10 @@ export default function CharactersPage({ user }: CharactersPageProps) {
         <LoadingState message="Loading characters..." />
       ) : <Grid cols={2} gap={16}>
           {characters.map((character) => (
-            <CharacterCard key={character.id} character={character} />
+            <CharacterCard
+              character={character}
+              user={user}
+            />
           ))}
         </Grid>
       }

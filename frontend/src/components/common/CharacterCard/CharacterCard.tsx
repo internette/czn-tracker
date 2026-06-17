@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom'
-import { Character } from '../../../types'
+import { CSSProperties, useState } from 'react'
+import { Character, User } from '../../../types'
 import { Card, Badge } from '../../ui'
-import { CSSProperties } from 'react'
 
 interface CharacterCardProps {
   character: Character
+  user?: User | null
 }
 
 const characterCardStyles = {
@@ -40,12 +41,45 @@ const characterCardStyles = {
   } as CSSProperties,
 }
 
-export default function CharacterCard({ character }: CharacterCardProps) {
+export default function CharacterCard({ character, user }: CharacterCardProps) {
+  const [isOwned, setIsOwned] = useState(
+    user?.charactersOwned?.some((ownedCharacter) => ownedCharacter.uid === character.uid) ?? false,
+  )
+
+  const handleOwnershipToggle = async () => {
+    if (!user?.uid) {
+      return
+    }
+
+    if (isOwned) {
+      await fetch(`/users/${user.uid}/characters/${character.uid}`, {
+        method: 'DELETE',
+        credentials: 'include',
+      })
+    } else {
+      await fetch(`/users/${user.uid}/characters/${character.uid}`, {
+        method: 'POST',
+        credentials: 'include',
+      })
+    }
+
+    setIsOwned(!isOwned)
+  }
+
   return (
     <Card interactive style={{ transition: 'all 0.3s ease', backgroundImage: `url(${character.imageUrl})` }}>
       <div style={characterCardStyles.header}>
         <div>
           <h3 style={characterCardStyles.title}>{character.name}</h3>
+        </div>
+
+        <div
+          onClick={handleOwnershipToggle}
+          style={{ cursor: 'pointer' }}
+        >
+          <Badge>
+            {isOwned ? 'Owned' : 'Not Owned'}
+          </Badge>
         </div>
       </div>
 
