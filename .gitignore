@@ -1,0 +1,9 @@
+node_modules
+dist
+.env
+.env*
+*.log
+data.json
+*.db
+frontend/node_modules
+backend/bin
