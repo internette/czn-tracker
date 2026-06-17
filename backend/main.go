@@ -73,7 +73,7 @@ func (s *Store) ListCharacters() ([]Character, error) {
 		defer rows.Close()
 
 		var characters []Character
-		charMap := make(map[string]*Character)
+		charMap := make(map[string]int)
 
 		for rows.Next() {
 			var char Character
@@ -110,7 +110,7 @@ func (s *Store) ListCharacters() ([]Character, error) {
 			characters = append(characters, char)
 
 			// Hold item reference memory address
-			charMap[char.UID] = &characters[len(characters)-1]
+			charMap[char.UID] = len(characters) - 1
 		}
 		if err = rows.Err(); err != nil {
 			return nil, err
@@ -135,10 +135,8 @@ func (s *Store) ListCharacters() ([]Character, error) {
 			if err != nil {
 				return nil, err
 			}
-			log.Printf("equip row charUID=%q", charUID)
-
-			if char, exists := charMap[charUID]; exists {
-				char.BestEquipment = append(char.BestEquipment, eq)
+			if idx, exists := charMap[charUID]; exists {
+				characters[idx].BestEquipment = append(characters[idx].BestEquipment, eq)
 			}
 		}
 		if err = equipRows.Err(); err != nil {
@@ -172,8 +170,8 @@ func (s *Store) ListCharacters() ([]Character, error) {
 				return nil, err
 			}
 
-			if char, exists := charMap[charUID]; exists {
-				char.Stats = append(char.Stats, stat)
+			if idx, exists := charMap[charUID]; exists {
+				characters[idx].Stats = append(characters[idx].Stats, stat)
 			}
 		}
 
