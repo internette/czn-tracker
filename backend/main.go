@@ -236,7 +236,7 @@ func (s *Store) GetCharacterByID(uid string) (Character, error) {
 
 		// Load equipment
 		equipRows, err := s.db.Query(`
-			SELECT character_uid, type, name, url, img
+			SELECT type, name, url, img
 			FROM character_equipment
 			WHERE character_uid = ?
 		`, uid)
@@ -246,19 +246,22 @@ func (s *Store) GetCharacterByID(uid string) (Character, error) {
 		defer equipRows.Close()
 
 		for equipRows.Next() {
-			var charUID string
 			var eq Equipment
 
-			if err := equipRows.Scan(&charUID, &eq.Type, &eq.Name, &eq.URL, &eq.Img); err != nil {
+			if err := equipRows.Scan(&eq.Type, &eq.Name, &eq.URL, &eq.Img); err != nil {
 				return Character{}, err
 			}
 
 			char.BestEquipment = append(char.BestEquipment, eq)
 		}
 
+		if err = equipRows.Err(); err != nil {
+			return Character{}, err
+		}
+
 		// Load stats
 		statRows, err := s.db.Query(`
-			SELECT character_uid, id, friendly_name, value
+			SELECT id, friendly_name, value
 			FROM character_stats
 			WHERE character_uid = ?
 		`, uid)
@@ -268,14 +271,17 @@ func (s *Store) GetCharacterByID(uid string) (Character, error) {
 		defer statRows.Close()
 
 		for statRows.Next() {
-			var charUID string
 			var stat Stat
 
-			if err := statRows.Scan(&charUID, &stat.ID, &stat.FriendlyName, &stat.Value); err != nil {
+			if err := statRows.Scan(&stat.ID, &stat.FriendlyName, &stat.Value); err != nil {
 				return Character{}, err
 			}
 
 			char.Stats = append(char.Stats, stat)
+		}
+
+		if err = statRows.Err(); err != nil {
+			return Character{}, err
 		}
 
 		return char, nil
