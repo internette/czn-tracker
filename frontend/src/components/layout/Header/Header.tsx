@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { User } from '../../../types'
 import Button from '../../ui/Button/Button'
 import { CSSProperties } from 'react'
+import GoogleSignInButton from './GoogleSignInButton'
 
 interface HeaderProps {
   user: User | null
@@ -139,7 +140,7 @@ export default function Header({ user }: HeaderProps) {
               </Button>
             </>
           ) : (
-            <Button href="http://localhost:8080/auth/google/login">Sign in with Google</Button>
+            <GoogleSignInButton />
           )}
         </div>
       </div>
