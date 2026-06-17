@@ -5,11 +5,28 @@ import (
 	"database/sql"
 	"log"
 	"net/http"
+	"os"
 	"path/filepath"
+	"strings"
+	"time"
 
 	"github.com/gin-gonic/gin"
+	"github.com/gorilla/securecookie"
+	"google.golang.org/api/idtoken"
 	_ "modernc.org/sqlite"
 )
+
+const sessionCookieName = "czn_session"
+
+type User struct {
+	Email string `json:"email"`
+	Name  string `json:"name"`
+}
+
+type Session struct {
+	Email string `json:"email"`
+	Name  string `json:"name"`
+}
 
 type EgoSkill struct {
 	Name    string `json:"name"`
@@ -399,8 +416,111 @@ func main() {
 		db:        db,
 	}
 
+	cookieHashKey := envFirst("COOKIE_HASH_KEY", "SESSION_HASH_KEY")
+	if cookieHashKey == "" {
+		log.Fatal("COOKIE_HASH_KEY is required for auth sessions")
+	}
+	cookieCodec := securecookie.New([]byte(cookieHashKey), nil)
+
 	// Initialize Gin router instance
 	r := gin.Default()
+	r.Use(corsMiddleware())
+
+	r.POST("/auth/google/login", func(c *gin.Context) {
+		clientID := envFirst("GOOGLE_CLIENT_ID", "VITE_GOOGLE_CLIENT_ID")
+		if clientID == "" {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "missing google client id"})
+			return
+		}
+
+		credential := c.PostForm("credential")
+		if credential == "" {
+			var body struct {
+				Credential string `json:"credential"`
+			}
+			if err := c.ShouldBindJSON(&body); err == nil {
+				credential = body.Credential
+			}
+		}
+		if credential == "" {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "missing google credential"})
+			return
+		}
+
+		payload, err := idtoken.Validate(c.Request.Context(), credential, clientID)
+		if err != nil {
+			log.Printf("Error validating google credential: %v", err)
+			c.JSON(http.StatusUnauthorized, gin.H{"error": "invalid google credential"})
+			return
+		}
+
+		email, _ := payload.Claims["email"].(string)
+		name, _ := payload.Claims["name"].(string)
+		if email == "" {
+			c.JSON(http.StatusUnauthorized, gin.H{"error": "google credential did not include an email"})
+			return
+		}
+		if name == "" {
+			name = email
+		}
+
+		sessionValue, err := cookieCodec.Encode(sessionCookieName, Session{
+			Email: email,
+			Name:  name,
+		})
+		if err != nil {
+			log.Printf("Error encoding session cookie: %v", err)
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "failed to create session"})
+			return
+		}
+
+		http.SetCookie(c.Writer, &http.Cookie{
+			Name:     sessionCookieName,
+			Value:    sessionValue,
+			Path:     "/",
+			MaxAge:   int((7 * 24 * time.Hour).Seconds()),
+			HttpOnly: true,
+			SameSite: http.SameSiteLaxMode,
+		})
+
+		c.JSON(http.StatusOK, gin.H{"user": User{Email: email, Name: name}})
+	})
+
+	r.GET("/api/me", func(c *gin.Context) {
+		user, ok := currentUser(c.Request, cookieCodec)
+		if !ok {
+			c.JSON(http.StatusOK, gin.H{"user": nil})
+			return
+		}
+
+		c.JSON(http.StatusOK, gin.H{"user": user})
+	})
+
+	r.GET("/me", func(c *gin.Context) {
+		user, ok := currentUser(c.Request, cookieCodec)
+		if !ok {
+			c.JSON(http.StatusOK, gin.H{"user": nil})
+			return
+		}
+
+		c.JSON(http.StatusOK, gin.H{"user": user})
+	})
+
+	logoutHandler := func(c *gin.Context) {
+		http.SetCookie(c.Writer, &http.Cookie{
+			Name:     sessionCookieName,
+			Value:    "",
+			Path:     "/",
+			MaxAge:   -1,
+			HttpOnly: true,
+			SameSite: http.SameSiteLaxMode,
+		})
+
+		c.JSON(http.StatusOK, gin.H{"ok": true})
+	}
+
+	r.POST("/auth/logout", logoutHandler)
+	r.GET("/auth/logout", logoutHandler)
 
 	// Register the GET endpoint group endpoint
 	r.GET("/characters", func(c *gin.Context) {
@@ -442,4 +562,59 @@ func main() {
 	if err := r.Run(":8080"); err != nil {
 		log.Fatalf("Failed to run gin router: %v", err)
 	}
+}
+
+func currentUser(r *http.Request, cookieCodec *securecookie.SecureCookie) (User, bool) {
+	cookie, err := r.Cookie(sessionCookieName)
+	if err != nil {
+		return User{}, false
+	}
+
+	var session Session
+	if err := cookieCodec.Decode(sessionCookieName, cookie.Value, &session); err != nil {
+		return User{}, false
+	}
+
+	if session.Email == "" {
+		return User{}, false
+	}
+
+	return User{Email: session.Email, Name: session.Name}, true
+}
+
+func corsMiddleware() gin.HandlerFunc {
+	allowedOrigins := map[string]bool{
+		"http://localhost:5173": true,
+		"http://localhost:8080": true,
+	}
+	if frontendURL := strings.TrimRight(os.Getenv("FRONTEND_URL"), "/"); frontendURL != "" {
+		allowedOrigins[frontendURL] = true
+	}
+
+	return func(c *gin.Context) {
+		origin := c.GetHeader("Origin")
+		if allowedOrigins[origin] {
+			c.Header("Access-Control-Allow-Origin", origin)
+			c.Header("Access-Control-Allow-Credentials", "true")
+			c.Header("Access-Control-Allow-Headers", "Content-Type")
+			c.Header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+		}
+
+		if c.Request.Method == http.MethodOptions {
+			c.AbortWithStatus(http.StatusNoContent)
+			return
+		}
+
+		c.Next()
+	}
+}
+
+func envFirst(keys ...string) string {
+	for _, key := range keys {
+		if value := os.Getenv(key); value != "" {
+			return value
+		}
+	}
+
+	return ""
 }
