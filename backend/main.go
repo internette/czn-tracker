@@ -72,22 +72,27 @@ func (s *Store) GetCharacterByID(ctx context.Context, uid string) (Character, er
 		var char Character
 		var partnerUID sql.NullString
 		var partnerName sql.NullString
+		var partnerImg sql.NullString
 
 		err := s.db.QueryRowContext(ctx, `
 			SELECT
-				uid,
-				id,
-				name,
-				tier,
-				type,
-				faction,
-				rarity,
-				attribute,
-				image_url,
-				best_partner_uid,
-				best_partner_name
-			FROM characters
-			WHERE uid = ?
+				c.uid,
+				c.id,
+				c.name,
+				c.tier,
+				c.type,
+				c.faction,
+				c.rarity,
+				c.attribute,
+				c.image_url,
+
+				p.uid,
+				p.name,
+				p.img
+			FROM characters c
+			LEFT JOIN partners p
+				ON c.best_partner_uid = p.uid
+			WHERE c.uid = ?
 		`, uid).Scan(
 			&char.UID,
 			&char.ID,
@@ -100,6 +105,7 @@ func (s *Store) GetCharacterByID(ctx context.Context, uid string) (Character, er
 			&char.ImageUrl,
 			&partnerUID,
 			&partnerName,
+			&partnerImg,
 		)
 		if err != nil {
 			return Character{}, err
@@ -109,6 +115,7 @@ func (s *Store) GetCharacterByID(ctx context.Context, uid string) (Character, er
 			char.BestPartner = &Partner{
 				UID:  partnerUID.String,
 				Name: partnerName.String,
+				Img:  partnerImg.String,
 			}
 		}
 
