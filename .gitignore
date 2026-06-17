@@ -8,3 +8,5 @@ data.json
 *.db
 frontend/node_modules
 backend/bin
+characters.json
+partners.json
