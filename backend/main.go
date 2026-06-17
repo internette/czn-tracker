@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"database/sql"
 	"log"
 	"net/http"
@@ -49,13 +50,13 @@ type Store struct {
 }
 
 // GetCharacterByID returns a single character with its equipment and stats
-func (s *Store) GetCharacterByID(uid string) (Character, error) {
+func (s *Store) GetCharacterByID(ctx context.Context, uid string) (Character, error) {
 	if s.useSQLite {
 		var char Character
 		var partnerUID sql.NullString
 		var partnerName sql.NullString
 
-		err := s.db.QueryRow(`
+		err := s.db.QueryRowContext(ctx, `
 			SELECT
 				uid,
 				id,
@@ -98,7 +99,7 @@ func (s *Store) GetCharacterByID(uid string) (Character, error) {
 		char.Stats = []Stat{}
 
 		// Load equipment
-		equipRows, err := s.db.Query(`
+		equipRows, err := s.db.QueryContext(ctx, `
 			SELECT type, name, url, img
 			FROM character_equipment
 			WHERE character_uid = ?
@@ -123,7 +124,7 @@ func (s *Store) GetCharacterByID(uid string) (Character, error) {
 		}
 
 		// Load stats
-		statRows, err := s.db.Query(`
+		statRows, err := s.db.QueryContext(ctx, `
 			SELECT id, friendly_name, value
 			FROM character_stats
 			WHERE character_uid = ?
@@ -153,8 +154,8 @@ func (s *Store) GetCharacterByID(uid string) (Character, error) {
 	return Character{}, nil
 }
 
-func (s *Store) loadEquipment(uid string) ([]Equipment, error) {
-	rows, err := s.db.Query(`
+func (s *Store) loadEquipment(ctx context.Context, uid string) ([]Equipment, error) {
+	rows, err := s.db.QueryContext(ctx, `
 		SELECT type, name, url, img
 		FROM character_equipment
 		WHERE character_uid = ?
@@ -181,8 +182,8 @@ func (s *Store) loadEquipment(uid string) ([]Equipment, error) {
 	return equipment, nil
 }
 
-func (s *Store) loadStats(uid string) ([]Stat, error) {
-	rows, err := s.db.Query(`
+func (s *Store) loadStats(ctx context.Context, uid string) ([]Stat, error) {
+	rows, err := s.db.QueryContext(ctx, `
 		SELECT id, friendly_name, value
 		FROM character_stats
 		WHERE character_uid = ?
@@ -210,10 +211,10 @@ func (s *Store) loadStats(uid string) ([]Stat, error) {
 }
 
 // ListCharacters pulls relational data using an optimized 2-query map stitch
-func (s *Store) ListCharacters() ([]Character, error) {
+func (s *Store) ListCharacters(ctx context.Context) ([]Character, error) {
 	if s.useSQLite {
 		// 1. Fetch all core characters and their flattened partner columns
-		rows, err := s.db.Query(`
+		rows, err := s.db.QueryContext(ctx, `
 			SELECT
 				uid,
 				id,
@@ -268,13 +269,13 @@ func (s *Store) ListCharacters() ([]Character, error) {
 			characters = append(characters, char)
 			charMap[char.UID] = len(characters) - 1
 
-			eq, err := s.loadEquipment(char.UID)
+			eq, err := s.loadEquipment(ctx, char.UID)
 			if err != nil {
 				return nil, err
 			}
 			characters[charMap[char.UID]].BestEquipment = eq
 
-			stats, err := s.loadStats(char.UID)
+			stats, err := s.loadStats(ctx, char.UID)
 			if err != nil {
 				return nil, err
 			}
@@ -309,7 +310,7 @@ func main() {
 
 	// Register the GET endpoint group endpoint
 	r.GET("/characters", func(c *gin.Context) {
-		characters, err := store.ListCharacters()
+		characters, err := store.ListCharacters(c.Request.Context())
 		if err != nil {
 			log.Printf("Error pulling characters: %v", err)
 			c.JSON(http.StatusInternalServerError, gin.H{"error": "failed to load characters"})
@@ -322,7 +323,7 @@ func main() {
 	r.GET("/characters/:id", func(c *gin.Context) {
 		id := c.Param("id")
 
-		character, err := store.GetCharacterByID(id)
+		character, err := store.GetCharacterByID(c.Request.Context(), id)
 		if err != nil {
 			log.Printf("Error pulling character by id: %v", err)
 			c.JSON(http.StatusInternalServerError, gin.H{"error": "failed to load character"})
