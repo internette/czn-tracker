@@ -12,8 +12,21 @@ import (
 )
 
 type Partner struct {
-	UID  string `json:"uid"`
-	Name string `json:"name"`
+	UID                string `json:"uid"`
+	Name               string `json:"name"`
+	Img                string `json:"img"`
+	Class              string `json:"class"`
+	Rarity             string `json:"rarity"`
+	EPCost             string `json:"ep_cost"`
+	Attack             string `json:"attack"`
+	Defense            string `json:"defense"`
+	Health             string `json:"health"`
+	PassiveName        string `json:"passive_name"`
+	PassiveDescription string `json:"passive_description"`
+	EgoSkillName       string `json:"ego_skill_name"`
+	EgoSkillImg        string `json:"ego_skill_img"`
+	EgoSkillDetails    string `json:"ego_skill_details"`
+	SourceURL          string `json:"source_url"`
 }
 
 type Equipment struct {
@@ -291,6 +304,69 @@ func (s *Store) ListCharacters(ctx context.Context) ([]Character, error) {
 	return []Character{}, nil
 }
 
+func (s *Store) ListPartners(ctx context.Context) ([]Partner, error) {
+	if s.useSQLite {
+		rows, err := s.db.QueryContext(ctx, `
+			SELECT
+				uid,
+				name,
+				img,
+				class,
+				rarity,
+				ep_cost,
+				attack,
+				defense,
+				health,
+				passive_name,
+				passive_description,
+				ego_skill_name,
+				ego_skill_img,
+				ego_skill_details,
+				source_url
+			FROM partners
+		`)
+		if err != nil {
+			return nil, err
+		}
+		defer rows.Close()
+
+		var partners []Partner
+
+		for rows.Next() {
+			var p Partner
+			if err := rows.Scan(
+				&p.UID,
+				&p.Name,
+				&p.Img,
+				&p.Class,
+				&p.Rarity,
+				&p.EPCost,
+				&p.Attack,
+				&p.Defense,
+				&p.Health,
+				&p.PassiveName,
+				&p.PassiveDescription,
+				&p.EgoSkillName,
+				&p.EgoSkillImg,
+				&p.EgoSkillDetails,
+				&p.SourceURL,
+			); err != nil {
+				return nil, err
+			}
+
+			partners = append(partners, p)
+		}
+
+		if err = rows.Err(); err != nil {
+			return nil, err
+		}
+
+		return partners, nil
+	}
+
+	return []Partner{}, nil
+}
+
 func main() {
 	dbPath := filepath.Clean("../data/czn-tracker.db")
 
@@ -331,6 +407,17 @@ func main() {
 		}
 
 		c.JSON(http.StatusOK, character)
+	})
+
+	r.GET("/partners", func(c *gin.Context) {
+		partners, err := store.ListPartners(c.Request.Context())
+		if err != nil {
+			log.Printf("Error pulling partners: %v", err)
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "failed to load partners"})
+			return
+		}
+
+		c.JSON(http.StatusOK, partners)
 	})
 
 	log.Println("Gin server starting up on port :8080...")
