@@ -553,6 +553,44 @@ func (s *Store) AddCharacterToUser(ctx context.Context, userID string, character
 	return err
 }
 
+func (s *Store) RemoveCharacterFromUser(ctx context.Context, userID string, characterID string) error {
+	var existing string
+
+	err := s.db.QueryRowContext(ctx, `
+		SELECT COALESCE(characters_owned, '[]')
+		FROM users
+		WHERE id = ?
+	`, userID).Scan(&existing)
+	if err != nil {
+		return err
+	}
+
+	var ids []string
+	if existing != "" {
+		_ = json.Unmarshal([]byte(existing), &ids)
+	}
+
+	filtered := make([]string, 0, len(ids))
+	for _, id := range ids {
+		if id != characterID {
+			filtered = append(filtered, id)
+		}
+	}
+
+	updated, err := json.Marshal(filtered)
+	if err != nil {
+		return err
+	}
+
+	_, err = s.db.ExecContext(ctx, `
+		UPDATE users
+		SET characters_owned = ?
+		WHERE id = ?
+	`, string(updated), userID)
+
+	return err
+}
+
 func main() {
 	dbPath := filepath.Clean("../data/czn-tracker.db")
 
@@ -709,6 +747,27 @@ func main() {
 		c.JSON(http.StatusOK, gin.H{"user": user})
 	})
 
+	r.DELETE("/users/:id/characters/:characterId", func(c *gin.Context) {
+		userID := c.Param("id")
+		characterID := c.Param("characterId")
+
+		err := store.RemoveCharacterFromUser(c.Request.Context(), userID, characterID)
+		if err != nil {
+			log.Printf("Error removing user character: %v", err)
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "failed to update user"})
+			return
+		}
+
+		user, err := store.GetUserByID(c.Request.Context(), userID)
+		if err != nil {
+			log.Printf("Error fetching updated user: %v", err)
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "failed to fetch user"})
+			return
+		}
+
+		c.JSON(http.StatusOK, gin.H{"user": user})
+	})
+
 	logoutHandler := func(c *gin.Context) {
 		http.SetCookie(c.Writer, &http.Cookie{
 			Name:     sessionCookieName,
@@ -807,7 +866,7 @@ func corsMiddleware() gin.HandlerFunc {
 			c.Header("Access-Control-Allow-Origin", origin)
 			c.Header("Access-Control-Allow-Credentials", "true")
 			c.Header("Access-Control-Allow-Headers", "Content-Type")
-			c.Header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+			c.Header("Access-Control-Allow-Methods", "GET, POST, DELETE, OPTIONS")
 		}
 
 		if c.Request.Method == http.MethodOptions {
