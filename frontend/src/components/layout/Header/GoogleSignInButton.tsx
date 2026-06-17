@@ -88,21 +88,25 @@ export default function GoogleSignInButton() {
               return
             }
 
-            const result = await fetch(`${apiBase}/auth/google/login`, {
-              method: 'POST',
-              credentials: 'include',
-              headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-              },
-              body: new URLSearchParams({ credential: response.credential }),
-            })
+            try {
+              const result = await fetch(`${apiBase}/auth/google/login`, {
+                method: 'POST',
+                credentials: 'include',
+                headers: {
+                  'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({ credential: response.credential }),
+              })
 
-            if (!result.ok) {
-              setError('Backend Google credential login is not configured yet.')
-              return
+              if (!result.ok) {
+                setError('Unable to sign in with Google.')
+                return
+              }
+
+              window.location.reload()
+            } catch (err) {
+              setError('Unable to reach the login endpoint.')
             }
-
-            window.location.reload()
           },
         })
         window.google.accounts.id.renderButton(buttonRef.current, {

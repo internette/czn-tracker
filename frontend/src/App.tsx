@@ -14,22 +14,21 @@ function App() {
   const [user, setUser] = useState<User | null>(null)
   const [loading, setLoading] = useState(false)
 
-  // useEffect(() => {
-  //   async function loadCurrentUser() {
-  //     setLoading(true)
-  //     try {
-  //       // const result = await getMe()
-  //       // setUser(result.user)
-  //       setUser(null)
-  //       setLoading(false)
-  //     } catch (error) {
-  //       console.error('Error fetching current user:', error)
-  //       setUser(null)
-  //       setLoading(false)
-  //     }
-  //   }
-  //   loadCurrentUser()
-  // }, [])
+  useEffect(() => {
+    async function loadCurrentUser() {
+      setLoading(true)
+      try {
+        const result = await getMe()
+        setUser(result.user)
+      } catch (error) {
+        console.error('Error fetching current user:', error)
+        setUser(null)
+      } finally {
+        setLoading(false)
+      }
+    }
+    loadCurrentUser()
+  }, [])
 
   return (
     <div className="app">
