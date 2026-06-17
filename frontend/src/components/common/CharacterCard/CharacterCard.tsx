@@ -40,6 +40,17 @@ const characterCardStyles = {
     fontWeight: 500,
     transition: 'all 0.3s ease',
   } as CSSProperties,
+  ownedBadge: {
+    background: 'white',
+    color: '#0f172a',
+  } as CSSProperties,
+  unownedBadge: {
+    background: '#0f172a',
+    color: 'white',
+  } as CSSProperties,
+  toggleIcon: {
+    marginRight: '0.3rem'
+  }
 }
 
 export default function CharacterCard({ character, user }: CharacterCardProps) {
@@ -52,13 +63,16 @@ export default function CharacterCard({ character, user }: CharacterCardProps) {
       return
     }
 
+    const apiBaseUrl = import.meta.env.VITE_API_URL ?? 'http://localhost:8080'
+    const endpoint = `${apiBaseUrl}/users/${user.uid}/characters/${character.uid}`
+
     if (isOwned) {
-      await fetch(`/users/${user.uid}/characters/${character.uid}`, {
+      await fetch(endpoint, {
         method: 'DELETE',
         credentials: 'include',
       })
     } else {
-      await fetch(`/users/${user.uid}/characters/${character.uid}`, {
+      await fetch(endpoint, {
         method: 'POST',
         credentials: 'include',
       })
@@ -71,7 +85,11 @@ export default function CharacterCard({ character, user }: CharacterCardProps) {
     <Card interactive style={{ transition: 'all 0.3s ease', backgroundImage: `url(${character.imageUrl})` }}>
       <div style={characterCardStyles.header}>
         <h3 style={characterCardStyles.title}>{character.name}</h3>
-        <Badge onClick={handleOwnershipToggle}>
+        <Badge
+          onClick={handleOwnershipToggle}
+          style={isOwned ? characterCardStyles.ownedBadge : characterCardStyles.unownedBadge}
+        >
+          <span style={characterCardStyles.toggleIcon}>{ isOwned ? '✔' : '+'}</span>
           {isOwned ? 'Owned' : 'Not Owned'}
         </Badge>
       </div>
