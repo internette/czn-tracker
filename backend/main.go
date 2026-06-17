@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"database/sql"
+	"encoding/json"
 	"log"
 	"net/http"
 	"os"
@@ -483,6 +484,47 @@ func (s *Store) ListPartners(ctx context.Context) ([]Partner, error) {
 	return []Partner{}, nil
 }
 
+func (s *Store) AddCharacterToUser(ctx context.Context, userID string, characterID string) error {
+	var existing string
+
+	err := s.db.QueryRowContext(ctx, `
+		SELECT characters_owned
+		FROM users
+		WHERE id = ?
+	`, userID).Scan(&existing)
+
+	if err != nil {
+		return err
+	}
+
+	var ids []string
+	if existing != "" {
+		_ = json.Unmarshal([]byte(existing), &ids)
+	}
+
+	// prevent duplicates
+	for _, id := range ids {
+		if id == characterID {
+			return nil
+		}
+	}
+
+	ids = append(ids, characterID)
+
+	updated, err := json.Marshal(ids)
+	if err != nil {
+		return err
+	}
+
+	_, err = s.db.ExecContext(ctx, `
+		UPDATE users
+		SET characters_owned = ?
+		WHERE id = ?
+	`, string(updated), userID)
+
+	return err
+}
+
 func main() {
 	dbPath := filepath.Clean("../data/czn-tracker.db")
 
@@ -605,6 +647,27 @@ func main() {
 
 		if user == nil {
 			c.JSON(http.StatusNotFound, gin.H{"error": "user not found"})
+			return
+		}
+
+		c.JSON(http.StatusOK, gin.H{"user": user})
+	})
+
+	r.POST("/users/:id/characters/:characterId", func(c *gin.Context) {
+		userID := c.Param("id")
+		characterID := c.Param("characterId")
+
+		err := store.AddCharacterToUser(c.Request.Context(), userID, characterID)
+		if err != nil {
+			log.Printf("Error updating user characters: %v", err)
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "failed to update user"})
+			return
+		}
+
+		user, err := store.GetUserByID(c.Request.Context(), userID)
+		if err != nil {
+			log.Printf("Error fetching updated user: %v", err)
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "failed to fetch user"})
 			return
 		}
 
