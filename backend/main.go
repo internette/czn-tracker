@@ -11,6 +11,7 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
+	"github.com/google/uuid"
 	"github.com/gorilla/securecookie"
 	"google.golang.org/api/idtoken"
 	_ "modernc.org/sqlite"
@@ -19,8 +20,10 @@ import (
 const sessionCookieName = "czn_session"
 
 type User struct {
-	Email string `json:"email"`
-	Name  string `json:"name"`
+	UID             string   `json:"uid"`
+	Email           string   `json:"email"`
+	Name            string   `json:"name"`
+	CharactersOwned []string `json:"characters_owned"`
 }
 
 type Session struct {
@@ -81,6 +84,57 @@ type Character struct {
 type Store struct {
 	useSQLite bool
 	db        *sql.DB
+}
+
+func (s *Store) GetUserByEmail(ctx context.Context, email string) (*User, error) {
+	var user User
+	var charactersOwned string
+
+	err := s.db.QueryRowContext(ctx, `
+		SELECT id, name, email, characters_owned
+		FROM users
+		WHERE email = ?
+	`, email).Scan(
+		&user.UID,
+		&user.Name,
+		&user.Email,
+		&charactersOwned,
+	)
+
+	if err == sql.ErrNoRows {
+		return nil, nil
+	}
+
+	if err != nil {
+		return nil, err
+	}
+
+	user.CharactersOwned = []string{}
+	return &user, nil
+}
+
+func (s *Store) CreateUser(ctx context.Context, name, email string) (*User, error) {
+	uid := uuid.NewString()
+
+	_, err := s.db.ExecContext(ctx, `
+		INSERT INTO users (
+			id,
+			name,
+			email,
+			characters_owned
+		)
+		VALUES (?, ?, ?, ?)
+	`, uid, name, email, "[]")
+	if err != nil {
+		return nil, err
+	}
+
+	return &User{
+		UID:             uid,
+		Name:            name,
+		Email:           email,
+		CharactersOwned: []string{},
+	}, nil
 }
 
 // GetCharacterByID returns a single character with its equipment and stats
@@ -464,6 +518,22 @@ func main() {
 			name = email
 		}
 
+		user, err := store.GetUserByEmail(c.Request.Context(), email)
+		if err != nil {
+			log.Printf("Error retrieving user: %v", err)
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "failed to retrieve user"})
+			return
+		}
+
+		if user == nil {
+			user, err = store.CreateUser(c.Request.Context(), name, email)
+			if err != nil {
+				log.Printf("Error creating user: %v", err)
+				c.JSON(http.StatusInternalServerError, gin.H{"error": "failed to create user"})
+				return
+			}
+		}
+
 		sessionValue, err := cookieCodec.Encode(sessionCookieName, Session{
 			Email: email,
 			Name:  name,
@@ -483,7 +553,7 @@ func main() {
 			SameSite: http.SameSiteLaxMode,
 		})
 
-		c.JSON(http.StatusOK, gin.H{"user": User{Email: email, Name: name}})
+		c.JSON(http.StatusOK, gin.H{"user": user})
 	})
 
 	r.GET("/api/me", func(c *gin.Context) {
