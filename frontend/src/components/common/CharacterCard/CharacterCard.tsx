@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
-import { CSSProperties, useState } from 'react'
+import { CSSProperties } from 'react'
 import { Character, User } from '../../../types'
-import { Card, Badge } from '../../ui'
+import { Card } from '../../ui'
+import OwnedToggleBadge from '../OwnedToggleBadge/OwnedToggleBadge'
 
 interface CharacterCardProps {
   character: Character
@@ -40,58 +41,14 @@ const characterCardStyles = {
     fontWeight: 500,
     transition: 'all 0.3s ease',
   } as CSSProperties,
-  ownedBadge: {
-    background: 'white',
-    color: '#0f172a',
-  } as CSSProperties,
-  unownedBadge: {
-    background: '#0f172a',
-    color: 'white',
-  } as CSSProperties,
-  toggleIcon: {
-    marginRight: '0.3rem'
-  }
 }
 
 export default function CharacterCard({ character, user }: CharacterCardProps) {
-  const [isOwned, setIsOwned] = useState(
-    user?.charactersOwned?.some((ownedCharacter) => ownedCharacter.uid === character.uid) ?? false,
-  )
-
-  const handleOwnershipToggle = async () => {
-    if (!user?.uid) {
-      return
-    }
-
-    const apiBaseUrl = import.meta.env.VITE_API_URL ?? 'http://localhost:8080'
-    const endpoint = `${apiBaseUrl}/users/${user.uid}/characters/${character.uid}`
-
-    if (isOwned) {
-      await fetch(endpoint, {
-        method: 'DELETE',
-        credentials: 'include',
-      })
-    } else {
-      await fetch(endpoint, {
-        method: 'POST',
-        credentials: 'include',
-      })
-    }
-
-    setIsOwned(!isOwned)
-  }
-
   return (
-    <Card interactive style={{ transition: 'all 0.3s ease', backgroundImage: `url(${character.imageUrl})` }}>
+    <Card style={{ transition: 'all 0.3s ease', backgroundImage: `url(${character.imageUrl})` }}>
       <div style={characterCardStyles.header}>
         <h3 style={characterCardStyles.title}>{character.name}</h3>
-        <Badge
-          onClick={handleOwnershipToggle}
-          style={isOwned ? characterCardStyles.ownedBadge : characterCardStyles.unownedBadge}
-        >
-          <span style={characterCardStyles.toggleIcon}>{ isOwned ? '✔' : '+'}</span>
-          {isOwned ? 'Owned' : 'Not Owned'}
-        </Badge>
+        <OwnedToggleBadge character={character} user={user} />
       </div>
 
       <Link
