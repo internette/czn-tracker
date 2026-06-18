@@ -906,7 +906,7 @@ func main() {
 
 		file, err := c.FormFile("image")
 		if err == nil {
-			imageURL, err := saveCharacterImage(c, file)
+			imageURL, err := saveCharacterImage(c, file, input.Name)
 			if err != nil {
 				log.Printf("Error saving character image: %v", err)
 				c.JSON(http.StatusBadRequest, gin.H{"error": "failed to save character image"})
@@ -975,7 +975,7 @@ func currentUser(r *http.Request, cookieCodec *securecookie.SecureCookie) (User,
 	return u, true
 }
 
-func saveCharacterImage(c *gin.Context, file *multipart.FileHeader) (string, error) {
+func saveCharacterImage(c *gin.Context, file *multipart.FileHeader, characterName string) (string, error) {
 	ext := strings.ToLower(filepath.Ext(file.Filename))
 	allowedExtensions := map[string]bool{
 		".gif":  true,
@@ -993,7 +993,13 @@ func saveCharacterImage(c *gin.Context, file *multipart.FileHeader) (string, err
 		return "", err
 	}
 
-	filename := uuid.NewString() + ext
+	safeName := strings.TrimSpace(strings.ToLower(characterName))
+	safeName = strings.ReplaceAll(safeName, " ", "-")
+	if safeName == "" {
+		safeName = uuid.NewString()
+	}
+
+	filename := safeName + ext
 	destination := filepath.Join(uploadDir, filename)
 	if err := c.SaveUploadedFile(file, destination); err != nil {
 		return "", err
