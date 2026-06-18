@@ -4,7 +4,9 @@ import (
 	"context"
 	"database/sql"
 	"encoding/json"
+	"errors"
 	"log"
+	"mime/multipart"
 	"net/http"
 	"os"
 	"path/filepath"
@@ -19,6 +21,7 @@ import (
 )
 
 const sessionCookieName = "czn_session"
+const characterImageURLPrefix = "/images/characters"
 
 type User struct {
 	UID             string      `json:"uid"`
@@ -665,6 +668,12 @@ func main() {
 	// Initialize Gin router instance
 	r := gin.Default()
 	r.Use(corsMiddleware())
+	characterImageDir := characterImageUploadDir()
+	if err := os.MkdirAll(characterImageDir, 0755); err != nil {
+		log.Printf("Error creating character image directory: %v", err)
+	} else {
+		r.Static("/images", filepath.Dir(characterImageDir))
+	}
 
 	r.POST("/auth/google/login", func(c *gin.Context) {
 		clientID := envFirst("GOOGLE_CLIENT_ID", "VITE_GOOGLE_CLIENT_ID")
@@ -883,6 +892,47 @@ func main() {
 		c.JSON(http.StatusOK, character)
 	})
 
+	r.POST("/characters/:id/edit", func(c *gin.Context) {
+		id := c.Param("id")
+		input := UpdateCharacterInput{
+			Name:      c.PostForm("name"),
+			Tier:      c.PostForm("tier"),
+			Type:      c.PostForm("type"),
+			Faction:   c.PostForm("faction"),
+			Rarity:    c.PostForm("rarity"),
+			Attribute: c.PostForm("attribute"),
+			ImageUrl:  c.PostForm("imageUrl"),
+		}
+
+		file, err := c.FormFile("image")
+		if err == nil {
+			imageURL, err := saveCharacterImage(c, file)
+			if err != nil {
+				log.Printf("Error saving character image: %v", err)
+				c.JSON(http.StatusBadRequest, gin.H{"error": "failed to save character image"})
+				return
+			}
+			input.ImageUrl = imageURL
+		} else if !errors.Is(err, http.ErrMissingFile) {
+			log.Printf("Error reading character image upload: %v", err)
+			c.JSON(http.StatusBadRequest, gin.H{"error": "invalid character image upload"})
+			return
+		}
+
+		character, err := store.UpdateCharacter(c.Request.Context(), id, input)
+		if err == sql.ErrNoRows {
+			c.JSON(http.StatusNotFound, gin.H{"error": "character not found"})
+			return
+		}
+		if err != nil {
+			log.Printf("Error updating character: %v", err)
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "failed to update character"})
+			return
+		}
+
+		c.JSON(http.StatusOK, character)
+	})
+
 	r.GET("/partners", func(c *gin.Context) {
 		partners, err := store.ListPartners(c.Request.Context())
 		if err != nil {
@@ -923,6 +973,54 @@ func currentUser(r *http.Request, cookieCodec *securecookie.SecureCookie) (User,
 	}
 
 	return u, true
+}
+
+func saveCharacterImage(c *gin.Context, file *multipart.FileHeader) (string, error) {
+	ext := strings.ToLower(filepath.Ext(file.Filename))
+	allowedExtensions := map[string]bool{
+		".gif":  true,
+		".jpeg": true,
+		".jpg":  true,
+		".png":  true,
+		".webp": true,
+	}
+	if !allowedExtensions[ext] {
+		return "", errors.New("unsupported image extension")
+	}
+
+	uploadDir := characterImageUploadDir()
+	if err := os.MkdirAll(uploadDir, 0755); err != nil {
+		return "", err
+	}
+
+	filename := uuid.NewString() + ext
+	destination := filepath.Join(uploadDir, filename)
+	if err := c.SaveUploadedFile(file, destination); err != nil {
+		return "", err
+	}
+
+	return characterImageURLPrefix + "/" + filename, nil
+}
+
+func characterImageUploadDir() string {
+	if imageDir := os.Getenv("CHARACTER_IMAGE_DIR"); imageDir != "" {
+		return imageDir
+	}
+
+	candidates := []string{
+		filepath.Join("public", "images", "characters"),
+		filepath.Join("frontend", "public", "images", "characters"),
+		filepath.Join("..", "frontend", "public", "images", "characters"),
+	}
+
+	for _, candidate := range candidates {
+		parent := filepath.Dir(candidate)
+		if _, err := os.Stat(parent); err == nil {
+			return candidate
+		}
+	}
+
+	return filepath.Join("frontend", "public", "images", "characters")
 }
 
 func corsMiddleware() gin.HandlerFunc {
