@@ -9,15 +9,11 @@ interface CardProps {
 
 const cardStyles = {
   base: {
-    border: '1px solid #334155',
-    borderRadius: '18px',
-    padding: '20px',
     background: 'rgba(15, 23, 42, 0.8)',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'contain',
     backgroundPosition: 'right center',
-    boxShadow: '0 10px 30px rgba(15, 23, 42, 0.6)',
-    marginBottom: '18px',
+    boxShadow: '0 10px 30px rgba(15, 23, 42, 0.6)'
   } as CSSProperties,
   interactive: {
     transition: 'all 0.3s ease',

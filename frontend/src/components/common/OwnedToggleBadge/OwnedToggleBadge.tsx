@@ -8,6 +8,11 @@ interface OwnedToggleBadgeProps {
 }
 
 const ownedToggleBadgeStyles = {
+  base: {
+    textTransform: "uppercase",
+    fontSize: "0.75rem",
+    marginTop: "0.5rem"
+  } as CSSProperties,
   ownedBadge: {
     background: 'white',
     color: '#0f172a',
@@ -42,11 +47,16 @@ export default function OwnedToggleBadge({ character, user }: OwnedToggleBadgePr
 
     setIsOwned(nextIsOwned)
   }
+  const toggleStyles = isOwned ? ownedToggleBadgeStyles.ownedBadge : ownedToggleBadgeStyles.unownedBadge;
+  const styles = {
+    ...toggleStyles, 
+    ...ownedToggleBadgeStyles.base
+  }
 
   return (
     <Badge
       onClick={handleOwnershipToggle}
-      style={isOwned ? ownedToggleBadgeStyles.ownedBadge : ownedToggleBadgeStyles.unownedBadge}
+      style={styles}
     >
       <span style={ownedToggleBadgeStyles.toggleIcon}>{isOwned ? '✔' : '+'}</span>
       {isOwned ? 'Owned' : 'Not Owned'}

@@ -10,39 +10,18 @@ interface BadgeProps {
 const badgeStyles = {
   base: {
     display: 'inline-block',
-    borderRadius: '999px',
     border: '1px solid white',
-    opacity: '0.5',
-    padding: '4px 12px',
+    padding: '0.2rem 0.5rem',
     fontSize: '0.8rem',
-    fontWeight: 600,
-    marginBottom: '12px',
     transition: '0.15s all',
-  } as CSSProperties,
-  success: {
-    background: 'linear-gradient(135deg, #22c55e 0%, #16a34a 100%)',
-    color: 'white',
-  } as CSSProperties,
-  info: {
-    background: 'linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%)',
-    color: '#0f172a',
-  } as CSSProperties,
-  warning: {
-    background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
-    color: 'white',
-  } as CSSProperties,
-  error: {
-    background: 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)',
-    color: 'white',
-  } as CSSProperties,
+  } as CSSProperties
 }
 
-export default function Badge({ children, variant = 'info', style, onClick }: BadgeProps) {
+export default function Badge({ children, style, onClick }: BadgeProps) {
   const [isHovered, setIsHovered] = useState(false)
 
   const badgeStyle = {
     ...badgeStyles.base,
-    ...badgeStyles[variant],
     ...style,
   }
 
@@ -50,8 +29,7 @@ export default function Badge({ children, variant = 'info', style, onClick }: Ba
     <span
       style={{
         ...badgeStyle,
-        cursor: onClick ? 'pointer' : undefined,
-        opacity: isHovered ? 1 : 0.5,
+        cursor: isHovered ? 'pointer' : undefined,
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
