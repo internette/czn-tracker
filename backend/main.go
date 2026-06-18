@@ -83,6 +83,16 @@ type Character struct {
 	Stats         []Stat      `json:"stats"`
 }
 
+type UpdateCharacterInput struct {
+	Name      string `json:"name"`
+	Tier      string `json:"tier"`
+	Type      string `json:"type"`
+	Faction   string `json:"faction"`
+	Rarity    string `json:"rarity"`
+	Attribute string `json:"attribute"`
+	ImageUrl  string `json:"imageUrl"`
+}
+
 type Store struct {
 	useSQLite bool
 	db        *sql.DB
@@ -300,6 +310,47 @@ func (s *Store) GetCharacterByID(ctx context.Context, uid string) (Character, er
 		}
 
 		return char, nil
+	}
+
+	return Character{}, nil
+}
+
+func (s *Store) UpdateCharacter(ctx context.Context, uid string, input UpdateCharacterInput) (Character, error) {
+	if s.useSQLite {
+		result, err := s.db.ExecContext(ctx, `
+			UPDATE characters
+			SET
+				name = ?,
+				tier = ?,
+				type = ?,
+				faction = ?,
+				rarity = ?,
+				attribute = ?,
+				image_url = ?
+			WHERE uid = ?
+		`,
+			input.Name,
+			input.Tier,
+			input.Type,
+			input.Faction,
+			input.Rarity,
+			input.Attribute,
+			input.ImageUrl,
+			uid,
+		)
+		if err != nil {
+			return Character{}, err
+		}
+
+		rowsAffected, err := result.RowsAffected()
+		if err != nil {
+			return Character{}, err
+		}
+		if rowsAffected == 0 {
+			return Character{}, sql.ErrNoRows
+		}
+
+		return s.GetCharacterByID(ctx, uid)
 	}
 
 	return Character{}, nil
@@ -803,6 +854,29 @@ func main() {
 		if err != nil {
 			log.Printf("Error pulling character by id: %v", err)
 			c.JSON(http.StatusInternalServerError, gin.H{"error": "failed to load character"})
+			return
+		}
+
+		c.JSON(http.StatusOK, character)
+	})
+
+	r.PUT("/characters/:id", func(c *gin.Context) {
+		id := c.Param("id")
+
+		var input UpdateCharacterInput
+		if err := c.ShouldBindJSON(&input); err != nil {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "invalid character payload"})
+			return
+		}
+
+		character, err := store.UpdateCharacter(c.Request.Context(), id, input)
+		if err == sql.ErrNoRows {
+			c.JSON(http.StatusNotFound, gin.H{"error": "character not found"})
+			return
+		}
+		if err != nil {
+			log.Printf("Error updating character: %v", err)
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "failed to update character"})
 			return
 		}
 
