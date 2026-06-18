@@ -36,11 +36,36 @@ export type UpdateCharacterInput = Pick<
   'name' | 'tier' | 'type' | 'faction' | 'rarity' | 'attribute' | 'imageUrl'
 >
 
-export async function updateCharacter(id: string, character: UpdateCharacterInput): Promise<Character> {
-  return request(`/api/characters/${id}`, {
-    method: 'PUT',
-    body: JSON.stringify(character),
+export async function updateCharacter(
+  id: string,
+  character: UpdateCharacterInput,
+  image?: File | null,
+): Promise<Character> {
+  const formData = new FormData()
+  formData.append('name', character.name)
+  formData.append('tier', character.tier)
+  formData.append('type', character.type)
+  formData.append('faction', character.faction)
+  formData.append('rarity', character.rarity)
+  formData.append('attribute', character.attribute)
+  formData.append('imageUrl', character.imageUrl)
+
+  if (image) {
+    formData.append('image', image)
+  }
+
+  const response = await fetch(`${apiBase}/api/characters/${id}/edit`, {
+    method: 'POST',
+    credentials: 'include',
+    body: formData,
   })
+
+  if (!response.ok) {
+    const text = await response.text()
+    throw new Error(text || response.statusText)
+  }
+
+  return response.json()
 }
 
 export async function getDecks(characterId: string): Promise<{ decks: Deck[] }> {

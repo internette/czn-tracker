@@ -61,6 +61,8 @@ export default function EditCharacterPage() {
   const { id } = useParams()
   const navigate = useNavigate()
   const [form, setForm] = useState<UpdateCharacterInput>(emptyForm)
+  const [imageFile, setImageFile] = useState<File | null>(null)
+  const [imagePreview, setImagePreview] = useState('')
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -82,6 +84,7 @@ export default function EditCharacterPage() {
           attribute: character.attribute,
           imageUrl: character.imageUrl,
         })
+        setImagePreview(character.imageUrl)
       } catch (err) {
         setError('Unable to load this character.')
       } finally {
@@ -99,6 +102,18 @@ export default function EditCharacterPage() {
     }))
   }
 
+  const handleImageChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0] ?? null
+    setImageFile(file)
+
+    if (file) {
+      setImagePreview(URL.createObjectURL(file))
+      return
+    }
+
+    setImagePreview(form.imageUrl)
+  }
+
   async function handleSubmit(event: FormEvent) {
     event.preventDefault()
     if (!id) return
@@ -106,7 +121,7 @@ export default function EditCharacterPage() {
     setSaving(true)
     setError(null)
     try {
-      const character = await updateCharacter(id, form)
+      const character = await updateCharacter(id, form, imageFile)
       navigate(`/characters/${character.id}`)
     } catch (err) {
       setError('Unable to save this character.')
@@ -136,9 +151,15 @@ export default function EditCharacterPage() {
           <Input label="Attribute" value={form.attribute} onChange={handleChange('attribute')} />
         </div>
 
-        <Input label="Image URL" value={form.imageUrl} onChange={handleChange('imageUrl')} />
+        <Input
+          label="Character Image"
+          type="file"
+          accept="image/png,image/jpeg,image/webp,image/gif"
+          onChange={handleImageChange}
+          helperText="Upload a PNG, JPG, WEBP, or GIF."
+        />
 
-        {form.imageUrl && <img src={form.imageUrl} alt="" style={editCharacterPageStyles.preview} />}
+        {imagePreview && <img src={imagePreview} alt="" style={editCharacterPageStyles.preview} />}
         {error && <p style={editCharacterPageStyles.error}>{error}</p>}
 
         <div style={editCharacterPageStyles.actions}>
