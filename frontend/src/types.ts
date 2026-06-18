@@ -1,11 +1,14 @@
 export interface User {
   email: string
   name: string
+  uid: string
+  charactersOwned: Character[]
 }
 
 interface PartnerForCharacter {
   uid: string, 
-  name: string
+  name: string,
+  img: string
 }
 
 interface Equipment {

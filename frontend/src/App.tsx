@@ -9,6 +9,7 @@ import CharactersPage from './pages/CharactersPage/CharactersPage'
 import CharacterDetailsPage from './pages/CharacterDetailsPage'
 import TeamsPage from './pages/TeamsPage'
 import AddCharacterPage from './pages/AddCharacterPage/AddCharacterPage'
+import EditCharacterPage from './pages/EditCharacterPage/EditCharacterPage'
 
 function App() {
   const [user, setUser] = useState<User | null>(null)
@@ -42,6 +43,7 @@ function App() {
             <Route path="/" element={<HomePage user={user} />} />
             <Route path="/characters" element={<CharactersPage user={user} />} />
             <Route path="/characters/:id" element={<CharacterDetailsPage />} />
+            <Route path="/characters/:id/edit" element={<EditCharacterPage />} />
             <Route path="/teams" element={<TeamsPage user={user} />} />
             <Route path="/add-character" element={<AddCharacterPage />} />
           </Routes>

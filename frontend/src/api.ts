@@ -31,6 +31,18 @@ export async function getCharacter(id: string): Promise<Character> {
   return request(`/api/characters/${id}`)
 }
 
+export type UpdateCharacterInput = Pick<
+  Character,
+  'name' | 'tier' | 'type' | 'faction' | 'rarity' | 'attribute' | 'imageUrl'
+>
+
+export async function updateCharacter(id: string, character: UpdateCharacterInput): Promise<Character> {
+  return request(`/api/characters/${id}`, {
+    method: 'PUT',
+    body: JSON.stringify(character),
+  })
+}
+
 export async function getDecks(characterId: string): Promise<{ decks: Deck[] }> {
   return request(`/api/characters/${characterId}/decks`)
 }
