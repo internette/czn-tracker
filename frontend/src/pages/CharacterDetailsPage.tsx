@@ -20,7 +20,6 @@ export default function CharacterDetailsPage() {
     } as CSSProperties,
 
     equipmentItem: {
-      border: '1px solid #334155',
       background: 'rgba(15, 23, 42, 0.8)',
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'contain',
@@ -62,6 +61,9 @@ export default function CharacterDetailsPage() {
     <div>
       <section className="card">
         <Link to="/">← Back to characters</Link>
+        <Link to={`/characters/${character.id}/edit`} style={{ display: 'inline-block', marginLeft: '16px' }}>
+          Edit
+        </Link>
         <h2 className="section-title">{character.name}</h2>
         <div><img src={character.imageUrl}/></div>
         <p><strong>Best Partner:</strong></p>
