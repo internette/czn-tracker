@@ -218,6 +218,7 @@ async function insertCharacters() {
             const mf = char.bestMemoryFragments || {};
             const mf4 = mf.fourPieceSet || {};
             const mf2 = mf.twoPieceSet || {};
+            char.image_url = `/images/characters/${char.uid}.png`;
 
             stmtChar.run([
                 char.uid,
