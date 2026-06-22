@@ -79,7 +79,7 @@ export async function createDeck(characterId: string, name: string, cards: strin
   })
 }
 
-export async function getTeams(): Promise<{ teams: Team[] }> {
+export async function getTeams(): Promise<Team[]> {
   return request('/api/teams')
 }
 

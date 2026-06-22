@@ -39,6 +39,16 @@ const teamPageStyles = {
     bottom: '0',
     margin: '0',
     width: '100%'
+  } as CSSProperties,
+  characterInTeam: {
+    width: '5rem',
+    height: '6rem',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    display: 'inline-block'
+  } as CSSProperties,
+  team: {
+    display: 'block'
   } as CSSProperties
 }
 
@@ -56,19 +66,17 @@ export default function TeamsPage({ user }: TeamsPageProps) {
 
   }, [user?.charactersOwned])
 
-  // useEffect(() => {
-  //   async function load() {
-  //     const [charactersResult, teamsResult] = await Promise.all([getCharacters(), getTeams().catch(() => ({ teams: [] }))])
-  //     setCharacters(charactersResult.characters)
-  //     setTeams(teamsResult.teams)
-  //   }
-  //   load()
-  // }, [])
-
-  const selectedCharacters = useMemo(
-    () => characters.filter((character) => selectedIds.includes(character.id)),
-    [characters, selectedIds],
-  )
+  useEffect(() => {
+    async function load() {
+      try {
+        const teams = await getTeams()
+        setTeams(teams)
+      } catch (err) {
+        console.error('Failed to load teams', err)
+      }
+    }
+    load()
+  }, [user?.uid])
 
   async function handleSubmit(event: FormEvent) {
     event.preventDefault()
@@ -149,13 +157,28 @@ export default function TeamsPage({ user }: TeamsPageProps) {
           <p>No saved teams yet.</p>
         ) : (
           <div className="grid">
-            {teams.map((team) => (
-              <div key={team.id} className="card">
-                <h4>{team.name}</h4>
-                <small>{new Date(team.createdAt * 1000).toLocaleString()}</small>
-                <p>{team.characterIds.map((id) => characters.find((character) => character.id === id)?.name).filter(Boolean).join(', ')}</p>
-              </div>
-            ))}
+            {teams.map((team) => { 
+              const createdDate = new Date(team.createdDate);
+              const friendlyDate = `created on: ${createdDate.toLocaleString('default', { 
+                month: 'long',
+                day: 'numeric',
+                year: 'numeric'
+              })}`
+              return (
+                <div key={team.id} className="card" style={teamPageStyles.team}>
+                  <h4>{team.name}</h4>
+                  <p>
+                    <small>{friendlyDate}</small>
+                  </p>
+                  {team.characters.map((character) => {
+                    return (<div style={{
+                      ...teamPageStyles.characterInTeam,
+                      backgroundImage: `url(${character.imageUrl})`
+                    }}/>)
+                  })}
+                </div>
+              )
+            })}
           </div>
         )}
       </section>

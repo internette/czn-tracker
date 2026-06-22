@@ -43,8 +43,7 @@ export interface Deck {
 
 export interface Team {
   id: string
-  ownerEmail: string
   name: string
-  characterIds: string[]
-  createdAt: number
+  characters: Character[]
+  createdDate: number
 }
