@@ -752,6 +752,15 @@ func (s *Store) ListTeams(ctx context.Context) ([]Team, error) {
 	return teams, nil
 }
 
+func (s *Store) DeleteTeam(ctx context.Context, uid string) error {
+	_, err := s.db.ExecContext(ctx, `
+		DELETE FROM teams
+		WHERE uid = ?
+	`, uid)
+
+	return err
+}
+
 func main() {
 	dbPath := filepath.Clean("../data/czn-tracker.db")
 
@@ -1096,6 +1105,23 @@ func main() {
 		}
 
 		c.JSON(http.StatusCreated, team)
+	})
+
+	r.DELETE("/teams/:id", func(c *gin.Context) {
+		id := c.Param("id")
+
+		err := store.DeleteTeam(c.Request.Context(), id)
+		if err != nil {
+			log.Printf("Error deleting team: %v", err)
+			c.JSON(http.StatusInternalServerError, gin.H{
+				"error": "failed to delete team",
+			})
+			return
+		}
+
+		c.JSON(http.StatusOK, gin.H{
+			"success": true,
+		})
 	})
 
 	log.Println("Gin server starting up on port :8080...")
