@@ -101,6 +101,18 @@ type Store struct {
 	db        *sql.DB
 }
 
+type Team struct {
+	UID          string   `json:"uid"`
+	Name         string   `json:"name"`
+	CharacterIDs []string `json:"characterIds"`
+	CreatedDate  string   `json:"createdDate"`
+}
+
+type CreateTeamInput struct {
+	Name         string   `json:"name"`
+	CharacterIDs []string `json:"characterIds"`
+}
+
 func (s *Store) GetUserByEmail(ctx context.Context, email string) (*User, error) {
 	var user User
 	var charactersOwned sql.NullString
@@ -645,6 +657,37 @@ func (s *Store) RemoveCharacterFromUser(ctx context.Context, userID string, char
 	return err
 }
 
+func (s *Store) CreateTeam(ctx context.Context, input CreateTeamInput) (Team, error) {
+	uid := uuid.NewString()
+
+	characterIDs, err := json.Marshal(input.CharacterIDs)
+	if err != nil {
+		return Team{}, err
+	}
+
+	createdDate := time.Now().UTC().Format(time.RFC3339)
+
+	_, err = s.db.ExecContext(ctx, `
+		INSERT INTO teams (
+			uid,
+			name,
+			character_ids,
+			created_date
+		)
+		VALUES (?, ?, ?, ?)
+	`, uid, input.Name, string(characterIDs), createdDate)
+	if err != nil {
+		return Team{}, err
+	}
+
+	return Team{
+		UID:          uid,
+		Name:         input.Name,
+		CharacterIDs: input.CharacterIDs,
+		CreatedDate:  createdDate,
+	}, nil
+}
+
 func main() {
 	dbPath := filepath.Clean("../data/czn-tracker.db")
 
@@ -942,6 +985,40 @@ func main() {
 		}
 
 		c.JSON(http.StatusOK, partners)
+	})
+
+	r.POST("/teams", func(c *gin.Context) {
+		var input CreateTeamInput
+
+		if err := c.ShouldBindJSON(&input); err != nil {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "invalid team payload"})
+			return
+		}
+
+		if len(input.CharacterIDs) == 0 {
+			c.JSON(http.StatusBadRequest, gin.H{
+				"error": "team must contain at least one character",
+			})
+			return
+		}
+
+		if len(input.CharacterIDs) > 3 {
+			c.JSON(http.StatusBadRequest, gin.H{
+				"error": "team cannot contain more than 3 characters",
+			})
+			return
+		}
+
+		team, err := store.CreateTeam(c.Request.Context(), input)
+		if err != nil {
+			log.Printf("Error creating team: %v", err)
+			c.JSON(http.StatusInternalServerError, gin.H{
+				"error": "failed to create team",
+			})
+			return
+		}
+
+		c.JSON(http.StatusCreated, team)
 	})
 
 	log.Println("Gin server starting up on port :8080...")
