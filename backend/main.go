@@ -102,10 +102,10 @@ type Store struct {
 }
 
 type Team struct {
-	UID          string   `json:"uid"`
-	Name         string   `json:"name"`
-	CharacterIDs []string `json:"characterIds"`
-	CreatedDate  string   `json:"createdDate"`
+	UID         string      `json:"uid"`
+	Name        string      `json:"name"`
+	Characters  []Character `json:"characters"`
+	CreatedDate string      `json:"createdDate"`
 }
 
 type CreateTeamInput struct {
@@ -679,13 +679,77 @@ func (s *Store) CreateTeam(ctx context.Context, input CreateTeamInput) (Team, er
 	if err != nil {
 		return Team{}, err
 	}
+	characters := make([]Character, 0, len(input.CharacterIDs))
+
+	for _, characterID := range input.CharacterIDs {
+		character, err := s.GetCharacterByID(ctx, characterID)
+		if err != nil {
+			return Team{}, err
+		}
+
+		characters = append(characters, character)
+	}
 
 	return Team{
-		UID:          uid,
-		Name:         input.Name,
-		CharacterIDs: input.CharacterIDs,
-		CreatedDate:  createdDate,
+		UID:         uid,
+		Name:        input.Name,
+		Characters:  characters,
+		CreatedDate: createdDate,
 	}, nil
+}
+
+func (s *Store) ListTeams(ctx context.Context) ([]Team, error) {
+	rows, err := s.db.QueryContext(ctx, `
+		SELECT
+			uid,
+			name,
+			character_ids,
+			created_date
+		FROM teams
+		ORDER BY created_date DESC
+	`)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	var teams []Team
+
+	for rows.Next() {
+		var team Team
+		var characterIDsJSON string
+
+		if err := rows.Scan(
+			&team.UID,
+			&team.Name,
+			&characterIDsJSON,
+			&team.CreatedDate,
+		); err != nil {
+			return nil, err
+		}
+
+		var characterIDs []string
+		if characterIDsJSON != "" {
+			_ = json.Unmarshal([]byte(characterIDsJSON), &characterIDs)
+		}
+
+		for _, characterID := range characterIDs {
+			character, err := s.GetCharacterByID(ctx, characterID)
+			if err != nil {
+				return nil, err
+			}
+
+			team.Characters = append(team.Characters, character)
+		}
+
+		teams = append(teams, team)
+	}
+
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+
+	return teams, nil
 }
 
 func main() {
@@ -985,6 +1049,19 @@ func main() {
 		}
 
 		c.JSON(http.StatusOK, partners)
+	})
+
+	r.GET("/teams", func(c *gin.Context) {
+		teams, err := store.ListTeams(c.Request.Context())
+		if err != nil {
+			log.Printf("Error loading teams: %v", err)
+			c.JSON(http.StatusInternalServerError, gin.H{
+				"error": "failed to load teams",
+			})
+			return
+		}
+
+		c.JSON(http.StatusOK, teams)
 	})
 
 	r.POST("/teams", func(c *gin.Context) {
