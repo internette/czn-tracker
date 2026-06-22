@@ -1,6 +1,6 @@
 import { CSSProperties, FormEvent, useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { getCharacters, getTeams, createTeam } from '../api'
+import { getCharacters, getTeams, createTeam, deleteTeam } from '../api'
 import { Character, Team, User } from '../types'
 
 interface TeamsPageProps {
@@ -22,8 +22,8 @@ const teamPageStyles = {
     color: '#fb7185',
   } as CSSProperties,
   characterStyles: {
-    width: "10rem",
-    height: "10rem",
+    width: "9rem",
+    height: "9rem",
     backgroundSize: "cover",
     backgroundPosition: "center center",
     backgroundRepeat: "no-repeat",
@@ -102,6 +102,16 @@ export default function TeamsPage({ user }: TeamsPageProps) {
     }
   }
 
+  async function handleDeleteTeam(teamUid: string) {
+    try {
+      await deleteTeam(teamUid)
+
+      setTeams((current) => current.filter((team) => team.uid !== teamUid))
+    } catch (err) {
+      console.error('Failed to delete team', err)
+    }
+  }
+
   function toggleCharacter(id: string) {
     setSelectedIds((current) =>
       current.includes(id) ? current.filter((item) => item !== id) : [...current, id],
@@ -165,8 +175,16 @@ export default function TeamsPage({ user }: TeamsPageProps) {
                 year: 'numeric'
               })}`
               return (
-                <div key={team.id} className="card" style={teamPageStyles.team}>
-                  <h4>{team.name}</h4>
+                <div key={team.uid} className="card" style={teamPageStyles.team}>
+                  <h4>
+                    {team.name}
+                    <button
+                      type="button"
+                      onClick={() => handleDeleteTeam(team.uid)}
+                    >
+                      x
+                    </button>
+                  </h4>
                   <p>
                     <small>{friendlyDate}</small>
                   </p>

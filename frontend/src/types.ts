@@ -42,7 +42,7 @@ export interface Deck {
 }
 
 export interface Team {
-  id: string
+  uid: string
   name: string
   characters: Character[]
   createdDate: number
