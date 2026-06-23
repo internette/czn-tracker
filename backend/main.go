@@ -113,6 +113,11 @@ type CreateTeamInput struct {
 	CharacterIDs []string `json:"characterIds"`
 }
 
+type UpdateTeamInput struct {
+	Name         string   `json:"name"`
+	CharacterIDs []string `json:"characterIds"`
+}
+
 func (s *Store) GetUserByEmail(ctx context.Context, email string) (*User, error) {
 	var user User
 	var charactersOwned sql.NullString
@@ -1105,6 +1110,95 @@ func main() {
 		}
 
 		c.JSON(http.StatusCreated, team)
+	})
+
+	r.PUT("/teams/:id", func(c *gin.Context) {
+		id := c.Param("id")
+
+		var input UpdateTeamInput
+		if err := c.ShouldBindJSON(&input); err != nil {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "invalid team payload"})
+			return
+		}
+
+		var existingName string
+		var existingJSON string
+
+		err := store.db.QueryRowContext(c.Request.Context(), `
+			SELECT name, character_ids
+			FROM teams
+			WHERE uid = ?
+		`, id).Scan(&existingName, &existingJSON)
+
+		if err == sql.ErrNoRows {
+			c.JSON(http.StatusNotFound, gin.H{"error": "team not found"})
+			return
+		}
+		if err != nil {
+			log.Printf("Error fetching team for update: %v", err)
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "failed to load team"})
+			return
+		}
+
+		var existingIDs []string
+		if existingJSON != "" {
+			_ = json.Unmarshal([]byte(existingJSON), &existingIDs)
+		}
+
+		newName := existingName
+		if input.Name != "" {
+			newName = input.Name
+		}
+
+		newIDs := existingIDs
+		if input.CharacterIDs != nil {
+			newIDs = input.CharacterIDs
+		}
+
+		if len(newIDs) == 0 {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "team must contain at least one character"})
+			return
+		}
+		if len(newIDs) > 3 {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "team cannot contain more than 3 characters"})
+			return
+		}
+
+		updatedJSON, err := json.Marshal(newIDs)
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "failed to encode team"})
+			return
+		}
+
+		_, err = store.db.ExecContext(c.Request.Context(), `
+			UPDATE teams
+			SET name = ?, character_ids = ?
+			WHERE uid = ?
+		`, newName, string(updatedJSON), id)
+
+		if err != nil {
+			log.Printf("Error updating team: %v", err)
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "failed to update team"})
+			return
+		}
+
+		// rebuild response team
+		characters := make([]Character, 0, len(newIDs))
+		for _, characterID := range newIDs {
+			character, err := store.GetCharacterByID(c.Request.Context(), characterID)
+			if err != nil {
+				c.JSON(http.StatusInternalServerError, gin.H{"error": "failed to load team characters"})
+				return
+			}
+			characters = append(characters, character)
+		}
+
+		c.JSON(http.StatusOK, Team{
+			UID:         id,
+			Name:        newName,
+			Characters:  characters,
+			CreatedDate: "",
+		})
 	})
 
 	r.DELETE("/teams/:id", func(c *gin.Context) {
