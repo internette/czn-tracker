@@ -114,11 +114,13 @@
 .selectedCharacterStyle {
   border: 2px solid #4f7cff;
   background-color: #0b1220;
+  box-shadow: 0 0 0 2px #4f7cff, 0 8px 24px rgba(79,124,255,0.35);
 }
 
 .unselectedCharacterStyle {
   border: 1px solid #24314f;
   background-color: #0b1220;
+  box-shadow: none;
 }
 
 .characterName {
@@ -243,4 +245,10 @@
 .selectedCharacterDetails {
     display: flex;
     flex-direction: column;
+}
+
+.container { 
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 32px;
 }

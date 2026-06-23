@@ -97,7 +97,7 @@ export default function TeamsPage({ user }: TeamsPageProps) {
 
   return (
     <div>
-      <div style={{ maxWidth: '1440px', margin: '0 auto', padding: '32px' }}>
+      <div className={styles.container}>
         <section className={styles.pageHeader}>
           <Link to="/" className={styles.backLink}>← Back to characters</Link>
           <h2 className={styles.sectionTitle}>Team Builder</h2>
@@ -133,10 +133,7 @@ export default function TeamsPage({ user }: TeamsPageProps) {
                       }}
                       className={`${selected ? styles.selectedCharacterStyle : styles.unselectedCharacterStyle} ${styles.characterStyles}`}
                       style={{
-                        backgroundImage: `url(${character.imageUrl})`,
-                        boxShadow: selected
-                          ? '0 0 0 2px #4f7cff, 0 8px 24px rgba(79,124,255,0.35)'
-                          : 'none'
+                        backgroundImage: `url(${character.imageUrl})`
                       }}
                     >
                       <img 
