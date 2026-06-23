@@ -14,6 +14,7 @@ export default function CharactersPage({ user }: CharactersPageProps) {
   const [loading, setLoading] = useState(true)
   const [filterOwned, setFilterOwned] = useState(false)
   const [searchTerm, setSearchTerm] = useState('')
+  const [sortMode, setSortMode] = useState('owned')
 
   useEffect(() => {
     const fetchCharacters = async () => {
@@ -31,6 +32,29 @@ export default function CharactersPage({ user }: CharactersPageProps) {
   const filteredCharacters = characters.filter((character) =>
     character.name.toLowerCase().includes(searchTerm.toLowerCase())
   )
+
+  const rarityRank: Record<string, number> = {
+    SSR: 3,
+    SR: 2,
+    R: 1,
+  }
+
+  const sortedCharacters = [...filteredCharacters].sort((a: any, b: any) => {
+    switch (sortMode) {
+      case 'level':
+        return (b.level ?? 0) - (a.level ?? 0)
+
+      case 'rarity':
+        return (rarityRank[b.rarity ?? 'R'] ?? 0) - (rarityRank[a.rarity ?? 'R'] ?? 0)
+
+      case 'name':
+        return a.name.localeCompare(b.name)
+
+      case 'owned':
+      default:
+        return Number(b.owned ?? false) - Number(a.owned ?? false)
+    }
+  })
 
   return (
     <Card className={styles['characters-page']}>
@@ -58,22 +82,32 @@ export default function CharactersPage({ user }: CharactersPageProps) {
           <div className={styles['characters-page__meta']}>Filter</div>
         </div>
       </div>
-      <div className={styles['charactersPage__controls']}>
-      <div className={styles.charactersPage__searchWrap}>
-        <i className={`${styles.charactersPage__searchIcon} ti ti-search`} />
-        <input
-          className={styles.charactersPage__searchInput}
-          placeholder="Search characters…"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
+      <div className={styles['characters-page__controls']}>
+        <div className={styles['characters-page__search-wrap']}>
+          <i className={`${styles['characters-page__search-icon']} ti ti-search`} />
+          <input
+            className={styles['characters-page__search-input']}
+            placeholder="Search characters…"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </div>
+        <select
+          className={styles['characters-page__sort-sel']}
+          value={sortMode}
+          onChange={(e) => setSortMode(e.target.value)}
+        >
+          <option value="owned">Sort: Owned first</option>
+          <option value="level">Sort: Level</option>
+          <option value="rarity">Sort: Rarity</option>
+          <option value="name">Sort: Name A–Z</option>
+        </select>
       </div>
-    </div>
 
       {loading ? (
         <LoadingState message="Loading characters..." />
       ) : <Grid cols={4} gap={12}>
-          {filteredCharacters.map((character) => (
+          {sortedCharacters.map((character) => (
             <CharacterCard
               character={character}
               user={user}
