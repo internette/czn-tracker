@@ -15,6 +15,7 @@ export default function CharactersPage({ user }: CharactersPageProps) {
   const [filterOwned, setFilterOwned] = useState(false)
   const [searchTerm, setSearchTerm] = useState('')
   const [sortMode, setSortMode] = useState('owned')
+  const [attributeFilter, setAttributeFilter] = useState<string | null>(null)
 
   useEffect(() => {
     const fetchCharacters = async () => {
@@ -29,15 +30,20 @@ export default function CharactersPage({ user }: CharactersPageProps) {
     fetchCharacters();
   }, []);
 
-  const filteredCharacters = characters.filter((character) =>
-    character.name.toLowerCase().includes(searchTerm.toLowerCase())
-  )
+  const filteredCharacters = characters.filter((character) => {
+    const matchesSearch = character.name.toLowerCase().includes(searchTerm.toLowerCase())
+    const matchesAttribute = attributeFilter
+      ? (character.attribute?.toLowerCase?.() === attributeFilter.toLowerCase())
+      : true
+    return matchesSearch && matchesAttribute
+  })
 
   const rarityRank: Record<string, number> = {
     SSR: 3,
     SR: 2,
     R: 1,
   }
+  const attributeTypes = ["passion", "order", "justice", "void", "instinct"];
 
   const sortedCharacters = [...filteredCharacters].sort((a: any, b: any) => {
     switch (sortMode) {
@@ -102,6 +108,29 @@ export default function CharactersPage({ user }: CharactersPageProps) {
           <option value="rarity">Sort: Rarity</option>
           <option value="name">Sort: Name A–Z</option>
         </select>
+      </div>
+      <div className={styles['characters-page__attribute-filters']}>
+        {attributeTypes.map((attr) => (
+          <button
+            key={attr}
+            type="button"
+            className={styles['characters-page__attribute-filter']}
+            onClick={() =>
+              setAttributeFilter((prev) => (prev === attr ? null : attr))
+            }
+          >
+            <img src={`/images/elements/${attr}.webp`}/>
+          </button>
+        ))}
+        <button
+            type="button"
+            className={styles['characters-page__attribute-filter']}
+            onClick={() =>
+              setAttributeFilter(null)
+            }
+          >
+            All
+          </button>
       </div>
 
       {loading ? (

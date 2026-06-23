@@ -116,4 +116,36 @@
       color: #e5e7eb;
     }
   }
+
+  &__attribute-filters {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  &__attribute-filter {
+    background: #111425;
+    border: 0.5px solid #252b42;
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 11px;
+    color: #6b7199;
+    cursor: pointer;
+    transition: border-color 0.12s ease, color 0.12s ease, background 0.12s ease;
+
+    &:hover {
+      border-color: #3d4a70;
+      color: #e5e7eb;
+    }
+
+    &.active {
+      border-color: #2563eb;
+      color: #93c5fd;
+      background: #1e3a5f;
+    }
+    img {
+        width: 2rem;
+        height: 2rem;
+    }
+  }
 }
