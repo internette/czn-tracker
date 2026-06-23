@@ -131,7 +131,7 @@ export default function TeamsPage({ user }: TeamsPageProps) {
                           toggleCharacter(character.id)
                         }
                       }}
-                      className={`${selected ? styles.selectedCharacterStyle : styles.unselectedCharacterStyle} ${styles.characterStyles}`}
+                      className={`${styles.characterCard} ${selected ? styles[`characterCard--${character.attribute.toLowerCase()}`] : ''} ${selected ? styles['characterCard--selected'] : styles['characterCard--unselected']}`}
                       style={{
                         backgroundImage: `url(${character.imageUrl})`
                       }}
@@ -139,15 +139,15 @@ export default function TeamsPage({ user }: TeamsPageProps) {
                       <img 
                         src={`/images/elements/${character.attribute.toLowerCase()}.webp`} 
                         alt="Character type element"
-                        className={styles.characterSelectorAttribute}/>
+                        className={styles['attributeIcon--characterCard']}/>
                       <p className={styles.characterName}>{character.name}</p>
                     </button>
                   )})}
                 </Grid>
               </div>
               <aside className={styles.teamSidebar}>
-                <h3 style={{ marginTop: 0 }}>Team Slots</h3>
-                <p style={{ color: '#94a3b8' }}>{selectedIds.length} / 3 selected</p>
+                <h3 className={styles['teamSidebarHeader']}>Team Slots</h3>
+                <p className={styles.teamBuilderCounter}>{selectedIds.length} / 3 selected</p>
                 {selectedIds.map(selectedId => {
                   const selectedCharacter = characters.filter(character => character.id === selectedId)[0]
                   return (
@@ -157,11 +157,8 @@ export default function TeamsPage({ user }: TeamsPageProps) {
                         style={{ backgroundImage: `url(${selectedCharacter.imageUrl})` }}
                       />
                       <p className={styles.selectedCharacterDetails}>
-                        <span style={{ fontWeight: 600}}>{selectedCharacter.name}</span>
+                        <span className={styles.teamBuilderCharacterName}>{selectedCharacter.name}</span>
                         <span className={styles.attributeName}>
-                          <img 
-                            src={`/images/elements/${selectedCharacter.attribute.toLowerCase()}.webp`}
-                            className={styles.selectedCharacterAttribute} />
                           {selectedCharacter.attribute}
                         </span>
                       </p>
@@ -173,17 +170,17 @@ export default function TeamsPage({ user }: TeamsPageProps) {
                   const imgUrl = `/images/elements/${attrType}.webp`;
                   const characterWithAttr = characters.filter(character => selectedIds.indexOf(character.uid) > -1 && character.attribute.toLowerCase() === attrType);
                   const isPresent = characterWithAttr.length > 0;
-                  return (<img src={imgUrl} className={`${styles.selectedCharactersAttributes}${isPresent ? ' ' + styles.selectedCharactersAttributesPresent : ''}`}/>)
+                  return (<img src={imgUrl} className={`${styles.attributeIcon}${isPresent ? ' ' + styles['attributeIcon--active'] : ''}`}/>)
                 })}</div>
                 {
-                <button className={(saving || selectedIds.length < 3) ? styles.saveButtonDisabled : styles.saveButton} type="submit" disabled={saving || selectedIds.length < 3}>{saving ? 'Saving...' : 'Save team'}</button>
+                <button className={styles.saveButton} type="submit" disabled={saving || selectedIds.length < 3}>{saving ? 'Saving...' : 'Save team'}</button>
                 }
               </aside>
             </div>
           </form>
         </section>
 
-        <section style={{ marginTop: '32px' }}>
+        <section className={styles.savedTeamsSection}>
           <h3 className="section-title">Saved Teams</h3>
           {teams.length === 0 ? (
             <p>No saved teams yet.</p>
@@ -226,7 +223,7 @@ export default function TeamsPage({ user }: TeamsPageProps) {
                     </div>
                     <div style={{display: 'flex', flexDirection: 'row',  marginTop: '1rem', alignItems: 'flex-end'}}>
                       <div className={styles.attributesContainer}>{
-                        Array.from(new Set(team.characters.map((c) => c.attribute))).map(attr => <img src={ `/images/elements/${attr.toLowerCase()}.webp`} className={`${styles.selectedCharactersAttributes} ${styles.selectedCharactersAttributesPresent}`} />)}</div>
+                        Array.from(new Set(team.characters.map((c) => c.attribute))).map(attr => <img src={ `/images/elements/${attr.toLowerCase()}.webp`} className={`${styles.attributeIcon} ${styles['attributeIcon--active']}`} />)}</div>
                       <button
                         type="button"
                         className={styles.editButton}
