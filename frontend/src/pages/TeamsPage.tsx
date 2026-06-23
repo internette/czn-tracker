@@ -100,7 +100,7 @@ const teamPageStyles = {
     marginLeft: 'auto',
     width: '32px',
     height: '32px',
-    borderRadius: '999px',
+    borderRadius: '7px',
     border: '1px solid #334155',
     background: 'transparent',
     color: '#94a3b8',
@@ -108,7 +108,6 @@ const teamPageStyles = {
   } as CSSProperties,
   teamHeader: {
     display: 'flex',
-    alignItems: 'center',
     gap: '12px'
   } as CSSProperties,
   panel: {
@@ -276,6 +275,15 @@ export default function TeamsPage({ user }: TeamsPageProps) {
     )
   }
 
+  const getUniqueAttr = (arr: [], attr: string) => {
+    const seen = new Set();
+    return arr.filter((item) => {
+      if (seen.has(item[attr])) return false;
+      seen.add(item[attr]);
+      return true;
+    });
+  };
+
   const attributeTypes = ["passion", "order", "justice", "void", "instinct"];
 
   return (
@@ -287,7 +295,6 @@ export default function TeamsPage({ user }: TeamsPageProps) {
         {!user ? <p style={teamPageStyles.subtitle}>Please log in to save teams.</p> : <p style={teamPageStyles.subtitle}>Select up to three characters and save your team setup.</p>}
       </section>
       <section style={teamPageStyles.panel}>
-        <h3 className="section-title">Build Your Team</h3>
         <form onSubmit={handleSubmit} className="grid">
           <div style={teamPageStyles.teamNameRow}>
             <label style={teamPageStyles.teamNameLabel}>Team name</label>
@@ -380,9 +387,9 @@ export default function TeamsPage({ user }: TeamsPageProps) {
           <p>No saved teams yet.</p>
         ) : (
           <Grid minItemWidth={320}>
-            {teams.map((team) => { 
+            {teams.map((team) => {
               const createdDate = new Date(team.createdDate);
-              const friendlyDate = `created on: ${createdDate.toLocaleString('default', { 
+              const friendlyDate = `Created on: ${createdDate.toLocaleString('default', { 
                 month: 'long',
                 day: 'numeric',
                 year: 'numeric'
@@ -390,7 +397,10 @@ export default function TeamsPage({ user }: TeamsPageProps) {
               return (
                 <div key={team.uid} style={{ ...teamPageStyles.panel, ...teamPageStyles.team }}>
                   <div style={teamPageStyles.teamHeader}>
-                    <h4 style={{ margin: 0 }}>{team.name}</h4>
+                    <div>
+                      <h4 style={{ margin: 0 }}>{team.name}</h4>
+                      <small style={{ color: '#94a3b8', display: 'block', marginBottom: '1rem' }}>{friendlyDate}</small>
+                    </div>
                     <button
                       type="button"
                       style={teamPageStyles.deleteButton}
@@ -399,10 +409,7 @@ export default function TeamsPage({ user }: TeamsPageProps) {
                       &times;
                     </button>
                   </div>
-                  <p>
-                    <small style={{ color: '#94a3b8' }}>{friendlyDate}</small>
-                  </p>
-                  <div style={{ display: 'flex', gap: '8px', marginTop: '12px' }}>
+                  <div style={{ display: 'flex', gap: '8px' }}>
                     {team.characters.map((character) => {
                       return (
                         <div
@@ -415,6 +422,11 @@ export default function TeamsPage({ user }: TeamsPageProps) {
                       )
                     })}
                   </div>
+                  <div style={{...teamPageStyles.attributesContainer, marginTop: '3rem'}}>{
+                  Array.from(new Set(team.characters.map((c) => c.attribute))).map(attr => <img src={ `/images/elements/${attr.toLowerCase()}.webp`} style={{
+                    ...teamPageStyles.selectedCharactersAttributes,
+                    ...teamPageStyles.selectedCharactersAttributesPresent
+                  }} />)}</div>
                 </div>
               )
             })}
