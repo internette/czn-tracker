@@ -1,8 +1,8 @@
 import { CSSProperties, FormEvent, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { getTeams, createTeam, deleteTeam } from '../api'
-import { Character, Team, User } from '../types'
-import { Grid } from '../components/ui'
+import { getTeams, createTeam, deleteTeam } from '../../api'
+import { Character, Team, User } from '../../types'
+import { Grid } from '../../components/ui'
 
 interface TeamsPageProps {
   user: User | null
@@ -189,6 +189,7 @@ const teamPageStyles = {
   } as CSSProperties,
   selectedCharactersAttributes: {
     width: '1.5rem',
+    height: '1.5rem',
     display: 'inline-block',
     opacity: '0.4'
   } as CSSProperties,
@@ -206,6 +207,15 @@ const teamPageStyles = {
   attributeName: {
     color: '#94a3b8',
     fontSize: '0.8rem'
+  } as CSSProperties,
+  editButton: {
+    color: '#94a3b8',
+    background: 'none',
+    border: '1px solid rgb(51, 65, 85)',
+    borderRadius: '5px',
+    display: 'inline-block',
+    padding: '0.75rem',
+    marginLeft: 'auto'
   } as CSSProperties
 }
 
@@ -267,6 +277,13 @@ export default function TeamsPage({ user }: TeamsPageProps) {
     } catch (err) {
       console.error('Failed to delete team', err)
     }
+  }
+
+  function handleEditTeam(team: Team) {
+    setTeamName(team.name)
+    setSelectedIds(team.characters.map((c) => c.id))
+
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   function toggleCharacter(id: string) {
@@ -422,11 +439,20 @@ export default function TeamsPage({ user }: TeamsPageProps) {
                       )
                     })}
                   </div>
-                  <div style={{...teamPageStyles.attributesContainer, marginTop: '3rem'}}>{
-                  Array.from(new Set(team.characters.map((c) => c.attribute))).map(attr => <img src={ `/images/elements/${attr.toLowerCase()}.webp`} style={{
-                    ...teamPageStyles.selectedCharactersAttributes,
-                    ...teamPageStyles.selectedCharactersAttributesPresent
-                  }} />)}</div>
+                  <div style={{display: 'flex', flexDirection: 'row',  marginTop: '1rem', alignItems: 'flex-end'}}>
+                    <div style={{...teamPageStyles.attributesContainer}}>{
+                      Array.from(new Set(team.characters.map((c) => c.attribute))).map(attr => <img src={ `/images/elements/${attr.toLowerCase()}.webp`} style={{
+                        ...teamPageStyles.selectedCharactersAttributes,
+                        ...teamPageStyles.selectedCharactersAttributesPresent
+                      }} />)}</div>
+                    <button
+                      type="button"
+                      style={teamPageStyles.editButton}
+                      onClick={() => handleEditTeam(team)}
+                    >
+                      Edit
+                    </button>
+                  </div>
                 </div>
               )
             })}
