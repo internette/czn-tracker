@@ -100,15 +100,6 @@ export default function TeamsPage({ user }: TeamsPageProps) {
     )
   }
 
-  const getUniqueAttr = (arr: [], attr: string) => {
-    const seen = new Set();
-    return arr.filter((item) => {
-      if (seen.has(item[attr])) return false;
-      seen.add(item[attr]);
-      return true;
-    });
-  };
-
   const attributeTypes = ["passion", "order", "justice", "void", "instinct"];
 
   return (
