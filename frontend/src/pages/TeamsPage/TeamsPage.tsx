@@ -1,6 +1,6 @@
 import { FormEvent, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { getTeams, createTeam, deleteTeam } from '../../api'
+import { getTeams, createTeam, deleteTeam, updateTeam } from '../../api'
 import { Character, Team, User } from '../../types'
 import { Grid } from '../../components/ui'
 
@@ -18,6 +18,7 @@ export default function TeamsPage({ user }: TeamsPageProps) {
   const [teamName, setTeamName] = useState('')
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [editingTeamId, setEditingTeamId] = useState<string | null>(null)
   useEffect(()=> {
     if(user && user.charactersOwned.length > 0){
       setCharacters(user.charactersOwned);
@@ -50,10 +51,24 @@ export default function TeamsPage({ user }: TeamsPageProps) {
     }
     setSaving(true)
     try {
-      const team = await createTeam(teamName, selectedIds)
-      setTeams((current) => [...current, team])
+      if (editingTeamId) {
+        const updated = await updateTeam(editingTeamId, {
+          name: teamName,
+          characterIds: selectedIds,
+        })
+
+        setTeams((current) =>
+          current.map((t) => (t.uid === editingTeamId ? updated : t)),
+        )
+        setEditingTeamId(null);
+      } else {
+        const team = await createTeam(teamName, selectedIds)
+        setTeams((current) => [...current, team])
+      }
+
       setTeamName('')
       setSelectedIds([])
+      setEditingTeamId(null)
     } catch (err) {
       setError('Failed to create team. Ensure you are logged in.')
     } finally {
@@ -74,6 +89,7 @@ export default function TeamsPage({ user }: TeamsPageProps) {
   function handleEditTeam(team: Team) {
     setTeamName(team.name)
     setSelectedIds(team.characters.map((c) => c.id))
+    setEditingTeamId(team.uid)
 
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
@@ -173,7 +189,9 @@ export default function TeamsPage({ user }: TeamsPageProps) {
                   return (<img src={imgUrl} className={`${styles.attributeIcon}${isPresent ? ' ' + styles['attributeIcon--active'] : ''}`}/>)
                 })}</div>
                 {
-                <button className={styles.saveButton} type="submit" disabled={saving || selectedIds.length < 3}>{saving ? 'Saving...' : 'Save team'}</button>
+                <button className={styles.saveButton} type="submit" disabled={saving || selectedIds.length < 3}>
+                  {saving ? 'Saving...' : (editingTeamId ? 'Update team' : 'Create team')}
+                </button>
                 }
               </aside>
             </div>

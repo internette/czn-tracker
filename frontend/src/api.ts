@@ -83,10 +83,21 @@ export async function getTeams(): Promise<Team[]> {
   return request('/api/teams')
 }
 
+
 export async function createTeam(name: string, characterIds: string[]): Promise<Team> {
   return request('/api/teams', {
     method: 'POST',
     body: JSON.stringify({ name, characterIds }),
+  })
+}
+
+export async function updateTeam(
+  uid: string,
+  input: { name?: string; characterIds?: string[] }
+): Promise<Team> {
+  return request(`/api/teams/${uid}`, {
+    method: 'PUT',
+    body: JSON.stringify(input),
   })
 }
 
