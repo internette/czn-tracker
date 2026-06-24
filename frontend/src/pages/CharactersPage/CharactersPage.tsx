@@ -114,7 +114,7 @@ export default function CharactersPage({ user }: CharactersPageProps) {
           <button
             key={attr}
             type="button"
-            className={styles['characters-page__attribute-filter']}
+            className={`${styles['characters-page__attribute-filter']} ${attributeFilter === attr ? styles.active : ''}`}
             onClick={() =>
               setAttributeFilter((prev) => (prev === attr ? null : attr))
             }
@@ -124,7 +124,7 @@ export default function CharactersPage({ user }: CharactersPageProps) {
         ))}
         <button
             type="button"
-            className={styles['characters-page__attribute-filter']}
+            className={`${styles['characters-page__attribute-filter']} ${attributeFilter === null ? styles.active : ''}`}
             onClick={() =>
               setAttributeFilter(null)
             }
@@ -138,6 +138,7 @@ export default function CharactersPage({ user }: CharactersPageProps) {
       ) : <Grid cols={4} gap={12}>
           {sortedCharacters.map((character) => (
             <CharacterCard
+              key={character.id ?? character.name}
               character={character}
               user={user}
             />
