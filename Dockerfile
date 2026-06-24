@@ -38,8 +38,6 @@ COPY --from=backend-builder /app/backend/czn-tracker .
 COPY --from=backend-builder /app/frontend/dist ./frontend/dist
 COPY --from=backend-builder /app/utils ./utils
 EXPOSE 8080
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
 
 ENV FRONTEND_URL=http://localhost:5173 BACKEND_URL=http://localhost:8080
 
