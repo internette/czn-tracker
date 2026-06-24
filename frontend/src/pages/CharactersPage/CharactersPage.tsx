@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { getCharacters } from '../../api'
 import { Character, User } from '../../types'
-import { Card, Grid, LoadingState, EmptyState } from '../../components/ui'
+import { Card, Grid, LoadingState } from '../../components/ui'
 import { CharacterCard } from '../../components/common'
 import styles from './CharactersPage.module.scss'
 
@@ -79,13 +79,12 @@ export default function CharactersPage({ user }: CharactersPageProps) {
 
       <div className={styles['characters-page__stats']}>
         <div className={styles['characters-page__stat-chip']}>
+          <strong>{user?.charactersOwned.length}</strong>
+          <div className={styles['characters-page__meta']}>Owned Characters</div>
+        </div>
+        <div className={styles['characters-page__stat-chip']}>
           <strong>{characters.length}</strong>
           <div className={styles['characters-page__meta']}>Total Characters</div>
-        </div>
-
-        <div className={styles['characters-page__stat-chip']}>
-          <strong>{filterOwned ? characters.length : 'All'}</strong>
-          <div className={styles['characters-page__meta']}>Filter</div>
         </div>
       </div>
       <div className={styles['characters-page__controls']}>
