@@ -796,6 +796,21 @@ func main() {
 		r.Static("/images", filepath.Dir(characterImageDir))
 	}
 
+	// -------------------------
+	// Serve frontend (production build)
+	// -------------------------
+	frontendDist := "./frontend/dist"
+
+	r.Static("/assets", filepath.Join(frontendDist, "assets"))
+
+	r.GET("/", func(c *gin.Context) {
+		c.File(filepath.Join(frontendDist, "index.html"))
+	})
+
+	r.NoRoute(func(c *gin.Context) {
+		c.File(filepath.Join(frontendDist, "index.html"))
+	})
+
 	r.POST("/auth/google/login", func(c *gin.Context) {
 		clientID := envFirst("GOOGLE_CLIENT_ID", "VITE_GOOGLE_CLIENT_ID")
 		if clientID == "" {
