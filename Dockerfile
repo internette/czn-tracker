@@ -8,12 +8,27 @@ RUN npm run build
 
 # Build backend binary and include frontend assets
 FROM golang:1.25-alpine AS backend-builder
-RUN apk add --no-cache git
-WORKDIR /app/backend
-COPY backend/go.mod backend/main.go ./
-RUN go mod tidy
-COPY --from=frontend-builder /app/frontend/dist ../frontend/dist
-RUN CGO_ENABLED=0 GOOS=linux go build -o czn-tracker .
+
+# Install required tooling (git + node for sqlite DB build)
+RUN apk add --no-cache git nodejs npm
+
+# Set working directory to app root
+WORKDIR /app
+
+# Copy backend source
+COPY backend/go.mod backend/main.go ./backend/
+
+# Copy utils (needed for sqlite DB generation)
+COPY utils ./utils
+
+# Install Go dependencies
+RUN cd backend && go mod tidy
+
+# Build SQLite database if not exists
+RUN cd utils && npm install && npm run buildDatabase
+
+# Build backend binary
+RUN CGO_ENABLED=0 GOOS=linux go build -o czn-tracker ./backend
 
 # Final image
 FROM alpine:3.19
@@ -21,10 +36,11 @@ RUN apk add --no-cache ca-certificates
 WORKDIR /app
 COPY --from=backend-builder /app/backend/czn-tracker .
 COPY --from=backend-builder /app/frontend/dist ./frontend/dist
+COPY --from=backend-builder /app/utils ./utils
 EXPOSE 8080
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 ENV FRONTEND_URL=http://localhost:5173 BACKEND_URL=http://localhost:8080
 
-CMD ["/entrypoint.sh"]
+CMD ["/czn-tracker"]
