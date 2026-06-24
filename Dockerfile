@@ -7,7 +7,7 @@ RUN npm install
 RUN npm run build
 
 # Build backend binary and include frontend assets
-FROM golang:1.22-alpine AS backend-builder
+FROM golang:1.25-alpine AS backend-builder
 RUN apk add --no-cache git
 WORKDIR /app/backend
 COPY backend/go.mod backend/main.go ./
