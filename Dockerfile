@@ -17,10 +17,8 @@ WORKDIR /app
 
 # Ensure backend build context stability
 WORKDIR /app/backend
-
-# Copy backend source
-
-COPY backend ./backend
+COPY backend/go.mod backend/go.sum ./
+COPY backend ./
 
 # Copy utils (needed for sqlite DB generation)
 COPY utils ./utils
