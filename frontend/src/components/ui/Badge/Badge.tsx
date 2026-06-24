@@ -1,38 +1,18 @@
-import { CSSProperties, useState } from 'react'
+import React from 'react'
+import styles from './Badge.module.scss'
 
 interface BadgeProps {
   children: React.ReactNode
   variant?: 'success' | 'info' | 'warning' | 'error'
-  style?: CSSProperties
+  className?: string
   onClick?: () => void
 }
 
-const badgeStyles = {
-  base: {
-    display: 'inline-block',
-    border: '1px solid white',
-    padding: '0.2rem 0.5rem',
-    fontSize: '0.8rem',
-    transition: '0.15s all',
-  } as CSSProperties
-}
 
-export default function Badge({ children, style, onClick }: BadgeProps) {
-  const [isHovered, setIsHovered] = useState(false)
-
-  const badgeStyle = {
-    ...badgeStyles.base,
-    ...style,
-  }
-
+export default function Badge({ children, className, onClick }: BadgeProps) {
   return (
     <span
-      style={{
-        ...badgeStyle,
-        cursor: isHovered ? 'pointer' : undefined,
-      }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      className={`${styles.badge} ${className ?? ''}`}
       onClick={onClick}
     >
       {children}

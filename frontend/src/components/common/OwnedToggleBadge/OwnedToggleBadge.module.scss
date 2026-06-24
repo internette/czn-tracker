@@ -1,0 +1,31 @@
+
+
+.base {
+  text-transform: uppercase;
+  background: #111425;
+    border: 0.5px solid #252b42;
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 11px;
+    color: #6b7199;
+  margin-top: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.ownedBadge {
+  border-color: #2563eb;
+color: #93c5fd;
+background: #1e3a5f;
+}
+
+.unownedBadge {
+  background: #0f172a;
+  color: white;
+}
+
+.toggleIcon {
+  margin-right: 0.3rem;
+}

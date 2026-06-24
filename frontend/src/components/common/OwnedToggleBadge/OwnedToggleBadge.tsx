@@ -1,29 +1,11 @@
-import { CSSProperties, useState } from 'react'
+import { useState } from 'react'
 import { Character, User } from '../../../types'
 import { Badge } from '../../ui'
+import styles from './OwnedToggleBadge.module.scss'
 
 interface OwnedToggleBadgeProps {
   character: Character
   user?: User | null
-}
-
-const ownedToggleBadgeStyles = {
-  base: {
-    textTransform: "uppercase",
-    fontSize: "0.75rem",
-    marginTop: "0.5rem"
-  } as CSSProperties,
-  ownedBadge: {
-    background: 'white',
-    color: '#0f172a',
-  } as CSSProperties,
-  unownedBadge: {
-    background: '#0f172a',
-    color: 'white',
-  } as CSSProperties,
-  toggleIcon: {
-    marginRight: '0.3rem',
-  } as CSSProperties,
 }
 
 export default function OwnedToggleBadge({ character, user }: OwnedToggleBadgeProps) {
@@ -47,18 +29,15 @@ export default function OwnedToggleBadge({ character, user }: OwnedToggleBadgePr
 
     setIsOwned(nextIsOwned)
   }
-  const toggleStyles = isOwned ? ownedToggleBadgeStyles.ownedBadge : ownedToggleBadgeStyles.unownedBadge;
-  const styles = {
-    ...toggleStyles, 
-    ...ownedToggleBadgeStyles.base
-  }
+  const stateClass = isOwned && styles.ownedBadge;
+  const className = `${styles.base} ${stateClass}`
 
   return (
     <Badge
       onClick={handleOwnershipToggle}
-      style={styles}
+      className={className}
     >
-      <span style={ownedToggleBadgeStyles.toggleIcon}>{isOwned ? '✔' : '+'}</span>
+      <span className={styles.toggleIcon}>{isOwned ? '✔' : '+'}</span>
       {isOwned ? 'Owned' : 'Not Owned'}
     </Badge>
   )
