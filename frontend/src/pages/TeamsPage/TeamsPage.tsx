@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom'
 import { getTeams, createTeam, deleteTeam, updateTeam } from '../../api'
 import { Character, Team, User } from '../../types'
 import { Grid } from '../../components/ui'
+import SavedTeamCard from '../../components/SavedTeamCard/SavedTeamCard'
 
 import styles from './TeamsPage.module.scss'
 
 interface TeamsPageProps {
   user: User | null
 }
-
 
 export default function TeamsPage({ user }: TeamsPageProps) {
   const [characters, setCharacters] = useState<Character[]>([])
@@ -158,7 +158,7 @@ export default function TeamsPage({ user }: TeamsPageProps) {
                 {selectedIds.map(selectedId => {
                   const selectedCharacter = characters.filter(character => character.id === selectedId)[0]
                   return (
-                    <div className={styles.slotRow}>
+                    <div className={styles.slotRow} key={selectedCharacter.id}>
                       <span
                         className={styles.characterInTeam}
                         style={{ backgroundImage: `url(${selectedCharacter.imageUrl})` }}
@@ -177,7 +177,7 @@ export default function TeamsPage({ user }: TeamsPageProps) {
                   const imgUrl = `/images/elements/${attrType}.webp`;
                   const characterWithAttr = characters.filter(character => selectedIds.indexOf(character.uid) > -1 && character.attribute.toLowerCase() === attrType);
                   const isPresent = characterWithAttr.length > 0;
-                  return (<img src={imgUrl} className={`${styles.attributeIcon}${isPresent ? ' ' + styles['attributeIcon--active'] : ''}`}/>)
+                  return (<img key={attrType} src={imgUrl} className={`${styles.attributeIcon}${isPresent ? ' ' + styles['attributeIcon--active'] : ''}`}/>)
                 })}</div>
                 {
                 <button className={styles.saveButton} type="submit" disabled={saving || selectedIds.length < 3}>
@@ -195,55 +195,14 @@ export default function TeamsPage({ user }: TeamsPageProps) {
             <p>No saved teams yet.</p>
           ) : (
             <Grid minItemWidth={320}>
-              {teams.map((team) => {
-                const createdDate = new Date(team.createdDate);
-                const friendlyDate = `Created on: ${createdDate.toLocaleString('default', { 
-                  month: 'long',
-                  day: 'numeric',
-                  year: 'numeric'
-                })}`
-                return (
-                  <div key={team.uid} className={`${styles.panel} ${styles.team}`}>
-                    <div className={styles.teamHeader}>
-                      <div>
-                        <h4 style={{ margin: 0 }}>{team.name}</h4>
-                        <small style={{ color: '#94a3b8', display: 'block', marginBottom: '1rem' }}>{friendlyDate}</small>
-                      </div>
-                      <button
-                        type="button"
-                        className={styles.deleteButton}
-                        onClick={() => handleDeleteTeam(team.uid)}
-                      >
-                        &times;
-                      </button>
-                    </div>
-                    <div style={{ display: 'flex', gap: '8px' }}>
-                      {team.characters.map((character) => {
-                        return (
-                          <div
-                            key={team.uid + '-' + character.id}
-                            className={styles.characterInTeam}
-                            style={{
-                              backgroundImage: `url(${character.imageUrl})`
-                            }}
-                          />
-                        )
-                      })}
-                    </div>
-                    <div style={{display: 'flex', flexDirection: 'row',  marginTop: '1rem', alignItems: 'flex-end'}}>
-                      <div className={styles.attributesContainer}>{
-                        Array.from(new Set(team.characters.map((c) => c.attribute))).map(attr => <img src={ `/images/elements/${attr.toLowerCase()}.webp`} className={`${styles.attributeIcon} ${styles['attributeIcon--active']}`} />)}</div>
-                      <button
-                        type="button"
-                        className={styles.editButton}
-                        onClick={() => handleEditTeam(team)}
-                      >
-                        Edit
-                      </button>
-                    </div>
-                  </div>
-                )
-              })}
+              {teams.map((team) => (
+                <SavedTeamCard
+                  key={team.uid}
+                  team={team}
+                  onDelete={handleDeleteTeam}
+                  onEdit={handleEditTeam}
+                />
+              ))}
             </Grid>
           )}
         </section>
