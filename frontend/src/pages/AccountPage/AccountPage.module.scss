@@ -1,0 +1,103 @@
+@use '../../styles/tokens' as *;
+
+.mostUsedCharacters {
+    display: flex;
+}
+
+.topCharacterListItem__icon {
+    width: 3rem;
+    height: 3rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: inline-block;
+    border-radius: 0.5rem;
+}
+
+.topCharactersList {
+    counter-reset: item;
+    list-style: none;
+    padding: 2.5rem 3rem;
+    width: 100%;
+    background-color: $color-background;
+    border: 1px solid $color-border;
+}
+
+.topCharacterListItem {
+    counter-increment: item;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid $color-border;
+    border-radius: 0.5rem;
+    padding: 0.6rem 1.25rem;
+    background-color: $color-background-secondary;
+    &::before {
+        content: counter(item);
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: $color-text-muted;
+    }
+    &:not(:last-child) {
+        margin-bottom: 0.75rem;
+    }
+}
+
+.topCharacterListItem__details {
+    display: flex;
+    flex-direction: column;
+}
+
+.topCharacterListItem__attribute {
+    font-weight: 600;
+    &.passion {
+        color: $passion-color;
+    }
+    &.instinct {
+        color: $instinct-color;
+    }
+    &.order {
+        color: $order-color;
+    }
+    &.justice {
+        color: $justice-color;
+    }
+    &.void {
+        color: $void-color;
+    }
+}
+
+.topCharacterListItem__countDetails {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.topCharacterListItem__teamCount {
+    color: $color-text-muted;
+    span {
+        color: white;
+    }
+}
+
+.topCharacterListItem__percentageBar {
+    height: 0.5rem;
+    width: 8rem;
+    border-radius: 4rem;
+    border: 1px solid $color-border;
+    &.passion {
+        background-color: $passion-color;
+    }
+    &.instinct {
+        background-color: $instinct-color;
+    }
+    &.order {
+        background-color: $order-color;
+    }
+    &.justice {
+        background-color: $justice-color;
+    }
+    &.void {
+        background-color: $void-color;
+    }
+}
