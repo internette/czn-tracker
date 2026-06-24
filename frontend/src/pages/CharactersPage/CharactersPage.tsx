@@ -134,7 +134,7 @@ export default function CharactersPage({ user }: CharactersPageProps) {
 
       {loading ? (
         <LoadingState message="Loading characters..." />
-      ) : <Grid cols={4} gap={12}>
+      ) : <Grid minItemWidth={200}>
           {sortedCharacters.map((character) => (
             <CharacterCard
               key={character.id ?? character.name}

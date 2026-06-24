@@ -1,6 +1,9 @@
-
+@use '../../styles/tokens' as *;
 
 .characters-page {
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: $space-xl;
   &__header {
     display: flex;
     align-items: center;
