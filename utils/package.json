@@ -7,7 +7,8 @@
     "scrapePartners": "tsx ./scrapers/outputPartners.ts",
     "insertData": "tsx ./data/insertions/import-data.ts",
     "createUserData": "tsx ./data/insertions/users.ts",
-    "buildDatabase": "npm run insertData && npm run createUserData",
+    "createTeamsData": "tsx ./data/insertions/teams.ts",
+    "buildDatabase": "npm run insertData && npm run createUserData && npm run createTeamsData",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
