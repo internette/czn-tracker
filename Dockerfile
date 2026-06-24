@@ -36,6 +36,7 @@ WORKDIR /app
 RUN cd utils && npm install && npm run buildDatabase
 
 # Build backend binary
+WORKDIR /app/backend
 RUN CGO_ENABLED=0 GOOS=linux go build -o /app/czn-tracker .
 
 # Final image
