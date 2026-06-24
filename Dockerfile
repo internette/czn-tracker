@@ -32,6 +32,7 @@ RUN go mod tidy
 RUN mkdir -p /app/data
 
 # Build SQLite database if not exists
+WORKDIR /app
 RUN cd utils && npm install && npm run buildDatabase
 
 # Build backend binary
