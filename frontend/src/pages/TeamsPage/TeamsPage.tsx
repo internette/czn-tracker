@@ -165,7 +165,7 @@ export default function TeamsPage({ user }: TeamsPageProps) {
                       />
                       <p className={styles.selectedCharacterDetails}>
                         <span className={styles.teamBuilderCharacterName}>{selectedCharacter.name}</span>
-                        <span className={styles.attributeName}>
+                        <span className={`${styles.attributeName} ${styles[selectedCharacter.attribute.toLowerCase()]}`}>
                           {selectedCharacter.attribute}
                         </span>
                       </p>

@@ -230,6 +230,22 @@
   display: flex;
   align-items: center;
   gap: 0.1875rem;
+  font-weight: 600;
+  &.passion {
+      color: $passion-color;
+  }
+  &.justice {
+      color: $justice-color;
+  }
+  &.order {
+      color: $order-color;
+  }
+  &.instinct {
+      color: $instinct-color;
+  }
+  &.void {
+      color: $void-color;
+  }
 }
 
 .editButton {

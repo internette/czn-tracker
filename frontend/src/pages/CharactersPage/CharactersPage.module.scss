@@ -108,7 +108,7 @@
     color: #6b7199;
     outline: none;
     cursor: pointer;
-
+    transition: 1s all;
     &:hover {
       border-color: #3d4a70;
       color: #e5e7eb;
@@ -124,6 +124,7 @@
     display: flex;
     gap: 6px;
     flex-wrap: wrap;
+    margin-bottom: 1rem;
   }
 
   &__attribute-filter {

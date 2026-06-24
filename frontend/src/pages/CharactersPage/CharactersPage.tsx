@@ -108,9 +108,6 @@ export default function CharactersPage({ user }: CharactersPageProps) {
           <option value="name">Sort: Name A–Z</option>
         </select>
       </div>
-      <p className={styles['characters-page__result-count']}>
-        Showing {filteredCharacters.length} out of {characters.length}
-      </p>
       <div className={styles['characters-page__attribute-filters']}>
         {attributeTypes.map((attr) => (
           <button
@@ -134,7 +131,9 @@ export default function CharactersPage({ user }: CharactersPageProps) {
             All
           </button>
       </div>
-
+      <p className={styles['characters-page__result-count']}>
+        Showing {filteredCharacters.length} out of {characters.length}
+      </p>
       {loading ? (
         <LoadingState message="Loading characters..." />
       ) : <Grid minItemWidth={200}>
