@@ -24,6 +24,9 @@ COPY utils ./utils
 # Install Go dependencies
 RUN cd backend && go mod tidy
 
+# Make necessary directory for database
+RUN mkdir -p /app/utils/data
+
 # Build SQLite database if not exists
 RUN cd utils && npm install && npm run buildDatabase
 
