@@ -130,7 +130,9 @@ export default function Header({ user }: HeaderProps) {
         <div style={headerStyles.right}>
           {user ? (
             <>
-              <span style={headerStyles.userName}>{user.name}</span>
+              <Link to="/account" className="user-name" style={headerStyles.userName}>
+                {user.name}
+              </Link>
               <Button
                 href="http://localhost:8080/auth/logout"
                 variant="secondary"
