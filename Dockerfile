@@ -21,6 +21,7 @@ COPY backend/go.mod backend/go.sum ./
 COPY backend ./
 
 # Copy utils (needed for sqlite DB generation)
+WORKDIR /app
 COPY utils ./utils
 
 # Install Go dependencies
