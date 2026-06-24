@@ -1,5 +1,7 @@
 # Build frontend assets
 FROM node:20-alpine AS frontend-builder
+ARG VITE_GOOGLE_CLIENT_ID
+ENV VITE_GOOGLE_CLIENT_ID=$VITE_GOOGLE_CLIENT_ID
 WORKDIR /app/frontend
 COPY frontend/package.json frontend/vite.config.ts frontend/tsconfig.json frontend/tsconfig.node.json frontend/index.html ./
 COPY frontend/public ./public
