@@ -1,3 +1,12 @@
 node_modules
+dist
+.DS_Store
 .env
-
+.env*
+*.log
+data.json
+*.db
+frontend/node_modules
+backend/bin
+characters.json
+partners.json

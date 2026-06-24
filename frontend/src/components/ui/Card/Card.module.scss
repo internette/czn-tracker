@@ -1,0 +1,21 @@
+.card {
+  background: linear-gradient(180deg, rgba(16,24,40,0.95) 0%, rgba(11,18,32,0.98) 100%);
+  border: 1px solid #24314f;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right center;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+  transition: all 0.3s ease;
+}
+
+.interactive {
+  cursor: pointer;
+
+  &:hover {
+    border-color: #38bdf8;
+    box-shadow: 0 8px 24px rgba(56, 189, 248, 0.2);
+    transform: translateY(-2px);
+  }
+}

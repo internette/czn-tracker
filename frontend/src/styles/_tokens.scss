@@ -1,0 +1,49 @@
+
+
+// Colors
+$color-background: #0b1220;
+$color-background-secondary: #111827;
+
+$color-border: #24314f;
+$color-border-light: #334155;
+
+$color-text-primary: #f8fafc;
+$color-text-muted: #94a3b8;
+
+$color-accent: #4f7cff;
+$color-accent-light: #38bdf8;
+
+$color-danger: #fb7185;
+
+// Spacing
+$space-xs: 0.5rem;
+$space-sm: 0.75rem;
+$space-md: 1rem;
+$space-lg: 1.5rem;
+$space-xl: 2rem;
+
+// Border Radius
+$radius-sm: 0.3125rem;
+$radius-md: 0.75rem;
+$radius-lg: 1rem;
+$radius-xl: 1.5rem;
+
+// Layout
+$container-max-width: 90rem;
+$sidebar-width: 25rem;
+
+// Effects
+$shadow-panel: 0 0.75rem 2.5rem rgba(0, 0, 0, 0.35);
+$shadow-selected: 0 0 0 0.125rem $color-accent,
+  0 0.5rem 1.5rem rgba(79, 124, 255, 0.35);
+@function selected-shadow($color) {
+  @return 0 0 0 0.125rem $color,
+    0 0.5rem 1.5rem rgba($color, 0.35);
+}
+
+//   Colors
+$instinct-color: #D38F20;
+$passion-color: #BF3153;
+$justice-color: #349DDF;
+$order-color: #21B47E;
+$void-color: #9A4CCB;

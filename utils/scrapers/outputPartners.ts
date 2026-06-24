@@ -5,7 +5,7 @@ import { scrapeAllPartners } from "./allPartners";
 
 export async function runPartnerScraper() {
     const [partners] = await Promise.all([
-        scrapeAllPartners(),
+        scrapeAllPartners()
     ]);
 
     const output = {

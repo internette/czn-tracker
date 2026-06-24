@@ -1,0 +1,11 @@
+.badge {
+  display: inline-block;
+  border: 1px solid white;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.8rem;
+  transition: 0.15s all;
+
+  &:hover {
+    cursor: pointer;
+  }
+}

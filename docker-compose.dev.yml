@@ -1,0 +1,26 @@
+version: '3.9'
+
+services:
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - '8080:8080'
+      - '5173:5173'
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
+      - ./frontend:/app/frontend
+      - frontend-node-modules:/app/frontend/node_modules
+      - ./backend:/app/backend
+    stdin_open: true
+    tty: true
+    environment:
+      - STORAGE_ENGINE=sqlite
+      - SQLITE_PATH=/app/data/czn-tracker.db
+    restart: unless-stopped
+
+volumes:
+  frontend-node-modules:

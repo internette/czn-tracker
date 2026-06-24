@@ -1,0 +1,28 @@
+FROM node:20-alpine
+
+# Install Go and build tools
+RUN apk add --no-cache go git build-base ca-certificates
+
+WORKDIR /app
+
+# Copy sources
+COPY backend ./backend
+COPY frontend ./frontend
+COPY .env ./
+
+# Build backend binary
+WORKDIR /app/backend
+RUN go mod tidy
+RUN CGO_ENABLED=0 GOOS=linux go build -o /app/czn-tracker .
+
+WORKDIR /app/frontend
+# DO NOT run npm install here; entrypoint will do it fresh
+
+EXPOSE 8080 5173
+
+COPY entrypoint-dev.sh /entrypoint-dev.sh
+RUN chmod +x /entrypoint-dev.sh
+
+ENV FRONTEND_URL=http://localhost:5173 BACKEND_URL=http://localhost:8080
+
+CMD ["/entrypoint-dev.sh"]
