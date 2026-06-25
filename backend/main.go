@@ -811,7 +811,9 @@ func main() {
 		c.File(filepath.Join(frontendDist, "index.html"))
 	})
 
-	r.POST("/auth/google/login", func(c *gin.Context) {
+	api := r.Group("/api")
+
+	api.POST("/auth/google/login", func(c *gin.Context) {
 		clientID := envFirst("GOOGLE_CLIENT_ID", "VITE_GOOGLE_CLIENT_ID")
 		if clientID == "" {
 			c.JSON(http.StatusInternalServerError, gin.H{"error": "missing google client id"})
@@ -888,7 +890,7 @@ func main() {
 		c.JSON(http.StatusOK, gin.H{"user": user})
 	})
 
-	r.GET("/me", func(c *gin.Context) {
+	api.GET("/me", func(c *gin.Context) {
 		sessionUser, ok := currentUser(c.Request, cookieCodec)
 		if !ok {
 			c.JSON(http.StatusOK, gin.H{"user": nil})
@@ -904,7 +906,7 @@ func main() {
 		c.JSON(http.StatusOK, gin.H{"user": user})
 	})
 
-	r.GET("/users/:id", func(c *gin.Context) {
+	api.GET("/users/:id", func(c *gin.Context) {
 		id := c.Param("id")
 
 		user, err := store.GetUserByID(c.Request.Context(), id)
@@ -922,7 +924,7 @@ func main() {
 		c.JSON(http.StatusOK, gin.H{"user": user})
 	})
 
-	r.POST("/users/:id/characters/:characterId", func(c *gin.Context) {
+	api.POST("/users/:id/characters/:characterId", func(c *gin.Context) {
 		userID := c.Param("id")
 		characterID := c.Param("characterId")
 
@@ -943,7 +945,7 @@ func main() {
 		c.JSON(http.StatusOK, gin.H{"user": user})
 	})
 
-	r.DELETE("/users/:id/characters/:characterId", func(c *gin.Context) {
+	api.DELETE("/users/:id/characters/:characterId", func(c *gin.Context) {
 		userID := c.Param("id")
 		characterID := c.Param("characterId")
 
@@ -977,11 +979,11 @@ func main() {
 		c.JSON(http.StatusOK, gin.H{"ok": true})
 	}
 
-	r.POST("/auth/logout", logoutHandler)
-	r.GET("/auth/logout", logoutHandler)
+	api.POST("/auth/logout", logoutHandler)
+	api.GET("/auth/logout", logoutHandler)
 
 	// Register the GET endpoint group endpoint
-	r.GET("/characters", func(c *gin.Context) {
+	api.GET("/characters", func(c *gin.Context) {
 		characters, err := store.ListCharacters(c.Request.Context())
 		if err != nil {
 			log.Printf("Error pulling characters: %v", err)
@@ -992,7 +994,7 @@ func main() {
 		c.JSON(http.StatusOK, characters)
 	})
 
-	r.GET("/characters/:id", func(c *gin.Context) {
+	api.GET("/characters/:id", func(c *gin.Context) {
 		id := c.Param("id")
 
 		character, err := store.GetCharacterByID(c.Request.Context(), id)
@@ -1005,7 +1007,7 @@ func main() {
 		c.JSON(http.StatusOK, character)
 	})
 
-	r.PUT("/characters/:id", func(c *gin.Context) {
+	api.PUT("/characters/:id", func(c *gin.Context) {
 		id := c.Param("id")
 
 		var input UpdateCharacterInput
@@ -1028,7 +1030,7 @@ func main() {
 		c.JSON(http.StatusOK, character)
 	})
 
-	r.POST("/characters/:id/edit", func(c *gin.Context) {
+	api.POST("/characters/:id/edit", func(c *gin.Context) {
 		id := c.Param("id")
 		input := UpdateCharacterInput{
 			Name:      c.PostForm("name"),
@@ -1069,7 +1071,7 @@ func main() {
 		c.JSON(http.StatusOK, character)
 	})
 
-	r.GET("/partners", func(c *gin.Context) {
+	api.GET("/partners", func(c *gin.Context) {
 		partners, err := store.ListPartners(c.Request.Context())
 		if err != nil {
 			log.Printf("Error pulling partners: %v", err)
@@ -1080,7 +1082,7 @@ func main() {
 		c.JSON(http.StatusOK, partners)
 	})
 
-	r.GET("/teams", func(c *gin.Context) {
+	api.GET("/teams", func(c *gin.Context) {
 		teams, err := store.ListTeams(c.Request.Context())
 		if err != nil {
 			log.Printf("Error loading teams: %v", err)
@@ -1093,7 +1095,7 @@ func main() {
 		c.JSON(http.StatusOK, teams)
 	})
 
-	r.POST("/teams", func(c *gin.Context) {
+	api.POST("/teams", func(c *gin.Context) {
 		var input CreateTeamInput
 
 		if err := c.ShouldBindJSON(&input); err != nil {
@@ -1127,7 +1129,7 @@ func main() {
 		c.JSON(http.StatusCreated, team)
 	})
 
-	r.PUT("/teams/:id", func(c *gin.Context) {
+	api.PUT("/teams/:id", func(c *gin.Context) {
 		id := c.Param("id")
 
 		var input UpdateTeamInput
@@ -1216,7 +1218,7 @@ func main() {
 		})
 	})
 
-	r.DELETE("/teams/:id", func(c *gin.Context) {
+	api.DELETE("/teams/:id", func(c *gin.Context) {
 		id := c.Param("id")
 
 		err := store.DeleteTeam(c.Request.Context(), id)
