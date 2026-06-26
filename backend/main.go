@@ -794,6 +794,13 @@ func main() {
 	r.Use(corsMiddleware())
 	wd, _ := os.Getwd()
 	imageRoot := filepath.Join(wd, "data", "images")
+	log.Println("WD:", wd)
+	log.Println("IMAGE ROOT:", imageRoot)
+
+	files, _ := os.ReadDir(imageRoot)
+	for _, f := range files {
+		log.Println("FOUND FILE:", f.Name())
+	}
 	characterImageDir := filepath.Join(imageRoot, "characters")
 
 	if err := os.MkdirAll(characterImageDir, 0755); err != nil {
