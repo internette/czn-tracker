@@ -792,7 +792,8 @@ func main() {
 	// Initialize Gin router instance
 	r := gin.Default()
 	r.Use(corsMiddleware())
-	imageRoot := filepath.Join("data", "images")
+	wd, _ := os.Getwd()
+	imageRoot := filepath.Join(wd, "data", "images")
 	characterImageDir := filepath.Join(imageRoot, "characters")
 
 	if err := os.MkdirAll(characterImageDir, 0755); err != nil {
@@ -813,6 +814,14 @@ func main() {
 	})
 
 	r.NoRoute(func(c *gin.Context) {
+		path := c.Request.URL.Path
+
+		// don't override static assets
+		if strings.HasPrefix(path, "/images/") {
+			c.Status(404)
+			return
+		}
+
 		c.File(filepath.Join(frontendDist, "index.html"))
 	})
 
