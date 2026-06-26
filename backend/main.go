@@ -767,13 +767,27 @@ func (s *Store) DeleteTeam(ctx context.Context, uid string) error {
 }
 
 func main() {
-	dbPath := filepath.Clean("../data/czn-tracker.db")
+	dbPath := filepath.Join("data", "czn-tracker.db")
+	if err := os.MkdirAll("data", 0755); err != nil {
+		log.Fatalf("failed to create data dir: %v", err)
+	}
 
 	db, err := sql.Open("sqlite", dbPath)
 	if err != nil {
 		log.Fatalf("Failed to open sqlite database: %v", err)
 	}
 	defer db.Close()
+	rows, err := db.Query("SELECT name FROM sqlite_master WHERE type='table'")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer rows.Close()
+
+	for rows.Next() {
+		var name string
+		rows.Scan(&name)
+		log.Println("TABLE:", name)
+	}
 
 	store := &Store{
 		useSQLite: true,
