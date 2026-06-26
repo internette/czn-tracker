@@ -22,7 +22,7 @@ export default function CharacterCard({ character, user }: CharacterCardProps) {
             <h3 className={styles.title}>{character.name}</h3>
             <small className={`${styles.attribute} ${styles[character.attribute.toLowerCase()]}`}>{character.attribute}</small>
           </div>
-          <OwnedToggleBadge character={character} user={user} />
+          {user && <OwnedToggleBadge character={character} user={user} />}
         </div>
         <Link
           to={`/characters/${character.id}`}

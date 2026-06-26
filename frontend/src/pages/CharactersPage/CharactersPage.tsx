@@ -78,10 +78,10 @@ export default function CharactersPage({ user }: CharactersPageProps) {
       </div>
 
       <div className={styles['characters-page__stats']}>
-        <div className={styles['characters-page__stat-chip']}>
+        {user && <div className={styles['characters-page__stat-chip']}>
           <strong>{user?.charactersOwned.length}</strong>
           <div className={styles['characters-page__meta']}>Owned Characters</div>
-        </div>
+        </div>}
         <div className={styles['characters-page__stat-chip']}>
           <strong>{characters.length}</strong>
           <div className={styles['characters-page__meta']}>Total Characters</div>
