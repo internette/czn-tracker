@@ -777,17 +777,6 @@ func main() {
 		log.Fatalf("Failed to open sqlite database: %v", err)
 	}
 	defer db.Close()
-	rows, err := db.Query("SELECT name FROM sqlite_master WHERE type='table'")
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer rows.Close()
-
-	for rows.Next() {
-		var name string
-		rows.Scan(&name)
-		log.Println("TABLE:", name)
-	}
 
 	store := &Store{
 		useSQLite: true,
@@ -803,12 +792,14 @@ func main() {
 	// Initialize Gin router instance
 	r := gin.Default()
 	r.Use(corsMiddleware())
-	characterImageDir := characterImageUploadDir()
+	imageRoot := filepath.Join("data", "images")
+	characterImageDir := filepath.Join(imageRoot, "characters")
+
 	if err := os.MkdirAll(characterImageDir, 0755); err != nil {
-		log.Printf("Error creating character image directory: %v", err)
-	} else {
-		r.Static("/images", filepath.Dir(characterImageDir))
+		log.Fatalf("failed to create image directory: %v", err)
 	}
+
+	r.Static("/images", imageRoot)
 
 	// -------------------------
 	// Serve frontend (production build)
@@ -1301,7 +1292,7 @@ func saveCharacterImage(c *gin.Context, file *multipart.FileHeader, characterNam
 		return "", errors.New("unsupported image extension")
 	}
 
-	uploadDir := characterImageUploadDir()
+	uploadDir := filepath.Join("data", "images", "characters")
 	if err := os.MkdirAll(uploadDir, 0755); err != nil {
 		return "", err
 	}
@@ -1319,27 +1310,6 @@ func saveCharacterImage(c *gin.Context, file *multipart.FileHeader, characterNam
 	}
 
 	return characterImageURLPrefix + "/" + filename, nil
-}
-
-func characterImageUploadDir() string {
-	if imageDir := os.Getenv("CHARACTER_IMAGE_DIR"); imageDir != "" {
-		return imageDir
-	}
-
-	candidates := []string{
-		filepath.Join("public", "images", "characters"),
-		filepath.Join("frontend", "public", "images", "characters"),
-		filepath.Join("..", "frontend", "public", "images", "characters"),
-	}
-
-	for _, candidate := range candidates {
-		parent := filepath.Dir(candidate)
-		if _, err := os.Stat(parent); err == nil {
-			return candidate
-		}
-	}
-
-	return filepath.Join("frontend", "public", "images", "characters")
 }
 
 func corsMiddleware() gin.HandlerFunc {
