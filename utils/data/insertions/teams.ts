@@ -31,9 +31,14 @@ async function setupDatabase() {
             uid TEXT PRIMARY KEY,
             name TEXT NOT NULL,
             character_ids TEXT NOT NULL,
-            created_date TEXT NOT NULL
+            created_date TEXT NOT NULL,
+            created_by TEXT NOT NULL
         )
     `);
+
+    await dbRun(`
+        ALTER TABLE teams ADD COLUMN created_by TEXT NOT NULL DEFAULT ''
+    `).catch(() => {});
 
     console.log("Teams table created");
 }

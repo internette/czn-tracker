@@ -19,9 +19,17 @@
   margin: 0;
 }
 
-.teamDate {
+.teamCreator, .teamDate {
   color: #94a3b8;
   display: block;
+}
+
+.teamCreator {
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+}
+
+.teamDate {
   margin-bottom: 1rem;
 }
 

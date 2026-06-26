@@ -46,4 +46,5 @@ export interface Team {
   name: string
   characters: Character[]
   createdDate: number
+  createdBy: string
 }

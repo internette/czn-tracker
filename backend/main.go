@@ -106,6 +106,7 @@ type Team struct {
 	Name        string      `json:"name"`
 	Characters  []Character `json:"characters"`
 	CreatedDate string      `json:"createdDate"`
+	CreatedBy   string      `json:"createdBy"`
 }
 
 type CreateTeamInput struct {
@@ -662,7 +663,7 @@ func (s *Store) RemoveCharacterFromUser(ctx context.Context, userID string, char
 	return err
 }
 
-func (s *Store) CreateTeam(ctx context.Context, input CreateTeamInput) (Team, error) {
+func (s *Store) CreateTeam(ctx context.Context, input CreateTeamInput, createdBy string) (Team, error) {
 	uid := uuid.NewString()
 
 	characterIDs, err := json.Marshal(input.CharacterIDs)
@@ -677,10 +678,11 @@ func (s *Store) CreateTeam(ctx context.Context, input CreateTeamInput) (Team, er
 			uid,
 			name,
 			character_ids,
-			created_date
+			created_date,
+			created_by
 		)
-		VALUES (?, ?, ?, ?)
-	`, uid, input.Name, string(characterIDs), createdDate)
+		VALUES (?, ?, ?, ?, ?)
+	`, uid, input.Name, string(characterIDs), createdDate, createdBy)
 	if err != nil {
 		return Team{}, err
 	}
@@ -700,6 +702,7 @@ func (s *Store) CreateTeam(ctx context.Context, input CreateTeamInput) (Team, er
 		Name:        input.Name,
 		Characters:  characters,
 		CreatedDate: createdDate,
+		CreatedBy:   createdBy,
 	}, nil
 }
 
@@ -709,7 +712,8 @@ func (s *Store) ListTeams(ctx context.Context) ([]Team, error) {
 			uid,
 			name,
 			character_ids,
-			created_date
+			created_date,
+			created_by
 		FROM teams
 		ORDER BY created_date DESC
 	`)
@@ -729,6 +733,7 @@ func (s *Store) ListTeams(ctx context.Context) ([]Team, error) {
 			&team.Name,
 			&characterIDsJSON,
 			&team.CreatedDate,
+			&team.CreatedBy,
 		); err != nil {
 			return nil, err
 		}
@@ -1117,6 +1122,12 @@ func main() {
 	})
 
 	api.POST("/teams", func(c *gin.Context) {
+		sessionUser, ok := currentUser(c.Request, cookieCodec)
+		if !ok {
+			c.JSON(http.StatusUnauthorized, gin.H{"error": "not authenticated"})
+			return
+		}
+
 		var input CreateTeamInput
 
 		if err := c.ShouldBindJSON(&input); err != nil {
@@ -1138,7 +1149,7 @@ func main() {
 			return
 		}
 
-		team, err := store.CreateTeam(c.Request.Context(), input)
+		team, err := store.CreateTeam(c.Request.Context(), input, sessionUser.UID)
 		if err != nil {
 			log.Printf("Error creating team: %v", err)
 			c.JSON(http.StatusInternalServerError, gin.H{

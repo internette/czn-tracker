@@ -20,7 +20,8 @@ export default function SavedTeamCard({ team, onDelete, onEdit }: SavedTeamCardP
       <div className={styles.teamHeader}>
         <div>
           <h4 className={styles.teamTitle}>{team.name}</h4>
-          <small className={styles.teamDate}>{friendlyDate}</small>
+          <small className={styles.teamCreator}>By: {team.createdBy}</small>
+          <small className={styles.teamDate}>Created On: {friendlyDate}</small>
         </div>
         <button
           type="button"
