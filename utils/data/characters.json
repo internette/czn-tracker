@@ -1,0 +1,2821 @@
+[
+  {
+    "uid": "heidemarie",
+    "id": "heidemarie",
+    "name": "Heidemarie",
+    "image_url": "https://img.game8.co/4480682/b15a03f0399b667d26f12fe41ba3f1d2.png/show",
+    "tier": "SS",
+    "type": "Ranger",
+    "faction": "Terrascion",
+    "rarity": "★★★★★",
+    "attribute": "Passion",
+    "stats": [
+      {
+        "friendlyName": "Attack",
+        "id": "Attack",
+        "value": "180"
+      },
+      {
+        "friendlyName": "Defense",
+        "id": "Defense",
+        "value": "40"
+      },
+      {
+        "friendlyName": "Health",
+        "id": "Health",
+        "value": "75"
+      },
+      {
+        "friendlyName": "Critical Chance",
+        "id": "Critical_Chance",
+        "value": "3%"
+      },
+      {
+        "friendlyName": "Critical Damage",
+        "id": "Critical_Damage",
+        "value": "125%"
+      }
+    ],
+    "bestEquipment": [
+      {
+        "type": "Weapon",
+        "name": "Intellect of Discord",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/578483",
+        "img": "https://img.game8.co/4406244/1ab8c2cc6ae4c5e31ddffb9d28fdf627.png/show"
+      },
+      {
+        "type": "Armor",
+        "name": "Fairy King's Crown",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/561114",
+        "img": "https://img.game8.co/4317408/51cc62cd9d8561b9c24662e02113f5f8.png/show"
+      },
+      {
+        "type": "Accessory",
+        "name": "Dimensional Cube",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/566473",
+        "img": "https://img.game8.co/4340238/9ec8c8293a839eeb21407c29ca299288.png/show"
+      }
+    ],
+    "bestPartner": {
+      "name": "Sylvia",
+      "uid": "sylvia"
+    },
+    "bestTeammates": [
+      {
+        "role": "Sub DPS",
+        "name": "Hugo",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560110"
+      },
+      {
+        "role": "Support",
+        "name": "Cassius",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560121"
+      }
+    ],
+    "bestMemoryFragments": {
+      "fourPieceSet": {
+        "name": "Prelude to a Hero Set",
+        "id": "prelude-to-a-hero-set"
+      },
+      "twoPieceSet": {
+        "name": "Executioner's Tool Set",
+        "id": "executioners-tool-set"
+      }
+    },
+    "bestChaosZones": [],
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/597260",
+    "updatedAt": "2026-06-17T05:02:01.701Z"
+  },
+  {
+    "uid": "veronica",
+    "id": "veronica",
+    "name": "Veronica",
+    "image_url": "https://img.game8.co/4304170/0879960781aa18b9f5531d5d51d0afea.png/show",
+    "tier": "SS",
+    "type": "Ranger",
+    "faction": "Stella Familia",
+    "rarity": "★★★★★",
+    "attribute": "Passion",
+    "stats": [
+      {
+        "friendlyName": "Attack",
+        "id": "Attack",
+        "value": "180"
+      },
+      {
+        "friendlyName": "Defense",
+        "id": "Defense",
+        "value": "40"
+      },
+      {
+        "friendlyName": "Health",
+        "id": "Health",
+        "value": "75"
+      },
+      {
+        "friendlyName": "Critical Chance",
+        "id": "Critical_Chance",
+        "value": "3%"
+      },
+      {
+        "friendlyName": "Critical Damage",
+        "id": "Critical_Damage",
+        "value": "125%"
+      }
+    ],
+    "bestEquipment": [
+      {
+        "type": "Weapon",
+        "name": "Tentacles of Chaos",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/578479",
+        "img": "https://img.game8.co/4406243/d837f963a1a8fca46e53e6403ad95aac.png/show"
+      },
+      {
+        "type": "Armor",
+        "name": "Cloud-Walking Shoes",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560433",
+        "img": "https://img.game8.co/4315472/8805fd02f4de333316c7d45ddc15ace3.png/show"
+      },
+      {
+        "type": "Accessory",
+        "name": "Amorphous Cube",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560459",
+        "img": "https://img.game8.co/4315535/02b92efbd6bed9b3c506c1fb22ce4523.png/show"
+      }
+    ],
+    "bestPartner": {
+      "name": "Rosaria",
+      "uid": "rosaria"
+    },
+    "bestTeammates": [
+      {
+        "role": "Date",
+        "name": ""
+      },
+      {
+        "role": "Changes",
+        "name": ""
+      }
+    ],
+    "bestChaosZones": [],
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560112",
+    "updatedAt": "2026-06-17T05:02:02.493Z"
+  },
+  {
+    "uid": "cassius",
+    "id": "cassius",
+    "name": "Cassius",
+    "image_url": "https://img.game8.co/4304156/affe48eb34cdeac348efa1eeb91cf724.png/show",
+    "tier": "SS",
+    "type": "Controller",
+    "faction": "Peltion",
+    "rarity": "★★★★",
+    "attribute": "Instinct",
+    "stats": [
+      {
+        "friendlyName": "Attack",
+        "id": "Attack",
+        "value": "129"
+      },
+      {
+        "friendlyName": "Defense",
+        "id": "Defense",
+        "value": "56"
+      },
+      {
+        "friendlyName": "Health",
+        "id": "Health",
+        "value": "74"
+      },
+      {
+        "friendlyName": "Critical Chance",
+        "id": "Critical_Chance",
+        "value": "3%"
+      },
+      {
+        "friendlyName": "Critical Damage",
+        "id": "Critical_Damage",
+        "value": "125%"
+      }
+    ],
+    "bestEquipment": [
+      {
+        "type": "Weapon",
+        "name": "Tentacles of Chaos",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/578479",
+        "img": "https://img.game8.co/4406243/d837f963a1a8fca46e53e6403ad95aac.png/show"
+      },
+      {
+        "type": "Armor",
+        "name": "Psionic Combat Suit",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/566466",
+        "img": "https://img.game8.co/4340230/463f704d11a0f2c04aa805ba637c29a1.png/show"
+      },
+      {
+        "type": "Accessory",
+        "name": "Clover of the Forest",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/561132",
+        "img": "https://img.game8.co/4317402/28229a313f5e067b5425245f2b53dd83.png/show"
+      }
+    ],
+    "bestPartner": {
+      "name": "Nyx",
+      "uid": "nyx"
+    },
+    "bestTeammates": [
+      {
+        "role": "Main-DPS",
+        "name": "Heidemarie",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/597260"
+      },
+      {
+        "role": "Support",
+        "name": "Hugo",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560110"
+      }
+    ],
+    "bestMemoryFragments": {
+      "fourPieceSet": {
+        "name": "Glory's Reign Set",
+        "id": "glorys-reign-set"
+      },
+      "twoPieceSet": {
+        "name": "Tetra's Authority Set",
+        "id": "tetras-authority-set"
+      }
+    },
+    "bestChaosZones": [],
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560121",
+    "updatedAt": "2026-06-17T05:02:01.824Z"
+  },
+  {
+    "uid": "hugo",
+    "id": "hugo",
+    "name": "Hugo",
+    "image_url": "https://img.game8.co/4304168/eed4a6605661c9857454e4b9e799edae.png/show",
+    "tier": "SS",
+    "type": "Ranger",
+    "faction": "Stella Familia",
+    "rarity": "★★★★★",
+    "attribute": "Order",
+    "stats": [
+      {
+        "friendlyName": "Attack",
+        "id": "Attack",
+        "value": "170"
+      },
+      {
+        "friendlyName": "Defense",
+        "id": "Defense",
+        "value": "45"
+      },
+      {
+        "friendlyName": "Health",
+        "id": "Health",
+        "value": "78"
+      },
+      {
+        "friendlyName": "Critical Chance",
+        "id": "Critical_Chance",
+        "value": "3%"
+      },
+      {
+        "friendlyName": "Critical Damage",
+        "id": "Critical_Damage",
+        "value": "125%"
+      }
+    ],
+    "bestEquipment": [
+      {
+        "type": "Weapon",
+        "name": "Intellect of Discord",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/578483",
+        "img": "https://img.game8.co/4406244/1ab8c2cc6ae4c5e31ddffb9d28fdf627.png/show"
+      },
+      {
+        "type": "Armor",
+        "name": "Fairy King's Crown",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/561114",
+        "img": "https://img.game8.co/4317408/51cc62cd9d8561b9c24662e02113f5f8.png/show"
+      },
+      {
+        "type": "Accessory",
+        "name": "Dimensional Cube",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/566473",
+        "img": "https://img.game8.co/4340238/9ec8c8293a839eeb21407c29ca299288.png/show"
+      }
+    ],
+    "bestPartner": {
+      "name": "Tina",
+      "uid": "tina"
+    },
+    "bestTeammates": [
+      {
+        "role": "Date",
+        "name": ""
+      },
+      {
+        "role": "Changes",
+        "name": ""
+      }
+    ],
+    "bestChaosZones": [],
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560110",
+    "updatedAt": "2026-06-17T05:02:02.571Z"
+  },
+  {
+    "uid": "selena",
+    "id": "selena",
+    "name": "Selena",
+    "image_url": "https://img.game8.co/4305679/03b153c5b755f211c70e12f2e86a7351.png/show",
+    "tier": "S",
+    "type": "Ranger",
+    "faction": "Stella Familia",
+    "rarity": "★★★★",
+    "attribute": "Passion",
+    "stats": [
+      {
+        "friendlyName": "Attack",
+        "id": "Attack",
+        "value": "166"
+      },
+      {
+        "friendlyName": "Defense",
+        "id": "Defense",
+        "value": "37"
+      },
+      {
+        "friendlyName": "Health",
+        "id": "Health",
+        "value": "69"
+      },
+      {
+        "friendlyName": "Critical Chance",
+        "id": "Critical_Chance",
+        "value": "3%"
+      },
+      {
+        "friendlyName": "Critical Damage",
+        "id": "Critical_Damage",
+        "value": "125%"
+      }
+    ],
+    "bestEquipment": [
+      {
+        "type": "Weapon",
+        "name": "Intellect of Discord",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/578483",
+        "img": "https://img.game8.co/4406244/1ab8c2cc6ae4c5e31ddffb9d28fdf627.png/show"
+      },
+      {
+        "type": "Armor",
+        "name": "Fairy King's Crown",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/561114",
+        "img": "https://img.game8.co/4317408/51cc62cd9d8561b9c24662e02113f5f8.png/show"
+      },
+      {
+        "type": "Accessory",
+        "name": "Amorphous Cube",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560459",
+        "img": "https://img.game8.co/4315535/02b92efbd6bed9b3c506c1fb22ce4523.png/show"
+      }
+    ],
+    "bestPartner": {
+      "name": "Rosaria",
+      "uid": "rosaria"
+    },
+    "bestTeammates": [
+      {
+        "role": "Main DPS",
+        "name": "Sereniel",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/564720"
+      },
+      {
+        "role": "Support",
+        "name": "Cassius",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560121"
+      }
+    ],
+    "bestMemoryFragments": {
+      "fourPieceSet": {
+        "name": "Black Wing Set",
+        "id": "black-wing-set"
+      },
+      "twoPieceSet": {
+        "name": "Cursed Corpse Set",
+        "id": "cursed-corpse-set"
+      }
+    },
+    "bestChaosZones": [],
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560127",
+    "updatedAt": "2026-06-17T05:02:01.931Z"
+  },
+  {
+    "uid": "nia",
+    "id": "nia",
+    "name": "Nia",
+    "image_url": "https://img.game8.co/4305686/32ace99b5082c78759df9eaf490c94df.png/show",
+    "tier": "S",
+    "type": "Controller",
+    "faction": "Terrascion",
+    "rarity": "★★★★",
+    "attribute": "Instinct",
+    "stats": [
+      {
+        "friendlyName": "Attack",
+        "id": "Attack",
+        "value": "129"
+      },
+      {
+        "friendlyName": "Defense",
+        "id": "Defense",
+        "value": "56"
+      },
+      {
+        "friendlyName": "Health",
+        "id": "Health",
+        "value": "74"
+      },
+      {
+        "friendlyName": "Critical Chance",
+        "id": "Critical_Chance",
+        "value": "3%"
+      },
+      {
+        "friendlyName": "Critical Damage",
+        "id": "Critical_Damage",
+        "value": "125%"
+      }
+    ],
+    "bestEquipment": [
+      {
+        "type": "Weapon",
+        "name": "Tentacles of Chaos",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/578479",
+        "img": "https://img.game8.co/4406243/d837f963a1a8fca46e53e6403ad95aac.png/show"
+      },
+      {
+        "type": "Armor",
+        "name": "Assault Boots",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560434",
+        "img": "https://img.game8.co/4315471/24a3c18a9f5ef2552d74f09426ed1d54.png/show"
+      },
+      {
+        "type": "Accessory",
+        "name": "Clover of the Forest",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/561132",
+        "img": "https://img.game8.co/4317402/28229a313f5e067b5425245f2b53dd83.png/show"
+      }
+    ],
+    "bestPartner": {
+      "name": "Nyx",
+      "uid": "nyx"
+    },
+    "bestTeammates": [
+      {
+        "role": "Main DPS",
+        "name": "Diana",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/592003"
+      },
+      {
+        "role": "Sub-DPS",
+        "name": "Rei",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560125"
+      }
+    ],
+    "bestMemoryFragments": {
+      "fourPieceSet": {
+        "name": "Healer's Journey Set",
+        "id": "healers-journey-set"
+      },
+      "twoPieceSet": {
+        "name": "Seth's Scarab Set",
+        "id": "seths-scarab-set"
+      }
+    },
+    "bestChaosZones": [],
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560124",
+    "updatedAt": "2026-06-17T05:02:02.086Z"
+  },
+  {
+    "uid": "sereniel",
+    "id": "sereniel",
+    "name": "Sereniel",
+    "image_url": "https://img.game8.co/4405683/3179bdd3305fc74d3463cc3acba40982.png/show",
+    "tier": "SS",
+    "type": "Hunter",
+    "faction": "Terrascion",
+    "rarity": "★★★★★",
+    "attribute": "Instinct",
+    "stats": [
+      {
+        "friendlyName": "Attack",
+        "id": "Attack",
+        "value": "170"
+      },
+      {
+        "friendlyName": "Defense",
+        "id": "Defense",
+        "value": "45"
+      },
+      {
+        "friendlyName": "Health",
+        "id": "Health",
+        "value": "78"
+      },
+      {
+        "friendlyName": "Critical Chance",
+        "id": "Critical_Chance",
+        "value": "3%"
+      },
+      {
+        "friendlyName": "Critical Damage",
+        "id": "Critical_Damage",
+        "value": "125%"
+      }
+    ],
+    "bestEquipment": [
+      {
+        "type": "Weapon",
+        "name": "Intellect of Discord",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/578483",
+        "img": "https://img.game8.co/4406244/1ab8c2cc6ae4c5e31ddffb9d28fdf627.png/show"
+      },
+      {
+        "type": "Armor",
+        "name": "Fairy King's Crown",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/561114",
+        "img": "https://img.game8.co/4317408/51cc62cd9d8561b9c24662e02113f5f8.png/show"
+      },
+      {
+        "type": "Accessory",
+        "name": "Amorphous Cube",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560459",
+        "img": "https://img.game8.co/4315535/02b92efbd6bed9b3c506c1fb22ce4523.png/show"
+      }
+    ],
+    "bestPartner": {
+      "name": "Peko",
+      "uid": "peko"
+    },
+    "bestTeammates": [
+      {
+        "role": "Sub-DPS",
+        "name": "Selena",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560127"
+      },
+      {
+        "role": "Support",
+        "name": "Cassius",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560121"
+      }
+    ],
+    "bestMemoryFragments": {
+      "fourPieceSet": {
+        "name": "Black Wing Set",
+        "id": "black-wing-set"
+      },
+      "twoPieceSet": {
+        "name": "Cursed Corpse Set",
+        "id": "cursed-corpse-set"
+      }
+    },
+    "bestChaosZones": [],
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/564720",
+    "updatedAt": "2026-06-17T05:02:02.362Z"
+  },
+  {
+    "uid": "narja",
+    "id": "narja",
+    "name": "Narja",
+    "image_url": "https://img.game8.co/4304155/29d936310180ee5f3a836e6753172e43.png/show",
+    "tier": "SS",
+    "type": "Controller",
+    "faction": "Peltion",
+    "rarity": "★★★★★",
+    "attribute": "Instinct",
+    "stats": [
+      {
+        "friendlyName": "Attack",
+        "id": "Attack",
+        "value": "140"
+      },
+      {
+        "friendlyName": "Defense",
+        "id": "Defense",
+        "value": "60"
+      },
+      {
+        "friendlyName": "Health",
+        "id": "Health",
+        "value": "80"
+      },
+      {
+        "friendlyName": "Critical Chance",
+        "id": "Critical_Chance",
+        "value": "3%"
+      },
+      {
+        "friendlyName": "Critical Damage",
+        "id": "Critical_Damage",
+        "value": "125%"
+      }
+    ],
+    "bestEquipment": [
+      {
+        "type": "Weapon",
+        "name": "Tentacles of Chaos",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/578479",
+        "img": "https://img.game8.co/4406243/d837f963a1a8fca46e53e6403ad95aac.png/show"
+      },
+      {
+        "type": "Armor",
+        "name": "Assault Boots",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560434",
+        "img": "https://img.game8.co/4315471/24a3c18a9f5ef2552d74f09426ed1d54.png/show"
+      },
+      {
+        "type": "Accessory",
+        "name": "Clover of the Forest",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/561132",
+        "img": "https://img.game8.co/4317402/28229a313f5e067b5425245f2b53dd83.png/show"
+      }
+    ],
+    "bestPartner": {
+      "name": "Gaya",
+      "uid": "gaya"
+    },
+    "bestTeammates": [
+      {
+        "role": "Main DPS",
+        "name": "Mei Lin",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/559958"
+      },
+      {
+        "role": "Sub-DPS",
+        "name": "Veronica",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560112"
+      }
+    ],
+    "bestChaosZones": [],
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/572196",
+    "updatedAt": "2026-06-17T05:02:02.293Z"
+  },
+  {
+    "uid": "nine",
+    "id": "nine",
+    "name": "Nine",
+    "image_url": "https://img.game8.co/4372479/f9dd2088614f983c9e0e35a48a671663.png/show",
+    "tier": "S",
+    "type": "Vanguard",
+    "faction": "Wanderer",
+    "rarity": "★★★★★",
+    "attribute": "Order",
+    "stats": [
+      {
+        "friendlyName": "Attack",
+        "id": "Attack",
+        "value": "135"
+      },
+      {
+        "friendlyName": "Defense",
+        "id": "Defense",
+        "value": "50"
+      },
+      {
+        "friendlyName": "Health",
+        "id": "Health",
+        "value": "90"
+      },
+      {
+        "friendlyName": "Critical Chance",
+        "id": "Critical_Chance",
+        "value": "3%"
+      },
+      {
+        "friendlyName": "Critical Damage",
+        "id": "Critical_Damage",
+        "value": "125%"
+      }
+    ],
+    "bestEquipment": [
+      {
+        "type": "Weapon",
+        "name": "Brilliant Eternal Flame",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/578366",
+        "img": "https://img.game8.co/4405702/ad74496bb6269a51a9ee08e062567059.png/show"
+      },
+      {
+        "type": "Armor",
+        "name": "Fairy King's Crown",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/561114",
+        "img": "https://img.game8.co/4317408/51cc62cd9d8561b9c24662e02113f5f8.png/show"
+      },
+      {
+        "type": "Accessory",
+        "name": "Rage Potion",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/578382",
+        "img": "https://img.game8.co/4405720/12398bb30fd37f7a7402fb4feb4f922c.png/show"
+      }
+    ],
+    "bestPartner": {
+      "name": "Alcea",
+      "uid": "alcea"
+    },
+    "bestTeammates": [
+      {
+        "role": "Support",
+        "name": "Orlea",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560114"
+      }
+    ],
+    "bestMemoryFragments": {
+      "fourPieceSet": {
+        "name": "Line of Justice Set",
+        "id": "line-of-justice-set"
+      },
+      "twoPieceSet": {
+        "name": "Executioner's Tool Set",
+        "id": "executioners-tool-set"
+      }
+    },
+    "bestChaosZones": [],
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/572197",
+    "updatedAt": "2026-06-17T05:02:02.644Z"
+  },
+  {
+    "uid": "tiphera",
+    "id": "tiphera",
+    "name": "Tiphera",
+    "image_url": "https://img.game8.co/4372482/ca6753ad94e8128b8beeb4003928b0e3.png/show",
+    "tier": "S",
+    "type": "Controller",
+    "faction": "Wanderer",
+    "rarity": "★★★★★",
+    "attribute": "Order",
+    "stats": [
+      {
+        "friendlyName": "Attack",
+        "id": "Attack",
+        "value": "135"
+      },
+      {
+        "friendlyName": "Defense",
+        "id": "Defense",
+        "value": "57"
+      },
+      {
+        "friendlyName": "Health",
+        "id": "Health",
+        "value": "90"
+      },
+      {
+        "friendlyName": "Critical Chance",
+        "id": "Critical_Chance",
+        "value": "3%"
+      },
+      {
+        "friendlyName": "Critical Damage",
+        "id": "Critical_Damage",
+        "value": "125%"
+      },
+      {
+        "friendlyName": "#UpgradeEffectCost",
+        "id": "#UpgradeEffectCost",
+        "value": ""
+      },
+      {
+        "friendlyName": "1",
+        "id": "1",
+        "value": " Epiphany Bonus\n\nWhen entering Chaos, obtain 1 random Rare Card with an activated Epiphany.\n\n\n・8x Common Growth Stone of Order・10000 Units"
+      },
+      {
+        "friendlyName": "2",
+        "id": "2",
+        "value": "Upgrade Basic Cards\n\nIncrease Damage, Shield Gain, and Heal Amounts of Basic Cards by 2%\n\n\n・4x Common Growth Stone of Order・3000 Units"
+      },
+      {
+        "friendlyName": "3",
+        "id": "3",
+        "value": "Upgrade Neutral Cards\n\nIncrease Damage, Shield Gain, and Heal Amounts of Common Cards by 2%\n\n\n・5x Great Growth Stone of Order・16000 Units"
+      },
+      {
+        "friendlyName": "3-1",
+        "id": "3-1",
+        "value": " Basic Card Proficiency\n\nDecrease Heal Amount of the Barrier Deployment card to 70%, and add a 70% Shield effect.\n\n\n・16x Great Growth Stone of Order・24000 Units"
+      },
+      {
+        "friendlyName": "4",
+        "id": "4",
+        "value": "Upgrade Unique Cards\n\nIncrease Damage, Shield Gain, and Heal Amounts of Unique Cards by 2%\n\n\n・8x Great Growth Stone of Order・20000 Units"
+      },
+      {
+        "friendlyName": "5",
+        "id": "5",
+        "value": "\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    Health Proficiency\n    \n    \n    \n\nIncrease Defense by 1.6%\n\n\n・16x Premium Growth Stone of Order・28000 Units"
+      },
+      {
+        "friendlyName": "5-1",
+        "id": "5-1",
+        "value": "Basic Card Proficiency\n\n+5% Heal and Shield Gain Amounts to Archetype cards. If Tiphera's Defense is greater tan 250, add an additional +5% to the modifier\n\n\n・16x Premium Growth Stone of Order・2x Shards of Condemnation・60000 Units"
+      },
+      {
+        "friendlyName": "6",
+        "id": "6",
+        "value": " \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    Attack Proficiency\n    \n    \n\n+2% Critical Chance\n\n\n・120x Premium Growth Stone of Order・42000 Units"
+      },
+      {
+        "friendlyName": "7",
+        "id": "7",
+        "value": "Upgrade Unique Stats\n\nIf Tiphera's Defense is greater than 300, at the start of battle, +10% to Critical Damage of allies\n\n\n・36x Premium Growth Stone of Order・2x Shards of Condemnation・80000 Units"
+      }
+    ],
+    "bestEquipment": [
+      {
+        "type": "Weapon",
+        "name": "Tentacles of Chaos",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/578479",
+        "img": "https://img.game8.co/4406243/d837f963a1a8fca46e53e6403ad95aac.png/show"
+      },
+      {
+        "type": "Armor",
+        "name": "Psionic Combat Suit",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/566466",
+        "img": "https://img.game8.co/4340230/463f704d11a0f2c04aa805ba637c29a1.png/show"
+      },
+      {
+        "type": "Accessory",
+        "name": "Clover of the Forest",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/561132",
+        "img": "https://img.game8.co/4317402/28229a313f5e067b5425245f2b53dd83.png/show"
+      }
+    ],
+    "bestPartner": {
+      "name": "Tiana",
+      "uid": "tiana"
+    },
+    "bestTeammates": [
+      {
+        "role": "Main DPS",
+        "name": "Kayron",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560113"
+      },
+      {
+        "role": "Support",
+        "name": "Veronica",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560112"
+      }
+    ],
+    "bestMemoryFragments": {
+      "fourPieceSet": {
+        "name": "Glory's Reign Set",
+        "id": "glorys-reign-set"
+      },
+      "twoPieceSet": {
+        "name": "Tetra's Authority Set",
+        "id": "tetras-authority-set"
+      }
+    },
+    "bestChaosZones": [],
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/572198",
+    "updatedAt": "2026-06-17T05:02:02.155Z"
+  },
+  {
+    "uid": "haru",
+    "id": "haru",
+    "name": "Haru",
+    "image_url": "https://img.game8.co/4304159/befb9a1272cfc2ff1d2c8aff6f87020b.png/show",
+    "tier": "S",
+    "type": "Striker",
+    "faction": "Terrascion",
+    "rarity": "★★★★★",
+    "attribute": "Justice",
+    "stats": [
+      {
+        "friendlyName": "Attack",
+        "id": "Attack",
+        "value": "160"
+      },
+      {
+        "friendlyName": "Defense",
+        "id": "Defense",
+        "value": "45"
+      },
+      {
+        "friendlyName": "Health",
+        "id": "Health",
+        "value": "90"
+      },
+      {
+        "friendlyName": "Critical Chance",
+        "id": "Critical_Chance",
+        "value": "3%"
+      },
+      {
+        "friendlyName": "Critical Damage",
+        "id": "Critical_Damage",
+        "value": "125%"
+      }
+    ],
+    "bestEquipment": [
+      {
+        "type": "Weapon",
+        "name": "Intellect of Discord",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/578483",
+        "img": "https://img.game8.co/4406244/1ab8c2cc6ae4c5e31ddffb9d28fdf627.png/show"
+      },
+      {
+        "type": "Armor",
+        "name": "Fairy King's Crown",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/561114",
+        "img": "https://img.game8.co/4317408/51cc62cd9d8561b9c24662e02113f5f8.png/show"
+      },
+      {
+        "type": "Accessory",
+        "name": "Rage Potion",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/578382",
+        "img": "https://img.game8.co/4405720/12398bb30fd37f7a7402fb4feb4f922c.png/show"
+      }
+    ],
+    "bestPartner": {
+      "name": "Scarlet",
+      "uid": "scarlet"
+    },
+    "bestTeammates": [
+      {
+        "role": "Support",
+        "name": "Narja",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/572196"
+      },
+      {
+        "role": "Sub-DPS",
+        "name": "Veronica",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560112"
+      }
+    ],
+    "bestMemoryFragments": {
+      "fourPieceSet": {
+        "name": "Black Wing Set",
+        "id": "black-wing-set"
+      },
+      "twoPieceSet": {
+        "name": "Cursed Corpse Set",
+        "id": "cursed-corpse-set"
+      }
+    },
+    "bestChaosZones": [],
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560074",
+    "updatedAt": "2026-06-17T05:02:01.770Z"
+  },
+  {
+    "uid": "orlea",
+    "id": "orlea",
+    "name": "Orlea",
+    "image_url": "https://img.game8.co/4305687/9669e4f62d65cbacb70a6582eeb817c3.png/show",
+    "tier": "S",
+    "type": "Controller",
+    "faction": "The Holy Crusaders",
+    "rarity": "★★★★★",
+    "attribute": "Instinct",
+    "stats": [
+      {
+        "friendlyName": "Attack",
+        "id": "Attack",
+        "value": "140"
+      },
+      {
+        "friendlyName": "Defense",
+        "id": "Defense",
+        "value": "60"
+      },
+      {
+        "friendlyName": "Health",
+        "id": "Health",
+        "value": "80"
+      },
+      {
+        "friendlyName": "Critical Chance",
+        "id": "Critical_Chance",
+        "value": "3%"
+      },
+      {
+        "friendlyName": "Critical Damage",
+        "id": "Critical_Damage",
+        "value": "125%"
+      }
+    ],
+    "bestEquipment": [
+      {
+        "type": "Weapon",
+        "name": "Harp of Conflict",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/578363",
+        "img": "https://img.game8.co/4404231/97fa4bbb624156cafff8e944d21c56ad.png/show"
+      },
+      {
+        "type": "Armor",
+        "name": "Moss Armor",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/578371",
+        "img": "https://img.game8.co/4405705/d722c49af362d9db69274006bad1254d.png/show"
+      },
+      {
+        "type": "Accessory",
+        "name": "Sphere of Randomness",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/578485",
+        "img": "https://img.game8.co/4406242/48ed7886afa7040d5bfde70445d1cec5.png/show"
+      }
+    ],
+    "bestPartner": {
+      "name": "Nyx",
+      "uid": "nyx"
+    },
+    "bestTeammates": [
+      {
+        "role": "Main DPS",
+        "name": "Nine",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/572197"
+      },
+      {
+        "role": "Support",
+        "name": "Tiphera",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/572198"
+      }
+    ],
+    "bestMemoryFragments": {
+      "fourPieceSet": {
+        "name": "Glory's Reign Set",
+        "id": "glorys-reign-set"
+      },
+      "twoPieceSet": {
+        "name": "Tetra's Authority Set",
+        "id": "tetras-authority-set"
+      }
+    },
+    "bestChaosZones": [],
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560114",
+    "updatedAt": "2026-06-17T05:02:01.996Z"
+  },
+  {
+    "uid": "mei-lin",
+    "id": "mei-lin",
+    "name": "Mei Lin",
+    "image_url": "https://img.game8.co/4305682/c1694108d4835810206a08324e976f3a.png/show",
+    "tier": "S",
+    "type": "Striker",
+    "faction": "Terrascion",
+    "rarity": "★★★★★",
+    "attribute": "Passion",
+    "stats": [
+      {
+        "friendlyName": "Attack",
+        "id": "Attack",
+        "value": "160"
+      },
+      {
+        "friendlyName": "Defense",
+        "id": "Defense",
+        "value": "45"
+      },
+      {
+        "friendlyName": "Health",
+        "id": "Health",
+        "value": "90"
+      },
+      {
+        "friendlyName": "Critical Chance",
+        "id": "Critical_Chance",
+        "value": "3%"
+      },
+      {
+        "friendlyName": "Critical Damage",
+        "id": "Critical_Damage",
+        "value": "125%"
+      }
+    ],
+    "bestEquipment": [
+      {
+        "type": "Weapon",
+        "name": "Intellect of Discord",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/578483",
+        "img": "https://img.game8.co/4406244/1ab8c2cc6ae4c5e31ddffb9d28fdf627.png/show"
+      },
+      {
+        "type": "Armor",
+        "name": "Fairy King's Crown",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/561114",
+        "img": "https://img.game8.co/4317408/51cc62cd9d8561b9c24662e02113f5f8.png/show"
+      },
+      {
+        "type": "Accessory",
+        "name": "Amorphous Cube",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560459",
+        "img": "https://img.game8.co/4315535/02b92efbd6bed9b3c506c1fb22ce4523.png/show"
+      }
+    ],
+    "bestPartner": {
+      "name": "Scarlet",
+      "uid": "scarlet"
+    },
+    "bestTeammates": [
+      {
+        "role": "Support",
+        "name": "Rei",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560125"
+      },
+      {
+        "role": "Sub-DPS",
+        "name": "Veronica",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560112"
+      }
+    ],
+    "bestMemoryFragments": {
+      "fourPieceSet": {
+        "name": "Black Wing Set",
+        "id": "black-wing-set"
+      },
+      "twoPieceSet": {
+        "name": "Seth's Scarab Set",
+        "id": "seths-scarab-set"
+      }
+    },
+    "bestChaosZones": [],
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/559958",
+    "updatedAt": "2026-06-17T05:02:02.124Z"
+  },
+  {
+    "uid": "rei",
+    "id": "rei",
+    "name": "Rei",
+    "image_url": "https://img.game8.co/4305684/3a7c553c84fabd2cb5031d70621dd2ad.png/show",
+    "tier": "S",
+    "type": "Controller",
+    "faction": "Terrascion",
+    "rarity": "★★★★",
+    "attribute": "Void",
+    "stats": [
+      {
+        "friendlyName": "Attack",
+        "id": "Attack",
+        "value": "129"
+      },
+      {
+        "friendlyName": "Defense",
+        "id": "Defense",
+        "value": "56"
+      },
+      {
+        "friendlyName": "Health",
+        "id": "Health",
+        "value": "74"
+      },
+      {
+        "friendlyName": "Critical Chance",
+        "id": "Critical_Chance",
+        "value": "3%"
+      },
+      {
+        "friendlyName": "Critical Damage",
+        "id": "Critical_Damage",
+        "value": "125%"
+      }
+    ],
+    "bestEquipment": [
+      {
+        "type": "Weapon",
+        "name": "Tentacles of Chaos",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/578479",
+        "img": "https://img.game8.co/4406243/d837f963a1a8fca46e53e6403ad95aac.png/show"
+      },
+      {
+        "type": "Armor",
+        "name": "Psionic Combat Suit",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/566466",
+        "img": "https://img.game8.co/4340230/463f704d11a0f2c04aa805ba637c29a1.png/show"
+      },
+      {
+        "type": "Accessory",
+        "name": "Clover of the Forest",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/561132",
+        "img": "https://img.game8.co/4317402/28229a313f5e067b5425245f2b53dd83.png/show"
+      }
+    ],
+    "bestPartner": {
+      "name": "Nyx",
+      "uid": "nyx"
+    },
+    "bestTeammates": [
+      {
+        "role": "Date",
+        "name": ""
+      },
+      {
+        "role": "Changes",
+        "name": ""
+      }
+    ],
+    "bestMemoryFragments": {
+      "fourPieceSet": {
+        "name": "Glory's Reign Set",
+        "id": "glorys-reign-set"
+      },
+      "twoPieceSet": {
+        "name": "Tetra's Authority Set",
+        "id": "tetras-authority-set"
+      }
+    },
+    "bestChaosZones": [],
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560125",
+    "updatedAt": "2026-06-17T05:02:01.875Z"
+  },
+  {
+    "uid": "diana",
+    "id": "diana",
+    "name": "Diana",
+    "image_url": "https://img.game8.co/4462217/5582c79ad6043dd188272f01c2bfe31f.png/show",
+    "tier": "S",
+    "type": "Hunter",
+    "faction": "The Holy Crusaders",
+    "rarity": "★★★★★",
+    "attribute": "Passion",
+    "stats": [
+      {
+        "friendlyName": "Attack",
+        "id": "Attack",
+        "value": "170"
+      },
+      {
+        "friendlyName": "Defense",
+        "id": "Defense",
+        "value": "45"
+      },
+      {
+        "friendlyName": "Health",
+        "id": "Health",
+        "value": "78"
+      },
+      {
+        "friendlyName": "Critical Chance",
+        "id": "Critical_Chance",
+        "value": "3%"
+      },
+      {
+        "friendlyName": "Critical Damage",
+        "id": "Critical_Damage",
+        "value": "125%"
+      }
+    ],
+    "bestEquipment": [
+      {
+        "type": "Weapon",
+        "name": "Intellect of Discord",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/578483",
+        "img": "https://img.game8.co/4406244/1ab8c2cc6ae4c5e31ddffb9d28fdf627.png/show"
+      },
+      {
+        "type": "Armor",
+        "name": "Fairy King's Crown",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/561114",
+        "img": "https://img.game8.co/4317408/51cc62cd9d8561b9c24662e02113f5f8.png/show"
+      },
+      {
+        "type": "Accessory",
+        "name": "Dimensional Cube",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/566473",
+        "img": "https://img.game8.co/4340238/9ec8c8293a839eeb21407c29ca299288.png/show"
+      }
+    ],
+    "bestPartner": {
+      "name": "Sophia",
+      "uid": "sophia"
+    },
+    "bestTeammates": [
+      {
+        "role": "Support",
+        "name": "Nia",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560124"
+      },
+      {
+        "role": "Support",
+        "name": "Cassius",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560121"
+      }
+    ],
+    "bestMemoryFragments": {
+      "fourPieceSet": {
+        "name": "Black Wing Set",
+        "id": "black-wing-set"
+      },
+      "twoPieceSet": {
+        "name": "Cursed Corpse Set",
+        "id": "cursed-corpse-set"
+      }
+    },
+    "bestChaosZones": [],
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/592003",
+    "updatedAt": "2026-06-17T05:02:02.444Z"
+  },
+  {
+    "uid": "renoa",
+    "id": "renoa",
+    "name": "Renoa",
+    "image_url": "https://img.game8.co/4304165/012cc2ff3c35d0b12ae8cb35e05d2d6b.png/show",
+    "tier": "S",
+    "type": "Hunter",
+    "faction": "Terrascion",
+    "rarity": "★★★★★",
+    "attribute": "Void",
+    "stats": [
+      {
+        "friendlyName": "Attack",
+        "id": "Attack",
+        "value": "170"
+      },
+      {
+        "friendlyName": "Defense",
+        "id": "Defense",
+        "value": "45"
+      },
+      {
+        "friendlyName": "Health",
+        "id": "Health",
+        "value": "78"
+      },
+      {
+        "friendlyName": "Critical Chance",
+        "id": "Critical_Chance",
+        "value": "3%"
+      },
+      {
+        "friendlyName": "Critical Damage",
+        "id": "Critical_Damage",
+        "value": "125%"
+      }
+    ],
+    "bestEquipment": [
+      {
+        "type": "Weapon",
+        "name": "Intellect of Discord",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/578483",
+        "img": "https://img.game8.co/4406244/1ab8c2cc6ae4c5e31ddffb9d28fdf627.png/show"
+      },
+      {
+        "type": "Armor",
+        "name": "Fairy King's Crown",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/561114",
+        "img": "https://img.game8.co/4317408/51cc62cd9d8561b9c24662e02113f5f8.png/show"
+      },
+      {
+        "type": "Accessory",
+        "name": "Dimensional Cube",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/566473",
+        "img": "https://img.game8.co/4340238/9ec8c8293a839eeb21407c29ca299288.png/show"
+      }
+    ],
+    "bestPartner": {
+      "name": "Kiara",
+      "uid": "kiara"
+    },
+    "bestTeammates": [
+      {
+        "role": "Sub-DPS",
+        "name": "Diana",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/592003"
+      },
+      {
+        "role": "Support",
+        "name": "Cassius",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560121"
+      }
+    ],
+    "bestMemoryFragments": {
+      "fourPieceSet": {
+        "name": "Conqueror's Aspect Set",
+        "id": "conquerors-aspect-set"
+      },
+      "twoPieceSet": {
+        "name": "Executioner's Tool Set",
+        "id": "executioners-tool-set"
+      }
+    },
+    "bestChaosZones": [],
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560106",
+    "updatedAt": "2026-06-17T05:02:02.513Z"
+  },
+  {
+    "uid": "adelheid",
+    "id": "adelheid",
+    "name": "Adelheid",
+    "image_url": "https://img.game8.co/4305678/0a685ffc1cacf397b92d138e66d1d463.png/show",
+    "tier": "S",
+    "type": "Vanguard",
+    "faction": "Terrascion",
+    "rarity": "★★★★★",
+    "attribute": "Void",
+    "stats": [
+      {
+        "friendlyName": "Attack",
+        "id": "Attack",
+        "value": "135"
+      },
+      {
+        "friendlyName": "Defense",
+        "id": "Defense",
+        "value": "55"
+      },
+      {
+        "friendlyName": "Health",
+        "id": "Health",
+        "value": "102"
+      },
+      {
+        "friendlyName": "Critical Chance",
+        "id": "Critical_Chance",
+        "value": "3%"
+      },
+      {
+        "friendlyName": "Critical Damage",
+        "id": "Critical_Damage",
+        "value": "125%"
+      }
+    ],
+    "bestEquipment": [
+      {
+        "type": "Weapon",
+        "name": "Crimson Sword",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560570",
+        "img": "https://img.game8.co/4315462/2180145b2698e3a943ecef00735d2154.png/show"
+      },
+      {
+        "type": "Armor",
+        "name": "Regenerative Ribcage",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560523",
+        "img": "https://img.game8.co/4315439/d8603bdfe6ebf9e09982dd9e54bd07a4.png/show"
+      },
+      {
+        "type": "Accessory",
+        "name": "Sphere of Randomness",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/578485",
+        "img": "https://img.game8.co/4406242/48ed7886afa7040d5bfde70445d1cec5.png/show"
+      }
+    ],
+    "bestPartner": {
+      "name": "Clara",
+      "uid": "clara"
+    },
+    "bestTeammates": [
+      {
+        "role": "Main DPS",
+        "name": "Maribell",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560118"
+      },
+      {
+        "role": "Support",
+        "name": "Narja",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/572196"
+      }
+    ],
+    "bestMemoryFragments": {
+      "fourPieceSet": {
+        "name": "Healer's Journey Set",
+        "id": "healers-journey-set"
+      },
+      "twoPieceSet": {
+        "name": "Tetra's Authority Set",
+        "id": "tetras-authority-set"
+      }
+    },
+    "bestChaosZones": [],
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/572649",
+    "updatedAt": "2026-06-17T05:02:02.406Z"
+  },
+  {
+    "uid": "beryl",
+    "id": "beryl",
+    "name": "Beryl",
+    "image_url": "https://img.game8.co/4304152/0e887d932e3a2db8cc63e6b0119f21fb.png/show",
+    "tier": "S",
+    "type": "Ranger",
+    "faction": "Ironrain",
+    "rarity": "★★★★",
+    "attribute": "Justice",
+    "stats": [
+      {
+        "friendlyName": "Attack",
+        "id": "Attack",
+        "value": "166"
+      },
+      {
+        "friendlyName": "Defense",
+        "id": "Defense",
+        "value": "37"
+      },
+      {
+        "friendlyName": "Health",
+        "id": "Health",
+        "value": "69"
+      },
+      {
+        "friendlyName": "Critical Chance",
+        "id": "Critical_Chance",
+        "value": "3%"
+      },
+      {
+        "friendlyName": "Critical Damage",
+        "id": "Critical_Damage",
+        "value": "125%"
+      }
+    ],
+    "bestEquipment": [
+      {
+        "type": "Weapon",
+        "name": "Intellect of Discord",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/578483",
+        "img": "https://img.game8.co/4406244/1ab8c2cc6ae4c5e31ddffb9d28fdf627.png/show"
+      },
+      {
+        "type": "Armor",
+        "name": "Fairy King's Crown",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/561114",
+        "img": "https://img.game8.co/4317408/51cc62cd9d8561b9c24662e02113f5f8.png/show"
+      },
+      {
+        "type": "Accessory",
+        "name": "Amorphous Cube",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560459",
+        "img": "https://img.game8.co/4315535/02b92efbd6bed9b3c506c1fb22ce4523.png/show"
+      }
+    ],
+    "bestPartner": {
+      "name": "Rosaria",
+      "uid": "rosaria"
+    },
+    "bestTeammates": [
+      {
+        "role": "Support",
+        "name": "Cassius",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560121"
+      },
+      {
+        "role": "Support",
+        "name": "Rei",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560125"
+      }
+    ],
+    "bestMemoryFragments": {
+      "fourPieceSet": {
+        "name": "Executioner's Tool Set",
+        "id": "executioners-tool-set"
+      },
+      "twoPieceSet": {
+        "name": "Black Wing Set",
+        "id": "black-wing-set"
+      }
+    },
+    "bestChaosZones": [],
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560119",
+    "updatedAt": "2026-06-17T05:02:02.386Z"
+  },
+  {
+    "uid": "kayron",
+    "id": "kayron",
+    "name": "Kayron",
+    "image_url": "https://img.game8.co/4305681/8c636b26a69d27571a3be0e252b34e56.png/show",
+    "tier": "A",
+    "type": "Psionic",
+    "faction": "Wanderer",
+    "rarity": "★★★★★",
+    "attribute": "Void",
+    "stats": [
+      {
+        "friendlyName": "Attack",
+        "id": "Attack",
+        "value": "150"
+      },
+      {
+        "friendlyName": "Defense",
+        "id": "Defense",
+        "value": "50"
+      },
+      {
+        "friendlyName": "Health",
+        "id": "Health",
+        "value": "85"
+      },
+      {
+        "friendlyName": "Critical Chance",
+        "id": "Critical_Chance",
+        "value": "3%"
+      },
+      {
+        "friendlyName": "Critical Damage",
+        "id": "Critical_Damage",
+        "value": "125%"
+      }
+    ],
+    "bestEquipment": [
+      {
+        "type": "Weapon",
+        "name": "Intellect of Discord",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/578483",
+        "img": "https://img.game8.co/4406244/1ab8c2cc6ae4c5e31ddffb9d28fdf627.png/show"
+      },
+      {
+        "type": "Armor",
+        "name": "Fairy King's Crown",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/561114",
+        "img": "https://img.game8.co/4317408/51cc62cd9d8561b9c24662e02113f5f8.png/show"
+      },
+      {
+        "type": "Accessory",
+        "name": "Amorphous Cube",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560459",
+        "img": "https://img.game8.co/4315535/02b92efbd6bed9b3c506c1fb22ce4523.png/show"
+      }
+    ],
+    "bestPartner": {
+      "name": "Bria",
+      "uid": "bria"
+    },
+    "bestTeammates": [
+      {
+        "role": "Support",
+        "name": "Tiphera",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/572198"
+      },
+      {
+        "role": "Support",
+        "name": "Veronica",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560112"
+      }
+    ],
+    "bestChaosZones": [],
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560113",
+    "updatedAt": "2026-06-17T05:02:02.256Z"
+  },
+  {
+    "uid": "rin",
+    "id": "rin",
+    "name": "Rin",
+    "image_url": "https://img.game8.co/4305685/a25d9780f9578158943fd75f2630b086.png/show",
+    "tier": "A",
+    "type": "Striker",
+    "faction": "Wanderer",
+    "rarity": "★★★★★",
+    "attribute": "Void",
+    "stats": [
+      {
+        "friendlyName": "Attack",
+        "id": "Attack",
+        "value": "160"
+      },
+      {
+        "friendlyName": "Defense",
+        "id": "Defense",
+        "value": "45"
+      },
+      {
+        "friendlyName": "Health",
+        "id": "Health",
+        "value": "90"
+      },
+      {
+        "friendlyName": "Critical Chance",
+        "id": "Critical_Chance",
+        "value": "3%"
+      },
+      {
+        "friendlyName": "Critical Damage",
+        "id": "Critical_Damage",
+        "value": "125%"
+      }
+    ],
+    "bestEquipment": [
+      {
+        "type": "Weapon",
+        "name": "Intellect of Discord",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/578483",
+        "img": "https://img.game8.co/4406244/1ab8c2cc6ae4c5e31ddffb9d28fdf627.png/show"
+      },
+      {
+        "type": "Armor",
+        "name": "Fairy King's Crown",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/561114",
+        "img": "https://img.game8.co/4317408/51cc62cd9d8561b9c24662e02113f5f8.png/show"
+      },
+      {
+        "type": "Accessory",
+        "name": "Amorphous Cube",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560459",
+        "img": "https://img.game8.co/4315535/02b92efbd6bed9b3c506c1fb22ce4523.png/show"
+      }
+    ],
+    "bestPartner": {
+      "name": "",
+      "uid": ""
+    },
+    "bestTeammates": [
+      {
+        "role": "Support",
+        "name": "Rei",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560125"
+      },
+      {
+        "role": "Support",
+        "name": "Narja",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/572196"
+      }
+    ],
+    "bestChaosZones": [],
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560115",
+    "updatedAt": "2026-06-17T05:02:02.540Z"
+  },
+  {
+    "uid": "luke",
+    "id": "luke",
+    "name": "Luke",
+    "image_url": "https://img.game8.co/4304153/ced5dcaa75e774169b6b9724ff32b106.png/show",
+    "tier": "A",
+    "type": "Hunter",
+    "faction": "Ironrain",
+    "rarity": "★★★★★",
+    "attribute": "Order",
+    "stats": [
+      {
+        "friendlyName": "Attack",
+        "id": "Attack",
+        "value": "170"
+      },
+      {
+        "friendlyName": "Defense",
+        "id": "Defense",
+        "value": "45"
+      },
+      {
+        "friendlyName": "Health",
+        "id": "Health",
+        "value": "78"
+      },
+      {
+        "friendlyName": "Critical Chance",
+        "id": "Critical_Chance",
+        "value": "3%"
+      },
+      {
+        "friendlyName": "Critical Damage",
+        "id": "Critical_Damage",
+        "value": "125%"
+      }
+    ],
+    "bestEquipment": [
+      {
+        "type": "Weapon",
+        "name": "Intellect of Discord",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/578483",
+        "img": "https://img.game8.co/4406244/1ab8c2cc6ae4c5e31ddffb9d28fdf627.png/show"
+      },
+      {
+        "type": "Armor",
+        "name": "Fairy King's Crown",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/561114",
+        "img": "https://img.game8.co/4317408/51cc62cd9d8561b9c24662e02113f5f8.png/show"
+      },
+      {
+        "type": "Accessory",
+        "name": "Amorphous Cube",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560459",
+        "img": "https://img.game8.co/4315535/02b92efbd6bed9b3c506c1fb22ce4523.png/show"
+      }
+    ],
+    "bestPartner": {
+      "name": "Janet",
+      "uid": "janet"
+    },
+    "bestTeammates": [
+      {
+        "role": "Sub-DPS",
+        "name": "Hugo",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560110"
+      },
+      {
+        "role": "Support",
+        "name": "Cassius",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560121"
+      }
+    ],
+    "bestMemoryFragments": {
+      "fourPieceSet": {
+        "name": "Black Wing Set",
+        "id": "black-wing-set"
+      },
+      "twoPieceSet": {
+        "name": "Cursed Corpse Set",
+        "id": "cursed-corpse-set"
+      }
+    },
+    "bestChaosZones": [],
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560108",
+    "updatedAt": "2026-06-17T05:02:02.620Z"
+  },
+  {
+    "uid": "mika",
+    "id": "mika",
+    "name": "Mika",
+    "image_url": "https://img.game8.co/4304162/f7d00ce97b6ecc2e722eced5ffd09f17.png/show",
+    "tier": "A",
+    "type": "Controller",
+    "faction": "Terrascion",
+    "rarity": "★★★★",
+    "attribute": "Justice",
+    "stats": [
+      {
+        "friendlyName": "Attack",
+        "id": "Attack",
+        "value": "138"
+      },
+      {
+        "friendlyName": "Defense",
+        "id": "Defense",
+        "value": "46"
+      },
+      {
+        "friendlyName": "Health",
+        "id": "Health",
+        "value": "79"
+      },
+      {
+        "friendlyName": "Critical Chance",
+        "id": "Critical_Chance",
+        "value": "3%"
+      },
+      {
+        "friendlyName": "Critical Damage",
+        "id": "Critical_Damage",
+        "value": "125%"
+      }
+    ],
+    "bestEquipment": [
+      {
+        "type": "Weapon",
+        "name": "Tentacles of Chaos",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/578479",
+        "img": "https://img.game8.co/4406243/d837f963a1a8fca46e53e6403ad95aac.png/show"
+      },
+      {
+        "type": "Armor",
+        "name": "Assault Boots",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560434",
+        "img": "https://img.game8.co/4315471/24a3c18a9f5ef2552d74f09426ed1d54.png/show"
+      },
+      {
+        "type": "Accessory",
+        "name": "Clover of the Forest",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/561132",
+        "img": "https://img.game8.co/4317402/28229a313f5e067b5425245f2b53dd83.png/show"
+      }
+    ],
+    "bestPartner": {
+      "name": "",
+      "uid": ""
+    },
+    "bestTeammates": [
+      {
+        "role": "Main DPS",
+        "name": "Haru",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560074"
+      },
+      {
+        "role": "Support",
+        "name": "Veronica",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560112"
+      }
+    ],
+    "bestMemoryFragments": {
+      "fourPieceSet": {
+        "name": "Seth's Scarab Set",
+        "id": "seths-scarab-set"
+      },
+      "twoPieceSet": {
+        "name": "Tetra's Authority Set",
+        "id": "tetras-authority-set"
+      }
+    },
+    "bestChaosZones": [],
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560116",
+    "updatedAt": "2026-06-17T05:02:02.105Z"
+  },
+  {
+    "uid": "amir",
+    "id": "amir",
+    "name": "Amir",
+    "image_url": "https://img.game8.co/4305680/9e646c6e5b703a4397debe4ba519b755.png/show",
+    "tier": "A",
+    "type": "Vanguard",
+    "faction": "Terrascion",
+    "rarity": "★★★★",
+    "attribute": "Order",
+    "stats": [
+      {
+        "friendlyName": "Attack",
+        "id": "Attack",
+        "value": "125"
+      },
+      {
+        "friendlyName": "Defense",
+        "id": "Defense",
+        "value": "51"
+      },
+      {
+        "friendlyName": "Health",
+        "id": "Health",
+        "value": "94"
+      },
+      {
+        "friendlyName": "Critical Chance",
+        "id": "Critical_Chance",
+        "value": "3%"
+      },
+      {
+        "friendlyName": "Critical Damage",
+        "id": "Critical_Damage",
+        "value": "125%"
+      }
+    ],
+    "bestEquipment": [
+      {
+        "type": "Weapon",
+        "name": "Dagger That Tricked The Shadow",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/561127",
+        "img": "https://img.game8.co/4317394/54ea7b36b464df9008c4bf68acf69821.png/show"
+      },
+      {
+        "type": "Armor",
+        "name": "Fairy King's Crown",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/561114",
+        "img": "https://img.game8.co/4317408/51cc62cd9d8561b9c24662e02113f5f8.png/show"
+      },
+      {
+        "type": "Accessory",
+        "name": "Verdant Shackles",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/561133",
+        "img": "https://img.game8.co/4317409/be9386a3b4ab2c8f12aa9ebbc5db35ea.png/show"
+      }
+    ],
+    "bestPartner": {
+      "name": "Wilhelmina",
+      "uid": "wilhelmina"
+    },
+    "bestTeammates": [
+      {
+        "role": "Support",
+        "name": "Narja",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/572196"
+      },
+      {
+        "role": "Support",
+        "name": "Veronica",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560112"
+      }
+    ],
+    "bestMemoryFragments": {
+      "fourPieceSet": {
+        "name": "Tetra's Authority Set",
+        "id": "tetras-authority-set"
+      },
+      "twoPieceSet": {
+        "name": "Cursed Corpse Set",
+        "id": "cursed-corpse-set"
+      }
+    },
+    "bestChaosZones": [],
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560122",
+    "updatedAt": "2026-06-17T05:02:02.599Z"
+  },
+  {
+    "uid": "yuki",
+    "id": "yuki",
+    "name": "Yuki",
+    "image_url": "https://img.game8.co/4330826/6f526f26892d7d46b859552c71b335e2.png/show",
+    "tier": "A",
+    "type": "Striker",
+    "faction": "Terrascion",
+    "rarity": "★★★★★",
+    "attribute": "Order",
+    "stats": [
+      {
+        "friendlyName": "Attack",
+        "id": "Attack",
+        "value": "160"
+      },
+      {
+        "friendlyName": "Defense",
+        "id": "Defense",
+        "value": "45"
+      },
+      {
+        "friendlyName": "Health",
+        "id": "Health",
+        "value": "90"
+      },
+      {
+        "friendlyName": "Critical Chance",
+        "id": "Critical_Chance",
+        "value": "3%"
+      },
+      {
+        "friendlyName": "Critical Damage",
+        "id": "Critical_Damage",
+        "value": "125%"
+      }
+    ],
+    "bestEquipment": [
+      {
+        "type": "Weapon",
+        "name": "Intellect of Discord",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/578483",
+        "img": "https://img.game8.co/4406244/1ab8c2cc6ae4c5e31ddffb9d28fdf627.png/show"
+      },
+      {
+        "type": "Armor",
+        "name": "Fairy King's Crown",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/561114",
+        "img": "https://img.game8.co/4317408/51cc62cd9d8561b9c24662e02113f5f8.png/show"
+      },
+      {
+        "type": "Accessory",
+        "name": "Dimensional Cube",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/566473",
+        "img": "https://img.game8.co/4340238/9ec8c8293a839eeb21407c29ca299288.png/show"
+      }
+    ],
+    "bestPartner": {
+      "name": "Scarlet",
+      "uid": "scarlet"
+    },
+    "bestTeammates": [
+      {
+        "role": "Date",
+        "name": ""
+      },
+      {
+        "role": "Changes",
+        "name": ""
+      }
+    ],
+    "bestMemoryFragments": {
+      "fourPieceSet": {
+        "name": "Cursed Corpse Set",
+        "id": "cursed-corpse-set"
+      },
+      "twoPieceSet": {
+        "name": "Executioner's Tool Set",
+        "id": "executioners-tool-set"
+      }
+    },
+    "bestChaosZones": [],
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/564727",
+    "updatedAt": "2026-06-17T05:02:02.275Z"
+  },
+  {
+    "uid": "chizuru",
+    "id": "chizuru",
+    "name": "Chizuru",
+    "image_url": "https://img.game8.co/4304157/2d038f5a3fbe6aef02b814e6f36ffc74.png/show",
+    "tier": "A",
+    "type": "Psionic",
+    "faction": "Peltion",
+    "rarity": "★★★★★",
+    "attribute": "Void",
+    "stats": [
+      {
+        "friendlyName": "Attack",
+        "id": "Attack",
+        "value": "150"
+      },
+      {
+        "friendlyName": "Defense",
+        "id": "Defense",
+        "value": "50"
+      },
+      {
+        "friendlyName": "Health",
+        "id": "Health",
+        "value": "85"
+      },
+      {
+        "friendlyName": "Critical Chance",
+        "id": "Critical_Chance",
+        "value": "3%"
+      },
+      {
+        "friendlyName": "Critical Damage",
+        "id": "Critical_Damage",
+        "value": "125%"
+      }
+    ],
+    "bestEquipment": [
+      {
+        "type": "Weapon",
+        "name": "Intellect of Discord",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/578483",
+        "img": "https://img.game8.co/4406244/1ab8c2cc6ae4c5e31ddffb9d28fdf627.png/show"
+      },
+      {
+        "type": "Armor",
+        "name": "Fairy King's Crown",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/561114",
+        "img": "https://img.game8.co/4317408/51cc62cd9d8561b9c24662e02113f5f8.png/show"
+      },
+      {
+        "type": "Accessory",
+        "name": "Amorphous Cube",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560459",
+        "img": "https://img.game8.co/4315535/02b92efbd6bed9b3c506c1fb22ce4523.png/show"
+      }
+    ],
+    "bestPartner": {
+      "name": "Itsuku",
+      "uid": "itsuku"
+    },
+    "bestTeammates": [
+      {
+        "role": "Sub-DPS",
+        "name": "Rei",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560125"
+      },
+      {
+        "role": "Support",
+        "name": "Cassius",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560121"
+      }
+    ],
+    "bestMemoryFragments": {
+      "fourPieceSet": {
+        "name": "Black Wing Set",
+        "id": "black-wing-set"
+      },
+      "twoPieceSet": {
+        "name": "Cursed Corpse Set",
+        "id": "cursed-corpse-set"
+      }
+    },
+    "bestChaosZones": [],
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/564001",
+    "updatedAt": "2026-06-17T05:02:02.422Z"
+  },
+  {
+    "uid": "rita",
+    "id": "rita",
+    "name": "Rita",
+    "image_url": "https://img.game8.co/4444159/8b7e4275604fc6786ff78de6ff7207fc.png/show",
+    "tier": "A",
+    "type": "Psionic",
+    "faction": "Wanderer",
+    "rarity": "★★★★★",
+    "attribute": "Justice",
+    "stats": [
+      {
+        "friendlyName": "Attack",
+        "id": "Attack",
+        "value": "150"
+      },
+      {
+        "friendlyName": "Defense",
+        "id": "Defense",
+        "value": "50"
+      },
+      {
+        "friendlyName": "Health",
+        "id": "Health",
+        "value": "85"
+      },
+      {
+        "friendlyName": "Critical Chance",
+        "id": "Critical_Chance",
+        "value": "3%"
+      },
+      {
+        "friendlyName": "Critical Damage",
+        "id": "Critical_Damage",
+        "value": "125%"
+      }
+    ],
+    "bestEquipment": [
+      {
+        "type": "Weapon",
+        "name": "Intellect of Discord",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/578483",
+        "img": "https://img.game8.co/4406244/1ab8c2cc6ae4c5e31ddffb9d28fdf627.png/show"
+      },
+      {
+        "type": "Armor",
+        "name": "Fairy King's Crown",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/561114",
+        "img": "https://img.game8.co/4317408/51cc62cd9d8561b9c24662e02113f5f8.png/show"
+      },
+      {
+        "type": "Accessory",
+        "name": "Rage Potion",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/578382",
+        "img": "https://img.game8.co/4405720/12398bb30fd37f7a7402fb4feb4f922c.png/show"
+      }
+    ],
+    "bestPartner": {
+      "name": "Ivy",
+      "uid": "ivy"
+    },
+    "bestTeammates": [
+      {
+        "role": "Support",
+        "name": "Orlea",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560114"
+      },
+      {
+        "role": "Support",
+        "name": "Tiphera",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/572198"
+      }
+    ],
+    "bestMemoryFragments": {
+      "fourPieceSet": {
+        "name": "Line of Justice Set",
+        "id": "line-of-justice-set"
+      },
+      "twoPieceSet": {
+        "name": "Executioner's Tool Set",
+        "id": "executioners-tool-set"
+      }
+    },
+    "bestChaosZones": [],
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/587075",
+    "updatedAt": "2026-06-17T05:02:02.337Z"
+  },
+  {
+    "uid": "magna",
+    "id": "magna",
+    "name": "Magna",
+    "image_url": "https://img.game8.co/4304167/b4aea46383263ea00cee96d472d8505c.png/show",
+    "tier": "A",
+    "type": "Vanguard",
+    "faction": "Stella Familia",
+    "rarity": "★★★★★",
+    "attribute": "Justice",
+    "stats": [
+      {
+        "friendlyName": "Attack",
+        "id": "Attack",
+        "value": "135"
+      },
+      {
+        "friendlyName": "Defense",
+        "id": "Defense",
+        "value": "55"
+      },
+      {
+        "friendlyName": "Health",
+        "id": "Health",
+        "value": "102"
+      },
+      {
+        "friendlyName": "Critical Chance",
+        "id": "Critical_Chance",
+        "value": "3%"
+      },
+      {
+        "friendlyName": "Critical Damage",
+        "id": "Critical_Damage",
+        "value": "125%"
+      }
+    ],
+    "bestEquipment": [
+      {
+        "type": "Weapon",
+        "name": "Dagger That Tricked The Shadow",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/561127",
+        "img": "https://img.game8.co/4317394/54ea7b36b464df9008c4bf68acf69821.png/show"
+      },
+      {
+        "type": "Armor",
+        "name": "Shell of Aberration",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/578487",
+        "img": "https://img.game8.co/4406245/ea1cd20153c1bbd3f3ca39bb26b23816.png/show"
+      },
+      {
+        "type": "Accessory",
+        "name": "Amorphous Cube",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560459",
+        "img": "https://img.game8.co/4315535/02b92efbd6bed9b3c506c1fb22ce4523.png/show"
+      }
+    ],
+    "bestPartner": {
+      "name": "Eishlen",
+      "uid": "eishlen"
+    },
+    "bestTeammates": [
+      {
+        "role": "Sub DPS",
+        "name": "Khalipe",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560109"
+      },
+      {
+        "role": "Main DPS",
+        "name": "Nine",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/572197"
+      }
+    ],
+    "bestMemoryFragments": {
+      "fourPieceSet": {
+        "name": "Tetra's Authority Set",
+        "id": "tetras-authority-set"
+      },
+      "twoPieceSet": {
+        "name": "Cursed Corpse Set",
+        "id": "cursed-corpse-set"
+      }
+    },
+    "bestChaosZones": [],
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560111",
+    "updatedAt": "2026-06-17T05:02:02.465Z"
+  },
+  {
+    "uid": "khalipe",
+    "id": "khalipe",
+    "name": "Khalipe",
+    "image_url": "https://img.game8.co/4304161/c4d57d363fc37fd8c3d99c937d5efec6.png/show",
+    "tier": "B",
+    "type": "Vanguard",
+    "faction": "Stella Familia",
+    "rarity": "★★★★★",
+    "attribute": "Instinct",
+    "stats": [
+      {
+        "friendlyName": "Attack",
+        "id": "Attack",
+        "value": "135"
+      },
+      {
+        "friendlyName": "Defense",
+        "id": "Defense",
+        "value": "55"
+      },
+      {
+        "friendlyName": "Health",
+        "id": "Health",
+        "value": "102"
+      },
+      {
+        "friendlyName": "Critical Chance",
+        "id": "Critical_Chance",
+        "value": "3%"
+      },
+      {
+        "friendlyName": "Critical Damage",
+        "id": "Critical_Damage",
+        "value": "125%"
+      }
+    ],
+    "bestEquipment": [
+      {
+        "type": "Weapon",
+        "name": "Dagger That Tricked The Shadow",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/561127",
+        "img": "https://img.game8.co/4317394/54ea7b36b464df9008c4bf68acf69821.png/show"
+      },
+      {
+        "type": "Armor",
+        "name": "Fairy King's Crown",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/561114",
+        "img": "https://img.game8.co/4317408/51cc62cd9d8561b9c24662e02113f5f8.png/show"
+      },
+      {
+        "type": "Accessory",
+        "name": "Verdant Shackles",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/561133",
+        "img": "https://img.game8.co/4317409/be9386a3b4ab2c8f12aa9ebbc5db35ea.png/show"
+      }
+    ],
+    "bestPartner": {
+      "name": "Zeta",
+      "uid": "zeta"
+    },
+    "bestTeammates": [
+      {
+        "role": "Date",
+        "name": ""
+      },
+      {
+        "role": "Changes",
+        "name": ""
+      }
+    ],
+    "bestMemoryFragments": {
+      "fourPieceSet": {
+        "name": "Line of Justice Set",
+        "id": "line-of-justice-set"
+      },
+      "twoPieceSet": {
+        "name": "Tetra's Authority Set",
+        "id": "tetras-authority-set"
+      }
+    },
+    "bestChaosZones": [],
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560109",
+    "updatedAt": "2026-06-17T05:02:01.798Z"
+  },
+  {
+    "uid": "owen",
+    "id": "owen",
+    "name": "Owen",
+    "image_url": "https://img.game8.co/4304160/5360cf27f1dc15f31588a237ea33c6fc.png/show",
+    "tier": "B",
+    "type": "Striker",
+    "faction": "Terrascion",
+    "rarity": "★★★★",
+    "attribute": "Passion",
+    "stats": [
+      {
+        "friendlyName": "Attack",
+        "id": "Attack",
+        "value": "148"
+      },
+      {
+        "friendlyName": "Defense",
+        "id": "Defense",
+        "value": "42"
+      },
+      {
+        "friendlyName": "Health",
+        "id": "Health",
+        "value": "83"
+      },
+      {
+        "friendlyName": "Critical Chance",
+        "id": "Critical_Chance",
+        "value": "3%"
+      },
+      {
+        "friendlyName": "Critical Damage",
+        "id": "Critical_Damage",
+        "value": "125%"
+      },
+      {
+        "friendlyName": "#UpgradeEffectCost",
+        "id": "#UpgradeEffectCost",
+        "value": ""
+      },
+      {
+        "friendlyName": "1",
+        "id": "1",
+        "value": " Epiphany Bonus\n\nUpon entering Chaos, you obtain 1 random Rare card through Epiphany.\n\n\n・8x Common Growth Stone of Passion・10000 Units"
+      },
+      {
+        "friendlyName": "2",
+        "id": "2",
+        "value": "Upgrade Basic Cards\n\nBasic Card damage, shield gain, and healing amount +2%\n\n\n・4x Common Growth Stone of Passion・3000 Units"
+      },
+      {
+        "friendlyName": "3",
+        "id": "3",
+        "value": "Upgrade Neutral Cards\n\nNeutral Card damage, shield gain, and healing amount +2%\n\n\n・5x Great Growth Stone of Passion・16000 Units"
+      },
+      {
+        "friendlyName": "3-1",
+        "id": "3-1",
+        "value": " Basic Card Proficiency\n\nThe damage of the Downward Cut card is increased by +30%\n\n\n・16x Great Growth Stone of Passion・24000 Units"
+      },
+      {
+        "friendlyName": "4",
+        "id": "4",
+        "value": "Upgrade Unique Cards\n\nUnique Card damage, shield gain, and healing amount +2%\n\n\n・8x Great Growth Stone of Passion・20000 Units"
+      },
+      {
+        "friendlyName": "5",
+        "id": "5",
+        "value": "\n    Critical Chance Proficiency\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n\n+2% Critical Chance\n\n\n・16x Premium Growth Stone of Passion・28000 Units"
+      },
+      {
+        "friendlyName": "5-1",
+        "id": "5-1",
+        "value": "Basic Card Proficiency\n\n5% Damage of Owen's Downward Cut. If Owen's Health is greater than 600, an additional +5% to that value.\n\n\n・16x Premium Growth Stone of Passion・2x Shards of Condemnation・60000 Units"
+      },
+      {
+        "friendlyName": "6",
+        "id": "6",
+        "value": " \n    Critical Damage Proficiency\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n\n+2.4% Critical Damage\n\n\n・120x Premium Growth Stone of Passion・42000 Units"
+      },
+      {
+        "friendlyName": "7",
+        "id": "7",
+        "value": "Upgrade Unique Stats\n\n+4% Attack, Defense. If Owen's Health is greater than 700, an additional +4% to that value.\n\n\n・36x Premium Growth Stone of Passion・2x Shards of Condemnation・80000 Units"
+      }
+    ],
+    "bestEquipment": [
+      {
+        "type": "Weapon",
+        "name": "Tentacles of Chaos",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/578479",
+        "img": "https://img.game8.co/4406243/d837f963a1a8fca46e53e6403ad95aac.png/show"
+      },
+      {
+        "type": "Armor",
+        "name": "Nightmare Hairpin",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/597485",
+        "img": "https://img.game8.co/4484677/7a4e3434f96eb84efeda3517632d3bce.png/show"
+      },
+      {
+        "type": "Accessory",
+        "name": "Gospel of Lament",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/597488",
+        "img": "https://img.game8.co/4484675/e2c29fc1fd8603fb20fcc3a8c87ba154.png/show"
+      }
+    ],
+    "bestPartner": {
+      "name": "Nyx",
+      "uid": "nyx"
+    },
+    "bestTeammates": [
+      {
+        "role": "DPS",
+        "name": "Mei Lin",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/559958"
+      },
+      {
+        "role": "Support",
+        "name": "Veronica",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560112"
+      }
+    ],
+    "bestMemoryFragments": {
+      "fourPieceSet": {
+        "name": "Black Wing Set",
+        "id": "black-wing-set"
+      },
+      "twoPieceSet": {
+        "name": "Tetra's Authority Set",
+        "id": "tetras-authority-set"
+      }
+    },
+    "bestChaosZones": [],
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560117",
+    "updatedAt": "2026-06-17T05:02:01.748Z"
+  },
+  {
+    "uid": "maribell",
+    "id": "maribell",
+    "name": "Maribell",
+    "image_url": "https://img.game8.co/4304151/1afb00bbace9490230dbce4e6afd8787.png/show",
+    "tier": "B",
+    "type": "Vanguard",
+    "faction": "Ironrain",
+    "rarity": "★★★★",
+    "attribute": "Passion",
+    "stats": [
+      {
+        "friendlyName": "Attack",
+        "id": "Attack",
+        "value": "125"
+      },
+      {
+        "friendlyName": "Defense",
+        "id": "Defense",
+        "value": "51"
+      },
+      {
+        "friendlyName": "Health",
+        "id": "Health",
+        "value": "94"
+      },
+      {
+        "friendlyName": "Critical Chance",
+        "id": "Critical_Chance",
+        "value": "3%"
+      },
+      {
+        "friendlyName": "Critical Damage",
+        "id": "Critical_Damage",
+        "value": "125%"
+      }
+    ],
+    "bestEquipment": [
+      {
+        "type": "Weapon",
+        "name": "Dagger That Tricked The Shadow",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/561127",
+        "img": "https://img.game8.co/4317394/54ea7b36b464df9008c4bf68acf69821.png/show"
+      },
+      {
+        "type": "Armor",
+        "name": "Fairy King's Crown",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/561114",
+        "img": "https://img.game8.co/4317408/51cc62cd9d8561b9c24662e02113f5f8.png/show"
+      },
+      {
+        "type": "Accessory",
+        "name": "Verdant Shackles",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/561133",
+        "img": "https://img.game8.co/4317409/be9386a3b4ab2c8f12aa9ebbc5db35ea.png/show"
+      }
+    ],
+    "bestPartner": {
+      "name": "Eishlen",
+      "uid": "eishlen"
+    },
+    "bestTeammates": [
+      {
+        "role": "Sub-DPS",
+        "name": "Khalipe",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560109"
+      },
+      {
+        "role": "Support",
+        "name": "Orlea",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560114"
+      }
+    ],
+    "bestMemoryFragments": {
+      "fourPieceSet": {
+        "name": "Conqueror's Aspect Set",
+        "id": "conquerors-aspect-set"
+      },
+      "twoPieceSet": {
+        "name": "Executioner's Tool Set",
+        "id": "executioners-tool-set"
+      }
+    },
+    "bestChaosZones": [],
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560118",
+    "updatedAt": "2026-06-17T05:02:02.219Z"
+  },
+  {
+    "uid": "tressa",
+    "id": "tressa",
+    "name": "Tressa",
+    "image_url": "https://img.game8.co/4305683/cee6dd717d2cabe5d9f2e71594bd8d85.png/show",
+    "tier": "C",
+    "type": "Psionic",
+    "faction": "Terrascion",
+    "rarity": "★★★★",
+    "attribute": "Void",
+    "stats": [
+      {
+        "friendlyName": "Attack",
+        "id": "Attack",
+        "value": "138"
+      },
+      {
+        "friendlyName": "Defense",
+        "id": "Defense",
+        "value": "46"
+      },
+      {
+        "friendlyName": "Health",
+        "id": "Health",
+        "value": "79"
+      },
+      {
+        "friendlyName": "Critical Chance",
+        "id": "Critical_Chance",
+        "value": "3%"
+      },
+      {
+        "friendlyName": "Critical Damage",
+        "id": "Critical_Damage",
+        "value": "125%"
+      }
+    ],
+    "bestEquipment": [
+      {
+        "type": "Weapon",
+        "name": "Intellect of Discord",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/578483",
+        "img": "https://img.game8.co/4406244/1ab8c2cc6ae4c5e31ddffb9d28fdf627.png/show"
+      },
+      {
+        "type": "Armor",
+        "name": "Fairy King's Crown",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/561114",
+        "img": "https://img.game8.co/4317408/51cc62cd9d8561b9c24662e02113f5f8.png/show"
+      },
+      {
+        "type": "Accessory",
+        "name": "Amorphous Cube",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560459",
+        "img": "https://img.game8.co/4315535/02b92efbd6bed9b3c506c1fb22ce4523.png/show"
+      }
+    ],
+    "bestPartner": {
+      "name": "",
+      "uid": ""
+    },
+    "bestTeammates": [
+      {
+        "role": "Sub DPS",
+        "name": "Hugo",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560110"
+      },
+      {
+        "role": "Support",
+        "name": "Cassius",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560121"
+      }
+    ],
+    "bestMemoryFragments": {
+      "fourPieceSet": {
+        "name": "Black Wing Set",
+        "id": "black-wing-set"
+      },
+      "twoPieceSet": {
+        "name": "Cursed Corpse Set",
+        "id": "cursed-corpse-set"
+      }
+    },
+    "bestChaosZones": [],
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560126",
+    "updatedAt": "2026-06-17T05:02:02.314Z"
+  },
+  {
+    "uid": "lucas",
+    "id": "lucas",
+    "name": "Lucas",
+    "image_url": "https://img.game8.co/4304150/c426edfabb6272aedcbc05f40da489da.png/show",
+    "tier": "C",
+    "type": "Hunter",
+    "faction": "Ironrain",
+    "rarity": "★★★★",
+    "attribute": "Passion",
+    "stats": [
+      {
+        "friendlyName": "Attack",
+        "id": "Attack",
+        "value": "157"
+      },
+      {
+        "friendlyName": "Defense",
+        "id": "Defense",
+        "value": "42"
+      },
+      {
+        "friendlyName": "Health",
+        "id": "Health",
+        "value": "72"
+      },
+      {
+        "friendlyName": "Critical Chance",
+        "id": "Critical_Chance",
+        "value": "3%"
+      },
+      {
+        "friendlyName": "Critical Damage",
+        "id": "Critical_Damage",
+        "value": "125%"
+      }
+    ],
+    "bestEquipment": [
+      {
+        "type": "Weapon",
+        "name": "Tentacles of Chaos",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/578479",
+        "img": "https://img.game8.co/4406243/d837f963a1a8fca46e53e6403ad95aac.png/show"
+      },
+      {
+        "type": "Armor",
+        "name": "Fairy King's Crown",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/561114",
+        "img": "https://img.game8.co/4317408/51cc62cd9d8561b9c24662e02113f5f8.png/show"
+      },
+      {
+        "type": "Accessory",
+        "name": "Amorphous Cube",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560459",
+        "img": "https://img.game8.co/4315535/02b92efbd6bed9b3c506c1fb22ce4523.png/show"
+      }
+    ],
+    "bestPartner": {
+      "name": "Serithea",
+      "uid": "serithea"
+    },
+    "bestTeammates": [
+      {
+        "role": "Main DPS",
+        "name": "Diana",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/592003"
+      },
+      {
+        "role": "Support",
+        "name": "Cassius",
+        "url": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560121"
+      }
+    ],
+    "bestMemoryFragments": {
+      "fourPieceSet": {
+        "name": "Black Wing Set",
+        "id": "black-wing-set"
+      },
+      "twoPieceSet": {
+        "name": "Cursed Corpse Set",
+        "id": "cursed-corpse-set"
+      }
+    },
+    "bestChaosZones": [],
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560120",
+    "updatedAt": "2026-06-17T05:02:02.198Z"
+  }
+]

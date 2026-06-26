@@ -5,7 +5,6 @@ ENV VITE_GOOGLE_CLIENT_ID=$VITE_GOOGLE_CLIENT_ID
 WORKDIR /app/frontend
 COPY frontend/package.json frontend/vite.config.ts frontend/tsconfig.json frontend/tsconfig.node.json frontend/index.html ./
 RUN mkdir -p /app/frontend/assets/images
-COPY frontend/public/images ./assets/images
 COPY frontend/src ./src
 RUN npm install
 RUN npm run build
@@ -48,6 +47,7 @@ FROM alpine:3.19
 RUN apk add --no-cache ca-certificates
 WORKDIR /app
 COPY --from=backend-builder /app/czn-tracker .
+COPY --from=backend-builder /app/data ./data
 COPY --from=frontend-builder /app/frontend/dist ./frontend/dist
 COPY --from=backend-builder /app/utils ./utils
 EXPOSE 8080

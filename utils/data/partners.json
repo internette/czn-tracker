@@ -1,0 +1,967 @@
+[
+  {
+    "name": "Nyx",
+    "uid": "nyx",
+    "img": "https://img.game8.co/4314949/141b5197c8655e909b481c106b34d551.png/show",
+    "class": " Controller",
+    "rarity": "5★",
+    "epCost": "4",
+    "attack": "+ 0",
+    "defense": "+ 7",
+    "health": "+ 0",
+    "passive": {
+      "name": "Resonance",
+      "description": "\nThe assigned combatant's Defense, Health, and Heal Amount are increased by 12%.When the assigned combatant Draws for the first time each turn using an ability, +8% Damage dealt by allies for 1 turn. \n"
+    },
+    "egoSkill": {
+      "name": "Errante Hurricane",
+      "img": "https://img.game8.co/4330081/811663c88223e8beda8ae6eb9a12c67a.png/show",
+      "details": "Discard up to 3 cards, then Draw +1 cards equal to the number discarded"
+    },
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560595",
+    "updatedAt": "2026-06-17T05:02:12.796Z"
+  },
+  {
+    "name": "Scarlet",
+    "uid": "scarlet",
+    "img": "https://img.game8.co/4312325/32d0bca971397b2f06232ff6371a58c6.png/show",
+    "class": " Striker",
+    "rarity": "5★",
+    "epCost": "3",
+    "attack": "+ 19",
+    "defense": "+ 0",
+    "health": "+ 0",
+    "passive": {
+      "name": "The Path to Mastery",
+      "description": "\nThe assigned Combatant’s Attack is increased by 16%If a card used immediately before was from the assigned combatant, +15% attack card damage. Stacks up to 2 times and is removed if another combatant's card is used.When the assigned combatant uses 2 or more cards, they gain Focus.Focus: Attack card damage of the assigned combatant is increased by 20%.Remove Focus when another combatant's card is used. \n"
+    },
+    "egoSkill": {
+      "name": "Binding Knot",
+      "img": "https://img.game8.co/4330075/802f4993f2172e953027387bdb4a9a3b.png/show",
+      "details": "250% Damage  +10% assigned combatant's attack card damage per buff owned"
+    },
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560588",
+    "updatedAt": "2026-06-17T05:02:13.096Z"
+  },
+  {
+    "name": "Peko",
+    "uid": "peko",
+    "img": "https://img.game8.co/4372466/0d5c7acfb3dab02ca6e47777dbfe0eb4.png/show",
+    "class": " Hunter",
+    "rarity": "5★",
+    "epCost": "3",
+    "attack": "+ 113",
+    "defense": "+ 5",
+    "health": "+ 105",
+    "passive": {
+      "name": "Peko's Multi-Purpose Kit",
+      "description": "\nThe assigned Combatant’s Attack is increased by 16%The assigned combatant's Attack is increased by 8%.When the assigned Combatant's card moves from Graveyard to hand, hain 1 [Repairs Complete!].[Repairs Complete] +10% Damage to Attack Cards of this unit during this battle (max 3 stacks).Increase Damage of the assigned Combatant's Attack Cards that are used against Ravaged targets by 15%. \n"
+    },
+    "egoSkill": {
+      "name": "Overclock Beacon",
+      "img": "https://img.game8.co/4373902/73323aa3b61d3728284f85d3a39b4d76.png/show",
+      "details": "When an ally inflicts Ravage, 1 Overclock to the assigned Combatant (1 time per turn). Overclock: +25% Critical Chance for 1 turn."
+    },
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/572195",
+    "updatedAt": "2026-06-17T05:02:13.075Z"
+  },
+  {
+    "name": "Tiana",
+    "uid": "tiana",
+    "img": "https://img.game8.co/4423812/8a0c02ce6d993996d27cc3097bc3b03e.png/show",
+    "class": " Controller",
+    "rarity": "5★",
+    "epCost": "3",
+    "attack": "+ 0",
+    "defense": "+ 7",
+    "health": "+ 0",
+    "passive": {
+      "name": "Star in the Darkness",
+      "description": "\nIncrease the assigned Combatant's Defense by 16%When the assigned Combatant creates 3 Exhaust cards, increase Damage Amount of the next Attack Card of allies used by 15-30% (max 2 stacks).When the assigned Combatant has activated Shield and Heal through Order Cards, +6-12% Critical Chance to allies for 1 turn(max 1 stack). \n"
+    },
+    "egoSkill": {
+      "name": "",
+      "details": "Draw 1 Exhaust Card The next 2 times an Ego Skill is used, Draw 2 Exhaust Card Decrease Cost of the next Ego Skill used by 1"
+    },
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/582559",
+    "updatedAt": "2026-06-17T05:02:12.693Z"
+  },
+  {
+    "name": "Sylvia",
+    "uid": "sylvia",
+    "img": "https://img.game8.co/4480717/6349b552d0454aaf97de2130aad57e55.png/show",
+    "class": " Ranger",
+    "rarity": "5★",
+    "epCost": "2",
+    "attack": "+ 27",
+    "defense": "+ 0",
+    "health": "+ 1",
+    "passive": {
+      "name": "Auroric Wingbeats",
+      "description": "\nIncreases the assinged Combatant's Attack by 16% Each time the assigned Combatant's Linked cards are used manually or Discarded, gain 1 Zephyr When Zephyr reaches 3, +20% Critical Damage to assigned Combatant. Zephyr: +15% Damage Amount to assigned Combatant's Passion Attack Cards (max 3 stacks) \n"
+    },
+    "egoSkill": {
+      "name": "",
+      "img": "https://img.game8.co/4482835/5a9bf0194bb743b3115b6883127f27fb.png/show",
+      "details": "Select up to 2 cards in hand, apply Linked If a selected card is the assigned Combatant's Linked card, +10% Critical Damage to assigned Combatant for each"
+    },
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/597263",
+    "updatedAt": "2026-06-17T05:02:13.051Z"
+  },
+  {
+    "name": "Janet",
+    "uid": "janet",
+    "img": "https://img.game8.co/4312210/dfa020a9caa3accf7bd4f16a438867fe.png/thumb",
+    "class": " Hunter",
+    "rarity": "5★",
+    "epCost": "3",
+    "attack": "+ 19",
+    "defense": "+ 0",
+    "health": "+ 0",
+    "passive": {
+      "name": "Understanding and Ideas",
+      "description": "\nThe assigned Combatant’s Attack is increased by 16%+9% Critical Chance of the assigned combatant's attack cards costing 1 or less.When the assigned combatant uses 5 Bullet cards, generate a random Handgun Bullet card. The generated card deals +50% damage. \n"
+    },
+    "egoSkill": {
+      "name": "Ultimate Missle Turret",
+      "img": "https://img.game8.co/4330077/d1b888bf2a3ba3071e5e56288eca23cd.png/show",
+      "details": "150% Damage to all enemies  For 1 turn, +20% Designated Combatant's Bullet Card Damage"
+    },
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560597",
+    "updatedAt": "2026-06-17T05:02:13.216Z"
+  },
+  {
+    "name": "Eishlen",
+    "uid": "eishlen",
+    "img": "https://img.game8.co/4304166/1cf9c54a5e10fbc0f148448d0bb12ced.png/show",
+    "class": " Vanguard",
+    "rarity": "5★",
+    "epCost": "4",
+    "attack": "+ 0",
+    "defense": "+ 7",
+    "health": "+ 0",
+    "passive": {
+      "name": "Arcane Wave",
+      "description": "\nThe assigned combatant's Defense, Health, and Shield gain are increased by 12%When the assigned combatant gains Counterattack, +15% Defense-based Damage. \n"
+    },
+    "egoSkill": {
+      "name": "Innos's Guardian",
+      "img": "https://img.game8.co/4330082/41e03dde812367f360658ce447941462.png/show",
+      "details": "100% Shield.  At the end of the turn, retain 50% of Shield"
+    },
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560596",
+    "updatedAt": "2026-06-17T05:02:13.005Z"
+  },
+  {
+    "name": "Zeta",
+    "uid": "zeta",
+    "img": "https://img.game8.co/4312289/5d96539725e3d2af895259e3ee6ca7e2.png/show",
+    "class": " Vanguard",
+    "rarity": "5★",
+    "epCost": "2",
+    "attack": "+ 0",
+    "defense": "+ 7",
+    "health": "+ 0",
+    "passive": {
+      "name": "Deadly Poison",
+      "description": "\nThe assigned Combatant’s Defense is increased by 16%The Defense-Based Damage of the assigned combatant's Instinct cards is increased by 15%.+25% the assigned combatant's Celestial card Defense-based Damage and Shield \n"
+    },
+    "egoSkill": {
+      "name": "Undertaking the Mission",
+      "img": "https://img.game8.co/4330074/9a2e3720efd35ebba1f5e92b66460875.png/show",
+      "details": "200% Defense-Based Damage  Draws 1 highest-cost card(s)"
+    },
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560593",
+    "updatedAt": "2026-06-17T05:02:13.171Z"
+  },
+  {
+    "name": "Serithea",
+    "uid": "serithea",
+    "img": "https://img.game8.co/4304169/cd3da64f87fc9a193adfee77e819f13f.png/show",
+    "class": " Hunter",
+    "rarity": "5★",
+    "epCost": "3",
+    "attack": "+ 19",
+    "defense": "+ 0",
+    "health": "+ 0",
+    "passive": {
+      "name": "Ensemble",
+      "description": "\nThe assigned Combatant’s Attack is increased by 12%The Critical Chance of the combatant's attack cards increases by 8%.When the assigned combatant's attack results in a Critical Hit, +3% Critical Damage. Stacks up to 5 times. \n"
+    },
+    "egoSkill": {
+      "name": "Crimson Romance",
+      "img": "https://img.game8.co/4330076/1e548bc9000b1cc2185805056c6d1ac5.png/show",
+      "details": "250% Damage  2 Vulnerable"
+    },
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560592",
+    "updatedAt": "2026-06-17T05:02:13.142Z"
+  },
+  {
+    "name": "Priscilla",
+    "uid": "priscilla",
+    "img": "https://img.game8.co/4304163/f16ed5815756b77906c110100bca87ed.png/show",
+    "class": " Striker",
+    "rarity": "5★",
+    "epCost": "2",
+    "attack": "+ 19",
+    "defense": "+ 0",
+    "health": "+ 0",
+    "passive": {
+      "name": "Arachnid Domain",
+      "description": "\nThe assigned combatant's Attack, HP, and damage are increased by 12%.+25% Damage dealt by the assigned combatant to targets in Break state. \n"
+    },
+    "egoSkill": {
+      "name": "Archnid Web",
+      "img": "https://img.game8.co/4330079/965737f0a1fb100daca6a6e0e22801f3.png/show",
+      "details": "Deal 250% Damage.  Apply Weakness Attack to 1 assigned combatant's random Attack cards in hand."
+    },
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560591",
+    "updatedAt": "2026-06-17T05:02:12.959Z"
+  },
+  {
+    "name": "Bria",
+    "uid": "bria",
+    "img": "https://img.game8.co/4312292/d06e52de220e2524d683cfde0011ca50.png/show",
+    "class": " Psionic",
+    "rarity": "5★",
+    "epCost": "3",
+    "attack": "+ 19",
+    "defense": "+ 0",
+    "health": "+ 0",
+    "passive": {
+      "name": "Check the Instructions",
+      "description": "\nThe assigned Combatant’s Attack is increased by 16%When the assigned combatant generates a card, attack card damage is increased by 10% for 1 turn. Stacks up to 3 times.When the assigned combatant generates a Status ailment card for first time, +25% attack card damage for 1 turn \n"
+    },
+    "egoSkill": {
+      "name": "Capable Secretary",
+      "img": "https://img.game8.co/4330067/bb85ee15048cf639569d151ab1706c1f.png/show",
+      "details": "From the Discard Pile, Exhaust all Status Ailment (including cards changed from Status Ailment) and Curse cards.  For each card Exhausted, +10% Designated Combatants' Attack card Damage for 1 turn"
+    },
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560590",
+    "updatedAt": "2026-06-17T05:02:12.884Z"
+  },
+  {
+    "name": "Kiara",
+    "uid": "kiara",
+    "img": "https://img.game8.co/4312304/6be3c37bf95535c1761b039a1ec7f86a.png/show",
+    "class": " Hunter",
+    "rarity": "5★",
+    "epCost": "3",
+    "attack": "+ 19",
+    "defense": "+ 0",
+    "health": "+ 0",
+    "passive": {
+      "name": "Analyze Weakness",
+      "description": "\nThe assigned Combatant’s Attack is increased by 16%If there are 10 or more cards in the Graveyard, the assigned combatant's attack card damage is increased by 15%.When the assigned combatant discards a card, +25% Attack Card Damage for 1 turn \n"
+    },
+    "egoSkill": {
+      "name": "Lumina Explosion",
+      "img": "https://img.game8.co/4330080/78998d5af6a452bde1f10f56ff2b982f.png/show",
+      "details": "200% Damage.  +20% Damage by number of cards in Graveyard."
+    },
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560589",
+    "updatedAt": "2026-06-17T05:02:13.042Z"
+  },
+  {
+    "name": "Tina",
+    "uid": "tina",
+    "img": "https://img.game8.co/4312359/ecca68115f2439360d4e3d541a76ce33.png/show",
+    "class": " Ranger",
+    "rarity": "5★",
+    "epCost": "2",
+    "attack": "+ 19",
+    "defense": "+ 0",
+    "health": "+ 0",
+    "passive": {
+      "name": "Communication Support",
+      "description": "\nThe assigned Combatant’s Attack is increased by 16%Order Attribute's Attack Damage increase by 15%.+25% Extra Attack damage from Targeting Attack Cards. \n"
+    },
+    "egoSkill": {
+      "name": "Target Confirmed Initiating Support",
+      "img": "https://img.game8.co/4330066/7df5414804a4390be33dc336f5e997a3.png/show",
+      "details": "Draw 1  Increase the combatant's Extra Attack damage by 30% for 1 turn"
+    },
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560586",
+    "updatedAt": "2026-06-17T05:02:13.193Z"
+  },
+  {
+    "name": "Noel",
+    "uid": "noel",
+    "img": "https://img.game8.co/4312387/f03f7449b32285a63af12ffa20c7293c.png/show",
+    "class": " Controller",
+    "rarity": "5★",
+    "epCost": "3",
+    "attack": "+ 0",
+    "defense": "+ 7",
+    "health": "+ 0",
+    "passive": {
+      "name": "Hymn of Blessing",
+      "description": "\nThe assigned Combatant’s Defense is increased by 16%+15% the assigned combatant's Retained cards Damage, Shield, and HP. At the end of the turn, deal Fixed Damage to all enemies equal to 15% for each retained card of the assigned combatant. +5% Damage for enemies with the Instinct attribute. \n"
+    },
+    "egoSkill": {
+      "name": "Legato of Faith",
+      "img": "https://img.game8.co/4330069/6d81cdf37943f40c9d783d880f87359b.png/show",
+      "details": "Heal 100%  Activate the Retain effect of all cards held by the assigned combatant."
+    },
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560584",
+    "updatedAt": "2026-06-17T05:02:13.323Z"
+  },
+  {
+    "name": "Erica",
+    "uid": "erica",
+    "img": "https://img.game8.co/4312389/cd74a358474ee2e363524464a5619aa5.png/show",
+    "class": " Vanguard",
+    "rarity": "5★",
+    "epCost": "2",
+    "attack": "+ 0",
+    "defense": "+ 7",
+    "health": "+ 0",
+    "passive": {
+      "name": "No Speeding!",
+      "description": "\nThe assigned Combatant’s Defense is increased by 16%The assigned combatant's Counterattack damage increases by 15%.When the assigned combatant uses a Skill or Upgrade Card, there is a 50% chance to gain Counterattack. \n"
+    },
+    "egoSkill": {
+      "name": "Crackdown Beam Bombardment",
+      "img": "https://img.game8.co/4330070/38c04a90d6926e94ddced24eda82aa9e.png/show",
+      "details": "200% Defense-based Damage to all enemies.  1 Counterattack.  If an enemy's Anticipated Action attack, 1 Counterattack"
+    },
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560583",
+    "updatedAt": "2026-06-17T05:02:12.914Z"
+  },
+  {
+    "name": "Alyssa",
+    "uid": "alyssa",
+    "img": "https://img.game8.co/4312141/64cbb2b5f253df349b3829e74f4b0cc3.png/show",
+    "class": " Controller",
+    "rarity": "4★",
+    "epCost": "2",
+    "attack": "+ 0",
+    "defense": "+ 6",
+    "health": "+ 0",
+    "passive": {
+      "name": "Alchemical Fruits",
+      "description": "\nThe assigned combatant's Defense is increased by 12%.  At the end of battle, recover 3% Health. \n"
+    },
+    "egoSkill": {
+      "name": "Vitality Boosting Potion",
+      "img": "https://img.game8.co/4330088/24f3141d6f346c8df83bfe49f65d8167.png/show",
+      "details": "Heal 100%  +50% Healing amount while in injured state.  1 Morale for 1 turn"
+    },
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560608",
+    "updatedAt": "2026-06-17T05:02:12.982Z"
+  },
+  {
+    "name": "Wilhelmina",
+    "uid": "wilhelmina",
+    "img": "https://img.game8.co/4312220/8e917931eb4c0c8c57981f6caa71031c.png/show",
+    "class": " Vanguard",
+    "rarity": "4★",
+    "epCost": "2",
+    "attack": "+ 0",
+    "defense": "+ 6",
+    "health": "+ 0",
+    "passive": {
+      "name": "Battle Command",
+      "description": "\nThe assigned combatant's Defense is increased by 12%.  When the assigned combatant targets a Vulnerable enemy, +10% Defense-based Damage of Attack cards. \n"
+    },
+    "egoSkill": {
+      "name": "Tactical Command",
+      "img": "https://img.game8.co/4330095/a501e8f51f098567fc27d5c9ffcfd0eb.png/show",
+      "details": "For 1 turn, 2 Morale  For 1 turn, 1 Fortitude"
+    },
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560605",
+    "updatedAt": "2026-06-17T05:02:12.945Z"
+  },
+  {
+    "name": "Rosaria",
+    "uid": "rosaria",
+    "img": "https://img.game8.co/4312144/f54f0471e34e6a8097078929f8d50557.png/show",
+    "class": " Ranger",
+    "rarity": "4★",
+    "epCost": "2",
+    "attack": "+ 16",
+    "defense": "+ 0",
+    "health": "+ 0",
+    "passive": {
+      "name": "Financial Support",
+      "description": "\nThe assigned combatant's Additional Attack damage is increased by 10%.  When the assigned combatant uses an Upgrade skill or Skill card, 25% chance to gain Morale for 1 turn. \n"
+    },
+    "egoSkill": {
+      "name": "Security Team Requesting Support!",
+      "img": "https://img.game8.co/4330094/84abfaa4f4cb44f4a879a9b060431e01.png/show",
+      "details": "Draw 1 Enhanced card  If there are no Enhance Cards in the Draw Pile, Draw 1"
+    },
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560604",
+    "updatedAt": "2026-06-17T05:02:12.745Z"
+  },
+  {
+    "name": "Eloise",
+    "uid": "eloise",
+    "img": "https://img.game8.co/4312222/6f2870d2fb5e2c5be35c8a7c3f57b908.png/show",
+    "class": " Psionic",
+    "rarity": "4★",
+    "epCost": "3",
+    "attack": "+ 16",
+    "defense": "+ 0",
+    "health": "+ 0",
+    "passive": {
+      "name": "Technical Support",
+      "description": "\nThe combatant's attack card damage increases by 10%.  When the combatant first Exhausts a card or first gains a Status Ailment card, their attack card damage increases by 12% for 1 turn. \n"
+    },
+    "egoSkill": {
+      "name": "Activate Defense Module",
+      "img": "https://img.game8.co/4330098/07d881b02c1b3d2f3e9b0e5643823c4b.png/show",
+      "details": "For 1 turn, when a card is Exhausted, 1 weaken to a random enemy."
+    },
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560603",
+    "updatedAt": "2026-06-17T05:02:12.994Z"
+  },
+  {
+    "name": "Lillian",
+    "uid": "lillian",
+    "img": "https://img.game8.co/4312233/f14730f32b3b38f04176dad02ff906b0.png/show",
+    "class": " Striker",
+    "rarity": "4★",
+    "epCost": "3",
+    "attack": "+ 16",
+    "defense": "+ 0",
+    "health": "+ 0",
+    "passive": {
+      "name": "Poltergeist",
+      "description": "\nThe assigned combatant's attack cards with a cost of 1 or less deal +10% damage.  When the assigned combatant uses a Skill card, +10% attack card damage for 1 turn. Stacks up to 3 times. \n"
+    },
+    "egoSkill": {
+      "name": "Light of Judgement",
+      "img": "https://img.game8.co/4330091/20ed28a7463eb2a02c5a1dcad9f20812.png/show",
+      "details": "Deal 100% Damage to all enemies.  Draw 1 Attack card from assigned combatant with cost of less than or equal to 1."
+    },
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560601",
+    "updatedAt": "2026-06-17T05:02:13.257Z"
+  },
+  {
+    "name": "Asteria",
+    "uid": "asteria",
+    "img": "https://img.game8.co/4312138/2b76d22ac553bbb3c1c0f195fc70b810.png/show",
+    "class": " Striker",
+    "rarity": "5★",
+    "epCost": "2",
+    "attack": "+ 19",
+    "defense": "+ 0",
+    "health": "+ 0",
+    "passive": {
+      "name": "Starshine-piercing Lighthouse",
+      "description": "\nThe assigned Combatant’s Attack is increased by 16%The assigned combatant's attack cards with a cost of 2 or more deal +25% damage +10% Damage of the assigned Combatant's Pulverize cards. \n"
+    },
+    "egoSkill": {
+      "name": "Light of Ark",
+      "img": "https://img.game8.co/4330078/bc30f3455c682ec628f87dfff711007c.png/show",
+      "details": "+40% Damage of the next Attack card used by the assigned Combatant for the total cost of all cards in the hand (Max 10)"
+    },
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560582",
+    "updatedAt": "2026-06-17T05:02:13.226Z"
+  },
+  {
+    "name": "Westmacott",
+    "uid": "westmacott",
+    "img": "https://img.game8.co/4328228/7627168fb06530ace52cd819191e9fd9.png/show",
+    "class": " Striker",
+    "rarity": "5★",
+    "epCost": "2",
+    "attack": "+ 113",
+    "defense": "+ 5",
+    "health": "+ 105",
+    "passive": {
+      "name": "Gleaming Deduction",
+      "description": "\nThe assigned Combatant’s Attack is increased by 16%Attack cards of the assigned Combatant drawn by their Ability have their Damage increased by 50% for 1 turn.Damage amount of cards with the assigned Combatant's Inspiration increases by 20% \n"
+    },
+    "egoSkill": {
+      "name": "Clue Spotted",
+      "img": "https://img.game8.co/4331726/7f420e33a645540828db6c06cd61c62d.png/show",
+      "details": "Move 1 card(s) from hand to Draw Pile  Draw 2 assigned Combatant card(s)"
+    },
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/564002",
+    "updatedAt": "2026-06-17T05:02:12.764Z"
+  },
+  {
+    "name": "Itsuku",
+    "uid": "itsuku",
+    "img": "https://img.game8.co/4353684/0dbecb6f3766b13dabde49b2cba19d1b.png/show",
+    "class": " Psionic",
+    "rarity": "5★",
+    "epCost": "3",
+    "attack": "+ 113",
+    "defense": "+ 5",
+    "health": "+ 105",
+    "passive": {
+      "name": "Tranquil Marker",
+      "description": "\nThe assigned Combatant’s Attack is increased by 16%Every time the assigned Combatant's card stack, +5-10% Attack Card Damage Amount (Max 3 stacks)Every time 1 Attack Card type used by the Assigned Combatant deals 3 Hits, 30-60% Fixed Damage to the target \n"
+    },
+    "egoSkill": {
+      "name": "Moonlit Leisure",
+      "img": "https://img.game8.co/4354474/fe0cbc4e87a36c5da7b6e29a47c16cf3.png/show",
+      "details": "200% Damage to all enemies, apply Fierce Winds effect Fierce Winds: +50% Damage Amount to Attack Cards of the assigned Combatant for 1 turn"
+    },
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/569100",
+    "updatedAt": "2026-06-17T05:02:13.129Z"
+  },
+  {
+    "name": "Alcea",
+    "uid": "alcea",
+    "img": "https://img.game8.co/4405734/ab13a9e4c24be575f896c4e000d64e59.png/show",
+    "class": " Vanguard",
+    "rarity": "5★",
+    "epCost": "3",
+    "attack": "+ 0",
+    "defense": "+ 7",
+    "health": "+ 0",
+    "passive": {
+      "name": "High Maintenance",
+      "description": "\nIncrease the assigned Combatant's Defense by 16%When an Exhaust card of the assigned Combatant is Exhausted or activated, increase Defense-Based Damage Amount of the next Attack Card used by 20% (max 1 stack)When a 2-Cost or higher card of the assigned Combatant is Exhausted gain 100% Fixed Shield (1 time per turn) \n"
+    },
+    "egoSkill": {
+      "name": "If You Require Assistance",
+      "img": "https://img.game8.co/4404080/cfa67668536d2050438f654ad93b255d.png/show",
+      "details": "250% Defense-Based 5 Caustic Remarks"
+    },
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/578177",
+    "updatedAt": "2026-06-17T05:02:12.715Z"
+  },
+  {
+    "name": "Ivy",
+    "uid": "ivy",
+    "img": "https://img.game8.co/4444151/2dd4b7ccbf224be6fa6ebfe4e5db6b1d.png/show",
+    "class": " Psionic",
+    "rarity": "5★",
+    "epCost": "3",
+    "attack": "+ 19",
+    "defense": "+ 0",
+    "health": "+ 0",
+    "passive": {
+      "name": "All of Me",
+      "description": "\nIncrease the assigned Combatant's Attack by 16%When a 2-Cost or higher Justice Attribute Attack Card of the assigned Combatant is used, increase Damage Amount of the next Attack Card used by the assigned Combatant by 25%.If a 2-, 3-, or 4-Cost Attack Card of the assigned Combatant is used, gain 1 [Premonition] (max 1 time each)Premonition: Increase Damage Amount of the assigned Combatant by 5% (max 3 stacks) \n"
+    },
+    "egoSkill": {
+      "name": "",
+      "details": "2 Illusory Erosion Illusory Erosion: Increase Damage Amount taken from 2-Cost or higher Attack Cards of the assigned Combatant by 20%"
+    },
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/587065",
+    "updatedAt": "2026-06-17T05:02:13.161Z"
+  },
+  {
+    "name": "Sophia",
+    "uid": "sophia",
+    "img": "https://img.game8.co/4462220/8b5933fd825fdce1557ecbabc17e0bab.png/show",
+    "class": " Hunter",
+    "rarity": "5★",
+    "epCost": "3",
+    "attack": "+ 27",
+    "defense": "+ 0",
+    "health": "+ 1",
+    "passive": {
+      "name": "Milky Way Chorus",
+      "description": "\nIncrease the assigned Combatant's Attack by 16%When a Passion Quietus card of the assigned Combatant is Discarded, +5% Critical Damage (max 4 stacks).When 3 Bullet Cards are Discarded, the assigned Combatant performs a 200% Extra Attack on a random enemy (2 times per turn). \n"
+    },
+    "egoSkill": {
+      "name": "",
+      "details": "3 Die-hard Fan to the assigned CombatantDraw 1Discard up to 2 cards in handDie-hard Fan: +40% Damage Amount to Extra Attacks of the assigned Combatant. At the end of the turn, decrease Die-hard Fan by 1"
+    },
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/592004",
+    "updatedAt": "2026-06-17T05:02:13.017Z"
+  },
+  {
+    "name": "Clara",
+    "uid": "clara",
+    "img": "https://img.game8.co/4515805/b1a352e6ee413dde72b28ef877235de7.png/show",
+    "class": " Vanguard",
+    "rarity": "5★",
+    "epCost": "3",
+    "attack": "+ 0",
+    "defense": "+ 9",
+    "health": "+ 1",
+    "passive": {
+      "name": "Dreamwoven Prism",
+      "description": "\nIncrease the assigned Combatant's Defense by 16-24%.When a card with the Blessing effect applied by the assigned Combatant is used, Fixed Heal 40-60% (5 times per turn).When the assigned Combatant's Blessing card is used, allies gain 1 [Prism].[Prism]: Increase Damage Amount of Attack Cards and Shield Gain Amount of Skill Cards by 5-10% (max 4 stacks) \n"
+    },
+    "egoSkill": {
+      "name": "Genius Stage Director",
+      "img": "https://img.game8.co/4515695/e1a0e595fdd0e1e00b462ef0ddd3bf22.png/show",
+      "details": "200% ShieldSelect and Draw 2 Blessing cards from Draw Pile"
+    },
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/602320",
+    "updatedAt": "2026-06-17T05:02:13.064Z"
+  },
+  {
+    "name": "Solia",
+    "uid": "solia",
+    "img": "https://img.game8.co/4304164/db27c2027ba1a486552e07dd4c5297a5.png/show",
+    "class": " Ranger",
+    "rarity": "5★",
+    "epCost": "3",
+    "attack": "+ 19",
+    "defense": "+ 0",
+    "health": "+ 0",
+    "passive": {
+      "name": "Spacetime Warp",
+      "description": "\nThe assigned Combatant’s Attack is increased by 12%+20 Extra Attack damage of the assigned combatantWhen the combatant Draws for the first time each turn using an ability, +10% Attack Card Damage for 1 turn. \n"
+    },
+    "egoSkill": {
+      "name": "Spacetime Rift",
+      "img": "https://img.game8.co/4330072/abd0ff5a37b69d866d93a56e826febed.png/show",
+      "details": "250% Damage  Mark 1"
+    },
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560598",
+    "updatedAt": "2026-06-17T05:02:13.151Z"
+  },
+  {
+    "name": "Anteia",
+    "uid": "anteia",
+    "img": "https://img.game8.co/4314951/73c93fb8cb2e266d9fa509038a8690b0.png/show",
+    "class": " Psionic",
+    "rarity": "5★",
+    "epCost": "2",
+    "attack": "+ 19",
+    "defense": "+ 0",
+    "health": "+ 0",
+    "passive": {
+      "name": "Clairvoyance",
+      "description": "\nThe assigned combatant's Attack, Health, and Damage Amount are increased by 12%.When the assigned combatant generates a card, +8% attack card damage for 1 turn. \n"
+    },
+    "egoSkill": {
+      "name": "Scholarly Measures",
+      "img": "https://img.game8.co/4330071/fbec71eb20f1cc170e9bfb01921c584a.png/show",
+      "details": "180% Damage to all enemies  1 Vulnerable"
+    },
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560594",
+    "updatedAt": "2026-06-17T05:02:13.031Z"
+  },
+  {
+    "name": "Marianne",
+    "uid": "marianne",
+    "img": "https://img.game8.co/4312330/16809cf1d2ed959cfe9597c9dc3a3ed3.png/show",
+    "class": " Striker",
+    "rarity": "5★",
+    "epCost": "3",
+    "attack": "+ 19",
+    "defense": "+ 0",
+    "health": "+ 0",
+    "passive": {
+      "name": "Eyes on the Target",
+      "description": "\nThe assigned Combatant’s Attack is increased by 16%The assigned combatant's damage to Breakthrough enemies is increased by 15%.The assigned combatant's Basic Cards always apply as Weak Point Damage, and +5% Weakness Damage \n"
+    },
+    "egoSkill": {
+      "name": "Blood Stalker",
+      "img": "https://img.game8.co/4330073/1f364599e02a514061635ea7ad2e1dc7.png/show",
+      "details": "350% Damage"
+    },
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560587",
+    "updatedAt": "2026-06-17T05:02:13.280Z"
+  },
+  {
+    "name": "Marin",
+    "uid": "marin",
+    "img": "https://img.game8.co/4312365/7d1889665bebc16197497838199812c3.png/show",
+    "class": " Ranger",
+    "rarity": "5★",
+    "epCost": "3",
+    "attack": "+ 19",
+    "defense": "+ 0",
+    "health": "+ 0",
+    "passive": {
+      "name": "Raging Wave",
+      "description": "\nThe assigned Combatant’s Attack is increased by 16%The Extra Attack damage of cards generated by the assigned combatant's abilities increase by 15%. When the assigned combatant uses a Skill Card, +25% Extra Attack damage for 1 turn. \n"
+    },
+    "egoSkill": {
+      "name": "Azure Fury",
+      "img": "https://img.game8.co/4330065/d406dfbd5411fb16d7de5f89e6bff2a6.png/show",
+      "details": "200% Damage to all enemies.  Draw 1 skill card."
+    },
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560585",
+    "updatedAt": "2026-06-17T05:02:13.181Z"
+  },
+  {
+    "name": "Arwen",
+    "uid": "arwen",
+    "img": "https://img.game8.co/4312213/7365c352bf949e0c2ba424079eab3926.png/show",
+    "class": " Controller",
+    "rarity": "4★",
+    "epCost": "3",
+    "attack": "+ 0",
+    "defense": "+ 6",
+    "health": "+ 0",
+    "passive": {
+      "name": "Starshine Intellect",
+      "description": "\nThe assigned combatant's HP and healing are increased 8%.  At the start of the turn, gain Ponopoko's Cheer equal to the number of enemies with attack intentions.  Ponopoko's Cheer: Incoming Damage is reduced by 10%  Upon activation, remove Ponopoko's Cheer (stacks up to 3 times) \n"
+    },
+    "egoSkill": {
+      "name": "Pokopo Ponpon",
+      "img": "https://img.game8.co/4330068/d92255a8accba039901b64a5c2c69a05.png/show",
+      "details": "Heal 200%  1 Damage Reduction"
+    },
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560609",
+    "updatedAt": "2026-06-17T05:02:12.856Z"
+  },
+  {
+    "name": "Akad",
+    "uid": "akad",
+    "img": "https://img.game8.co/4312215/4f4c3ca5c80bb7e6959ebc810ace1dad.png/show",
+    "class": " Hunter",
+    "rarity": "4★",
+    "epCost": "2",
+    "attack": "+ 16",
+    "defense": "+ 0",
+    "health": "+ 0",
+    "passive": {
+      "name": "Self Defense",
+      "description": "\nThe damage of the combatant's Bullet cards increases by 10%.  When the combatant lands their first critical hit, Bullet card damage increases by 12% for 1 turn. \n"
+    },
+    "egoSkill": {
+      "name": "What I Wished to Protect",
+      "img": "https://img.game8.co/4330093/6b01d891584522bf051802f5e6cb754c.png/show",
+      "details": "For 1 turn, +25% Critical Chance of Designated Combatant's Attack cards"
+    },
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560607",
+    "updatedAt": "2026-06-17T05:02:13.267Z"
+  },
+  {
+    "name": "Yuri",
+    "uid": "yuri",
+    "img": "https://img.game8.co/4312243/c982574c2b84615d615a261bcc9bd29d.png/show",
+    "class": " Hunter",
+    "rarity": "3★",
+    "epCost": "3",
+    "attack": "+ 13",
+    "defense": "+ 0",
+    "health": "+ 0",
+    "passive": {
+      "name": "Cantrip",
+      "description": "\nThe assigned combatant's Attack is increased by 8%.  Upon the first shuffle, the assigned combatant's damage dealt is increased by 8%. \n"
+    },
+    "egoSkill": {
+      "name": "Drone Deployment",
+      "img": "https://img.game8.co/4330096/cf0ef5ce0f7dfc2b197278f0c35e6dc7.png/show",
+      "details": "Draw 2"
+    },
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560611",
+    "updatedAt": "2026-06-17T05:02:13.108Z"
+  },
+  {
+    "name": "Gaya",
+    "uid": "gaya",
+    "img": "https://img.game8.co/4383880/cdb675eab48309c142a79a85346a7613.png/show",
+    "class": " Controller",
+    "rarity": "5★",
+    "epCost": "3",
+    "attack": "+ 0",
+    "defense": "+ 7",
+    "health": "+ 0",
+    "passive": {
+      "name": "Snow Upon the Heart",
+      "description": "\nThe assigned combatant's Defense is increased by 16%+20% Defense-Based Damage for the assigned combatant's Instinct cards.When using a Unique Attack Card of the assigned Combatant with an original Cost of 6, +20% to Damage Amount of all allies (max 1 stack). \n"
+    },
+    "egoSkill": {
+      "name": "Ice Wyrm's Roar",
+      "img": "https://img.game8.co/4405512/11ff128bdb97bd06b371b4923aebecee.png/show",
+      "details": "60% Damage x 4 Draw 1 of this unit's Attack Cards"
+    },
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/574386",
+    "updatedAt": "2026-06-17T05:02:12.727Z"
+  },
+  {
+    "name": "Daisy",
+    "uid": "daisy",
+    "img": "https://img.game8.co/4312234/e7c2b7d92ea6750c8411c69130860ca4.png/show",
+    "class": " Ranger",
+    "rarity": "4★",
+    "epCost": "2",
+    "attack": "+ 16",
+    "defense": "+ 0",
+    "health": "+ 0",
+    "passive": {
+      "name": "Dowsing",
+      "description": "\nThe assigned combatant's Additional Attack damage is increased by 10%.  When the assigned combatant Draws for the first time each turn using an ability, there is a 20% chance to gain Morale for 1 turn. \n"
+    },
+    "egoSkill": {
+      "name": "Commencing Detection!",
+      "img": "https://img.game8.co/4330099/c2916866c2500c5f4e32db56573ff325.png/show",
+      "details": "180% Shield  1 Morale for 1 Turn."
+    },
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560606",
+    "updatedAt": "2026-06-17T05:02:13.290Z"
+  },
+  {
+    "name": "Rachel",
+    "uid": "rachel",
+    "img": "https://img.game8.co/4312230/a454a0e4a5b1dba0cd51de204321faf1.png/show",
+    "class": " Vanguard",
+    "rarity": "4★",
+    "epCost": "2",
+    "attack": "+ 0",
+    "defense": "+ 6",
+    "health": "+ 0",
+    "passive": {
+      "name": "Replenish Energy",
+      "description": "\nThe assigned combatant's skill card shield gain is increased by 10%.  When the assigned combatant gains Shield, 20% chance to gain 1 Counterattack. \n"
+    },
+    "egoSkill": {
+      "name": "Colonel Hamburger!",
+      "img": "https://img.game8.co/4330100/1664195d1f7575bbd0f4cc36b26029e4.png/show",
+      "details": "100% Shield  Draw 1"
+    },
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560602",
+    "updatedAt": "2026-06-17T05:02:12.839Z"
+  },
+  {
+    "name": "Ritochka",
+    "uid": "ritochka",
+    "img": "https://img.game8.co/4312225/144116db28a1ed0837f135b8bf4d42af.png/show",
+    "class": " Striker",
+    "rarity": "4★",
+    "epCost": "2",
+    "attack": "+ 16",
+    "defense": "+ 0",
+    "health": "+ 0",
+    "passive": {
+      "name": "Construction Support",
+      "description": "\nThe assigned Combatant’s Attack is increased by 8% +10% Damage Amount to 2-cost or higher Attack Cards of the assigned Combatant.  At the start of the turn, 1 of the assigned combatant's attack cards gains +5% damage for every point of the total cost of attack cards. \n"
+    },
+    "egoSkill": {
+      "name": "Workplace Hazards Ahead!",
+      "img": "https://img.game8.co/4330092/4fc9f2397284112e911439a36cf0d358.png/show",
+      "details": "For 1 turn, 3 Morale."
+    },
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560600",
+    "updatedAt": "2026-06-17T05:02:13.299Z"
+  },
+  {
+    "name": "Carroty",
+    "uid": "carroty",
+    "img": "https://img.game8.co/4312226/08ca32f4d89326523511fef76e36d73f.png/show",
+    "class": " Hunter",
+    "rarity": "4★",
+    "epCost": "2",
+    "attack": "+ 16",
+    "defense": "+ 0",
+    "health": "+ 0",
+    "passive": {
+      "name": "Super Carrot Power!",
+      "description": "\nAt the start of the turn, the damage of 1 attack card increases by 10% for the combatant.  When the combatant generates a card for the first itme, their attack card damage increases by 10% for 1 turn. \n"
+    },
+    "egoSkill": {
+      "name": "Eating Soft Carrots",
+      "img": "https://img.game8.co/4330097/8405faa5137c211299c4fcc8e0290547.png/show",
+      "details": "For 1 turn, increase the damage of cards generated by the assigned combatant's abilities for 20%"
+    },
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560599",
+    "updatedAt": "2026-06-17T05:02:13.085Z"
+  },
+  {
+    "name": "Nakia",
+    "uid": "nakia",
+    "img": "https://img.game8.co/4312236/3c55b8034b9d402a1ed5fd9c694701a7.png/show",
+    "class": " Ranger",
+    "rarity": "3★",
+    "epCost": "2",
+    "attack": "+ 13",
+    "defense": "+ 0",
+    "health": "+ 0",
+    "passive": {
+      "name": "Hot-Blooded Soldier",
+      "description": "\nThe reassigned combatant's attack is increased by 8%.  When an ally defeats an enemy, gain Backline Support.  Backline Support: +10% Damage of attack card.  Upon activation, Backline Support is reduced by 1 (up to 3 stacks). \n"
+    },
+    "egoSkill": {
+      "name": "Powerful Shot",
+      "img": "https://img.game8.co/4330087/546a13681823a8143e623d774b790154.png/show",
+      "details": "200% Damage"
+    },
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560615",
+    "updatedAt": "2026-06-17T05:02:12.928Z"
+  },
+  {
+    "name": "Zatera",
+    "uid": "zatera",
+    "img": "https://img.game8.co/4312238/ca4736686add79e315d4caf9d091c613.png/show",
+    "class": " Psionic",
+    "rarity": "3★",
+    "epCost": "2",
+    "attack": "+ 13",
+    "defense": "+ 0",
+    "health": "+ 0",
+    "passive": {
+      "name": "Fortune Telling",
+      "description": "\nThe assigned combatant's Attack is increased by 8%.  When injured , at the end of battle, recover 4% Health. \n"
+    },
+    "egoSkill": {
+      "name": "Flower of Memory",
+      "img": "https://img.game8.co/4330101/3f71f8bebe0140125ab7421e595bf73f.png/show",
+      "details": "200% Shield"
+    },
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560614",
+    "updatedAt": "2026-06-17T05:02:12.897Z"
+  },
+  {
+    "name": "Raidel",
+    "uid": "raidel",
+    "img": "https://img.game8.co/4312240/2d0053e6eee9d104e3fcc80f8a23e266.png/show",
+    "class": " Vanguard",
+    "rarity": "3★",
+    "epCost": "2",
+    "attack": "+ 0",
+    "defense": "+ 5",
+    "health": "+ 0",
+    "passive": {
+      "name": "Strategic Analysis",
+      "description": "\nThe combatant's max Health increases by 8%.  If the combatant is in Counterattack state, their Defense-Based Damage increases by 8%. \n"
+    },
+    "egoSkill": {
+      "name": "Analyze Weakness",
+      "img": "https://img.game8.co/4330089/d3035d98b0276ef48c87db713dd98337.png/show",
+      "details": "100% Shield  1 Counterattack"
+    },
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560613",
+    "updatedAt": "2026-06-17T05:02:13.207Z"
+  },
+  {
+    "name": "Douglas",
+    "uid": "douglas",
+    "img": "https://img.game8.co/4312241/8c71349dc18ed4072d5e51063440b660.png/show",
+    "class": " Striker",
+    "rarity": "3★",
+    "epCost": "2",
+    "attack": "+ 13",
+    "defense": "+ 0",
+    "health": "+ 0",
+    "passive": {
+      "name": "Guard",
+      "description": "\nThe assigned combatant's attack is increased by 8%.  At the start of the battle, Damage dealt by the assigned combatant increases by 8% for 1 turn. \n"
+    },
+    "egoSkill": {
+      "name": "Giant Bazooka",
+      "img": "https://img.game8.co/4330086/b80732a7e6df41b6a6d66c2beea99a95.png/show",
+      "details": "120% Damage to all enemies."
+    },
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560612",
+    "updatedAt": "2026-06-17T05:02:12.971Z"
+  },
+  {
+    "name": "Yvonne",
+    "uid": "yvonne",
+    "img": "https://img.game8.co/4312245/eba40e9da8b7c447f88d90e68939f3c2.png/show",
+    "class": " Controller",
+    "rarity": "3★",
+    "epCost": "2",
+    "attack": "+ 0",
+    "defense": "+ 5",
+    "health": "+ 0",
+    "passive": {
+      "name": "Bless",
+      "description": "\nThe assigned combatant's Defense is increased by 8%.  If the combatant ends the turn without using an attack card, Heal 30% at the start of the next turn.  \n"
+    },
+    "egoSkill": {
+      "name": "Consecration",
+      "img": "https://img.game8.co/4330090/321e3b9381692bddec3d51f66524cef8.png/show",
+      "details": "Heal 100%  1 Fortitude for 1 turn"
+    },
+    "sourceUrl": "https://game8.co/games/Chaos-Zero-Nightmare/archives/560610",
+    "updatedAt": "2026-06-17T05:02:13.313Z"
+  }
+]
