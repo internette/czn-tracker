@@ -31,18 +31,6 @@ const homePageStyles = {
 }
 
 export default function HomePage({ user }: HomePageProps) {
-    const [characters, setCharacters] = useState<Character[]>([])
-    const [loading, setLoading] = useState(true)
-
-    useEffect(() => {
-        async function loadCharacters() {
-            setLoading(true)
-            const response = await getCharacters()
-            setCharacters(response.characters)
-            setLoading(false)
-        }
-        loadCharacters()
-    }, [])
 
     return (
         <div>
@@ -52,30 +40,9 @@ export default function HomePage({ user }: HomePageProps) {
                     {!user ? (
                         <p style={homePageStyles.welcomeText}>Sign in with Google to save decks and build teams.</p>
                     ) : (
-                        <p style={homePageStyles.welcomeText}>Welcome back, {user.name}! View your characters and save decks.</p>
-                    )}
-                    {loading ? (
-                        <LoadingState message="Loading characters..." />
-                    ) : characters.length === 0 ? (
-                        <EmptyState title="No characters available" />
-                    ) : (
-                        <Grid cols={2} gap={16}>
-                            {characters.slice(0, 2).map((character) => (
-                                <CharacterCard key={character.id} character={character} />
-                            ))}
-                        </Grid>
+                        <p style={homePageStyles.welcomeText}>Welcome back, <Link to="/account">{user.name}</Link>! View your characters and save decks.</p>
                     )}
                     <Link to="/characters">View all characters →</Link>
-                </Card>
-            </section>
-
-            <section style={homePageStyles.section}>
-                <Card>
-                    <h2 style={homePageStyles.title}>Build Teams</h2>
-                    <p style={homePageStyles.description}>
-                        Create team compositions from your characters and store them for later.
-                    </p>
-                    <Link to="/teams">Open team builder →</Link>
                 </Card>
             </section>
         </div>

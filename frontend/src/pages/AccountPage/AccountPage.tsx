@@ -7,7 +7,7 @@ import SavedTeamCard from '../../components/SavedTeamCard/SavedTeamCard'
 import styles from './AccountPage.module.scss'
 
 interface AccountPageProps {
-  user: User
+  user: User | null
 }
 
 export default function AccountPage({ user }: AccountPageProps) {
