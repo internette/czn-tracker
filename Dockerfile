@@ -48,6 +48,7 @@ WORKDIR /app
 COPY --from=backend-builder /app/czn-tracker .
 COPY --from=backend-builder /app/data ./data
 COPY --from=frontend-builder /app/frontend/dist ./frontend/dist
+COPY --from=frontend-builder /app/frontend/dist/images ./data/images
 COPY --from=backend-builder /app/utils ./utils
 EXPOSE 8080
 
