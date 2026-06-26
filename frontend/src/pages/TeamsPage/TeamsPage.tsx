@@ -1,6 +1,6 @@
 import { FormEvent, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { getTeams, createTeam, deleteTeam, updateTeam } from '../../api'
+import { getTeams, createTeam, deleteTeam, updateTeam, getCharacters } from '../../api'
 import { Character, Team, User } from '../../types'
 import { Grid } from '../../components/ui'
 import SavedTeamCard from '../../components/SavedTeamCard/SavedTeamCard'
@@ -13,18 +13,32 @@ interface TeamsPageProps {
 
 export default function TeamsPage({ user }: TeamsPageProps) {
   const [characters, setCharacters] = useState<Character[]>([])
+  const [showOwnedOnly, setShowOwnedOnly] = useState(false)
+  const [loading, setLoading] = useState(false);
   const [teams, setTeams] = useState<Team[]>([])
   const [selectedIds, setSelectedIds] = useState<string[]>([])
   const [teamName, setTeamName] = useState('')
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [editingTeamId, setEditingTeamId] = useState<string | null>(null)
-  useEffect(()=> {
-    if(user && user.charactersOwned.length > 0){
-      setCharacters(user.charactersOwned);
-    }
+  // useEffect(()=> {
+  //   if(user && user.charactersOwned.length > 0){
+  //     setCharacters(user.charactersOwned);
+  //   }
 
-  }, [user?.charactersOwned])
+  // }, [user?.charactersOwned])
+  useEffect(() => {
+      const fetchCharacters = async () => {
+        try {
+          setLoading(true);
+          const response = await getCharacters();
+          setCharacters(response);
+        } finally {
+          setLoading(false);
+        }
+      };
+      fetchCharacters();
+    }, []);
 
   useEffect(() => {
     async function load() {
@@ -100,6 +114,10 @@ export default function TeamsPage({ user }: TeamsPageProps) {
     )
   }
 
+  const displayedCharacters = showOwnedOnly && user
+    ? user.charactersOwned
+    : characters
+
   const attributeTypes = ["passion", "order", "justice", "void", "instinct"];
 
   return (
@@ -121,11 +139,24 @@ export default function TeamsPage({ user }: TeamsPageProps) {
                 placeholder="e.g. Eternal Hunger Sword Rain"
               />
             </div>
+            {user && 
+              <div className={styles.teamFilterRow}>
+                <label className={styles.teamFilterOwnedStatus__label}>
+                  <input
+                    type="checkbox"
+                    checked={showOwnedOnly}
+                    className={styles.teamFilterOwnedStatus__input}
+                    onChange={(e) => setShowOwnedOnly(!showOwnedOnly)}
+                  />{' '}
+                  Show owned characters only
+                </label>
+              </div>
+            }
             {error && <p className={styles.errorStyle}>{error}</p>}
             <div className={styles.teamBuilder}>
               <div className={styles.characterGrid}>
                 <Grid minItemWidth={120}>
-                  {characters.map((character) => { 
+                  {displayedCharacters.map((character) => { 
                     const selected = selectedIds.includes(character.id)
                     return (
                     <button
@@ -156,7 +187,7 @@ export default function TeamsPage({ user }: TeamsPageProps) {
                 <h3 className={styles['teamSidebarHeader']}>Team Slots</h3>
                 <p className={styles.teamBuilderCounter}>{selectedIds.length} / 3 selected</p>
                 {selectedIds.map(selectedId => {
-                  const selectedCharacter = characters.filter(character => character.id === selectedId)[0]
+                  const selectedCharacter = (characters.find(character => character.id === selectedId) ?? user?.charactersOwned.find(character => character.id === selectedId))!
                   return (
                     <div className={styles.slotRow} key={selectedCharacter.id}>
                       <span
@@ -175,7 +206,7 @@ export default function TeamsPage({ user }: TeamsPageProps) {
                 })}
                 <div className={styles.attributesContainer}>{attributeTypes.map(attrType => {
                   const imgUrl = `/images/elements/${attrType}.webp`;
-                  const characterWithAttr = characters.filter(character => selectedIds.indexOf(character.uid) > -1 && character.attribute.toLowerCase() === attrType);
+                  const characterWithAttr = displayedCharacters.filter(character => selectedIds.indexOf(character.uid) > -1 && character.attribute.toLowerCase() === attrType);
                   const isPresent = characterWithAttr.length > 0;
                   return (<img key={attrType} src={imgUrl} className={`${styles.attributeIcon}${isPresent ? ' ' + styles['attributeIcon--active'] : ''}`}/>)
                 })}</div>
