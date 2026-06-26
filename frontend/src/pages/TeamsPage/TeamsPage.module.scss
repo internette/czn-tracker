@@ -57,6 +57,16 @@
   margin-top: $space-xl;
 }
 
+.characterInTeam {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: $radius-md;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  flex-shrink: 0;
+}
+
 .slotRow {
   display: flex;
   align-items: center;
