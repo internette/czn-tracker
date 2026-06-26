@@ -67,7 +67,7 @@ export default function GoogleSignInButton() {
   useEffect(() => {
     let cancelled = false
     const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID
-    const apiBase = import.meta.env.VITE_API_BASE || 'http://localhost:8080'
+    const apiBase = import.meta.env.VITE_API_BASE || ''
 
     if (!clientId) {
       setError('Missing VITE_GOOGLE_CLIENT_ID')
@@ -89,7 +89,7 @@ export default function GoogleSignInButton() {
             }
 
             try {
-              const result = await fetch(`${apiBase}/auth/google/login`, {
+              const result = await fetch(`${apiBase}/api/auth/google/login`, {
                 method: 'POST',
                 credentials: 'include',
                 headers: {

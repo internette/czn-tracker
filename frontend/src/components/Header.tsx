@@ -26,7 +26,7 @@ export default function Header({ user }: HeaderProps) {
             <div className="user-section">
               <span className="user-name">{user.name}</span>
               <a
-                href="http://localhost:8080/auth/logout"
+                href="/api/auth/logout"
                 className="logout-btn"
               >
                 Logout
@@ -34,7 +34,7 @@ export default function Header({ user }: HeaderProps) {
             </div>
           ) : (
             <a
-              href="http://localhost:8080/auth/google/login"
+              href="/api/auth/google/login"
               className="login-btn"
             >
               Sign in with Google

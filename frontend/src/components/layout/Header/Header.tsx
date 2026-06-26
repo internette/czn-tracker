@@ -134,7 +134,7 @@ export default function Header({ user }: HeaderProps) {
                 {user.name}
               </Link>
               <Button
-                href="http://localhost:8080/auth/logout"
+                href="/api/auth/logout"
                 variant="secondary"
                 style={{ padding: '8px 16px', fontSize: '0.85rem' }}
               >

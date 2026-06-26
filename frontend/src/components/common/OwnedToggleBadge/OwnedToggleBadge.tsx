@@ -18,14 +18,17 @@ export default function OwnedToggleBadge({ character, user }: OwnedToggleBadgePr
       return
     }
 
-    const apiBaseUrl = import.meta.env.VITE_API_URL ?? 'http://localhost:8080'
-    const endpoint = `${apiBaseUrl}/users/${user.uid}/characters/${character.uid}`
+    const apiBase = import.meta.env.VITE_API_BASE || ''
     const nextIsOwned = !isOwned
 
-    await fetch(endpoint, {
+    const response = await fetch(`${apiBase}/api/users/${user.uid}/characters/${character.uid}`, {
       method: isOwned ? 'DELETE' : 'POST',
       credentials: 'include',
     })
+
+    if (!response.ok) {
+      return
+    }
 
     setIsOwned(nextIsOwned)
   }

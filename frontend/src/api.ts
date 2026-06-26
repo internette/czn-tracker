@@ -102,7 +102,7 @@ export async function updateTeam(
 }
 
 export async function logout(): Promise<void> {
-  await request('/auth/logout', { method: 'POST' })
+  await request('/api/auth/logout', { method: 'POST' })
 }
 
 export async function deleteTeam(uid: string): Promise<void> {
