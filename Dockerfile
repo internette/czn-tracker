@@ -4,6 +4,7 @@ ARG VITE_GOOGLE_CLIENT_ID
 ENV VITE_GOOGLE_CLIENT_ID=$VITE_GOOGLE_CLIENT_ID
 WORKDIR /app/frontend
 COPY frontend/package.json frontend/vite.config.ts frontend/tsconfig.json frontend/tsconfig.node.json frontend/index.html ./
+COPY frontend/public ./public
 COPY frontend/src ./src
 RUN npm install
 RUN npm run build
