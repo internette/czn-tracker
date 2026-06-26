@@ -12,9 +12,10 @@ npm install
 # make sure the DB dir exists (don't chmod; host perms control this)
 mkdir -p /app/data
 
-# start backend in background
-/app/czn-tracker &
+# start backend in background from /app so data/ resolves correctly
+cd /app && /app/czn-tracker &
 BACKEND_PID=$!
+cd /app/frontend
 
 # start vite dev server, listen on all interfaces
 npm run dev -- --host 0.0.0.0 --port 5173
