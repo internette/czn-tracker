@@ -5,6 +5,7 @@ const apiBase = import.meta.env.VITE_API_BASE || ''
 async function request<T>(path: string, options: RequestInit = {}): Promise<T> {
   const response = await fetch(`${apiBase}${path}`, {
     credentials: 'include',
+    cache: 'no-store',
     headers: {
       'Content-Type': 'application/json',
     },
@@ -57,6 +58,7 @@ export async function updateCharacter(
   const response = await fetch(`${apiBase}/api/characters/${id}/edit`, {
     method: 'POST',
     credentials: 'include',
+    cache: 'no-store',
     body: formData,
   })
 
@@ -83,6 +85,9 @@ export async function getTeams(): Promise<Team[]> {
   return request('/api/teams')
 }
 
+export async function getMyTeams(): Promise<Team[]> {
+  return request('/api/teams/mine')
+}
 
 export async function createTeam(name: string, characterIds: string[]): Promise<Team> {
   return request('/api/teams', {

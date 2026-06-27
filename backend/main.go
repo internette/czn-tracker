@@ -762,6 +762,67 @@ func (s *Store) ListTeams(ctx context.Context) ([]Team, error) {
 	return teams, nil
 }
 
+func (s *Store) ListTeamsByUser(ctx context.Context, createdBy string) ([]Team, error) {
+	rows, err := s.db.QueryContext(ctx, `
+		SELECT
+			uid,
+			name,
+			character_ids,
+			created_date,
+			created_by
+		FROM teams
+		WHERE created_by = ?
+		ORDER BY created_date DESC
+	`, createdBy)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	var teams []Team
+
+	for rows.Next() {
+		var team Team
+		var characterIDsJSON string
+
+		if err := rows.Scan(
+			&team.UID,
+			&team.Name,
+			&characterIDsJSON,
+			&team.CreatedDate,
+			&team.CreatedBy,
+		); err != nil {
+			return nil, err
+		}
+
+		var characterIDs []string
+		if characterIDsJSON != "" {
+			_ = json.Unmarshal([]byte(characterIDsJSON), &characterIDs)
+		}
+
+		for _, characterID := range characterIDs {
+			character, err := s.GetCharacterByID(ctx, characterID)
+			if err != nil {
+				return nil, err
+			}
+
+			team.Characters = append(team.Characters, character)
+		}
+
+		teams = append(teams, team)
+	}
+
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+
+	if teams == nil {
+		return []Team{}, nil
+	}
+
+	return teams, nil
+}
+
 func (s *Store) DeleteTeam(ctx context.Context, uid string) error {
 	_, err := s.db.ExecContext(ctx, `
 		DELETE FROM teams
@@ -1159,6 +1220,25 @@ func main() {
 		}
 
 		c.JSON(http.StatusCreated, team)
+	})
+
+	api.GET("/teams/mine", func(c *gin.Context) {
+		sessionUser, ok := currentUser(c.Request, cookieCodec)
+		if !ok {
+			c.JSON(http.StatusUnauthorized, gin.H{"error": "not authenticated"})
+			return
+		}
+
+		teams, err := store.ListTeamsByUser(c.Request.Context(), sessionUser.UID)
+		if err != nil {
+			log.Printf("Error loading user teams: %v", err)
+			c.JSON(http.StatusInternalServerError, gin.H{
+				"error": "failed to load teams",
+			})
+			return
+		}
+
+		c.JSON(http.StatusOK, teams)
 	})
 
 	api.PUT("/teams/:id", func(c *gin.Context) {

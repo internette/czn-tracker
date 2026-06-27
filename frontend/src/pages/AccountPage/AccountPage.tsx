@@ -1,7 +1,7 @@
 
 import { useEffect, useMemo, useState } from 'react'
 import { Team, User } from '../../types'
-import { getTeams, deleteTeam } from '../../api'
+import { getMyTeams, deleteTeam } from '../../api'
 import { Grid } from '../../components/ui'
 import SavedTeamCard from '../../components/SavedTeamCard/SavedTeamCard'
 import styles from './AccountPage.module.scss'
@@ -16,8 +16,8 @@ export default function AccountPage({ user }: AccountPageProps) {
   useEffect(() => {
     async function loadTeams() {
       try {
-        const response = await getTeams()
-        setTeams(response)
+        const response = await getMyTeams()
+        setTeams(response ?? [])
       } catch (error) {
         console.error('Error loading teams:', error)
       }
@@ -27,6 +27,7 @@ export default function AccountPage({ user }: AccountPageProps) {
     }
   }, [user])
   const mostUsedCharacters = useMemo(() => {
+    
     const usageMap: Record<string, { character: any; count: number }> = {}
 
     teams.forEach((team: any) => {
