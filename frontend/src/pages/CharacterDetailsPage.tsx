@@ -47,7 +47,6 @@ export default function CharacterDetailsPage() {
     if (!id) return
     async function load() {
       const char = await getCharacter(id);
-      console.log(char)
       setCharacter(char);
     }
     load()
