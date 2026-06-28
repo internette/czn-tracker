@@ -10,6 +10,7 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
+	"strconv"
 	"strings"
 	"time"
 
@@ -107,6 +108,24 @@ type Team struct {
 	Characters  []Character `json:"characters"`
 	CreatedDate string      `json:"createdDate"`
 	CreatedBy   string      `json:"createdBy"`
+}
+
+type CardTag struct {
+	TagName string `json:"tagName"`
+	Effect  string `json:"effect"`
+}
+
+type Card struct {
+	UID      string `json:"uid"`
+	Name     string `json:"name"`
+	Effect   string `json:"effect"`
+	Type     string `json:"type"`
+	APCost   string `json:"apCost"`
+	User     string `json:"user"`
+	SubType  string `json:"subType"`
+	Affinity string `json:"affinity"`
+	ImageUrl string `json:"imageUrl"`
+	Tags     string `json:"tags"`
 }
 
 type CreateTeamInput struct {
@@ -1167,6 +1186,244 @@ func main() {
 		}
 
 		c.JSON(http.StatusOK, partners)
+	})
+
+	api.GET("/cards", func(c *gin.Context) {
+		limitStr := c.DefaultQuery("limit", "20")
+		pageStr := c.DefaultQuery("page", "1")
+
+		limit, err := strconv.Atoi(limitStr)
+		if err != nil || limit <= 0 || limit > 100 {
+			limit = 20
+		}
+
+		page, err := strconv.Atoi(pageStr)
+		if err != nil || page <= 0 {
+			page = 1
+		}
+
+		offset := (page - 1) * limit
+
+		rows, err := store.db.QueryContext(c.Request.Context(), `
+			SELECT
+				uid,
+				name,
+				effect,
+				type,
+				ap_cost,
+				user,
+				sub_type,
+				affinity,
+				image_url,
+				tags
+			FROM cards
+			ORDER BY rowid DESC
+			LIMIT ? OFFSET ?
+		`, limit, offset)
+
+		if err != nil {
+			log.Printf("Error loading cards: %v", err)
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "failed to load cards"})
+			return
+		}
+		defer rows.Close()
+
+		type CardResponse struct {
+			UID      string    `json:"uid"`
+			Name     string    `json:"name"`
+			Effect   []string  `json:"effect"`
+			Type     string    `json:"type"`
+			APCost   string    `json:"apCost"`
+			User     string    `json:"user"`
+			SubType  string    `json:"subType"`
+			Affinity string    `json:"affinity"`
+			ImageUrl string    `json:"imageUrl"`
+			Tags     []CardTag `json:"tags"`
+		}
+
+		var cards []CardResponse
+
+		for rows.Next() {
+			var ccard Card
+			var parsedTags []CardTag
+
+			if err := rows.Scan(
+				&ccard.UID,
+				&ccard.Name,
+				&ccard.Effect,
+				&ccard.Type,
+				&ccard.APCost,
+				&ccard.User,
+				&ccard.SubType,
+				&ccard.Affinity,
+				&ccard.ImageUrl,
+				&ccard.Tags,
+			); err != nil {
+				log.Printf("Error scanning card: %v", err)
+				c.JSON(http.StatusInternalServerError, gin.H{"error": "failed to parse cards"})
+				return
+			}
+
+			// Parse effect into array (supports JSON array string or delimiter format)
+			var effects []string
+			// Try JSON array first
+			if err := json.Unmarshal([]byte(ccard.Effect), &effects); err != nil || len(effects) == 0 {
+				effects = []string{}
+				for _, s := range strings.Split(ccard.Effect, "・") {
+					s = strings.TrimSpace(s)
+					if s != "" {
+						effects = append(effects, s)
+					}
+				}
+			}
+
+			_ = json.Unmarshal([]byte(ccard.Tags), &parsedTags)
+
+			cards = append(cards, CardResponse{
+				UID:      ccard.UID,
+				Name:     ccard.Name,
+				Effect:   effects,
+				Type:     ccard.Type,
+				APCost:   ccard.APCost,
+				User:     ccard.User,
+				SubType:  ccard.SubType,
+				Affinity: ccard.Affinity,
+				ImageUrl: ccard.ImageUrl,
+				Tags:     parsedTags,
+			})
+		}
+
+		if err = rows.Err(); err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "row iteration error"})
+			return
+		}
+
+		c.JSON(http.StatusOK, gin.H{
+			"cards": cards,
+			"page":  page,
+			"limit": limit,
+		})
+	})
+
+	api.GET("/cards/character/:id", func(c *gin.Context) {
+		characterID := c.Param("id")
+
+		limitStr := c.DefaultQuery("limit", "20")
+		pageStr := c.DefaultQuery("page", "1")
+
+		limit, err := strconv.Atoi(limitStr)
+		if err != nil || limit <= 0 || limit > 100 {
+			limit = 20
+		}
+
+		page, err := strconv.Atoi(pageStr)
+		if err != nil || page <= 0 {
+			page = 1
+		}
+
+		offset := (page - 1) * limit
+
+		rows, err := store.db.QueryContext(c.Request.Context(), `
+			SELECT
+				uid,
+				name,
+				effect,
+				type,
+				ap_cost,
+				user,
+				sub_type,
+				affinity,
+				image_url,
+				tags
+			FROM cards
+			WHERE (LOWER(user) = LOWER(?) OR user IS NULL OR user = '')
+			  AND type != "Status Ailment"
+			ORDER BY rowid DESC
+			LIMIT ? OFFSET ?
+		`, characterID, limit, offset)
+
+		if err != nil {
+			log.Printf("Error loading character cards: %v", err)
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "failed to load cards"})
+			return
+		}
+		defer rows.Close()
+
+		type CardResponse struct {
+			UID      string    `json:"uid"`
+			Name     string    `json:"name"`
+			Effect   []string  `json:"effect"`
+			Type     string    `json:"type"`
+			APCost   string    `json:"apCost"`
+			User     string    `json:"user"`
+			SubType  string    `json:"subType"`
+			Affinity string    `json:"affinity"`
+			ImageUrl string    `json:"imageUrl"`
+			Tags     []CardTag `json:"tags"`
+		}
+
+		var cards []CardResponse
+
+		for rows.Next() {
+			var ccard Card
+			var parsedTags []CardTag
+
+			if err := rows.Scan(
+				&ccard.UID,
+				&ccard.Name,
+				&ccard.Effect,
+				&ccard.Type,
+				&ccard.APCost,
+				&ccard.User,
+				&ccard.SubType,
+				&ccard.Affinity,
+				&ccard.ImageUrl,
+				&ccard.Tags,
+			); err != nil {
+				log.Printf("Error scanning card: %v", err)
+				c.JSON(http.StatusInternalServerError, gin.H{"error": "failed to parse cards"})
+				return
+			}
+
+			// Parse effect into array (supports JSON array string or delimiter format)
+			var effects []string
+			// Try JSON array first
+			if err := json.Unmarshal([]byte(ccard.Effect), &effects); err != nil || len(effects) == 0 {
+				effects = []string{}
+				for _, s := range strings.Split(ccard.Effect, "・") {
+					s = strings.TrimSpace(s)
+					if s != "" {
+						effects = append(effects, s)
+					}
+				}
+			}
+
+			_ = json.Unmarshal([]byte(ccard.Tags), &parsedTags)
+
+			cards = append(cards, CardResponse{
+				UID:      ccard.UID,
+				Name:     ccard.Name,
+				Effect:   effects,
+				Type:     ccard.Type,
+				APCost:   ccard.APCost,
+				User:     ccard.User,
+				SubType:  ccard.SubType,
+				Affinity: ccard.Affinity,
+				ImageUrl: ccard.ImageUrl,
+				Tags:     parsedTags,
+			})
+		}
+
+		if err = rows.Err(); err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "row iteration error"})
+			return
+		}
+
+		c.JSON(http.StatusOK, gin.H{
+			"cards": cards,
+			"page":  page,
+			"limit": limit,
+		})
 	})
 
 	api.GET("/teams", func(c *gin.Context) {
