@@ -1,5 +1,6 @@
 
 import { useEffect, useMemo, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Team, User } from '../../types'
 import { getMyTeams, deleteTeam } from '../../api'
 import { Grid } from '../../components/ui'
@@ -11,6 +12,7 @@ interface AccountPageProps {
 }
 
 export default function AccountPage({ user }: AccountPageProps) {
+  const navigate = useNavigate()
   const [teams, setTeams] = useState<Team[]>([])
 
   useEffect(() => {
@@ -57,8 +59,14 @@ export default function AccountPage({ user }: AccountPageProps) {
         console.error('Failed to delete team', err)
       }
     }
-    async function handleEditTeam(){
-        
+    function handleEditTeam(team: Team) {
+        navigate('/teams', {
+            state: {
+                selectedIds: team.characters.map((c) => c.id),
+                teamName: team.name,
+                editingTeamId: team.uid,
+            },
+        })
     }
 
   return (

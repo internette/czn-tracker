@@ -1,5 +1,5 @@
 import { FormEvent, useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { getTeams, createTeam, deleteTeam, updateTeam, getCharacters } from '../../api'
 import { Character, Team, User } from '../../types'
 import { Grid } from '../../components/ui'
@@ -12,6 +12,7 @@ interface TeamsPageProps {
 }
 
 export default function TeamsPage({ user }: TeamsPageProps) {
+  const location = useLocation()
   const [characters, setCharacters] = useState<Character[]>([])
   const [showOwnedOnly, setShowOwnedOnly] = useState(false)
   const [loading, setLoading] = useState(false);
@@ -51,6 +52,19 @@ export default function TeamsPage({ user }: TeamsPageProps) {
     }
     load()
   }, [user?.uid])
+
+  useEffect(() => {
+    if (location.state) {
+      const { selectedIds, teamName, editingTeamId } = location.state as {
+        selectedIds?: string[]
+        teamName?: string
+        editingTeamId?: string | null
+      }
+      if (selectedIds) setSelectedIds(selectedIds)
+      if (teamName) setTeamName(teamName)
+      if (editingTeamId !== undefined) setEditingTeamId(editingTeamId)
+    }
+  }, [location.state])
 
   async function handleSubmit(event: FormEvent) {
     event.preventDefault()
