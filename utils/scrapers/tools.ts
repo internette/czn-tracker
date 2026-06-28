@@ -52,3 +52,58 @@ export function getTableAfterHeading($: cheerio.CheerioAPI, headingText: string,
 
   return result;
 }
+
+export function getTableRowByTh(
+    table: cheerio.Cheerio<any>,
+    heading: string,
+    $: cheerio.CheerioAPI
+): cheerio.Cheerio<any>{
+    const row = table
+        .find("tr")
+        .filter((_, tr) => {
+            return $(tr).find("th").text().trim() === heading;
+        })
+        .first();
+
+    return row;
+}
+
+export function chunkArray<T>(array: T[], size: number): T[][] {
+    const chunks: T[][] = [];
+
+    for (let i = 0; i < array.length; i += size) {
+        chunks.push(array.slice(i, i + size));
+    }
+
+    return chunks;
+}
+
+export function sleep(ms: number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+export async function runWorkerPool<T, R>(
+    items: T[],
+    concurrency: number,
+    worker: (item: T) => Promise<R>
+): Promise<R[]> {
+    const results: R[] = new Array(items.length);
+    let nextIndex = 0;
+
+    async function run() {
+        while (true) {
+            const index = nextIndex++;
+            if (index >= items.length) {
+                return;
+            }
+
+            results[index] = await worker(items[index]);
+        }
+    }
+
+    await Promise.all(
+        Array.from({ length: concurrency }, () => run())
+    );
+
+    return results;
+}

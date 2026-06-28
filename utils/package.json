@@ -5,6 +5,7 @@
   "scripts": {
     "scrapeCharacters": "tsx ./scrapers/outputCharacters.ts",
     "scrapePartners": "tsx ./scrapers/outputPartners.ts",
+    "scrapeCards": "tsx ./scrapers/outputCards.ts",
     "insertData": "tsx ./data/insertions/import-data.ts",
     "createUserData": "tsx ./data/insertions/users.ts",
     "createTeamsData": "tsx ./data/insertions/teams.ts",
