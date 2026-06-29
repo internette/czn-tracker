@@ -11,7 +11,7 @@
     "user": "Tiphera",
     "subType": "Construct Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/_____.png",
     "tags": []
   },
   {
@@ -25,7 +25,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/a_girl_and_her_rotted_apple.png",
     "tags": []
   },
   {
@@ -38,7 +38,7 @@
     "user": "Khalipe",
     "subType": "Unique Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/absolute_protection.png",
     "tags": [
       {
         "tagName": "AP",
@@ -69,7 +69,7 @@
     "user": "",
     "subType": "Monster Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/abyssal_bug.png",
     "tags": [
       {
         "tagName": "Exhaust",
@@ -101,7 +101,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/abyssalization.png",
     "tags": [
       {
         "tagName": "Exhaust",
@@ -119,7 +119,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/acid_gas.png",
     "tags": [
       {
         "tagName": "Impair",
@@ -143,7 +143,7 @@
     "user": "Nia",
     "subType": "Unique Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/adagio.png",
     "tags": [
       {
         "tagName": "Discard",
@@ -175,7 +175,7 @@
     "user": "Tressa",
     "subType": "Construct Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/advanced_shadow_dagger.png",
     "tags": [
       {
         "tagName": "Agony",
@@ -214,7 +214,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/aggressive_mutant.png",
     "tags": [
       {
         "tagName": "Exhaust",
@@ -233,7 +233,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/aimed_fire.png",
     "tags": [
       {
         "tagName": "Defeat",
@@ -252,7 +252,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/amber_lumen.png",
     "tags": []
   },
   {
@@ -266,7 +266,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/ambush.png",
     "tags": [
       {
         "tagName": "Discard Pile",
@@ -288,7 +288,7 @@
     "user": "Nia",
     "subType": "Starting Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/amp_therapy.png",
     "tags": [
       {
         "tagName": "Heal",
@@ -306,7 +306,7 @@
     "user": "Haru",
     "subType": "Starting Card",
     "affinity": "Justice",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/anchor.png",
     "tags": []
   },
   {
@@ -319,7 +319,7 @@
     "user": "Haru",
     "subType": "Starting Card",
     "affinity": "Justice",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/anchor_drop.png",
     "tags": [
       {
         "tagName": "Shield",
@@ -337,7 +337,7 @@
     "user": "Haru",
     "subType": "Unique Card",
     "affinity": "Justice",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/anchor_pointer.png",
     "tags": [
       {
         "tagName": "Discard",
@@ -368,7 +368,7 @@
     "user": "Haru",
     "subType": "Starting Card",
     "affinity": "Justice",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/anchor_shot.png",
     "tags": [
       {
         "tagName": "Pulverize",
@@ -390,7 +390,7 @@
     "user": "",
     "subType": "",
     "affinity": "",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/anemia.png",
     "tags": []
   },
   {
@@ -403,7 +403,7 @@
     "user": "Renoa",
     "subType": "Starting Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/annihiliation_shot.png",
     "tags": []
   },
   {
@@ -417,7 +417,7 @@
     "user": "Orlea",
     "subType": "Unique Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/annoying.png",
     "tags": [
       {
         "tagName": "Fixed Damage",
@@ -436,7 +436,7 @@
     "user": "",
     "subType": "",
     "affinity": "",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/anxiety.png",
     "tags": [
       {
         "tagName": "Exhaust",
@@ -454,7 +454,7 @@
     "user": "",
     "subType": "Monster Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/arbitum.png",
     "tags": []
   },
   {
@@ -467,7 +467,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/arcane_rush.png",
     "tags": []
   },
   {
@@ -480,7 +480,7 @@
     "user": "Tiphera",
     "subType": "Construct Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/archetype___.png",
     "tags": []
   },
   {
@@ -494,7 +494,7 @@
     "user": "Tiphera",
     "subType": "Construct Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/archetype___.png",
     "tags": []
   },
   {
@@ -508,7 +508,7 @@
     "user": "Tiphera",
     "subType": "Construct Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/archetype____.png",
     "tags": []
   },
   {
@@ -523,7 +523,7 @@
     "user": "Lucas",
     "subType": "Construct Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/armor-piercing_rounds.png",
     "tags": [
       {
         "tagName": "Bullet",
@@ -553,7 +553,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/atomic_decomposition.png",
     "tags": [
       {
         "tagName": "Piercing Damage",
@@ -571,7 +571,7 @@
     "user": "Orlea",
     "subType": "Starting Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/attack__my_minions.png",
     "tags": []
   },
   {
@@ -584,7 +584,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/attack_.png",
     "tags": [
       {
         "tagName": "Draw",
@@ -607,7 +607,7 @@
     "user": "",
     "subType": "Monster Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/automata_cavalry.png",
     "tags": [
       {
         "tagName": "Vulnerable",
@@ -625,7 +625,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/azure_lumen.png",
     "tags": []
   },
   {
@@ -638,7 +638,7 @@
     "user": "Nine",
     "subType": "Starting Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/back-edge_parry.png",
     "tags": []
   },
   {
@@ -652,7 +652,7 @@
     "user": "Renoa",
     "subType": "Unique Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/ballad_of_pitch_black.png",
     "tags": []
   },
   {
@@ -665,7 +665,7 @@
     "user": "Veronica",
     "subType": "Construct Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/ballista.png",
     "tags": [
       {
         "tagName": "Ballista Card",
@@ -695,7 +695,7 @@
     "user": "Beryl",
     "subType": "Starting Card",
     "affinity": "Justice",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/barrier.png",
     "tags": []
   },
   {
@@ -708,7 +708,7 @@
     "user": "Tiphera",
     "subType": "Starting Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/barrier_deployment.png",
     "tags": []
   },
   {
@@ -722,7 +722,7 @@
     "user": "",
     "subType": "Monster Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/beam_shooter.png",
     "tags": [
       {
         "tagName": "Shield",
@@ -740,7 +740,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/belligerence.png",
     "tags": [
       {
         "tagName": "Draw",
@@ -763,7 +763,7 @@
     "user": "Kayron",
     "subType": "Unique Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/black_hole.png",
     "tags": [
       {
         "tagName": "Exhaust",
@@ -781,7 +781,7 @@
     "user": "Renoa",
     "subType": "Starting Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/black_veil.png",
     "tags": [
       {
         "tagName": "Shield",
@@ -799,7 +799,7 @@
     "user": "",
     "subType": "",
     "affinity": "",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/bleed.png",
     "tags": [
       {
         "tagName": "Exhaust",
@@ -818,7 +818,7 @@
     "user": "Mika",
     "subType": "Unique Card",
     "affinity": "Justice",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/blessing_of_waves.png",
     "tags": [
       {
         "tagName": "AP",
@@ -845,7 +845,7 @@
     "user": "Diana",
     "subType": "Unique Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/blooming_love.png",
     "tags": []
   },
   {
@@ -859,7 +859,7 @@
     "user": "Veronica",
     "subType": "Unique Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/bombardment_prep.png",
     "tags": [
       {
         "tagName": "Ballista Card",
@@ -885,7 +885,7 @@
     "user": "Narja",
     "subType": "Unique Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/bottomless_hunger.png",
     "tags": []
   },
   {
@@ -899,7 +899,7 @@
     "user": "Chizuru",
     "subType": "Unique Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/bound_at_dusk.png",
     "tags": []
   },
   {
@@ -913,7 +913,7 @@
     "user": "Kayron",
     "subType": "Unique Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/brand_of_annihiliation.png",
     "tags": [
       {
         "tagName": "Exhaust",
@@ -932,7 +932,7 @@
     "user": "Owen",
     "subType": "Unique Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/break_armor.png",
     "tags": [
       {
         "tagName": "Vulnerable",
@@ -950,7 +950,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/broken_ebony_lumen.png",
     "tags": []
   },
   {
@@ -963,7 +963,7 @@
     "user": "",
     "subType": "",
     "affinity": "",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/burn.png",
     "tags": [
       {
         "tagName": "Exhaust",
@@ -981,7 +981,7 @@
     "user": "Diana",
     "subType": "Unique Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/c_mere__milk_and_pong.png",
     "tags": []
   },
   {
@@ -996,7 +996,7 @@
     "user": "Tenebria",
     "subType": "Unique Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/call_and_response.png",
     "tags": []
   },
   {
@@ -1010,7 +1010,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/camouflage.png",
     "tags": [
       {
         "tagName": "Exhaust",
@@ -1028,7 +1028,7 @@
     "user": "Cassius",
     "subType": "Starting Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/cards.png",
     "tags": []
   },
   {
@@ -1041,7 +1041,7 @@
     "user": "Orlea",
     "subType": "Starting Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/celestial_healing.png",
     "tags": [
       {
         "tagName": "Heal",
@@ -1059,7 +1059,7 @@
     "user": "Haru",
     "subType": "Unique Card",
     "affinity": "Justice",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/charge_energy.png",
     "tags": [
       {
         "tagName": "Retain",
@@ -1077,7 +1077,7 @@
     "user": "Beryl",
     "subType": "Starting Card",
     "affinity": "Justice",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/charge_launcher.png",
     "tags": []
   },
   {
@@ -1091,7 +1091,7 @@
     "user": "Beryl",
     "subType": "Unique Card",
     "affinity": "Justice",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/charged_shot.png",
     "tags": [
       {
         "tagName": "Retain",
@@ -1110,7 +1110,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/charged_strike.png",
     "tags": []
   },
   {
@@ -1124,7 +1124,7 @@
     "user": "",
     "subType": "Monster Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/chilling_godfather.png",
     "tags": []
   },
   {
@@ -1137,7 +1137,7 @@
     "user": "Rita",
     "subType": "Starting Card",
     "affinity": "Justice",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/chrono_archon.png",
     "tags": []
   },
   {
@@ -1150,7 +1150,7 @@
     "user": "Rita",
     "subType": "Unique Card",
     "affinity": "Justice",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/chrono_circle.png",
     "tags": []
   },
   {
@@ -1164,7 +1164,7 @@
     "user": "Sereniel",
     "subType": "Unique Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/cobalt_light.png",
     "tags": []
   },
   {
@@ -1179,7 +1179,7 @@
     "user": "Lucas",
     "subType": "Construct Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/cold_shot.png",
     "tags": [
       {
         "tagName": "Bullet",
@@ -1210,7 +1210,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/confiscation.png",
     "tags": []
   },
   {
@@ -1223,7 +1223,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/consecutive_attack.png",
     "tags": []
   },
   {
@@ -1237,7 +1237,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/contaminated_spore.png",
     "tags": []
   },
   {
@@ -1250,7 +1250,7 @@
     "user": "",
     "subType": "",
     "affinity": "",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/contamination.png",
     "tags": [
       {
         "tagName": "Ephermeral",
@@ -1272,7 +1272,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/counterattack_preparation.png",
     "tags": [
       {
         "tagName": "Exhaust",
@@ -1290,7 +1290,7 @@
     "user": "Nine",
     "subType": "Unique Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/counterblade.png",
     "tags": []
   },
   {
@@ -1306,7 +1306,7 @@
     "user": "Tiphera",
     "subType": "Unique Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/creation_and_destruction.png",
     "tags": []
   },
   {
@@ -1319,7 +1319,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/crimson_lumen.png",
     "tags": []
   },
   {
@@ -1332,7 +1332,7 @@
     "user": "",
     "subType": "Monster Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/cultist_arbiter.png",
     "tags": []
   },
   {
@@ -1346,7 +1346,7 @@
     "user": "Diana",
     "subType": "Construct Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/cupid_shot.png",
     "tags": []
   },
   {
@@ -1359,7 +1359,7 @@
     "user": "Tressa",
     "subType": "Unique Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/curse.png",
     "tags": [
       {
         "tagName": "Agony",
@@ -1381,7 +1381,7 @@
     "user": "",
     "subType": "",
     "affinity": "",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/curse_of_the_fairy.png",
     "tags": [
       {
         "tagName": "Exhaust 2",
@@ -1399,7 +1399,7 @@
     "user": "Tressa",
     "subType": "Unique Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/cursed_gouge.png",
     "tags": [
       {
         "tagName": "Agony",
@@ -1430,7 +1430,7 @@
     "user": "",
     "subType": "Monster Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/cyborg_automaton.png",
     "tags": []
   },
   {
@@ -1443,7 +1443,7 @@
     "user": "Tressa",
     "subType": "Starting Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/dagger_throw.png",
     "tags": []
   },
   {
@@ -1457,7 +1457,7 @@
     "user": "Luke",
     "subType": "Unique Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/dance_of_the_demon.png",
     "tags": [
       {
         "tagName": "Handgun Bullet",
@@ -1475,7 +1475,7 @@
     "user": "Rei",
     "subType": "Starting Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/dark_blade.png",
     "tags": []
   },
   {
@@ -1488,7 +1488,7 @@
     "user": "Rei",
     "subType": "Unique Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/dark_condensation.png",
     "tags": [
       {}
     ]
@@ -1504,7 +1504,7 @@
     "user": "",
     "subType": "Monster Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/dark_grip.png",
     "tags": [
       {
         "tagName": "Defeat",
@@ -1523,7 +1523,7 @@
     "user": "Rin",
     "subType": "Unique Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/dark_mist_inner_art.png",
     "tags": []
   },
   {
@@ -1537,7 +1537,7 @@
     "user": "Rin",
     "subType": "Unique Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/dark_mist_secret_art__annihilation_.png",
     "tags": [
       {
         "tagName": "Dark Mist Blade Art",
@@ -1568,7 +1568,7 @@
     "user": "Rin",
     "subType": "Unique Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/dark_mist_secret_art__black_dance.png",
     "tags": [
       {
         "tagName": "Dark Mist Blade Art",
@@ -1591,7 +1591,7 @@
     "user": "Rin",
     "subType": "Unique Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/dark_mist_secret_art__destruction.png",
     "tags": [
       {
         "tagName": "Dark Mist Blade Art",
@@ -1621,7 +1621,7 @@
     "user": "Rin",
     "subType": "Starting Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/dark_mist_sword__first_form.png",
     "tags": []
   },
   {
@@ -1634,7 +1634,7 @@
     "user": "Rin",
     "subType": "Starting Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/dark_mist_sword__third_form.png",
     "tags": []
   },
   {
@@ -1648,7 +1648,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/deadly_shot.png",
     "tags": [
       {
         "tagName": "Draw",
@@ -1670,7 +1670,7 @@
     "user": "",
     "subType": "",
     "affinity": "",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/deep_roots.png",
     "tags": [
       {
         "tagName": "Exhaust",
@@ -1692,7 +1692,7 @@
     "user": "Hugo",
     "subType": "Starting Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/defense_system.png",
     "tags": [
       {
         "tagName": "Shield",
@@ -1711,7 +1711,7 @@
     "user": "Mika",
     "subType": "Unique Card",
     "affinity": "Justice",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/deluge.png",
     "tags": []
   },
   {
@@ -1725,7 +1725,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/destruction.png",
     "tags": [
       {
         "tagName": "Discard",
@@ -1747,7 +1747,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/determination_.png",
     "tags": []
   },
   {
@@ -1761,7 +1761,7 @@
     "user": "Cassius",
     "subType": "Unique Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/devil_dice.png",
     "tags": [
       {
         "tagName": "Draw",
@@ -1784,7 +1784,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/devotion.png",
     "tags": [
       {
         "tagName": "Defense-based Damage",
@@ -1808,7 +1808,7 @@
     "user": "Cassius",
     "subType": "Unique Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/dice_trick.png",
     "tags": []
   },
   {
@@ -1822,7 +1822,7 @@
     "user": "Hugo",
     "subType": "Unique Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/dingo_howling.png",
     "tags": [
       {
         "tagName": "Commence the Hunt",
@@ -1849,7 +1849,7 @@
     "user": "Renoa",
     "subType": "Construct Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/dirge_bullet.png",
     "tags": [
       {
         "tagName": "Bullet",
@@ -1880,7 +1880,7 @@
     "user": "Renoa",
     "subType": "Construct Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/dirge_bullet__finale.png",
     "tags": [
       {
         "tagName": "Bullet",
@@ -1904,7 +1904,7 @@
     "user": "Lucas",
     "subType": "Construct Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/dispersing_shot.png",
     "tags": [
       {
         "tagName": "Bullet",
@@ -1934,7 +1934,7 @@
     "user": "Diana",
     "subType": "Starting Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/disruption_fire.png",
     "tags": []
   },
   {
@@ -1948,7 +1948,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/doctrine_of_binding.png",
     "tags": []
   },
   {
@@ -1961,7 +1961,7 @@
     "user": "Adelheid",
     "subType": "Construct Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/doggie.png",
     "tags": []
   },
   {
@@ -1974,7 +1974,7 @@
     "user": "Adelheid",
     "subType": "Construct Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/doggie__morphed_.png",
     "tags": []
   },
   {
@@ -1987,7 +1987,7 @@
     "user": "Adelheid",
     "subType": "Construct Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/doggie__pack_.png",
     "tags": []
   },
   {
@@ -2001,7 +2001,7 @@
     "user": "Narja",
     "subType": "Unique Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/domain_of_voracity.png",
     "tags": []
   },
   {
@@ -2014,7 +2014,7 @@
     "user": "",
     "subType": "Monster Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/dominion.png",
     "tags": [
       {
         "tagName": "Morale",
@@ -2032,7 +2032,7 @@
     "user": "Owen",
     "subType": "Starting Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/downward_cut.png",
     "tags": []
   },
   {
@@ -2047,7 +2047,7 @@
     "user": "Rin",
     "subType": "Starting Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/drawing_slash.png",
     "tags": [
       {
         "tagName": "Dark Mist Blade Art",
@@ -2074,7 +2074,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/dream_world.png",
     "tags": []
   },
   {
@@ -2087,7 +2087,7 @@
     "user": "Selena",
     "subType": "Unique Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/drone_bombing.png",
     "tags": [
       {
         "tagName": "Attack Weakness",
@@ -2113,7 +2113,7 @@
     "user": "Tiphera",
     "subType": "Unique Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/dual_creation.png",
     "tags": []
   },
   {
@@ -2126,7 +2126,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/ebony_lumen.png",
     "tags": []
   },
   {
@@ -2140,7 +2140,7 @@
     "user": "Kayron",
     "subType": "Starting Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/echo_of_futility.png",
     "tags": []
   },
   {
@@ -2154,7 +2154,7 @@
     "user": "Renoa",
     "subType": "Starting Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/echo_of_sorrow.png",
     "tags": []
   },
   {
@@ -2168,7 +2168,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/echoes_of_abundance.png",
     "tags": []
   },
   {
@@ -2181,7 +2181,7 @@
     "user": "",
     "subType": "",
     "affinity": "",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/echoes_of_the_past.png",
     "tags": []
   },
   {
@@ -2196,7 +2196,7 @@
     "user": "Kayron",
     "subType": "Unique Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/echoes_of_true_abyss_.png",
     "tags": []
   },
   {
@@ -2209,7 +2209,7 @@
     "user": "",
     "subType": "",
     "affinity": "",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/ecstasy_of_violence.png",
     "tags": []
   },
   {
@@ -2224,7 +2224,7 @@
     "user": "Heidemarie",
     "subType": "Construct Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/effulgent_blade.png",
     "tags": []
   },
   {
@@ -2237,7 +2237,7 @@
     "user": "Heidemarie",
     "subType": "Unique Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/effulgent_compression.png",
     "tags": []
   },
   {
@@ -2251,7 +2251,7 @@
     "user": "Heidemarie",
     "subType": "Unique Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/effulgent_expansion.png",
     "tags": []
   },
   {
@@ -2266,7 +2266,7 @@
     "user": "Heidemarie",
     "subType": "Construct Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/effulgent_release.png",
     "tags": []
   },
   {
@@ -2280,7 +2280,7 @@
     "user": "",
     "subType": "Monster Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/elemental_phoenix.png",
     "tags": [
       {
         "tagName": "Exhaust",
@@ -2306,7 +2306,7 @@
     "user": "Kayron",
     "subType": "Starting Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/elimination.png",
     "tags": []
   },
   {
@@ -2319,7 +2319,7 @@
     "user": "Selena",
     "subType": "Starting Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/emergency_shielding.png",
     "tags": [
       {
         "tagName": "Shield",
@@ -2338,7 +2338,7 @@
     "user": "Tenebria",
     "subType": "Unique Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/encore.png",
     "tags": []
   },
   {
@@ -2352,7 +2352,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/energy_barrier.png",
     "tags": [
       {
         "tagName": "AP",
@@ -2378,7 +2378,7 @@
     "user": "Selena",
     "subType": "Starting Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/engagement_fire.png",
     "tags": []
   },
   {
@@ -2392,7 +2392,7 @@
     "user": "Veronica",
     "subType": "Construct Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/enhanced_ballista.png",
     "tags": [
       {
         "tagName": "Ballista Card",
@@ -2437,7 +2437,7 @@
     "user": "Tiphera",
     "subType": "Unique Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/event_horizon.png",
     "tags": []
   },
   {
@@ -2450,7 +2450,7 @@
     "user": "",
     "subType": "Monster Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/evil_spirit_dullahan.png",
     "tags": [
       {
         "tagName": "Agony",
@@ -2468,7 +2468,7 @@
     "user": "",
     "subType": "Monster Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/evil_spirit_salamander.png",
     "tags": []
   },
   {
@@ -2483,7 +2483,7 @@
     "user": "Nine",
     "subType": "Unique Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/experienced_strike.png",
     "tags": []
   },
   {
@@ -2497,7 +2497,7 @@
     "user": "Nine",
     "subType": "Construct Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/exploit_opening.png",
     "tags": []
   },
   {
@@ -2510,7 +2510,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/explosion_of_emotions.png",
     "tags": []
   },
   {
@@ -2525,7 +2525,7 @@
     "user": "Lucas",
     "subType": "Construct Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/explosive_shot.png",
     "tags": [
       {
         "tagName": "Bullet",
@@ -2555,7 +2555,7 @@
     "user": "Lucas",
     "subType": "Starting Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/extended_magazine.png",
     "tags": [
       {
         "tagName": "Launcher Shell",
@@ -2577,7 +2577,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/faceless_woman.png",
     "tags": []
   },
   {
@@ -2590,7 +2590,7 @@
     "user": "Adelheid",
     "subType": "Starting Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/fairy_s_protection.png",
     "tags": []
   },
   {
@@ -2604,7 +2604,7 @@
     "user": "Hugo",
     "subType": "Unique Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/fan_of_daggers.png",
     "tags": [
       {
         "tagName": "Commence the Hunt",
@@ -2630,7 +2630,7 @@
     "user": "Tenebria",
     "subType": "Starting Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/fan_service.png",
     "tags": []
   },
   {
@@ -2644,7 +2644,7 @@
     "user": "Nine",
     "subType": "Unique Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/fatal_strike.png",
     "tags": []
   },
   {
@@ -2658,7 +2658,7 @@
     "user": "Rita",
     "subType": "Construct Card",
     "affinity": "Justice",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/fate_distortion.png",
     "tags": []
   },
   {
@@ -2673,7 +2673,7 @@
     "user": "Rita",
     "subType": "Construct Card",
     "affinity": "Justice",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/fate_imprint.png",
     "tags": []
   },
   {
@@ -2686,7 +2686,7 @@
     "user": "Nine",
     "subType": "Unique Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/fighting_spirit.png",
     "tags": []
   },
   {
@@ -2700,7 +2700,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "Justice",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/financial_therapy.png",
     "tags": [
       {
         "tagName": "Exhaust",
@@ -2723,7 +2723,7 @@
     "user": "Luke",
     "subType": "Unique Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/finisher_round.png",
     "tags": [
       {
         "tagName": "Handgun Bullet",
@@ -2750,7 +2750,7 @@
     "user": "Veronica",
     "subType": "Starting Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/firing_preparation.png",
     "tags": [
       {
         "tagName": "Draw",
@@ -2780,7 +2780,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/first_aid_kit.png",
     "tags": [
       {
         "tagName": "Celestial",
@@ -2802,7 +2802,7 @@
     "user": "Hugo",
     "subType": "Unique Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/fixer_s_approach.png",
     "tags": [
       {
         "tagName": "Commence the Hunt",
@@ -2828,7 +2828,7 @@
     "user": "Mei Lin",
     "subType": "Starting Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/flame_dragon_guardian.png",
     "tags": [
       {
         "tagName": "Shield",
@@ -2847,7 +2847,7 @@
     "user": "Mei Lin",
     "subType": "Starting Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/flame_dragon_s_jewel.png",
     "tags": [
       {
         "tagName": "Attack Weakness",
@@ -2890,7 +2890,7 @@
     "user": "Mei Lin",
     "subType": "Unique Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/flame_dragon_s_sovereignty.png",
     "tags": [
       {
         "tagName": "Attack Weakness",
@@ -2924,7 +2924,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/flame_of_eternity.png",
     "tags": []
   },
   {
@@ -2939,7 +2939,7 @@
     "user": "Lucas",
     "subType": "Construct Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/flame_shot.png",
     "tags": [
       {
         "tagName": "Bullet",
@@ -2971,7 +2971,7 @@
     "user": "Lucas",
     "subType": "Unique Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/flame_thrower.png",
     "tags": [
       {
         "tagName": "Discard",
@@ -3002,7 +3002,7 @@
     "user": "Yuki",
     "subType": "Unique Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/flash_slash.png",
     "tags": [
       {
         "tagName": "Inspiration",
@@ -3022,7 +3022,7 @@
     "user": "Lucas",
     "subType": "Unique Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/flashbang.png",
     "tags": [
       {
         "tagName": "Launcher Shell",
@@ -3049,7 +3049,7 @@
     "user": "Renoa",
     "subType": "Unique Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/flower_of_devoured_fate.png",
     "tags": []
   },
   {
@@ -3062,7 +3062,7 @@
     "user": "Yuki",
     "subType": "Starting Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/flowing_parry.png",
     "tags": []
   },
   {
@@ -3075,7 +3075,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/forbidden_algorithm.png",
     "tags": [
       {
         "tagName": "Exhaust",
@@ -3097,7 +3097,7 @@
     "user": "",
     "subType": "Forbidden Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/forbidden__disposable_ego.png",
     "tags": []
   },
   {
@@ -3111,7 +3111,7 @@
     "user": "",
     "subType": "Forbidden Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/forbidden__ecstasy_of_violence.png",
     "tags": []
   },
   {
@@ -3125,7 +3125,7 @@
     "user": "",
     "subType": "Forbidden Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/forbidden__engraved_malice.png",
     "tags": []
   },
   {
@@ -3138,7 +3138,7 @@
     "user": "",
     "subType": "Forbidden Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/forbidden__eternal_hunger.png",
     "tags": []
   },
   {
@@ -3151,7 +3151,7 @@
     "user": "",
     "subType": "Forbidden Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/forbidden__gesture_of_freedom.png",
     "tags": []
   },
   {
@@ -3164,7 +3164,7 @@
     "user": "",
     "subType": "Forbidden Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/forbidden__guidance_of_futility.png",
     "tags": []
   },
   {
@@ -3179,7 +3179,7 @@
     "user": "",
     "subType": "Forbidden Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/forbidden__portrait_of_fury.png",
     "tags": []
   },
   {
@@ -3192,7 +3192,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/forced_learning_apparatus.png",
     "tags": [
       {
         "tagName": "Lead",
@@ -3211,7 +3211,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/forest_s_hunger.png",
     "tags": []
   },
   {
@@ -3225,7 +3225,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/forgotten_grave.png",
     "tags": []
   },
   {
@@ -3239,7 +3239,7 @@
     "user": "Tiphera",
     "subType": "Unique Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/form_convergence.png",
     "tags": []
   },
   {
@@ -3253,7 +3253,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/fortitude.png",
     "tags": [
       {
         "tagName": "Combo",
@@ -3275,7 +3275,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/fragments_of_ebony_lumen.png",
     "tags": []
   },
   {
@@ -3288,7 +3288,7 @@
     "user": "Yuki",
     "subType": "Unique Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/freezing_blade.png",
     "tags": [
       {
         "tagName": "Unique",
@@ -3310,7 +3310,7 @@
     "user": "Adelheid",
     "subType": "Unique Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/friends_from_fairy_tales.png",
     "tags": []
   },
   {
@@ -3324,7 +3324,7 @@
     "user": "Magna",
     "subType": "Unique Card",
     "affinity": "Justice",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/frost_charge.png",
     "tags": [
       {
         "tagName": "Shield",
@@ -3346,7 +3346,7 @@
     "user": "Magna",
     "subType": "Starting Card",
     "affinity": "Justice",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/frost_shield.png",
     "tags": [
       {
         "tagName": "Shield",
@@ -3364,7 +3364,7 @@
     "user": "Magna",
     "subType": "Starting Card",
     "affinity": "Justice",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/frozen_fist.png",
     "tags": [
       {
         "tagName": "Defense-based Damage",
@@ -3383,7 +3383,7 @@
     "user": "Cassius",
     "subType": "Construct Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/full_house.png",
     "tags": [
       {
         "tagName": "Ephermeral",
@@ -3406,7 +3406,7 @@
     "user": "Amir",
     "subType": "Unique Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/full_metal_hurricane.png",
     "tags": [
       {
         "tagName": "Defense-based Damage",
@@ -3432,7 +3432,7 @@
     "user": "Kayron",
     "subType": "Construct Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/futility.png",
     "tags": [
       {
         "tagName": "Exhaust",
@@ -3451,7 +3451,7 @@
     "user": "Kayron",
     "subType": "Construct Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/futility__attack_.png",
     "tags": [
       {
         "tagName": "Exhaust",
@@ -3473,7 +3473,7 @@
     "user": "Rita",
     "subType": "Unique Card",
     "affinity": "Justice",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/future_decreed.png",
     "tags": []
   },
   {
@@ -3487,7 +3487,7 @@
     "user": "Nia",
     "subType": "Starting Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/g_chord.png",
     "tags": [
       {
         "tagName": "Decibel",
@@ -3518,7 +3518,7 @@
     "user": "Owen",
     "subType": "Unique Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/gale_strike.png",
     "tags": [
       {
         "tagName": "Shield",
@@ -3537,7 +3537,7 @@
     "user": "Adelheid",
     "subType": "Unique Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/garden_of_secrets.png",
     "tags": []
   },
   {
@@ -3550,7 +3550,7 @@
     "user": "Adelheid",
     "subType": "Starting Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/gather_around.png",
     "tags": []
   },
   {
@@ -3563,7 +3563,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/gear_bag.png",
     "tags": [
       {
         "tagName": "Combo",
@@ -3585,7 +3585,7 @@
     "user": "Veronica",
     "subType": "Construct Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/giant_ballista.png",
     "tags": [
       {
         "tagName": "Ballista Card",
@@ -3616,7 +3616,7 @@
     "user": "Magna",
     "subType": "Unique Card",
     "affinity": "Justice",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/glacial_iron_fist.png",
     "tags": [
       {
         "tagName": "Defense-based Damage",
@@ -3638,7 +3638,7 @@
     "user": "",
     "subType": "Monster Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/gloomy_godmother.png",
     "tags": []
   },
   {
@@ -3652,7 +3652,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/glorious_resistance.png",
     "tags": [
       {
         "tagName": "Fixed Damage",
@@ -3671,7 +3671,7 @@
     "user": "Khalipe",
     "subType": "Unique Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/greatsword_aquila.png",
     "tags": [
       {
         "tagName": "Defense-based Damage",
@@ -3690,7 +3690,7 @@
     "user": "Orlea",
     "subType": "Unique Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/growing_creature.png",
     "tags": [
       {
         "tagName": "Creation",
@@ -3713,7 +3713,7 @@
     "user": "Orlea",
     "subType": "Unique Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/growth_acceleration.png",
     "tags": [
       {
         "tagName": "Heal",
@@ -3736,7 +3736,7 @@
     "user": "",
     "subType": "",
     "affinity": "",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/guidance_of_futility.png",
     "tags": []
   },
   {
@@ -3749,7 +3749,7 @@
     "user": "Beryl",
     "subType": "Unique Card",
     "affinity": "Justice",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/guilty_pleasure.png",
     "tags": [
       {
         "tagName": "Draw",
@@ -3776,7 +3776,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/ha-00.png",
     "tags": []
   },
   {
@@ -3790,7 +3790,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/hand-to-hand_combat.png",
     "tags": [
       {
         "tagName": "Crystallization",
@@ -3818,7 +3818,7 @@
     "user": "Diana",
     "subType": "Construct Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/heart_breaker.png",
     "tags": []
   },
   {
@@ -3833,7 +3833,7 @@
     "user": "Diana",
     "subType": "Construct Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/heart_shaker.png",
     "tags": []
   },
   {
@@ -3847,7 +3847,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/heavy_bash.png",
     "tags": [
       {
         "tagName": "Vulnerable",
@@ -3870,7 +3870,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/heavy_blow.png",
     "tags": []
   },
   {
@@ -3883,7 +3883,7 @@
     "user": "Beryl",
     "subType": "Unique Card",
     "affinity": "Justice",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/heavy_weapons_specialist.png",
     "tags": []
   },
   {
@@ -3897,7 +3897,7 @@
     "user": "Heidemarie",
     "subType": "Unique Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/hero_to_all.png",
     "tags": []
   },
   {
@@ -3911,7 +3911,7 @@
     "user": "Nine",
     "subType": "Starting Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/hew.png",
     "tags": [
       {
         "tagName": "Ephermeral",
@@ -3942,7 +3942,7 @@
     "user": "Nine",
     "subType": "Starting Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/hew__ambush__lv__1.png",
     "tags": [
       {
         "tagName": "Ephermeral",
@@ -3973,7 +3973,7 @@
     "user": "Nine",
     "subType": "Starting Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/hew__ambush__lv__2.png",
     "tags": [
       {
         "tagName": "Ephermeral",
@@ -4004,7 +4004,7 @@
     "user": "Nine",
     "subType": "Starting Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/hew__ambush__lv__3.png",
     "tags": [
       {
         "tagName": "Ephermeral",
@@ -4035,7 +4035,7 @@
     "user": "Nine",
     "subType": "Starting Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/hew__extreme__lv__1.png",
     "tags": [
       {
         "tagName": "Ephermeral",
@@ -4066,7 +4066,7 @@
     "user": "Nine",
     "subType": "Starting Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/hew__extreme__lv__2.png",
     "tags": [
       {
         "tagName": "Ephermeral",
@@ -4097,7 +4097,7 @@
     "user": "Nine",
     "subType": "Starting Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/hew__extreme__lv__3.png",
     "tags": [
       {
         "tagName": "Ephermeral",
@@ -4128,7 +4128,7 @@
     "user": "Nine",
     "subType": "Starting Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/hew__extreme__lv__4.png",
     "tags": [
       {
         "tagName": "Ephermeral",
@@ -4159,7 +4159,7 @@
     "user": "Nine",
     "subType": "Starting Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/hew__extreme__lv__5.png",
     "tags": [
       {
         "tagName": "Ephermeral",
@@ -4190,7 +4190,7 @@
     "user": "Nine",
     "subType": "Starting Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/hew__flash__lv__1.png",
     "tags": [
       {
         "tagName": "Ephermeral",
@@ -4221,7 +4221,7 @@
     "user": "Nine",
     "subType": "Starting Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/hew__flash__lv__2.png",
     "tags": [
       {
         "tagName": "Ephermeral",
@@ -4252,7 +4252,7 @@
     "user": "Nine",
     "subType": "Starting Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/hew__flash__lv__3.png",
     "tags": [
       {
         "tagName": "Ephermeral",
@@ -4283,7 +4283,7 @@
     "user": "Nine",
     "subType": "Starting Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/hew__ironclad__lv__1.png",
     "tags": [
       {
         "tagName": "Ephermeral",
@@ -4314,7 +4314,7 @@
     "user": "Nine",
     "subType": "Starting Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/hew__ironclad__lv__2.png",
     "tags": [
       {
         "tagName": "Ephermeral",
@@ -4345,7 +4345,7 @@
     "user": "Nine",
     "subType": "Starting Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/hew__ironclad__lv__3.png",
     "tags": [
       {
         "tagName": "Ephermeral",
@@ -4376,7 +4376,7 @@
     "user": "Nine",
     "subType": "Starting Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/hew__massacre__lv__1.png",
     "tags": [
       {
         "tagName": "Ephermeral",
@@ -4407,7 +4407,7 @@
     "user": "Nine",
     "subType": "Starting Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/hew__massacre__lv__2.png",
     "tags": [
       {
         "tagName": "Ephermeral",
@@ -4438,7 +4438,7 @@
     "user": "Nine",
     "subType": "Starting Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/hew__massacre__lv__3.png",
     "tags": [
       {
         "tagName": "Ephermeral",
@@ -4469,7 +4469,7 @@
     "user": "Nine",
     "subType": "Starting Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/hew_lv__1.png",
     "tags": [
       {
         "tagName": "Ephermeral",
@@ -4500,7 +4500,7 @@
     "user": "Nine",
     "subType": "Starting Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/hew_lv__2.png",
     "tags": [
       {
         "tagName": "Ephermeral",
@@ -4531,7 +4531,7 @@
     "user": "Nine",
     "subType": "Starting Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/hew_lv__3.png",
     "tags": [
       {
         "tagName": "Ephermeral",
@@ -4562,7 +4562,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/hidden_bullet.png",
     "tags": [
       {
         "tagName": "Exhaust",
@@ -4584,7 +4584,7 @@
     "user": "Selena",
     "subType": "Starting Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/high-power_scope.png",
     "tags": [
       {
         "tagName": "Attack Weakness",
@@ -4620,7 +4620,7 @@
     "user": "Sereniel",
     "subType": "Starting Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/homing_laser.png",
     "tags": []
   },
   {
@@ -4635,7 +4635,7 @@
     "user": "Sereniel",
     "subType": "Construct Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/homing_laser_l.png",
     "tags": []
   },
   {
@@ -4649,7 +4649,7 @@
     "user": "",
     "subType": "",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/horrifying_memory.png",
     "tags": []
   },
   {
@@ -4663,7 +4663,7 @@
     "user": "Amir",
     "subType": "Starting Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/hovering_metal.png",
     "tags": [
       {
         "tagName": "Damage Reduction",
@@ -4694,7 +4694,7 @@
     "user": "",
     "subType": "Monster Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/hunger_of_loss.png",
     "tags": [
       {
         "tagName": "Exhaust",
@@ -4713,7 +4713,7 @@
     "user": "",
     "subType": "Monster Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/hunger_of_the_void.png",
     "tags": [
       {
         "tagName": "Exhaust",
@@ -4735,7 +4735,7 @@
     "user": "Hugo",
     "subType": "Starting Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/hunting_instincts.png",
     "tags": [
       {
         "tagName": "Commence the Hunt",
@@ -4770,7 +4770,7 @@
     "user": "Luke",
     "subType": "Construct Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/hvap_round.png",
     "tags": [
       {
         "tagName": "Attack Weakness",
@@ -4801,7 +4801,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/hyper_regeneration.png",
     "tags": [
       {
         "tagName": "Exhaust",
@@ -4820,7 +4820,7 @@
     "user": "Magna",
     "subType": "Starting Card",
     "affinity": "Justice",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/ice_fragment.png",
     "tags": [
       {
         "tagName": "Counterattack",
@@ -4860,7 +4860,7 @@
     "user": "Magna",
     "subType": "Unique Card",
     "affinity": "Justice",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/ice_wall.png",
     "tags": [
       {
         "tagName": "Counterattack",
@@ -4887,7 +4887,7 @@
     "user": "Yuki",
     "subType": "Unique Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/iceberg_cleave.png",
     "tags": []
   },
   {
@@ -4900,7 +4900,7 @@
     "user": "Veronica",
     "subType": "Starting Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/illusion_of_golden_daffodils.png",
     "tags": [
       {
         "tagName": "Shield",
@@ -4920,7 +4920,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/infection.png",
     "tags": [
       {
         "tagName": "Exhaust",
@@ -4944,7 +4944,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/inner_awakening.png",
     "tags": []
   },
   {
@@ -4957,7 +4957,7 @@
     "user": "Renoa",
     "subType": "Unique Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/instant_judgment.png",
     "tags": []
   },
   {
@@ -4970,7 +4970,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/instinct_ignition.png",
     "tags": []
   },
   {
@@ -4985,7 +4985,7 @@
     "user": "Amir",
     "subType": "Unique Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/iron_skin.png",
     "tags": [
       {
         "tagName": "Defense-based Damage",
@@ -5016,7 +5016,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/iron_wall.png",
     "tags": [
       {
         "tagName": "Fortitude",
@@ -5042,7 +5042,7 @@
     "user": "Cassius",
     "subType": "Unique Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/joker.png",
     "tags": []
   },
   {
@@ -5057,7 +5057,7 @@
     "user": "Chizuru",
     "subType": "Starting Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/karmic_flames.png",
     "tags": []
   },
   {
@@ -5071,7 +5071,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/knowledge_of_darkness.png",
     "tags": [
       {
         "tagName": "Exhaust",
@@ -5093,7 +5093,7 @@
     "user": "Khalipe",
     "subType": "Starting Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/lashing.png",
     "tags": [
       {
         "tagName": "Defense-based Damage",
@@ -5112,7 +5112,7 @@
     "user": "Renoa",
     "subType": "Unique Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/last-ditch_assault.png",
     "tags": [
       {
         "tagName": "Discard",
@@ -5138,7 +5138,7 @@
     "user": "Beryl",
     "subType": "Starting Card",
     "affinity": "Justice",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/launcher.png",
     "tags": []
   },
   {
@@ -5152,7 +5152,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/leap_attack.png",
     "tags": []
   },
   {
@@ -5167,7 +5167,7 @@
     "user": "Diana",
     "subType": "Unique Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/liberated_feelings.png",
     "tags": []
   },
   {
@@ -5180,7 +5180,7 @@
     "user": "Haru",
     "subType": "Unique Card",
     "affinity": "Justice",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/lift_anchor.png",
     "tags": [
       {
         "tagName": "Retain",
@@ -5198,7 +5198,7 @@
     "user": "Yuki",
     "subType": "Starting Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/longsword_slash.png",
     "tags": []
   },
   {
@@ -5211,7 +5211,7 @@
     "user": "Lucas",
     "subType": "Starting Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/machine_gun.png",
     "tags": []
   },
   {
@@ -5224,7 +5224,7 @@
     "user": "Sereniel",
     "subType": "Starting Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/magnetic_field.png",
     "tags": []
   },
   {
@@ -5237,7 +5237,7 @@
     "user": "Luke",
     "subType": "Construct Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/magnum_shot.png",
     "tags": [
       {
         "tagName": "Bullet",
@@ -5267,7 +5267,7 @@
     "user": "Cassius",
     "subType": "Starting Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/mana_field.png",
     "tags": []
   },
   {
@@ -5280,7 +5280,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/maneuvering_fire.png",
     "tags": [
       {
         "tagName": "Exhaust",
@@ -5303,7 +5303,7 @@
     "user": "Maribell",
     "subType": "Unique Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/maribell_shelter_mk_ii.png",
     "tags": [
       {
         "tagName": "Defense-based Damage",
@@ -5333,7 +5333,7 @@
     "user": "Rei",
     "subType": "Starting Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/material_regeneration.png",
     "tags": [
       {
         "tagName": "Heal",
@@ -5351,7 +5351,7 @@
     "user": "Tiphera",
     "subType": "Starting Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/matter_disintegration.png",
     "tags": []
   },
   {
@@ -5367,7 +5367,7 @@
     "user": "Narja",
     "subType": "Unique Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/mealtime.png",
     "tags": []
   },
   {
@@ -5381,7 +5381,7 @@
     "user": "Amir",
     "subType": "Unique Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/metal_extraction.png",
     "tags": [
       {
         "tagName": "Defense-based Damage",
@@ -5412,7 +5412,7 @@
     "user": "Amir",
     "subType": "Unique Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/metal_pierce.png",
     "tags": [
       {
         "tagName": "Defense-based Damage",
@@ -5442,7 +5442,7 @@
     "user": "Veronica",
     "subType": "Construct Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/micro_ballista.png",
     "tags": [
       {
         "tagName": "Ballista Card",
@@ -5472,7 +5472,7 @@
     "user": "Chizuru",
     "subType": "Starting Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/moonslash.png",
     "tags": []
   },
   {
@@ -5486,7 +5486,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/muscle-enhanced_evolver.png",
     "tags": []
   },
   {
@@ -5500,7 +5500,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/mushroom_ammo.png",
     "tags": []
   },
   {
@@ -5515,7 +5515,7 @@
     "user": "Tenebria",
     "subType": "Unique Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/music_start.png",
     "tags": []
   },
   {
@@ -5528,7 +5528,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/mutant_sample.png",
     "tags": []
   },
   {
@@ -5541,7 +5541,7 @@
     "user": "Nia",
     "subType": "Unique Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/mute_accent.png",
     "tags": [
       {
         "tagName": "Discard",
@@ -5567,7 +5567,7 @@
     "user": "Narja",
     "subType": "Starting Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/na__attack_response.png",
     "tags": []
   },
   {
@@ -5580,7 +5580,7 @@
     "user": "Narja",
     "subType": "Starting Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/na__defense_response.png",
     "tags": []
   },
   {
@@ -5594,7 +5594,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/nature_s_gift.png",
     "tags": []
   },
   {
@@ -5608,7 +5608,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/negotiate.png",
     "tags": [
       {
         "tagName": "Exhaust",
@@ -5636,7 +5636,7 @@
     "user": "Nia",
     "subType": "Unique Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/nia_s_curiosity.png",
     "tags": [
       {
         "tagName": "Discard",
@@ -5667,7 +5667,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/nutrient_absorption.png",
     "tags": []
   },
   {
@@ -5680,7 +5680,7 @@
     "user": "Kayron",
     "subType": "Unique Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/oath_of_vanity.png",
     "tags": []
   },
   {
@@ -5695,7 +5695,7 @@
     "user": "Maribell",
     "subType": "Unique Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/oh____i_see.png",
     "tags": [
       {
         "tagName": "Counterattack",
@@ -5725,7 +5725,7 @@
     "user": "Adelheid",
     "subType": "Starting Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/once_upon_a_time.png",
     "tags": []
   },
   {
@@ -5739,7 +5739,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/one_with_all.png",
     "tags": []
   },
   {
@@ -5753,7 +5753,7 @@
     "user": "Chizuru",
     "subType": "Unique Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/oni_hunt.png",
     "tags": []
   },
   {
@@ -5767,7 +5767,7 @@
     "user": "Beryl",
     "subType": "Starting Card",
     "affinity": "Justice",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/opening_found.png",
     "tags": [
       {
         "tagName": "Retain",
@@ -5785,7 +5785,7 @@
     "user": "",
     "subType": "",
     "affinity": "",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/ordeal_of_praise.png",
     "tags": [
       {
         "tagName": "Exhaust",
@@ -5803,7 +5803,7 @@
     "user": "",
     "subType": "",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/overload.png",
     "tags": [
       {
         "tagName": "Exhaust",
@@ -5822,7 +5822,7 @@
     "user": "Khalipe",
     "subType": "Unique Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/overpower.png",
     "tags": [
       {
         "tagName": "Attack Weakness",
@@ -5853,7 +5853,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/overwhelm.png",
     "tags": [
       {
         "tagName": "Exhaust",
@@ -5872,7 +5872,7 @@
     "user": "Sereniel",
     "subType": "Unique Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/pale_shooting_star.png",
     "tags": []
   },
   {
@@ -5898,7 +5898,7 @@
     "user": "Veronica",
     "subType": "Unique Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/pendant_of_resolution.png",
     "tags": [
       {
         "tagName": "Ballista Card",
@@ -5921,7 +5921,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/persona_of_loss.png",
     "tags": []
   },
   {
@@ -5934,7 +5934,7 @@
     "user": "Tenebria",
     "subType": "Unique Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/photo_card.png",
     "tags": []
   },
   {
@@ -5948,7 +5948,7 @@
     "user": "Tenebria",
     "subType": "Unique Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/photo_time.png",
     "tags": []
   },
   {
@@ -5964,7 +5964,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/pierce.png",
     "tags": []
   },
   {
@@ -5978,7 +5978,7 @@
     "user": "Veronica",
     "subType": "Construct Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/piercing_ballista.png",
     "tags": [
       {
         "tagName": "Ballista Card",
@@ -6017,7 +6017,7 @@
     "user": "Diana",
     "subType": "Unique Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/pistol_of_purification.png",
     "tags": []
   },
   {
@@ -6032,7 +6032,7 @@
     "user": "Sereniel",
     "subType": "Unique Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/plasma_missile.png",
     "tags": []
   },
   {
@@ -6045,7 +6045,7 @@
     "user": "Cassius",
     "subType": "Starting Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/pop_eyed_popper.png",
     "tags": [
       {
         "tagName": "Mission",
@@ -6080,7 +6080,7 @@
     "user": "Haru",
     "subType": "Starting Card",
     "affinity": "Justice",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/power_anchor.png",
     "tags": []
   },
   {
@@ -6094,7 +6094,7 @@
     "user": "Haru",
     "subType": "Unique Card",
     "affinity": "Justice",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/power_charge.png",
     "tags": []
   },
   {
@@ -6108,7 +6108,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/precision_aim.png",
     "tags": [
       {
         "tagName": "Draw",
@@ -6131,7 +6131,7 @@
     "user": "Rei",
     "subType": "Unique Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/predator_s_blade.png",
     "tags": [
       {
         "tagName": "Morale",
@@ -6150,7 +6150,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/prepare_for_battle.png",
     "tags": []
   },
   {
@@ -6164,7 +6164,7 @@
     "user": "Yuki",
     "subType": "Starting Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/prepare_to_subdue.png",
     "tags": []
   },
   {
@@ -6178,7 +6178,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/propagative_virus.png",
     "tags": []
   },
   {
@@ -6191,7 +6191,7 @@
     "user": "Diana",
     "subType": "Starting Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/protect_me.png",
     "tags": []
   },
   {
@@ -6204,7 +6204,7 @@
     "user": "Adelheid",
     "subType": "Unique Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/protect_us.png",
     "tags": []
   },
   {
@@ -6217,7 +6217,7 @@
     "user": "Rin",
     "subType": "Starting Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/protection.png",
     "tags": [
       {
         "tagName": "Shield",
@@ -6236,7 +6236,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/protective_shout.png",
     "tags": [
       {
         "tagName": "Shield",
@@ -6254,7 +6254,7 @@
     "user": "Sereniel",
     "subType": "Starting Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/pulse_fire.png",
     "tags": []
   },
   {
@@ -6268,7 +6268,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/pulverize.png",
     "tags": [
       {
         "tagName": "Attack Weakness",
@@ -6291,7 +6291,7 @@
     "user": "Tiphera",
     "subType": "Starting Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/quantum_seed.png",
     "tags": []
   },
   {
@@ -6304,7 +6304,7 @@
     "user": "Cassius",
     "subType": "Construct Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/quest__full_house.png",
     "tags": []
   },
   {
@@ -6317,7 +6317,7 @@
     "user": "Cassius",
     "subType": "Construct Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/quest__straight.png",
     "tags": []
   },
   {
@@ -6330,7 +6330,7 @@
     "user": "Cassius",
     "subType": "Construct Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/quest__triple_0.png",
     "tags": []
   },
   {
@@ -6343,7 +6343,7 @@
     "user": "Cassius",
     "subType": "Construct Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/quest__triple_1.png",
     "tags": []
   },
   {
@@ -6357,7 +6357,7 @@
     "user": "Hugo",
     "subType": "Unique Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/quick_fix.png",
     "tags": []
   },
   {
@@ -6371,7 +6371,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/quick_shelling.png",
     "tags": [
       {
         "tagName": "Draw",
@@ -6394,7 +6394,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/quickdraw.png",
     "tags": [
       {
         "tagName": "Exhaust",
@@ -6420,7 +6420,7 @@
     "user": "Lucas",
     "subType": "Unique Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/r_p_g-7.png",
     "tags": [
       {
         "tagName": "Bullet",
@@ -6446,7 +6446,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/rage.png",
     "tags": []
   },
   {
@@ -6460,7 +6460,7 @@
     "user": "Khalipe",
     "subType": "Unique Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/rally.png",
     "tags": [
       {
         "tagName": "Draw",
@@ -6487,7 +6487,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/rally__common_.png",
     "tags": [
       {
         "tagName": "Action Count",
@@ -6517,7 +6517,7 @@
     "user": "Yuki",
     "subType": "Starting Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/rapid_cut.png",
     "tags": []
   },
   {
@@ -6532,7 +6532,7 @@
     "user": "Luke",
     "subType": "Starting Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/rapid_fire__luke_.png",
     "tags": [
       {
         "tagName": "Handgun Bullet",
@@ -6550,7 +6550,7 @@
     "user": "Veronica",
     "subType": "Starting Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/rapid_fire__veronica_.png",
     "tags": []
   },
   {
@@ -6563,7 +6563,7 @@
     "user": "Amir",
     "subType": "Starting Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/rapier.png",
     "tags": [
       {
         "tagName": "Defense-based Damage",
@@ -6581,7 +6581,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/recycling.png",
     "tags": [
       {
         "tagName": "AP",
@@ -6599,7 +6599,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/relentless_endurance.png",
     "tags": [
       {
         "tagName": "Retain",
@@ -6621,7 +6621,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/reorganize.png",
     "tags": [
       {
         "tagName": "Draw",
@@ -6648,7 +6648,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/repent.png",
     "tags": [
       {
         "tagName": "Exhaust",
@@ -6675,7 +6675,7 @@
     "user": "Veronica",
     "subType": "Unique Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/repose.png",
     "tags": [
       {
         "tagName": "Draw",
@@ -6702,7 +6702,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/residual_herb.png",
     "tags": []
   },
   {
@@ -6717,7 +6717,7 @@
     "user": "Maribell",
     "subType": "Starting Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/resolute_blitz.png",
     "tags": [
       {
         "tagName": "Counterattack",
@@ -6747,7 +6747,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/resonance_of_truth.png",
     "tags": []
   },
   {
@@ -6761,7 +6761,7 @@
     "user": "Rei",
     "subType": "Unique Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/resonating_darkness.png",
     "tags": [
       {
         "tagName": "Unique",
@@ -6779,7 +6779,7 @@
     "user": "Rita",
     "subType": "Starting Card",
     "affinity": "Justice",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/rewind.png",
     "tags": []
   },
   {
@@ -6793,7 +6793,7 @@
     "user": "Tenebria",
     "subType": "Construct Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/rhythm.png",
     "tags": []
   },
   {
@@ -6807,7 +6807,7 @@
     "user": "Tenebria",
     "subType": "Construct Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/rhythm__arpeggio.png",
     "tags": []
   },
   {
@@ -6821,7 +6821,7 @@
     "user": "Tenebria",
     "subType": "Construct Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/rhythm__arpeggio.png",
     "tags": []
   },
   {
@@ -6835,7 +6835,7 @@
     "user": "Tenebria",
     "subType": "Construct Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/rhythm__arpeggio.png",
     "tags": []
   },
   {
@@ -6849,7 +6849,7 @@
     "user": "Tenebria",
     "subType": "Construct Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/rhythm__arpeggio.png",
     "tags": []
   },
   {
@@ -6863,7 +6863,7 @@
     "user": "Tenebria",
     "subType": "Construct Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/rhythm__arpeggio.png",
     "tags": []
   },
   {
@@ -6877,7 +6877,7 @@
     "user": "Tenebria",
     "subType": "Construct Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/rhythm__arpeggio.png",
     "tags": []
   },
   {
@@ -6891,7 +6891,7 @@
     "user": "Tenebria",
     "subType": "Construct Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/rhythm__crescendo.png",
     "tags": []
   },
   {
@@ -6905,7 +6905,7 @@
     "user": "Tenebria",
     "subType": "Construct Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/rhythm__fermata.png",
     "tags": []
   },
   {
@@ -6919,7 +6919,7 @@
     "user": "Tenebria",
     "subType": "Construct Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/rhythm__fortissimo.png",
     "tags": []
   },
   {
@@ -6933,7 +6933,7 @@
     "user": "Tenebria",
     "subType": "Construct Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/rhythm__staccato.png",
     "tags": []
   },
   {
@@ -6948,7 +6948,7 @@
     "user": "Mei Lin",
     "subType": "Unique Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/rising_dragon_spire.png",
     "tags": [
       {
         "tagName": "Attack Weakness",
@@ -6983,7 +6983,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/rocket_punch.png",
     "tags": []
   },
   {
@@ -6997,7 +6997,7 @@
     "user": "",
     "subType": "Monster Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/rotten_ripper.png",
     "tags": [
       {
         "tagName": "Action Count",
@@ -7020,7 +7020,7 @@
     "user": "Lucas",
     "subType": "Unique Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/s_s_s.png",
     "tags": [
       {
         "tagName": "Bullet",
@@ -7038,7 +7038,7 @@
     "user": "Orlea",
     "subType": "Starting Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/sacred_censer.png",
     "tags": [
       {
         "tagName": "Creation",
@@ -7069,7 +7069,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/sacred_strike.png",
     "tags": [
       {
         "tagName": "Exhaust",
@@ -7096,7 +7096,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/sadism.png",
     "tags": [
       {
         "tagName": "Lead",
@@ -7118,7 +7118,7 @@
     "user": "",
     "subType": "",
     "affinity": "",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/schizophrenia.png",
     "tags": [
       {
         "tagName": "Exhaust",
@@ -7137,7 +7137,7 @@
     "user": "Luke",
     "subType": "Unique Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/seize_the_opportunity.png",
     "tags": [
       {
         "tagName": "Handgun Bullet",
@@ -7163,7 +7163,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/self-generating_experiment.png",
     "tags": [
       {
         "tagName": "Lead",
@@ -7181,7 +7181,7 @@
     "user": "",
     "subType": "Monster Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/seraphim_of_pain.png",
     "tags": []
   },
   {
@@ -7195,7 +7195,7 @@
     "user": "",
     "subType": "Monster Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/seven_arms.png",
     "tags": [
       {
         "tagName": "Action Count",
@@ -7222,7 +7222,7 @@
     "user": "Narja",
     "subType": "Starting Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/shackles_of_hunger.png",
     "tags": []
   },
   {
@@ -7235,7 +7235,7 @@
     "user": "Luke",
     "subType": "Starting Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/shadow_concealment.png",
     "tags": [
       {
         "tagName": "Shield",
@@ -7254,7 +7254,7 @@
     "user": "Tressa",
     "subType": "Construct Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/shadow_dagger.png",
     "tags": [
       {
         "tagName": "Agony",
@@ -7281,7 +7281,7 @@
     "user": "Chizuru",
     "subType": "Unique Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/shadow_of_the_moon.png",
     "tags": []
   },
   {
@@ -7296,7 +7296,7 @@
     "user": "Chizuru",
     "subType": "Construct Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/shadow_of_the_moon_.png",
     "tags": []
   },
   {
@@ -7310,7 +7310,7 @@
     "user": "Tressa",
     "subType": "Unique Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/shadow_reload.png",
     "tags": [
       {
         "tagName": "Heal",
@@ -7330,7 +7330,7 @@
     "user": "Rin",
     "subType": "Construct Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/sheathe_sword.png",
     "tags": [
       {
         "tagName": "Ephermeral",
@@ -7352,7 +7352,7 @@
     "user": "",
     "subType": "Monster Card",
     "affinity": "",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/shell_bug.png",
     "tags": []
   },
   {
@@ -7366,7 +7366,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/shell-forming_cell.png",
     "tags": [
       {
         "tagName": "Retain",
@@ -7384,7 +7384,7 @@
     "user": "Veronica",
     "subType": "Construct Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/shelling_ballista.png",
     "tags": [
       {
         "tagName": "Ballista Card",
@@ -7414,7 +7414,7 @@
     "user": "Maribell",
     "subType": "Starting Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/shelter_defense.png",
     "tags": [
       {
         "tagName": "Shield",
@@ -7432,7 +7432,7 @@
     "user": "Maribell",
     "subType": "Starting Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/shelter_hold.png",
     "tags": [
       {
         "tagName": "Shield",
@@ -7450,7 +7450,7 @@
     "user": "Maribell",
     "subType": "Starting Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/shelter_kick.png",
     "tags": [
       {
         "tagName": "Defense-based Damage",
@@ -7468,7 +7468,7 @@
     "user": "Maribell",
     "subType": "Unique Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/shelter_strike.png",
     "tags": []
   },
   {
@@ -7481,7 +7481,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/shield_blast.png",
     "tags": []
   },
   {
@@ -7494,7 +7494,7 @@
     "user": "Lucas",
     "subType": "Starting Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/shielding_incendiary_bomb.png",
     "tags": [
       {
         "tagName": "Shield",
@@ -7512,7 +7512,7 @@
     "user": "Sereniel",
     "subType": "Unique Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/shining_core.png",
     "tags": []
   },
   {
@@ -7526,7 +7526,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/shock.png",
     "tags": [
       {
         "tagName": "Vulnerable",
@@ -7544,7 +7544,7 @@
     "user": "",
     "subType": "",
     "affinity": "",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/shock__status_ailment_.png",
     "tags": []
   },
   {
@@ -7558,7 +7558,7 @@
     "user": "Cassius",
     "subType": "Unique Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/shuffle.png",
     "tags": [
       {
         "tagName": "Discard",
@@ -7593,7 +7593,7 @@
     "user": "",
     "subType": "Monster Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/shy_gardener.png",
     "tags": [
       {
         "tagName": "Mark",
@@ -7612,7 +7612,7 @@
     "user": "Luke",
     "subType": "Construct Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/silver_shot.png",
     "tags": [
       {
         "tagName": "Attack Weakness",
@@ -7650,7 +7650,7 @@
     "user": "Luke",
     "subType": "Starting Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/single_shot.png",
     "tags": []
   },
   {
@@ -7664,7 +7664,7 @@
     "user": "Veronica",
     "subType": "Unique Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/sir_kowalski.png",
     "tags": [
       {
         "tagName": "Ballista Card",
@@ -7691,7 +7691,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/skull_bash.png",
     "tags": [
       {
         "tagName": "Attack Weakness",
@@ -7709,7 +7709,7 @@
     "user": "Nine",
     "subType": "Starting Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/slash.png",
     "tags": []
   },
   {
@@ -7722,7 +7722,7 @@
     "user": "",
     "subType": "Monster Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/slaughter.png",
     "tags": []
   },
   {
@@ -7737,7 +7737,7 @@
     "user": "Rei",
     "subType": "Unique Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/snack_time.png",
     "tags": [
       {
         "tagName": "Draw",
@@ -7767,7 +7767,7 @@
     "user": "Selena",
     "subType": "Unique Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/sniper_s_domain.png",
     "tags": [
       {
         "tagName": "Attack Weakness",
@@ -7806,7 +7806,7 @@
     "user": "Orlea",
     "subType": "Construct Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/softie__.png",
     "tags": [
       {
         "tagName": "Creation",
@@ -7833,7 +7833,7 @@
     "user": "Orlea",
     "subType": "Construct Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/softie___.png",
     "tags": [
       {
         "tagName": "Creation",
@@ -7860,7 +7860,7 @@
     "user": "Orlea",
     "subType": "Construct Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/softie____.png",
     "tags": [
       {
         "tagName": "Creation",
@@ -7886,7 +7886,7 @@
     "user": "",
     "subType": "Monster Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/soldier_prime.png",
     "tags": []
   },
   {
@@ -7899,7 +7899,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/somnolent_fruit.png",
     "tags": [
       {
         "tagName": "Exhaust",
@@ -7922,7 +7922,7 @@
     "user": "",
     "subType": "Monster Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/sorrowful_godfather.png",
     "tags": [
       {
         "tagName": "Agony",
@@ -7942,7 +7942,7 @@
     "user": "Nia",
     "subType": "Unique Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/soul_rip.png",
     "tags": [
       {
         "tagName": "Decibel",
@@ -7972,7 +7972,7 @@
     "user": "Tenebria",
     "subType": "Starting Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/sound_check.png",
     "tags": []
   },
   {
@@ -7986,7 +7986,7 @@
     "user": "Mika",
     "subType": "Starting Card",
     "affinity": "Justice",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/source_of_water.png",
     "tags": [
       {
         "tagName": "AP",
@@ -8008,7 +8008,7 @@
     "user": "Kayron",
     "subType": "Starting Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/sphere.png",
     "tags": [
       {
         "tagName": "Heal",
@@ -8027,7 +8027,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/spiked_shield.png",
     "tags": [
       {
         "tagName": "Defense-based Damage",
@@ -8045,7 +8045,7 @@
     "user": "",
     "subType": "Monster Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/spirit_kefox.png",
     "tags": [
       {
         "tagName": "Draw",
@@ -8067,7 +8067,7 @@
     "user": "Mei Lin",
     "subType": "Unique Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/spirit_of_the_aromata.png",
     "tags": [
       {
         "tagName": "Retain",
@@ -8085,7 +8085,7 @@
     "user": "Chizuru",
     "subType": "Starting Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/spiritflame_s_ward.png",
     "tags": []
   },
   {
@@ -8099,7 +8099,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/spore_harvester.png",
     "tags": []
   },
   {
@@ -8114,7 +8114,7 @@
     "user": "Tenebria",
     "subType": "Unique Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/spotlight.png",
     "tags": []
   },
   {
@@ -8127,7 +8127,7 @@
     "user": "Luke",
     "subType": "Unique Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/stealth_reload.png",
     "tags": [
       {
         "tagName": "Handgun Bullet",
@@ -8145,7 +8145,7 @@
     "user": "Amir",
     "subType": "Starting Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/steel_barrier.png",
     "tags": [
       {
         "tagName": "Shield",
@@ -8177,7 +8177,7 @@
     "user": "Magna",
     "subType": "Unique Card",
     "affinity": "Justice",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/storm_of_bitter_cold.png",
     "tags": [
       {
         "tagName": "Counterattack",
@@ -8210,7 +8210,7 @@
     "user": "Cassius",
     "subType": "Construct Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/straight.png",
     "tags": [
       {
         "tagName": "Ephermeral",
@@ -8232,7 +8232,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/strategic_starting_point.png",
     "tags": [
       {
         "tagName": "Exhaust",
@@ -8250,7 +8250,7 @@
     "user": "Mei Lin",
     "subType": "Starting Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/strike.png",
     "tags": []
   },
   {
@@ -8264,7 +8264,7 @@
     "user": "Rei",
     "subType": "Starting Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/strike_of_darkness.png",
     "tags": [
       {
         "tagName": "Lead",
@@ -8282,7 +8282,7 @@
     "user": "Nia",
     "subType": "Starting Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/stroke.png",
     "tags": []
   },
   {
@@ -8296,7 +8296,7 @@
     "user": "Orlea",
     "subType": "Construct Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/swiftie__.png",
     "tags": [
       {
         "tagName": "Creation",
@@ -8323,7 +8323,7 @@
     "user": "Orlea",
     "subType": "Construct Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/swiftie___.png",
     "tags": [
       {
         "tagName": "Creation",
@@ -8350,7 +8350,7 @@
     "user": "Orlea",
     "subType": "Construct Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/swiftie____.png",
     "tags": [
       {
         "tagName": "Creation",
@@ -8376,7 +8376,7 @@
     "user": "Heidemarie",
     "subType": "Starting Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/sword_barrier.png",
     "tags": []
   },
   {
@@ -8389,7 +8389,7 @@
     "user": "Heidemarie",
     "subType": "Starting Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/sword_flash.png",
     "tags": []
   },
   {
@@ -8403,7 +8403,7 @@
     "user": "Heidemarie",
     "subType": "Starting Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/sword_rain.png",
     "tags": []
   },
   {
@@ -8417,7 +8417,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/tackle.png",
     "tags": [
       {
         "tagName": "Defense-based Damage",
@@ -8439,7 +8439,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/tactical_action.png",
     "tags": [
       {
         "tagName": "Initiation",
@@ -8462,7 +8462,7 @@
     "user": "Mika",
     "subType": "Unique Card",
     "affinity": "Justice",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/tactical_analysis.png",
     "tags": []
   },
   {
@@ -8476,7 +8476,7 @@
     "user": "Selena",
     "subType": "Unique Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/tactical_maneuver.png",
     "tags": [
       {
         "tagName": "Attack Weakness",
@@ -8506,7 +8506,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/tactical_reformation.png",
     "tags": [
       {
         "tagName": "Exhaust",
@@ -8525,7 +8525,7 @@
     "user": "Selena",
     "subType": "Unique Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/target_spotted.png",
     "tags": [
       {
         "tagName": "Attack Weakness",
@@ -8572,7 +8572,7 @@
     "user": "Adelheid",
     "subType": "Construct Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/teddy.png",
     "tags": []
   },
   {
@@ -8586,7 +8586,7 @@
     "user": "Adelheid",
     "subType": "Construct Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/teddy__morphed_.png",
     "tags": []
   },
   {
@@ -8600,7 +8600,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/the_inverted_messiah.png",
     "tags": []
   },
   {
@@ -8614,7 +8614,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/the_other_side_of_nightmares.png",
     "tags": []
   },
   {
@@ -8628,7 +8628,7 @@
     "user": "Heidemarie",
     "subType": "Unique Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/thread_of_light.png",
     "tags": []
   },
   {
@@ -8641,7 +8641,7 @@
     "user": "Hugo",
     "subType": "Starting Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/throw_dagger.png",
     "tags": []
   },
   {
@@ -8654,7 +8654,7 @@
     "user": "Rita",
     "subType": "Starting Card",
     "affinity": "Justice",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/time_acceleration.png",
     "tags": []
   },
   {
@@ -8667,7 +8667,7 @@
     "user": "Rita",
     "subType": "Unique Card",
     "affinity": "Justice",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/time_axis_collapse.png",
     "tags": []
   },
   {
@@ -8681,7 +8681,7 @@
     "user": "Rita",
     "subType": "Unique Card",
     "affinity": "Justice",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/time_paradox.png",
     "tags": []
   },
   {
@@ -8694,7 +8694,7 @@
     "user": "Tressa",
     "subType": "Starting Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/touch_of_darkness.png",
     "tags": [
       {
         "tagName": "Heal",
@@ -8713,7 +8713,7 @@
     "user": "Orlea",
     "subType": "Construct Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/toughie__.png",
     "tags": [
       {
         "tagName": "Creation",
@@ -8748,7 +8748,7 @@
     "user": "Orlea",
     "subType": "Construct Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/toughie___.png",
     "tags": [
       {
         "tagName": "Creation",
@@ -8783,7 +8783,7 @@
     "user": "Orlea",
     "subType": "Construct Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/toughie____.png",
     "tags": [
       {
         "tagName": "Creation",
@@ -8818,7 +8818,7 @@
     "user": "Luke",
     "subType": "Construct Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/tracer.png",
     "tags": [
       {
         "tagName": "Attack Weakness",
@@ -8868,7 +8868,7 @@
     "user": "",
     "subType": "Monster Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/trapper.png",
     "tags": []
   },
   {
@@ -8882,7 +8882,7 @@
     "user": "Yuki",
     "subType": "Unique Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/trickery_strike.png",
     "tags": [
       {
         "tagName": "Retain",
@@ -8905,7 +8905,7 @@
     "user": "Cassius",
     "subType": "Construct Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/triple_0.png",
     "tags": [
       {
         "tagName": "Ephermeral",
@@ -8929,7 +8929,7 @@
     "user": "Cassius",
     "subType": "Construct Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/triple_1.png",
     "tags": [
       {
         "tagName": "Ephermeral",
@@ -8952,7 +8952,7 @@
     "user": "Adelheid",
     "subType": "Unique Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/truth_behind_a_story.png",
     "tags": []
   },
   {
@@ -8965,7 +8965,7 @@
     "user": "Chizuru",
     "subType": "Unique Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/tsukuyomi.png",
     "tags": []
   },
   {
@@ -8978,7 +8978,7 @@
     "user": "Khalipe",
     "subType": "Starting Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/tyr_s_vow.png",
     "tags": [
       {
         "tagName": "Shield",
@@ -8996,7 +8996,7 @@
     "user": "Mei Lin",
     "subType": "Unique Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/unity_of_attack_and_defense.png",
     "tags": [
       {
         "tagName": "Basic Card",
@@ -9023,7 +9023,7 @@
     "user": "Beryl",
     "subType": "Unique Card",
     "affinity": "Justice",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/unlimited_firepower.png",
     "tags": [
       {
         "tagName": "Shield",
@@ -9041,7 +9041,7 @@
     "user": "Tressa",
     "subType": "Starting Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/unsheathe_dagger.png",
     "tags": [
       {}
     ]
@@ -9056,7 +9056,7 @@
     "user": "Khalipe",
     "subType": "Starting Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/upward_slash.png",
     "tags": [
       {
         "tagName": "Defense-based Damage",
@@ -9075,7 +9075,7 @@
     "user": "Luke",
     "subType": "Construct Card",
     "affinity": "Order",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/uranium_shot.png",
     "tags": [
       {
         "tagName": "Bullet",
@@ -9109,7 +9109,7 @@
     "user": "",
     "subType": "Monster Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/vine_lord.png",
     "tags": []
   },
   {
@@ -9123,7 +9123,7 @@
     "user": "Tressa",
     "subType": "Unique Card",
     "affinity": "Void",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/vital_attack.png",
     "tags": [
       {
         "tagName": "Agony",
@@ -9146,7 +9146,7 @@
     "user": "Narja",
     "subType": "Unique Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/voluntary_control.png",
     "tags": []
   },
   {
@@ -9161,7 +9161,7 @@
     "user": "Khalipe",
     "subType": "Starting Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/vulture_ejection.png",
     "tags": [
       {
         "tagName": "Celestial",
@@ -9195,7 +9195,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/wanderer_of_the_void.png",
     "tags": [
       {
         "tagName": "Action Count",
@@ -9217,7 +9217,7 @@
     "user": "Mika",
     "subType": "Starting Card",
     "affinity": "Justice",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/water_arrow.png",
     "tags": []
   },
   {
@@ -9230,7 +9230,7 @@
     "user": "Mika",
     "subType": "Starting Card",
     "affinity": "Justice",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/water_barrier.png",
     "tags": []
   },
   {
@@ -9243,7 +9243,7 @@
     "user": "Owen",
     "subType": "Starting Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/weapon_block.png",
     "tags": [
       {
         "tagName": "Shield",
@@ -9262,7 +9262,7 @@
     "user": "Mika",
     "subType": "Unique Card",
     "affinity": "Justice",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/whirlpool.png",
     "tags": [
       {
         "tagName": "Heal",
@@ -9281,7 +9281,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/whispers_of_madness.png",
     "tags": []
   },
   {
@@ -9294,7 +9294,7 @@
     "user": "Cassius",
     "subType": "Starting Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/wild_card.png",
     "tags": []
   },
   {
@@ -9308,7 +9308,7 @@
     "user": "Orlea",
     "subType": "Unique Card",
     "affinity": "Instinct",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/will_of_light.png",
     "tags": []
   },
   {
@@ -9321,7 +9321,7 @@
     "user": "Owen",
     "subType": "Starting Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/wind_charge.png",
     "tags": [
       {}
     ]
@@ -9337,7 +9337,7 @@
     "user": "",
     "subType": "Neutral Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/wind_of_relief.png",
     "tags": [
       {
         "tagName": "Agony",
@@ -9360,7 +9360,7 @@
     "user": "Owen",
     "subType": "Unique Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/wind_riding.png",
     "tags": [
       {
         "tagName": "Discard Pile",
@@ -9382,7 +9382,7 @@
     "user": "Owen",
     "subType": "Unique Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/wind_slash.png",
     "tags": []
   },
   {
@@ -9395,7 +9395,7 @@
     "user": "",
     "subType": "Monster Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/winged_humanoid_beast.png",
     "tags": []
   },
   {
@@ -9409,7 +9409,7 @@
     "user": "Diana",
     "subType": "Starting Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/with_all_my_heart.png",
     "tags": []
   },
   {
@@ -9424,7 +9424,7 @@
     "user": "",
     "subType": "Monster Card",
     "affinity": "None",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/wolves_bane.png",
     "tags": [
       {
         "tagName": "Impair",
@@ -9447,7 +9447,7 @@
     "user": "Maribell",
     "subType": "Unique Card",
     "affinity": "Passion",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/wolves__dome.png",
     "tags": [
       {
         "tagName": "Counterattack",
@@ -9473,7 +9473,7 @@
     "user": "",
     "subType": "",
     "affinity": "",
-    "imageUrl": "",
+    "imageUrl": "https://storage.googleapis.com/czn-cards/wound.png",
     "tags": []
   }
 ]

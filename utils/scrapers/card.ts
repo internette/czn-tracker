@@ -1,6 +1,9 @@
 import * as cheerio from "cheerio";
 import axios from "axios";
+import { Storage } from "@google-cloud/storage";
 import { getTableByChildText, getTableRowByTh } from "./tools";
+
+const CARD_IMAGES_BUCKET = "czn-cards";
 
 interface CardDetails {
     name: string
@@ -82,6 +85,14 @@ export async function scrapeCard(
         });
         const $cardData = cheerio.load(cardsData.data);
         const cardDetails = getCardDetails(cardName, $cardData);
+        if (!cardDetails) return undefined;
+
+        const originalImageUrl = await getCardImage(url);
+        if (originalImageUrl) {
+            const fileName = `${cardName.toLowerCase().replace(/[^a-zA-Z0-9_-]/g, "_")}.png`;
+            cardDetails.imageUrl = await uploadCardImageToGCS(originalImageUrl, fileName);
+        }
+
         return cardDetails;
     } catch(err){
         return {
@@ -96,4 +107,49 @@ export async function scrapeCard(
             imageUrl: undefined
         }
     }
+}
+
+export async function getCardImage(url: string) {
+    const cardsData = await axios.get(url, {
+        headers: {
+            "User-Agent":
+                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)"
+        }
+    });
+    const $ = cheerio.load(cardsData.data);
+    const cardDataTable = getTableByChildText(['Effect', "Card Type", "AP Cost"], $, 'all');
+    if (!cardDataTable || cardDataTable.length === 0) return undefined;
+    const imgRow = $(cardDataTable).find("tr").eq(1);
+    const img = imgRow.find("td").find("img");
+    const imgUrl = img.attr("data-src");
+    return imgUrl;
+}
+
+export async function uploadCardImageToGCS(
+    originalImageUrl: string,
+    destinationFileName: string
+): Promise<string> {
+    const response = await axios.get(originalImageUrl, {
+        responseType: "arraybuffer",
+        headers: {
+            "User-Agent":
+                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)"
+        }
+    });
+    const buffer = Buffer.from(response.data);
+
+    const storage = new Storage();
+    const bucket = storage.bucket(CARD_IMAGES_BUCKET);
+    const file = bucket.file(destinationFileName);
+
+    const contentType = typeof response.headers["content-type"] === "string"
+        ? response.headers["content-type"] as string
+        : "image/jpeg";
+
+    await file.save(buffer, {
+        metadata: { contentType }
+    });
+
+    const publicUrl = `https://storage.googleapis.com/${CARD_IMAGES_BUCKET}/${destinationFileName}`;
+    return publicUrl;
 }
