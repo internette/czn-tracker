@@ -62,6 +62,19 @@
   padding: $space-xl 0;
 }
 
+.layout {
+  display: flex;
+  gap: $space-lg;
+  align-items: flex-start;
+}
+
+.cardGridContainer {
+  flex: 1;
+  max-height: calc(100vh - 280px);
+  overflow-y: auto;
+  padding-right: $space-sm;
+}
+
 .cardGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -194,4 +207,84 @@
   font-size: 16px;
   font-weight: 600;
   color: #e5e7eb;
+}
+
+.sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  background: #111425;
+  border: 0.5px solid #252b42;
+  border-radius: 10px;
+  padding: $space-md;
+  max-height: calc(100vh - 280px);
+  overflow-y: auto;
+  position: sticky;
+  top: 0;
+}
+
+.sidebarTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: #e5e7eb;
+  margin: 0 0 $space-md;
+}
+
+.sidebarList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sidebarItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #0b1220;
+  border: 0.5px solid #252b42;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.sidebarItemImage {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 4px;
+}
+
+.sidebarItemBody {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.sidebarItemName {
+  font-size: 12px;
+  font-weight: 500;
+  color: #e5e7eb;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebarEmpty {
+  font-size: 12px;
+  color: #6b7199;
+  text-align: center;
+  padding: $space-lg 0;
+  margin: 0;
+}
+
+.sidebarItemAffinity {
+  font-size: 9px;
+  font-weight: 600;
+  color: #fff;
+  padding: 1px 6px;
+  border-radius: 3px;
+  align-self: flex-start;
+  text-transform: uppercase;
 }
