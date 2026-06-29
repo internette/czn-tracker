@@ -138,6 +138,21 @@ type UpdateTeamInput struct {
 	CharacterIDs []string `json:"characterIds"`
 }
 
+type Deck struct {
+	UID          string   `json:"uid"`
+	Name         string   `json:"name"`
+	CharacterUID string   `json:"characterUid"`
+	CardIDs      []string `json:"cardIds"`
+	CreatedBy    string   `json:"createdBy"`
+	CreatedDate  string   `json:"createdDate"`
+}
+
+type CreateDeckInput struct {
+	Name         string   `json:"name"`
+	CharacterUID string   `json:"characterUid"`
+	CardIDs      []string `json:"cardIds"`
+}
+
 func (s *Store) GetUserByEmail(ctx context.Context, email string) (*User, error) {
 	var user User
 	var charactersOwned sql.NullString
@@ -851,6 +866,77 @@ func (s *Store) DeleteTeam(ctx context.Context, uid string) error {
 	return err
 }
 
+func (s *Store) CreateDeck(ctx context.Context, input CreateDeckInput, createdBy string) (Deck, error) {
+	uid := uuid.NewString()
+
+	cardIDs, err := json.Marshal(input.CardIDs)
+	if err != nil {
+		return Deck{}, err
+	}
+
+	createdDate := time.Now().UTC().Format(time.RFC3339)
+
+	_, err = s.db.ExecContext(ctx, `
+		INSERT INTO decks (uid, name, character_uid, card_ids, created_by, created_date)
+		VALUES (?, ?, ?, ?, ?, ?)
+	`, uid, input.Name, input.CharacterUID, string(cardIDs), createdBy, createdDate)
+	if err != nil {
+		return Deck{}, err
+	}
+
+	return Deck{
+		UID:          uid,
+		Name:         input.Name,
+		CharacterUID: input.CharacterUID,
+		CardIDs:      input.CardIDs,
+		CreatedBy:    createdBy,
+		CreatedDate:  createdDate,
+	}, nil
+}
+
+func (s *Store) ListDecksByUser(ctx context.Context, createdBy string) ([]Deck, error) {
+	rows, err := s.db.QueryContext(ctx, `
+		SELECT uid, name, character_uid, card_ids, created_by, created_date
+		FROM decks
+		WHERE created_by = ?
+		ORDER BY created_date DESC
+	`, createdBy)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	var decks []Deck
+
+	for rows.Next() {
+		var deck Deck
+		var cardIDsJSON string
+
+		if err := rows.Scan(
+			&deck.UID,
+			&deck.Name,
+			&deck.CharacterUID,
+			&cardIDsJSON,
+			&deck.CreatedBy,
+			&deck.CreatedDate,
+		); err != nil {
+			return nil, err
+		}
+
+		if cardIDsJSON != "" {
+			_ = json.Unmarshal([]byte(cardIDsJSON), &deck.CardIDs)
+		}
+
+		decks = append(decks, deck)
+	}
+
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+
+	return decks, nil
+}
+
 func main() {
 	dbPath := filepath.Join("data", "czn-tracker.db")
 	if err := os.MkdirAll("data", 0755); err != nil {
@@ -862,6 +948,19 @@ func main() {
 		log.Fatalf("Failed to open sqlite database: %v", err)
 	}
 	defer db.Close()
+
+	if _, err := db.Exec(`
+		CREATE TABLE IF NOT EXISTS decks (
+			uid TEXT PRIMARY KEY NOT NULL,
+			name TEXT NOT NULL DEFAULT '',
+			character_uid TEXT NOT NULL DEFAULT '',
+			card_ids TEXT NOT NULL DEFAULT '[]',
+			created_by TEXT NOT NULL DEFAULT '',
+			created_date TEXT NOT NULL DEFAULT ''
+		)
+	`); err != nil {
+		log.Fatalf("Failed to create decks table: %v", err)
+	}
 
 	store := &Store{
 		useSQLite: true,
@@ -1602,6 +1701,62 @@ func main() {
 		c.JSON(http.StatusOK, gin.H{
 			"success": true,
 		})
+	})
+
+	api.POST("/decks", func(c *gin.Context) {
+		sessionUser, ok := currentUser(c.Request, cookieCodec)
+		if !ok {
+			c.JSON(http.StatusUnauthorized, gin.H{"error": "not authenticated"})
+			return
+		}
+
+		var input CreateDeckInput
+
+		if err := c.ShouldBindJSON(&input); err != nil {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "invalid deck payload"})
+			return
+		}
+
+		if input.Name == "" {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "deck name is required"})
+			return
+		}
+
+		if input.CharacterUID == "" {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "character uid is required"})
+			return
+		}
+
+		if len(input.CardIDs) == 0 {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "deck must contain at least one card"})
+			return
+		}
+
+		deck, err := store.CreateDeck(c.Request.Context(), input, sessionUser.UID)
+		if err != nil {
+			log.Printf("Error creating deck: %v", err)
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "failed to create deck"})
+			return
+		}
+
+		c.JSON(http.StatusCreated, deck)
+	})
+
+	api.GET("/decks/mine", func(c *gin.Context) {
+		sessionUser, ok := currentUser(c.Request, cookieCodec)
+		if !ok {
+			c.JSON(http.StatusUnauthorized, gin.H{"error": "not authenticated"})
+			return
+		}
+
+		decks, err := store.ListDecksByUser(c.Request.Context(), sessionUser.UID)
+		if err != nil {
+			log.Printf("Error loading user decks: %v", err)
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "failed to load decks"})
+			return
+		}
+
+		c.JSON(http.StatusOK, decks)
 	})
 
 	port := os.Getenv("PORT")
