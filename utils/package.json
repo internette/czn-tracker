@@ -10,7 +10,8 @@
     "createUserData": "tsx ./data/insertions/users.ts",
     "createTeamsData": "tsx ./data/insertions/teams.ts",
     "createCardsData": "tsx ./data/insertions/cards.ts",
-    "buildDatabase": "npm run insertData && npm run createUserData && npm run createTeamsData && createCardsData",
+    "createDecksData": "tsx ./data/insertions/decks.ts",
+    "buildDatabase": "npm run insertData && npm run createUserData && npm run createTeamsData && npm run createCardsData && npm run createDecksData",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
