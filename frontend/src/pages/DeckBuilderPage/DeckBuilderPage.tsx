@@ -1,7 +1,9 @@
-import { useEffect, useState, CSSProperties } from 'react'
+import { useEffect, useState } from 'react'
 import { getCharacters, getCardsByCharacter, createDeck } from '../../api'
 import { Card, Character, User } from '../../types'
 import { LoadingState } from '../../components/ui'
+import CardGridItem from './CardGridItem'
+import SidebarCardItem from './SidebarCardItem'
 import styles from './DeckBuilderPage.module.scss'
 
 interface DeckBuilderPageProps {
@@ -123,56 +125,14 @@ export default function DeckBuilderPage({ user }: DeckBuilderPageProps) {
           <div className={styles.cardGridContainer}>
             <div className={styles.cardGrid}>
               {cards.map((card) => (
-                <div key={card.uid} className={`${styles.cardItem}${(counts[card.uid] ?? 0) > 0 ? ` ${styles.cardItemSelected}` : ''}`}>
-                  {card.imageUrl && (
-                    <div
-                      className={styles.cardImage}
-                      style={{ '--img': `url(${card.imageUrl})` } as CSSProperties}
-                    />
-                  )}
-                  <div className={styles.cardBody}>
-                    <div className={styles.cardHeader}>
-                      <h3 className={styles.cardName}>{card.name}</h3>
-                      <span
-                        className={styles.cardAffinity}
-                        style={{ '--affinity-color': affinityColors[card.affinity?.toLowerCase()] || '#555' } as CSSProperties}
-                      >
-                        {card.affinity}
-                      </span>
-                    </div>
-                    <div className={styles.cardMeta}>
-                      <span className={styles.cardType}>{card.type}</span>
-                      {card.subType && <span className={styles.cardSubType}>{card.subType}</span>}
-                      <span className={styles.cardApCost}>AP {card.apCost}</span>
-                    </div>
-                    {card.effect.length > 0 && (
-                      <ul className={styles.cardEffects}>
-                        {card.effect.map((eff, i) => (
-                          <li key={i} className={styles.cardEffect}>
-                            {eff}
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </div>
-                  <div className={styles.counter}>
-                    <button
-                      type="button"
-                      className={styles.counterBtn}
-                      onClick={() => decrement(card.uid)}
-                    >
-                      &minus;
-                    </button>
-                    <span className={styles.counterValue}>{counts[card.uid] ?? 0}</span>
-                    <button
-                      type="button"
-                      className={styles.counterBtn}
-                      onClick={() => increment(card.uid)}
-                    >
-                      +
-                    </button>
-                  </div>
-                </div>
+                <CardGridItem
+                  key={card.uid}
+                  card={card}
+                  count={counts[card.uid] ?? 0}
+                  affinityColors={affinityColors}
+                  onIncrement={increment}
+                  onDecrement={decrement}
+                />
               ))}
             </div>
           </div>
@@ -193,21 +153,7 @@ export default function DeckBuilderPage({ user }: DeckBuilderPageProps) {
               const count = counts[card.uid] ?? 0
               return Array.from({ length: count }, (_, i) => (
                 <div key={`${card.uid}-${i}`} className={styles.sidebarItem}>
-                  {card.imageUrl && (
-                    <div
-                      className={styles.sidebarItemImage}
-                      style={{ '--img': `url(${card.imageUrl})` } as CSSProperties}
-                    />
-                  )}
-                  <div className={styles.sidebarItemBody}>
-                    <span className={styles.sidebarItemName}>{card.name}</span>
-                    <span
-                      className={styles.sidebarItemAffinity}
-                      style={{ '--affinity-color': affinityColors[card.affinity?.toLowerCase()] || '#555' } as CSSProperties}
-                    >
-                      {card.affinity}
-                    </span>
-                  </div>
+                  <SidebarCardItem card={card} affinityColors={affinityColors} />
                 </div>
               ))
             })}
