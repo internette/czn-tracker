@@ -11,6 +11,7 @@ import TeamsPage from './pages/TeamsPage/TeamsPage'
 import AddCharacterPage from './pages/AddCharacterPage/AddCharacterPage'
 import EditCharacterPage from './pages/EditCharacterPage/EditCharacterPage'
 import AccountPage from './pages/AccountPage/AccountPage'
+import DeckBuilderPage from './pages/DeckBuilderPage/DeckBuilderPage'
 
 function App() {
   const [user, setUser] = useState<User | null>(null)
@@ -48,6 +49,7 @@ function App() {
             <Route path="/teams" element={<TeamsPage user={user} />} />
             <Route path="/account" element={<AccountPage user={user} />} />
             <Route path="/add-character" element={<AddCharacterPage />} />
+            <Route path="/deck-builder" element={<DeckBuilderPage user={user} />} />
           </Routes>
         )}
       </main>

@@ -41,6 +41,24 @@ export interface Deck {
   createdAt: number
 }
 
+export interface CardTag {
+  tagName: string
+  effect: string
+}
+
+export interface Card {
+  uid: string
+  name: string
+  effect: string[]
+  type: string
+  apCost: string
+  user: string
+  subType: string
+  affinity: string
+  imageUrl: string
+  tags: CardTag[]
+}
+
 export interface Team {
   uid: string
   name: string

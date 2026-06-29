@@ -1,4 +1,4 @@
-import { Character, Deck, Team, User } from './types'
+import { Card, Character, Deck, Team, User } from './types'
 
 const apiBase = import.meta.env.VITE_API_BASE || ''
 
@@ -68,6 +68,10 @@ export async function updateCharacter(
   }
 
   return response.json()
+}
+
+export async function getCardsByCharacter(characterId: string): Promise<{ cards: Card[] }> {
+  return request(`/api/cards/character/${characterId}`)
 }
 
 export async function getDecks(characterId: string): Promise<{ decks: Deck[] }> {
