@@ -33,12 +33,12 @@ export interface Character {
 }
 
 export interface Deck {
-  id: string
-  characterId: string
-  ownerEmail: string
+  uid: string
   name: string
-  cards: string[]
-  createdAt: number
+  characterUid: string
+  cardIds: string[]
+  createdBy: string
+  createdDate: string
 }
 
 export interface CardTag {

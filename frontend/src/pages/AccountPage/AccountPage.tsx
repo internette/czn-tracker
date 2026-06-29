@@ -1,8 +1,7 @@
-
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Team, User } from '../../types'
-import { getMyTeams, deleteTeam } from '../../api'
+import { Card as CardType, Character, Deck, Team, User } from '../../types'
+import { getMyTeams, deleteTeam, getMyDecks, getCharacters, getCardsByCharacter } from '../../api'
 import { Grid } from '../../components/ui'
 import SavedTeamCard from '../../components/SavedTeamCard/SavedTeamCard'
 import styles from './AccountPage.module.scss'
@@ -14,6 +13,19 @@ interface AccountPageProps {
 export default function AccountPage({ user }: AccountPageProps) {
   const navigate = useNavigate()
   const [teams, setTeams] = useState<Team[]>([])
+  const [decks, setDecks] = useState<Deck[]>([])
+  const [charactersMap, setCharactersMap] = useState<Record<string, Character>>({})
+  const [cardsMap, setCardsMap] = useState<Record<string, CardType>>({})
+
+  useEffect(() => {
+    getCharacters().then((chars) => {
+      const map: Record<string, Character> = {}
+      for (const c of chars) {
+        map[c.uid] = c
+      }
+      setCharactersMap(map)
+    })
+  }, [])
 
   useEffect(() => {
     async function loadTeams() {
@@ -24,8 +36,30 @@ export default function AccountPage({ user }: AccountPageProps) {
         console.error('Error loading teams:', error)
       }
     }
+    async function loadDecks() {
+      try {
+        const response = await getMyDecks()
+        setDecks(response ?? [])
+        const uniqueCharacterUids = [...new Set((response ?? []).map((d) => d.characterUid))]
+        const cardMap: Record<string, CardType> = {}
+        await Promise.all(
+          uniqueCharacterUids.map(async (uid) => {
+            try {
+              const result = await getCardsByCharacter(uid)
+              for (const card of result.cards) {
+                cardMap[card.uid] = card
+              }
+            } catch {}
+          }),
+        )
+        setCardsMap(cardMap)
+      } catch (error) {
+        console.error('Error loading decks:', error)
+      }
+    }
     if(user){
         loadTeams()
+        loadDecks()
     }
   }, [user])
   const mostUsedCharacters = useMemo(() => {
@@ -115,6 +149,35 @@ export default function AccountPage({ user }: AccountPageProps) {
                   onEdit={handleEditTeam}/>
             ))}
           </Grid>
+        )}
+      </section>
+      <section>
+        <h2>Saved Decks</h2>
+        {decks.length === 0 ? (
+          <p>No saved decks.</p>
+        ) : (
+          <div className={styles.deckGrid}>
+            {decks.map((deck) => {
+              const character = charactersMap[deck.characterUid]
+              return (
+                <div key={deck.uid} className={styles.deckTile}>
+                  <div
+                    className={styles.deckTileImage}
+                    style={{ backgroundImage: `url(${character?.imageUrl || ''})` }}
+                  />
+                  <div className={styles.deckTileBody}>
+                    <h3 className={styles.deckTileName}>{deck.name}</h3>
+                    <ul className={styles.deckTileCardList}>
+                      {deck.cardIds.map((cardUid) => {
+                        const card = cardsMap[cardUid]
+                        return <li key={cardUid} className={styles.deckTileCardItem}>{card?.name || cardUid}</li>
+                      })}
+                    </ul>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
         )}
       </section>
     </div>
