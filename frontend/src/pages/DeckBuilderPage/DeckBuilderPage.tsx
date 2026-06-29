@@ -15,6 +15,7 @@ export default function DeckBuilderPage({ user }: DeckBuilderPageProps) {
   const [loadingCharacters, setLoadingCharacters] = useState(true)
   const [loadingCards, setLoadingCards] = useState(false)
   const [counts, setCounts] = useState<Record<string, number>>({})
+  const [deckName, setDeckName] = useState('')
 
   useEffect(() => {
     const fetchCharacters = async () => {
@@ -167,6 +168,12 @@ export default function DeckBuilderPage({ user }: DeckBuilderPageProps) {
 
         <aside className={styles.sidebar}>
           <h3 className={styles.sidebarTitle}>Selected Cards</h3>
+          <label className={styles.sidebarLabel}>Deck Name</label>
+          <input
+            className={styles.sidebarInput}
+            value={deckName}
+            onChange={(e) => setDeckName(e.target.value)}
+          />
           <div className={styles.sidebarList}>
             {cards.flatMap((card) => {
               const count = counts[card.uid] ?? 0
