@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { getCharacters, getCardsByCharacter } from '../../api'
+import { getCharacters, getCardsByCharacter, createDeck } from '../../api'
 import { Card, Character, User } from '../../types'
 import { LoadingState } from '../../components/ui'
 import styles from './DeckBuilderPage.module.scss'
@@ -16,6 +16,7 @@ export default function DeckBuilderPage({ user }: DeckBuilderPageProps) {
   const [loadingCards, setLoadingCards] = useState(false)
   const [counts, setCounts] = useState<Record<string, number>>({})
   const [deckName, setDeckName] = useState('')
+  const [saving, setSaving] = useState(false)
 
   useEffect(() => {
     const fetchCharacters = async () => {
@@ -65,6 +66,21 @@ export default function DeckBuilderPage({ user }: DeckBuilderPageProps) {
       }
       return { ...prev, [uid]: current - 1 }
     })
+  }
+
+  async function handleSave() {
+    if (!deckName || !selectedCharacter || Object.keys(counts).length === 0) return
+    setSaving(true)
+    try {
+      const cardIds = cards.flatMap((card) =>
+        Array.from({ length: counts[card.uid] ?? 0 }, () => card.uid),
+      )
+      await createDeck({ name: deckName, characterUid: selectedCharacter, cardIds })
+      setDeckName('')
+      setCounts({})
+    } finally {
+      setSaving(false)
+    }
   }
 
   const affinityColors: Record<string, string> = {
@@ -203,6 +219,9 @@ export default function DeckBuilderPage({ user }: DeckBuilderPageProps) {
               <p className={styles.sidebarEmpty}>No cards selected yet.</p>
             )}
           </div>
+          <button type="button" className={styles.saveDeckBtn} onClick={handleSave} disabled={saving}>
+            {saving ? 'Saving...' : 'Save Deck'}
+          </button>
         </aside>
       </div>
     </div>

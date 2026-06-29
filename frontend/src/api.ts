@@ -74,15 +74,15 @@ export async function getCardsByCharacter(characterId: string): Promise<{ cards:
   return request(`/api/cards/character/${characterId}`)
 }
 
-export async function getDecks(characterId: string): Promise<{ decks: Deck[] }> {
-  return request(`/api/characters/${characterId}/decks`)
+export async function createDeck(input: { name: string; characterUid: string; cardIds: string[] }): Promise<Deck> {
+  return request('/api/decks', {
+    method: 'POST',
+    body: JSON.stringify(input),
+  })
 }
 
-export async function createDeck(characterId: string, name: string, cards: string[]): Promise<Deck> {
-  return request(`/api/characters/${characterId}/decks`, {
-    method: 'POST',
-    body: JSON.stringify({ name, cards }),
-  })
+export async function getMyDecks(): Promise<Deck[]> {
+  return request('/api/decks/mine')
 }
 
 export async function getTeams(): Promise<Team[]> {
