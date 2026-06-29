@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useState, CSSProperties } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Card as CardType, Character, Deck, Team, User } from '../../types'
 import { getMyTeams, deleteTeam, getMyDecks, getCharacters, getCardsByCharacter } from '../../api'
@@ -114,13 +114,13 @@ export default function AccountPage({ user }: AccountPageProps) {
                     {mostUsedCharacters.map(({ character, count }) => {
                         const percentageFull = Math.floor((count * 100) / teams.length);
                         return (<li className={`${styles.topCharacterListItem} ${styles[character.attribute.toLowerCase()]}`} key={character.uid}>
-                            <div className={styles.topCharacterListItem__icon} style={{backgroundImage: `url(${character.imageUrl})`}}/> 
+                            <div className={styles.topCharacterListItem__icon} style={{'--img': `url(${character.imageUrl})`} as CSSProperties}/> 
                             <div className={styles.topCharacterListItem__details}>
                                 <span>{character.name}</span>
                                 <small className={`${styles.topCharacterListItem__attribute} ${styles[character.attribute.toLowerCase()]}`}>{character.attribute}</small>
                             </div>
                             <div className={styles.topCharacterListItem__countDetails}>
-                                <div className={`${styles.topCharacterListItem__percentageBar} ${styles[character.attribute.toLowerCase()]}`} style={{ backgroundImage: `linear-gradient(to right, transparent ${percentageFull}%, #24314f ${percentageFull}%, #24314f ${percentageFull}% 100%)`}}/>
+                                <div className={`${styles.topCharacterListItem__percentageBar} ${styles[character.attribute.toLowerCase()]}`} style={{'--grad': `linear-gradient(to right, transparent ${percentageFull}%, #24314f ${percentageFull}%, #24314f ${percentageFull}% 100%)`} as CSSProperties}/>
                                 <div className={styles.topCharacterListItem__teamCount}>
                                     <small>
                                         <span>{count}</span>&nbsp;team{count > 1 && 's'}
@@ -163,7 +163,7 @@ export default function AccountPage({ user }: AccountPageProps) {
                 <div key={deck.uid} className={styles.deckTile}>
                   <div
                     className={styles.deckTileImage}
-                    style={{ backgroundImage: `url(${character?.imageUrl || ''})` }}
+                    style={{ '--img': `url(${character?.imageUrl || ''})` } as CSSProperties}
                   />
                   <div className={styles.deckTileBody}>
                     <h3 className={styles.deckTileName}>{deck.name}</h3>

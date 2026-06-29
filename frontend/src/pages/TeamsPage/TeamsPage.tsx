@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useState } from 'react'
+import { FormEvent, useEffect, useState, CSSProperties } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { getTeams, createTeam, deleteTeam, updateTeam, getCharacters } from '../../api'
 import { Character, Team, User } from '../../types'
@@ -184,9 +184,7 @@ export default function TeamsPage({ user }: TeamsPageProps) {
                         }
                       }}
                       className={`${styles.characterCard} ${selected ? styles[`characterCard--${character.attribute.toLowerCase()}`] : ''} ${selected ? styles['characterCard--selected'] : styles['characterCard--unselected']}`}
-                      style={{
-                        backgroundImage: `url(${character.imageUrl})`
-                      }}
+                      style={{ '--img': `url(${character.imageUrl})` } as CSSProperties}
                     >
                       <img 
                         src={`/images/elements/${character.attribute.toLowerCase()}.webp`} 
@@ -206,7 +204,7 @@ export default function TeamsPage({ user }: TeamsPageProps) {
                     <div className={styles.slotRow} key={selectedCharacter.id}>
                       <span
                         className={styles.characterInTeam}
-                        style={{ backgroundImage: `url(${selectedCharacter.imageUrl})` }}
+                        style={{ '--img': `url(${selectedCharacter.imageUrl})` } as CSSProperties}
                       />
                       <p className={styles.selectedCharacterDetails}>
                         <span className={styles.teamBuilderCharacterName}>{selectedCharacter.name}</span>

@@ -1,47 +1,12 @@
-import { FormEvent, useEffect, useState, CSSProperties } from 'react'
+import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { createDeck, getCharacter, getDecks } from '../api'
-import { Character, Deck } from '../types'
+import { getCharacter } from '../api'
+import { Character } from '../types'
+import styles from './CharacterDetailsPage.module.scss'
 
 export default function CharacterDetailsPage() {
   const { id } = useParams()
   const [character, setCharacter] = useState<Character | null>(null)
-  const [decks, setDecks] = useState<Deck[]>([])
-  const [name, setName] = useState('')
-  const [cards, setCards] = useState('')
-  const [error, setError] = useState<string | null>(null)
-  const [saving, setSaving] = useState(false)
-
-  const characterDetailsStyles = {
-    equipmentGrid: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))',
-      gap: '12px',
-    } as CSSProperties,
-
-    equipmentItem: {
-      background: 'rgba(15, 23, 42, 0.8)',
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: 'contain',
-      backgroundPosition: 'right center',
-      boxShadow: '0 10px 30px rgba(15, 23, 42, 0.6)',
-      marginBottom: '18px',
-      padding: '10px',
-      borderRadius: '10px',
-      textAlign: 'center',
-    } as CSSProperties,
-
-    equipmentImage: {
-      width: "7rem",
-      height: "7rem",
-      objectFit: 'cover',
-      borderRadius: '8px',
-    } as CSSProperties,
-
-    equipmentName: {
-      fontSize: "0.9rem"
-    } as CSSProperties
-  }
 
   useEffect(() => {
     if (!id) return
@@ -71,11 +36,11 @@ export default function CharacterDetailsPage() {
           <p>{character.bestPartner.name}</p>
         </div>
         <p><strong>Best Equipment:</strong></p>
-        <div style={characterDetailsStyles.equipmentGrid}>
+        <div className={styles.equipmentGrid}>
           {character.bestEquipment.map((equipment, idx) => (
-            <div style={characterDetailsStyles.equipmentItem} key={idx}>
-              <img src={equipment.img} style={characterDetailsStyles.equipmentImage} />
-              <p style={characterDetailsStyles.equipmentName}>{equipment.name}</p>
+            <div className={styles.equipmentItem} key={idx}>
+              <img src={equipment.img} className={styles.equipmentImage} />
+              <p className={styles.equipmentName}>{equipment.name}</p>
             </div>
           ))}
         </div>

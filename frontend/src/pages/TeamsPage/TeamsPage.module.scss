@@ -61,6 +61,7 @@
   width: 2.5rem;
   height: 2.5rem;
   border-radius: $radius-md;
+  background-image: var(--img);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -107,6 +108,7 @@
 .characterCard {
   width: 100%;
   aspect-ratio: 1 / 1;
+  background-image: var(--img);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

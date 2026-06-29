@@ -1,4 +1,5 @@
-import { CSSProperties, useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import styles from './GoogleSignInButton.module.scss'
 
 declare global {
   interface Window {
@@ -29,12 +30,6 @@ declare global {
 }
 
 const SDK_SRC = 'https://accounts.google.com/gsi/client'
-
-const fallbackStyles = {
-  color: '#fb7185',
-  fontSize: '0.8rem',
-  maxWidth: '220px',
-} as CSSProperties
 
 function loadGoogleSdk() {
   return new Promise<void>((resolve, reject) => {
@@ -130,7 +125,7 @@ export default function GoogleSignInButton() {
   }, [])
 
   if (error) {
-    return <span style={fallbackStyles}>{error}</span>
+    return <span className={styles.fallback}>{error}</span>
   }
 
   return <div ref={buttonRef} />

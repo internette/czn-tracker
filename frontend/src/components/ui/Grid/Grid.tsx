@@ -1,4 +1,5 @@
 import { CSSProperties } from 'react'
+import styles from './Grid.module.scss'
 
 interface GridProps {
   children: React.ReactNode
@@ -8,19 +9,16 @@ interface GridProps {
   style?: CSSProperties
 }
 
-const gridStyles = {
-  container: (cols: number | undefined, gap: number, minItemWidth?: number) => ({
-    display: 'grid',
-    gridTemplateColumns: minItemWidth
-      ? `repeat(auto-fill, minmax(${minItemWidth}px, 1fr))`
-      : `repeat(${cols ?? 1}, 1fr)`,
-    gap: `${gap}px`,
-  } as CSSProperties),
-}
-
 export default function Grid({ children, cols = 1, gap = 16, minItemWidth, style }: GridProps) {
+  const gridTemplate = minItemWidth
+    ? `repeat(auto-fill, minmax(${minItemWidth}px, 1fr))`
+    : `repeat(${cols}, 1fr)`
+
   return (
-    <div style={{ ...gridStyles.container(cols, gap, minItemWidth), ...style }}>
+    <div
+      className={styles.grid}
+      style={{ '--grid-template': gridTemplate, '--gap': `${gap}px`, ...style } as CSSProperties}
+    >
       {children}
     </div>
   )

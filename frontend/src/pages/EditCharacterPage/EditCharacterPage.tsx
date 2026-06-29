@@ -1,7 +1,8 @@
-import { ChangeEvent, CSSProperties, FormEvent, useEffect, useState } from 'react'
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { getCharacter, updateCharacter, UpdateCharacterInput } from '../../api'
 import { Button, Card, Input, LoadingState } from '../../components/ui'
+import styles from './EditCharacterPage.module.scss'
 
 const emptyForm: UpdateCharacterInput = {
   name: '',
@@ -11,50 +12,6 @@ const emptyForm: UpdateCharacterInput = {
   rarity: '',
   attribute: '',
   imageUrl: '',
-}
-
-const editCharacterPageStyles = {
-  header: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: '16px',
-    marginBottom: '20px',
-  } as CSSProperties,
-  title: {
-    margin: 0,
-    fontSize: '1.5rem',
-    fontWeight: 600,
-    color: '#e2e8f0',
-  } as CSSProperties,
-  form: {
-    display: 'grid',
-    gap: '4px',
-  } as CSSProperties,
-  grid: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-    gap: '16px',
-  } as CSSProperties,
-  preview: {
-    width: '100%',
-    maxWidth: '220px',
-    aspectRatio: '1 / 1',
-    objectFit: 'cover',
-    borderRadius: '8px',
-    border: '1px solid #334155',
-    background: '#0f172a',
-  } as CSSProperties,
-  actions: {
-    display: 'flex',
-    gap: '12px',
-    alignItems: 'center',
-    marginTop: '8px',
-  } as CSSProperties,
-  error: {
-    color: '#fb7185',
-    margin: '8px 0',
-  } as CSSProperties,
 }
 
 export default function EditCharacterPage() {
@@ -136,13 +93,13 @@ export default function EditCharacterPage() {
 
   return (
     <Card>
-      <div style={editCharacterPageStyles.header}>
-        <h2 style={editCharacterPageStyles.title}>Edit Character</h2>
+      <div className={styles.header}>
+        <h2 className={styles.title}>Edit Character</h2>
         <Link to={id ? `/characters/${id}` : '/characters'}>Cancel</Link>
       </div>
 
-      <form style={editCharacterPageStyles.form} onSubmit={handleSubmit}>
-        <div style={editCharacterPageStyles.grid}>
+      <form className={styles.form} onSubmit={handleSubmit}>
+        <div className={styles.grid}>
           <Input label="Name" value={form.name} onChange={handleChange('name')} required />
           <Input label="Tier" value={form.tier} onChange={handleChange('tier')} />
           <Input label="Type" value={form.type} onChange={handleChange('type')} />
@@ -159,10 +116,10 @@ export default function EditCharacterPage() {
           helperText="Upload a PNG, JPG, WEBP, or GIF."
         />
 
-        {imagePreview && <img src={imagePreview} alt="" style={editCharacterPageStyles.preview} />}
-        {error && <p style={editCharacterPageStyles.error}>{error}</p>}
+        {imagePreview && <img src={imagePreview} alt="" className={styles.preview} />}
+        {error && <p className={styles.error}>{error}</p>}
 
-        <div style={editCharacterPageStyles.actions}>
+        <div className={styles.actions}>
           <Button type="submit" disabled={saving}>
             {saving ? 'Saving...' : 'Save Character'}
           </Button>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, CSSProperties } from 'react'
 import { getCharacters, getCardsByCharacter, createDeck } from '../../api'
 import { Card, Character, User } from '../../types'
 import { LoadingState } from '../../components/ui'
@@ -127,7 +127,7 @@ export default function DeckBuilderPage({ user }: DeckBuilderPageProps) {
                   {card.imageUrl && (
                     <div
                       className={styles.cardImage}
-                      style={{ backgroundImage: `url(${card.imageUrl})` }}
+                      style={{ '--img': `url(${card.imageUrl})` } as CSSProperties}
                     />
                   )}
                   <div className={styles.cardBody}>
@@ -135,9 +135,7 @@ export default function DeckBuilderPage({ user }: DeckBuilderPageProps) {
                       <h3 className={styles.cardName}>{card.name}</h3>
                       <span
                         className={styles.cardAffinity}
-                        style={{
-                          background: affinityColors[card.affinity?.toLowerCase()] || '#555',
-                        }}
+                        style={{ '--affinity-color': affinityColors[card.affinity?.toLowerCase()] || '#555' } as CSSProperties}
                       >
                         {card.affinity}
                       </span>
@@ -198,16 +196,14 @@ export default function DeckBuilderPage({ user }: DeckBuilderPageProps) {
                   {card.imageUrl && (
                     <div
                       className={styles.sidebarItemImage}
-                      style={{ backgroundImage: `url(${card.imageUrl})` }}
+                      style={{ '--img': `url(${card.imageUrl})` } as CSSProperties}
                     />
                   )}
                   <div className={styles.sidebarItemBody}>
                     <span className={styles.sidebarItemName}>{card.name}</span>
                     <span
                       className={styles.sidebarItemAffinity}
-                      style={{
-                        background: affinityColors[card.affinity?.toLowerCase()] || '#555',
-                      }}
+                      style={{ '--affinity-color': affinityColors[card.affinity?.toLowerCase()] || '#555' } as CSSProperties}
                     >
                       {card.affinity}
                     </span>

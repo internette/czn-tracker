@@ -1,3 +1,4 @@
+import { CSSProperties } from 'react'
 import { Team } from "../../types"
 import styles from "./SavedTeamCard.module.scss"
 
@@ -37,7 +38,7 @@ export default function SavedTeamCard({ team, onDelete, onEdit }: SavedTeamCardP
           <div
             key={team.uid + '-' + character.id}
             className={`${styles.characterInTeam} ${styles[character.attribute.toLowerCase()]}`}
-            style={{ backgroundImage: `url(${character.imageUrl})` }}
+            style={{ '--img': `url(${character.imageUrl})` } as CSSProperties}
           />
         ))}
       </div>

@@ -103,6 +103,7 @@
 .cardImage {
   width: 100%;
   height: 140px;
+  background-image: var(--img);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -138,6 +139,7 @@
   border-radius: 4px;
   white-space: nowrap;
   text-transform: uppercase;
+  background: var(--affinity-color);
 }
 
 .cardMeta {
@@ -249,6 +251,7 @@
   width: 40px;
   height: 40px;
   flex-shrink: 0;
+  background-image: var(--img);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -311,6 +314,7 @@
   border-radius: 3px;
   align-self: flex-start;
   text-transform: uppercase;
+  background: var(--affinity-color);
 }
 
 .saveDeckBtn {

@@ -1,3 +1,4 @@
+import { CSSProperties } from 'react'
 import { Link } from 'react-router-dom'
 import { Character, User } from '../../../types'
 import { Card } from '../../ui'
@@ -14,7 +15,7 @@ export default function CharacterCard({ character, user }: CharacterCardProps) {
     <Card className={styles.card}>
       <div
         className={styles.img}
-        style={{ backgroundImage: `url(${character.imageUrl})` }}
+        style={{ '--img': `url(${character.imageUrl})` } as CSSProperties}
       />
       <div className={styles.details}>
         <div className={styles.titleBar}>
