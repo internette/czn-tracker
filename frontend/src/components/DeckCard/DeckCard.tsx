@@ -1,10 +1,12 @@
 import { CSSProperties } from 'react'
 import { Card, Character, Deck } from '../../types'
+import { Button } from '../ui'
 import styles from './DeckCard.module.scss'
 
 interface DeckCardProps {
   deck: Deck
   character: Character | undefined
+  onDelete: (uid: string) => void
 }
 
 function CardImage({ card }: { card: Card }) {
@@ -18,7 +20,7 @@ function CardImage({ card }: { card: Card }) {
   )
 }
 
-export default function DeckCard({ deck, character }: DeckCardProps) {
+export default function DeckCard({ deck, character, onDelete }: DeckCardProps) {
   const cards = deck.cards ?? []
 
   return (
@@ -36,6 +38,9 @@ export default function DeckCard({ deck, character }: DeckCardProps) {
           <p className={styles.deckMeta}>By: {deck.createdBy}</p>
           <p className={styles.deckMeta}>Created On: {deck.createdDate}</p>
         </div>
+        <Button variant="secondary" size="sm" className={styles.deleteBtn} ariaLabel="Delete deck" onClick={() => onDelete(deck.uid)}>
+          &times;
+        </Button>
       </div>
       <div className={styles.cards}>
         {cards.length > 0 ? (

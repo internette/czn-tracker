@@ -88,3 +88,14 @@
   color: #6b7199;
   padding: $space-xl 0;
 }
+
+.deleteBtn {
+  flex-shrink: 0;
+  align-self: flex-start;
+  opacity: 0.5;
+  transition: opacity 0.15s ease;
+
+  &:hover {
+    opacity: 1;
+  }
+}

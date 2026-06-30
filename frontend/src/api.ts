@@ -130,3 +130,9 @@ export async function deleteTeam(uid: string): Promise<void> {
     method: 'DELETE',
   })
 }
+
+export async function deleteDeck(uid: string): Promise<void> {
+  await request(`/api/decks/${uid}`, {
+    method: 'DELETE',
+  })
+}

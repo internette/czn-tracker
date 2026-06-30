@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { getDecks, getCharacters } from '../../api'
+import { getDecks, getCharacters, deleteDeck } from '../../api'
 import { Character, Deck } from '../../types'
 import { Button } from '../../components/ui'
 import DeckCard from '../../components/DeckCard/DeckCard'
@@ -39,6 +39,15 @@ export default function DecksPage() {
 
   const totalPages = Math.ceil(total / limit)
 
+  async function handleDelete(uid: string) {
+    try {
+      await deleteDeck(uid)
+      setDecks((current) => current.filter((d) => d.uid !== uid))
+    } catch (err) {
+      console.error('Failed to delete deck', err)
+    }
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -53,11 +62,12 @@ export default function DecksPage() {
       ) : (
         <>
           <div className={styles.grid}>
-            {decks.map((deck) => (
+            {decks.map((deck, index) => (
               <DeckCard
-                key={deck.uid}
+                key={`${deck.uid}-${index}`}
                 deck={deck}
                 character={characters[deck.characterUid]}
+                onDelete={handleDelete}
               />
             ))}
           </div>
