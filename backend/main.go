@@ -906,6 +906,10 @@ func (s *Store) ListTeams(ctx context.Context) ([]Team, error) {
 		return nil, err
 	}
 
+	if teams == nil {
+		return []Team{}, nil
+	}
+
 	return teams, nil
 }
 

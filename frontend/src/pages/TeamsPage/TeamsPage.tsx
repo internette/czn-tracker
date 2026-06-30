@@ -19,7 +19,7 @@ export default function TeamsPage({ user }: TeamsPageProps) {
     async function load() {
       try {
         const teams = await getTeams()
-        setTeams(teams)
+        setTeams(teams ?? [])
       } catch (err) {
         console.error('Failed to load teams', err)
       }
