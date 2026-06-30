@@ -94,7 +94,7 @@ export default function AccountPage({ user }: AccountPageProps) {
       }
     }
     function handleEditTeam(team: Team) {
-        navigate('/teams', {
+        navigate('/teams/build', {
             state: {
                 selectedIds: team.characters.map((c) => c.id),
                 teamName: team.name,
