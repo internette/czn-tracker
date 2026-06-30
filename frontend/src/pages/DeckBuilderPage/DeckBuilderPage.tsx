@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { getCharacters, getCardsByCharacter, createDeck } from '../../api'
 import { Card, Character, User } from '../../types'
 import { LoadingState } from '../../components/ui'
+import { TextInput } from '../../components/common'
 import CardGridItem from './CardGridItem'
 import SidebarCardItem from './SidebarCardItem'
 import styles from './DeckBuilderPage.module.scss'
@@ -14,6 +15,7 @@ export default function DeckBuilderPage({ user }: DeckBuilderPageProps) {
   const [characters, setCharacters] = useState<Character[]>([])
   const [selectedCharacter, setSelectedCharacter] = useState<string>('')
   const [cards, setCards] = useState<Card[]>([])
+  const [searchQuery, setSearchQuery] = useState('')
   const [loadingCharacters, setLoadingCharacters] = useState(true)
   const [loadingCards, setLoadingCards] = useState(false)
   const [counts, setCounts] = useState<Record<string, number>>({})
@@ -85,6 +87,10 @@ export default function DeckBuilderPage({ user }: DeckBuilderPageProps) {
     }
   }
 
+  const filteredCards = cards.filter((card) =>
+    card.name.toLowerCase().includes(searchQuery.toLowerCase()),
+  )
+
   const affinityColors: Record<string, string> = {
     passion: '#e74c3c',
     order: '#3498db',
@@ -116,15 +122,27 @@ export default function DeckBuilderPage({ user }: DeckBuilderPageProps) {
         </select>
       </div>
 
+      {selectedCharacter && (
+        <div className={styles.search}>
+          <label className={styles.label}>Search</label>
+          <TextInput
+            type="text"
+            placeholder="Search by card name..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+        </div>
+      )}
+
       {loadingCharacters && <LoadingState message="Loading characters..." />}
 
       {loadingCards && <LoadingState message="Loading cards..." />}
 
       <div className={styles.layout}>
-        {!loadingCards && cards.length > 0 ? (
+        {!loadingCards && filteredCards.length > 0 ? (
           <div className={styles.cardGridContainer}>
             <div className={styles.cardGrid}>
-              {cards.map((card) => (
+              {filteredCards.map((card) => (
                 <CardGridItem
                   key={card.uid}
                   card={card}
@@ -137,7 +155,13 @@ export default function DeckBuilderPage({ user }: DeckBuilderPageProps) {
             </div>
           </div>
         ) : (
-          !loadingCards && <div className={styles.cardGridContainer} />
+          !loadingCards && (
+            <div className={styles.cardGridContainer}>
+              {searchQuery && filteredCards.length === 0 && (
+                <p className={styles.empty}>No cards match your search.</p>
+              )}
+            </div>
+          )
         )}
 
         <aside className={styles.sidebar}>
