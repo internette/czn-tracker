@@ -66,6 +66,8 @@ export default function DecksPage() {
                       <p className={styles.deckMeta}>
                         {character?.name || 'Unknown character'} &middot; {cards.length} card{cards.length !== 1 ? 's' : ''}
                       </p>
+                      <p className={styles.deckMeta}>By: {deck.createdBy}</p>
+                      <p className={styles.deckMeta}>Created On: {deck.createdDate}</p>
                     </div>
                   </div>
                   <div className={styles.cards}>
