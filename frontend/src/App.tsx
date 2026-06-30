@@ -8,6 +8,7 @@ import HomePage from './pages/HomePage/HomePage'
 import CharactersPage from './pages/CharactersPage/CharactersPage'
 import CharacterDetailsPage from './pages/CharacterDetailsPage'
 import TeamsPage from './pages/TeamsPage/TeamsPage'
+import TeamsDetailsPage from './pages/TeamsDetailsPage/TeamsDetailsPage'
 import AddCharacterPage from './pages/AddCharacterPage/AddCharacterPage'
 import EditCharacterPage from './pages/EditCharacterPage/EditCharacterPage'
 import AccountPage from './pages/AccountPage/AccountPage'
@@ -50,6 +51,7 @@ function App() {
             <Route path="/characters/:id/edit" element={<EditCharacterPage />} />
             <Route path="/teams" element={<TeamsPage user={user} />} />
             <Route path="/teams/build" element={<TeamBuilderPage user={user} />} />
+            <Route path="/teams/:id" element={<TeamsDetailsPage user={user} />} />
             <Route path="/account" element={<AccountPage user={user} />} />
             <Route path="/add-character" element={<AddCharacterPage />} />
             <Route path="/deck-builder" element={<DeckBuilderPage user={user} />} />

@@ -7,9 +7,10 @@ interface SavedTeamCardProps {
   team: Team
   onDelete: (teamUid: string) => void
   onEdit: (team: Team) => void
+  onView?: (team: Team) => void
 }
 
-export default function SavedTeamCard({ team, onDelete, onEdit }: SavedTeamCardProps) {
+export default function SavedTeamCard({ team, onDelete, onEdit, onView }: SavedTeamCardProps) {
   const createdDate = new Date(team.createdDate)
   const friendlyDate = `Created on: ${createdDate.toLocaleString('default', {
     month: 'long',
@@ -17,17 +18,38 @@ export default function SavedTeamCard({ team, onDelete, onEdit }: SavedTeamCardP
     year: 'numeric',
   })}`
 
+  function handleCardClick() {
+    if (onView) {
+      onView(team)
+    }
+  }
+
+  function handleKeyDown(e: React.KeyboardEvent) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault()
+      handleCardClick()
+    }
+  }
+
   return (
-    <div className={`${styles.panel} ${styles.team}`}>
+    <div
+      className={`${styles.panel} ${styles.team} ${onView ? styles.clickable : ''}`}
+      onClick={handleCardClick}
+      onKeyDown={handleKeyDown}
+      tabIndex={onView ? 0 : undefined}
+      role={onView ? 'button' : undefined}
+    >
       <div className={styles.teamHeader}>
         <div className={styles.teamHeaderDetails}>
           <h4 className={styles.teamTitle}>{team.name}</h4>
           <small className={styles.teamCreator}>By: {team.createdBy.length > 0 ? team.createdBy : 'anonymous'}</small>
           <small className={styles.teamDate}>{friendlyDate}</small>
         </div>
-        <Button variant="secondary" size="sm" className={styles.deleteBtn} ariaLabel="Delete team" onClick={() => onDelete(team.uid)}>
-          &times;
-        </Button>
+        <span onClick={(e) => e.stopPropagation()}>
+          <Button variant="secondary" size="sm" className={styles.deleteBtn} ariaLabel="Delete team" onClick={() => onDelete(team.uid)}>
+            &times;
+          </Button>
+        </span>
       </div>
 
       <div className={styles.teamCharactersRow}>
@@ -51,9 +73,11 @@ export default function SavedTeamCard({ team, onDelete, onEdit }: SavedTeamCardP
           ))}
         </div>
 
-        <Button variant="secondary" size="sm" className={styles.editButton} onClick={() => onEdit(team)}>
-          Edit
-        </Button>
+        <span onClick={(e) => e.stopPropagation()}>
+          <Button variant="secondary" size="sm" className={styles.editButton} onClick={() => onEdit(team)}>
+            Edit
+          </Button>
+        </span>
       </div>
     </div>
   )

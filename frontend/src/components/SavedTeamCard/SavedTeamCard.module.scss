@@ -10,6 +10,15 @@
   background-color: $color-background-secondary;
 }
 
+.clickable {
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+
+  &:hover {
+    border-color: $color-accent;
+  }
+}
+
 .teamHeader {
   display: flex;
   gap: $space-sm;

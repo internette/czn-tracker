@@ -1,0 +1,139 @@
+@use '../../styles/tokens' as *;
+
+.container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: $space-xl;
+}
+
+.backLink {
+  color: #60a5fa;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: $space-md;
+}
+
+.pageHeader {
+  margin-bottom: $space-xl;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: $space-md;
+  margin-bottom: $space-xs;
+}
+
+.teamTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: $color-text-primary;
+  margin: 0;
+}
+
+.teamMeta {
+  color: $color-text-muted;
+  display: block;
+}
+
+.sectionTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: $color-text-primary;
+  margin-bottom: $space-md;
+}
+
+.characterGrid {
+  display: grid;
+  gap: $space-md;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.characterCard {
+  display: flex;
+  gap: $space-md;
+  border: 1px solid $color-border-light;
+  border-radius: $radius-md;
+  padding: $space-md;
+  background-color: $color-background-secondary;
+}
+
+.characterImage {
+  width: 6rem;
+  height: 6rem;
+  border-radius: $radius-sm;
+  background-image: var(--img);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  flex-shrink: 0;
+  border: 1px solid;
+  &.passion {
+    border-color: rgba($passion-color, 0.6);
+  }
+  &.instinct {
+    border-color: rgba($instinct-color, 0.6);
+  }
+  &.order {
+    border-color: rgba($order-color, 0.6);
+  }
+  &.justice {
+    border-color: rgba($justice-color, 0.6);
+  }
+  &.void {
+    border-color: rgba($void-color, 0.6);
+  }
+}
+
+.characterInfo {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+  min-width: 0;
+}
+
+.characterName {
+  font-weight: 600;
+  color: $color-text-primary;
+  text-decoration: none;
+  font-size: 1rem;
+  &:hover {
+    color: $color-accent;
+  }
+}
+
+.badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.125rem 0.5rem;
+  border-radius: 999px;
+  align-self: flex-start;
+  &.passion {
+    background-color: rgba($passion-color, 0.2);
+    color: $passion-color;
+  }
+  &.instinct {
+    background-color: rgba($instinct-color, 0.2);
+    color: $instinct-color;
+  }
+  &.order {
+    background-color: rgba($order-color, 0.2);
+    color: $order-color;
+  }
+  &.justice {
+    background-color: rgba($justice-color, 0.2);
+    color: $justice-color;
+  }
+  &.void {
+    background-color: rgba($void-color, 0.2);
+    color: $void-color;
+  }
+}
+
+.characterDetails {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-xs $space-md;
+  font-size: 0.8125rem;
+  color: $color-text-muted;
+}

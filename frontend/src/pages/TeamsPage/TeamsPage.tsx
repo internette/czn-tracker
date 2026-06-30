@@ -37,6 +37,10 @@ export default function TeamsPage({ user }: TeamsPageProps) {
     }
   }
 
+  function handleViewTeam(team: Team) {
+    navigate(`/teams/${team.uid}`)
+  }
+
   function handleEditTeam(team: Team) {
     navigate('/teams/build', {
       state: {
@@ -65,6 +69,7 @@ export default function TeamsPage({ user }: TeamsPageProps) {
                   team={team}
                   onDelete={handleDeleteTeam}
                   onEdit={handleEditTeam}
+                  onView={handleViewTeam}
                 />
               ))}
             </Grid>

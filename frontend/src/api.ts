@@ -96,6 +96,10 @@ export async function getDecks(page = 1, limit = 20): Promise<DecksResponse> {
   return request(`/api/decks?page=${page}&limit=${limit}`)
 }
 
+export async function getTeam(id: string): Promise<Team> {
+  return request(`/api/teams/${id}`)
+}
+
 export async function getTeams(): Promise<Team[]> {
   return request('/api/teams')
 }
