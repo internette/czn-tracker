@@ -100,8 +100,8 @@ export async function getTeams(): Promise<Team[]> {
   return request('/api/teams')
 }
 
-export async function getMyTeams(): Promise<Team[]> {
-  return request('/api/teams/mine')
+export async function getMyTeams(userId: string): Promise<Team[]> {
+  return request(`/api/teams?createdBy=${userId}`)
 }
 
 export async function createTeam(name: string, characterIds: string[]): Promise<Team> {

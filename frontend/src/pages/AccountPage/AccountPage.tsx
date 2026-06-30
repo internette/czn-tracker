@@ -30,7 +30,7 @@ export default function AccountPage({ user }: AccountPageProps) {
   useEffect(() => {
     async function loadTeams() {
       try {
-        const response = await getMyTeams()
+        const response = await getMyTeams(user!.uid)
         setTeams(response ?? [])
       } catch (error) {
         console.error('Error loading teams:', error)

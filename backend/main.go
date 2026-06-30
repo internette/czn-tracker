@@ -872,6 +872,47 @@ func (s *Store) ListTeamsByUser(ctx context.Context, createdBy string) ([]Team, 
 	return teams, nil
 }
 
+func (s *Store) GetTeamByID(ctx context.Context, uid string) (Team, error) {
+	var team Team
+	var characterIDsJSON string
+
+	err := s.db.QueryRowContext(ctx, `
+		SELECT
+			uid,
+			name,
+			character_ids,
+			created_date,
+			created_by
+		FROM teams
+		WHERE uid = ?
+	`, uid).Scan(
+		&team.UID,
+		&team.Name,
+		&characterIDsJSON,
+		&team.CreatedDate,
+		&team.CreatedBy,
+	)
+	if err != nil {
+		return Team{}, err
+	}
+
+	var characterIDs []string
+	if characterIDsJSON != "" {
+		_ = json.Unmarshal([]byte(characterIDsJSON), &characterIDs)
+	}
+
+	for _, characterID := range characterIDs {
+		character, err := s.GetCharacterByID(ctx, characterID)
+		if err != nil {
+			return Team{}, err
+		}
+
+		team.Characters = append(team.Characters, character)
+	}
+
+	return team, nil
+}
+
 func (s *Store) DeleteTeam(ctx context.Context, uid string) error {
 	_, err := s.db.ExecContext(ctx, `
 		DELETE FROM teams
@@ -1688,7 +1729,17 @@ func main() {
 	})
 
 	api.GET("/teams", func(c *gin.Context) {
-		teams, err := store.ListTeams(c.Request.Context())
+		createdBy := c.Query("createdBy")
+
+		var teams []Team
+		var err error
+
+		if createdBy != "" {
+			teams, err = store.ListTeamsByUser(c.Request.Context(), createdBy)
+		} else {
+			teams, err = store.ListTeams(c.Request.Context())
+		}
+
 		if err != nil {
 			log.Printf("Error loading teams: %v", err)
 			c.JSON(http.StatusInternalServerError, gin.H{
@@ -1698,6 +1749,27 @@ func main() {
 		}
 
 		c.JSON(http.StatusOK, teams)
+	})
+
+	api.GET("/teams/:id", func(c *gin.Context) {
+		id := c.Param("id")
+
+		team, err := store.GetTeamByID(c.Request.Context(), id)
+		if err == sql.ErrNoRows {
+			c.JSON(http.StatusNotFound, gin.H{
+				"error": "team not found",
+			})
+			return
+		}
+		if err != nil {
+			log.Printf("Error loading team: %v", err)
+			c.JSON(http.StatusInternalServerError, gin.H{
+				"error": "failed to load team",
+			})
+			return
+		}
+
+		c.JSON(http.StatusOK, team)
 	})
 
 	api.POST("/teams", func(c *gin.Context) {
@@ -1738,25 +1810,6 @@ func main() {
 		}
 
 		c.JSON(http.StatusCreated, team)
-	})
-
-	api.GET("/teams/mine", func(c *gin.Context) {
-		sessionUser, ok := currentUser(c.Request, cookieCodec)
-		if !ok {
-			c.JSON(http.StatusUnauthorized, gin.H{"error": "not authenticated"})
-			return
-		}
-
-		teams, err := store.ListTeamsByUser(c.Request.Context(), sessionUser.UID)
-		if err != nil {
-			log.Printf("Error loading user teams: %v", err)
-			c.JSON(http.StatusInternalServerError, gin.H{
-				"error": "failed to load teams",
-			})
-			return
-		}
-
-		c.JSON(http.StatusOK, teams)
 	})
 
 	api.PUT("/teams/:id", func(c *gin.Context) {
