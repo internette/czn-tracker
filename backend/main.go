@@ -950,6 +950,14 @@ func (s *Store) CreateDeck(ctx context.Context, input CreateDeckInput, createdBy
 	}, nil
 }
 
+func (s *Store) DeleteDeck(ctx context.Context, uid string) error {
+	_, err := s.db.ExecContext(ctx, `
+		DELETE FROM decks
+		WHERE uid = ?
+	`, uid)
+	return err
+}
+
 func (s *Store) ListDecksByUser(ctx context.Context, createdBy string) ([]Deck, error) {
 	rows, err := s.db.QueryContext(ctx, `
 		SELECT uid, name, character_uid, card_ids, created_by, created_date
@@ -2002,6 +2010,23 @@ func main() {
 			"page":  page,
 			"limit": limit,
 			"total": total,
+		})
+	})
+
+	api.DELETE("/decks/:id", func(c *gin.Context) {
+		id := c.Param("id")
+
+		err := store.DeleteDeck(c.Request.Context(), id)
+		if err != nil {
+			log.Printf("Error deleting deck: %v", err)
+			c.JSON(http.StatusInternalServerError, gin.H{
+				"error": "failed to delete deck",
+			})
+			return
+		}
+
+		c.JSON(http.StatusOK, gin.H{
+			"success": true,
 		})
 	})
 
