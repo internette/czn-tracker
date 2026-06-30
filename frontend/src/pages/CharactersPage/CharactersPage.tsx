@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { getCharacters } from '../../api'
 import { Character, User } from '../../types'
-import { Button, Card, Grid, LoadingState } from '../../components/ui'
+import { Button, Card, Grid, LoadingState, TextInput } from '../../components/ui'
 import { CharacterCard } from '../../components/common'
 import styles from './CharactersPage.module.scss'
 
@@ -90,7 +90,7 @@ export default function CharactersPage({ user }: CharactersPageProps) {
       <div className={styles['characters-page__controls']}>
         <div className={styles['characters-page__search-wrap']}>
           <i className={`${styles['characters-page__search-icon']} ti ti-search`} />
-          <input
+          <TextInput
             className={styles['characters-page__search-input']}
             placeholder="Search characters…"
             value={searchTerm}
