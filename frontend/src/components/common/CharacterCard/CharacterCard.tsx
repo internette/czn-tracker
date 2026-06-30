@@ -1,7 +1,7 @@
 import { CSSProperties } from 'react'
 import { Link } from 'react-router-dom'
 import { Character, User } from '../../../types'
-import { Card } from '../../ui'
+import { Card, Pill } from '../../ui'
 import OwnedToggleBadge from '../OwnedToggleBadge/OwnedToggleBadge'
 import styles from './CharacterCard.module.scss'
 
@@ -21,7 +21,7 @@ export default function CharacterCard({ character, user }: CharacterCardProps) {
         <div className={styles.titleBar}>
           <div className={styles.characterDetails}>
             <h3 className={styles.title}>{character.name}</h3>
-            <small className={`${styles.attribute} ${styles[character.attribute.toLowerCase()]}`}>{character.attribute}</small>
+            <Pill variant={character.attribute.toLowerCase()}>{character.attribute}</Pill>
           </div>
           {user && <OwnedToggleBadge character={character} user={user} />}
         </div>
