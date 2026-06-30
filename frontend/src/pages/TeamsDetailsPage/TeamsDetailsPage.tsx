@@ -1,7 +1,7 @@
 import { CSSProperties, useEffect, useState } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
-import { getTeam, getMyDecks } from '../../api'
-import { Team, Deck, User } from '../../types'
+import { getTeam, getMyDecks, getCardsByCharacter } from '../../api'
+import { Card, Character, Deck, Team, User } from '../../types'
 import { LoadingState, Button } from '../../components/ui'
 import styles from './TeamsDetailsPage.module.scss'
 
@@ -14,6 +14,7 @@ export default function TeamsDetailsPage({ user }: TeamsDetailsPageProps) {
   const navigate = useNavigate()
   const [team, setTeam] = useState<Team | null>(null)
   const [decks, setDecks] = useState<Deck[]>([])
+  const [cardsMap, setCardsMap] = useState<Record<string, Card>>({})
 
   useEffect(() => {
     if (!id) return
@@ -30,7 +31,7 @@ export default function TeamsDetailsPage({ user }: TeamsDetailsPageProps) {
 
   useEffect(() => {
     if (!user) return
-    async function fetchDecks() {
+    async function loadDecksAndCards() {
       try {
         const myDecks = await getMyDecks()
         setDecks(myDecks)
@@ -38,8 +39,27 @@ export default function TeamsDetailsPage({ user }: TeamsDetailsPageProps) {
         console.error('Failed to load decks', err)
       }
     }
-    fetchDecks()
+    loadDecksAndCards()
   }, [user])
+
+  useEffect(() => {
+    if (!team) return
+    async function loadCards() {
+      const cardMap: Record<string, Card> = {}
+      await Promise.all(
+        team.characters.map(async (character) => {
+          try {
+            const result = await getCardsByCharacter(character.id)
+            for (const card of result.cards) {
+              cardMap[card.uid] = card
+            }
+          } catch {}
+        }),
+      )
+      setCardsMap(cardMap)
+    }
+    loadCards()
+  }, [team])
 
   if (!team) {
     return <LoadingState />
@@ -63,7 +83,7 @@ export default function TeamsDetailsPage({ user }: TeamsDetailsPageProps) {
     })
   }
 
-  function getDeckForCharacter(character: { uid: string; id: string }): Deck | undefined {
+  function getDeckForCharacter(character: Character): Deck | undefined {
     const teamDeckUids = new Set((team.decks ?? []).map((d) => d.uid))
     return decks.find(
       (d) => teamDeckUids.has(d.uid) && d.characterUid === character.uid,
@@ -90,7 +110,7 @@ export default function TeamsDetailsPage({ user }: TeamsDetailsPageProps) {
 
       <section>
         <h3 className={styles.sectionTitle}>Characters</h3>
-        <div className={styles.characterGrid}>
+        <div className={styles.characterColumn}>
           {team.characters.map((character) => {
             const deck = getDeckForCharacter(character)
             return (
@@ -99,24 +119,47 @@ export default function TeamsDetailsPage({ user }: TeamsDetailsPageProps) {
                   className={`${styles.characterImage} ${styles[character.attribute.toLowerCase()]}`}
                   style={{ '--img': `url(${character.imageUrl})` } as CSSProperties}
                 />
-                <div className={styles.characterInfo}>
-                  <Link to={`/characters/${character.id}`} className={styles.characterName}>
-                    {character.name}
-                  </Link>
-                  <span className={`${styles.badge} ${styles[character.attribute.toLowerCase()]}`}>
-                    {character.attribute}
-                  </span>
-                  <div className={styles.characterDetails}>
+                <div className={styles.rightCol}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
+                    <Link to={`/characters/${character.id}`} className={styles.characterName}>
+                      {character.name}
+                    </Link>
+                    <span className={`${styles.badge} ${styles[character.attribute.toLowerCase()]}`}>
+                      {character.attribute}
+                    </span>
+                  </div>
+                  <div className={styles.statsRow}>
                     <span>Tier: {character.tier}</span>
                     <span>Type: {character.type}</span>
                     <span>Faction: {character.faction}</span>
                     <span>Rarity: {character.rarity}</span>
                   </div>
                   {deck && (
-                    <div className={styles.deckInfo}>
-                      <span className={styles.deckLabel}>Deck:</span>
-                      <span className={styles.deckName}>{deck.name}</span>
-                      <span className={styles.deckCardCount}>{deck.cardIds.length} card{deck.cardIds.length !== 1 ? 's' : ''}</span>
+                    <div className={styles.deckSection}>
+                      <div className={styles.deckHeader}>
+                        <span className={styles.deckLabel}>Deck:</span>
+                        <span className={styles.deckName}>{deck.name}</span>
+                      </div>
+                      <div className={styles.cardGrid}>
+                        {deck.cardIds.map((cardUid) => {
+                          const card = cardsMap[cardUid]
+                          return (
+                            <div key={cardUid} className={styles.cardItem}>
+                              {card?.imageUrl ? (
+                                <div
+                                  className={styles.cardImage}
+                                  style={{ '--img': `url(${card.imageUrl})` } as CSSProperties}
+                                />
+                              ) : (
+                                <div className={styles.cardImage} />
+                              )}
+                              <div className={styles.cardBody}>
+                                <span className={styles.cardName}>{card?.name || cardUid.slice(0, 8)}</span>
+                              </div>
+                            </div>
+                          )
+                        })}
+                      </div>
                     </div>
                   )}
                 </div>

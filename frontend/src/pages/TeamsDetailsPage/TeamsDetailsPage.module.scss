@@ -1,7 +1,7 @@
 @use '../../styles/tokens' as *;
 
 .container {
-  max-width: $container-max-width;
+  max-width: 70rem;
   margin: 0 auto;
   padding: $space-xl;
 }
@@ -43,53 +43,53 @@
   margin-bottom: $space-md;
 }
 
-.characterGrid {
-  display: grid;
-  gap: $space-md;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+.characterColumn {
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
 }
 
 .characterCard {
   display: flex;
-  gap: $space-md;
   border: 1px solid $color-border-light;
   border-radius: $radius-md;
-  padding: $space-md;
   background-color: $color-background-secondary;
+  overflow: hidden;
 }
 
 .characterImage {
-  width: 6rem;
-  height: 6rem;
-  border-radius: $radius-sm;
+  width: 14rem;
+  align-self: stretch;
   background-image: var(--img);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   flex-shrink: 0;
-  border: 1px solid;
+  border-right: 1px solid $color-border-light;
   &.passion {
-    border-color: rgba($passion-color, 0.6);
+    border-right-color: rgba($passion-color, 0.6);
   }
   &.instinct {
-    border-color: rgba($instinct-color, 0.6);
+    border-right-color: rgba($instinct-color, 0.6);
   }
   &.order {
-    border-color: rgba($order-color, 0.6);
+    border-right-color: rgba($order-color, 0.6);
   }
   &.justice {
-    border-color: rgba($justice-color, 0.6);
+    border-right-color: rgba($justice-color, 0.6);
   }
   &.void {
-    border-color: rgba($void-color, 0.6);
+    border-right-color: rgba($void-color, 0.6);
   }
 }
 
-.characterInfo {
+.rightCol {
   display: flex;
   flex-direction: column;
   gap: $space-xs;
   min-width: 0;
+  flex: 1;
+  padding: $space-md;
 }
 
 .characterName {
@@ -130,7 +130,7 @@
   }
 }
 
-.characterDetails {
+.statsRow {
   display: flex;
   flex-wrap: wrap;
   gap: $space-xs $space-md;
@@ -138,14 +138,18 @@
   color: $color-text-muted;
 }
 
-.deckInfo {
-  display: flex;
-  align-items: center;
-  gap: $space-xs;
+.deckSection {
   margin-top: $space-xs;
   padding-top: $space-xs;
   border-top: 1px solid $color-border;
+}
+
+.deckHeader {
+  display: flex;
+  align-items: center;
+  gap: $space-xs;
   font-size: 0.8125rem;
+  margin-bottom: $space-sm;
 }
 
 .deckLabel {
@@ -157,7 +161,39 @@
   color: $color-accent-light;
 }
 
-.deckCardCount {
-  color: $color-text-muted;
-  font-size: 0.75rem;
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+  gap: 6px;
+}
+
+.cardItem {
+  display: flex;
+  flex-direction: column;
+  background: $color-background;
+  border-radius: $radius-sm;
+  overflow: hidden;
+}
+
+.cardImage {
+  width: 100%;
+  aspect-ratio: 1;
+  background-image: var(--img);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: $color-background;
+}
+
+.cardBody {
+  padding: 2px 4px 4px;
+}
+
+.cardName {
+  font-size: 0.625rem;
+  font-weight: 500;
+  color: $color-text-primary;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
