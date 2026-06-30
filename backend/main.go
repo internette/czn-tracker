@@ -5,6 +5,7 @@ import (
 	"database/sql"
 	"encoding/json"
 	"errors"
+	"fmt"
 	"log"
 	"mime/multipart"
 	"net/http"
@@ -138,13 +139,27 @@ type UpdateTeamInput struct {
 	CharacterIDs []string `json:"characterIds"`
 }
 
+type DeckCard struct {
+	UID      string    `json:"uid"`
+	Name     string    `json:"name"`
+	Effect   []string  `json:"effect"`
+	Type     string    `json:"type"`
+	APCost   string    `json:"apCost"`
+	User     string    `json:"user"`
+	SubType  string    `json:"subType"`
+	Affinity string    `json:"affinity"`
+	ImageUrl string    `json:"imageUrl"`
+	Tags     []CardTag `json:"tags"`
+}
+
 type Deck struct {
-	UID          string   `json:"uid"`
-	Name         string   `json:"name"`
-	CharacterUID string   `json:"characterUid"`
-	CardIDs      []string `json:"cardIds"`
-	CreatedBy    string   `json:"createdBy"`
-	CreatedDate  string   `json:"createdDate"`
+	UID          string     `json:"uid"`
+	Name         string     `json:"name"`
+	CharacterUID string     `json:"characterUid"`
+	CardIDs      []string   `json:"cardIds"`
+	Cards        []DeckCard `json:"cards,omitempty"`
+	CreatedBy    string     `json:"createdBy"`
+	CreatedDate  string     `json:"createdDate"`
 }
 
 type CreateDeckInput struct {
@@ -956,6 +971,7 @@ func (s *Store) ListDecks(ctx context.Context, limit, offset int) ([]Deck, int, 
 	defer rows.Close()
 
 	var decks []Deck
+	var allCardIDs []string
 
 	for rows.Next() {
 		var deck Deck
@@ -974,6 +990,7 @@ func (s *Store) ListDecks(ctx context.Context, limit, offset int) ([]Deck, int, 
 
 		if cardIDsJSON != "" {
 			_ = json.Unmarshal([]byte(cardIDsJSON), &deck.CardIDs)
+			allCardIDs = append(allCardIDs, deck.CardIDs...)
 		}
 
 		decks = append(decks, deck)
@@ -983,7 +1000,103 @@ func (s *Store) ListDecks(ctx context.Context, limit, offset int) ([]Deck, int, 
 		return nil, 0, err
 	}
 
+	// Hydrate cards
+	if len(allCardIDs) > 0 {
+		uniqueIDs := uniqueStrings(allCardIDs)
+		cardMap, err := s.fetchCardsByUIDs(ctx, uniqueIDs)
+		if err != nil {
+			return nil, 0, err
+		}
+
+		for i, deck := range decks {
+			for _, id := range deck.CardIDs {
+				if card, ok := cardMap[id]; ok {
+					decks[i].Cards = append(decks[i].Cards, card)
+				}
+			}
+		}
+	}
+
 	return decks, total, nil
+}
+
+func uniqueStrings(slice []string) []string {
+	seen := make(map[string]struct{}, len(slice))
+	result := make([]string, 0, len(slice))
+	for _, s := range slice {
+		if _, ok := seen[s]; !ok {
+			seen[s] = struct{}{}
+			result = append(result, s)
+		}
+	}
+	return result
+}
+
+func (s *Store) fetchCardsByUIDs(ctx context.Context, uids []string) (map[string]DeckCard, error) {
+	if len(uids) == 0 {
+		return nil, nil
+	}
+
+	placeholders := make([]string, len(uids))
+	args := make([]interface{}, len(uids))
+	for i, uid := range uids {
+		placeholders[i] = "?"
+		args[i] = uid
+	}
+
+	query := fmt.Sprintf(`
+		SELECT uid, name, effect, type, ap_cost, user, sub_type, affinity, image_url, tags
+		FROM cards
+		WHERE uid IN (%s)
+	`, strings.Join(placeholders, ","))
+
+	rows, err := s.db.QueryContext(ctx, query, args...)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	cardMap := make(map[string]DeckCard)
+
+	for rows.Next() {
+		var raw Card
+		if err := rows.Scan(
+			&raw.UID, &raw.Name, &raw.Effect, &raw.Type,
+			&raw.APCost, &raw.User, &raw.SubType, &raw.Affinity,
+			&raw.ImageUrl, &raw.Tags,
+		); err != nil {
+			return nil, err
+		}
+
+		var effects []string
+		if err := json.Unmarshal([]byte(raw.Effect), &effects); err != nil || len(effects) == 0 {
+			effects = []string{}
+			for _, s := range strings.Split(raw.Effect, "・") {
+				s = strings.TrimSpace(s)
+				if s != "" {
+					effects = append(effects, s)
+				}
+			}
+		}
+
+		var parsedTags []CardTag
+		_ = json.Unmarshal([]byte(raw.Tags), &parsedTags)
+
+		cardMap[raw.UID] = DeckCard{
+			UID:      raw.UID,
+			Name:     raw.Name,
+			Effect:   effects,
+			Type:     raw.Type,
+			APCost:   raw.APCost,
+			User:     raw.User,
+			SubType:  raw.SubType,
+			Affinity: raw.Affinity,
+			ImageUrl: raw.ImageUrl,
+			Tags:     parsedTags,
+		}
+	}
+
+	return cardMap, rows.Err()
 }
 
 func main() {

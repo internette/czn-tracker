@@ -37,6 +37,7 @@ export interface Deck {
   name: string
   characterUid: string
   cardIds: string[]
+  cards?: Card[]
   createdBy: string
   createdDate: string
 }

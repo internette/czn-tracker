@@ -85,6 +85,17 @@ export async function getMyDecks(): Promise<Deck[]> {
   return request('/api/decks/mine')
 }
 
+export interface DecksResponse {
+  decks: Deck[]
+  page: number
+  limit: number
+  total: number
+}
+
+export async function getDecks(page = 1, limit = 20): Promise<DecksResponse> {
+  return request(`/api/decks?page=${page}&limit=${limit}`)
+}
+
 export async function getTeams(): Promise<Team[]> {
   return request('/api/teams')
 }

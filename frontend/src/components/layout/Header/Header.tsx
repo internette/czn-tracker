@@ -22,6 +22,7 @@ export default function Header({ user }: HeaderProps) {
           <Link to="/" className={styles.navLink}>Home</Link>
           <Link to="/characters" className={styles.navLink}>Characters</Link>
           <Link to="/teams" className={styles.navLink}>Teams</Link>
+          <Link to="/decks" className={styles.navLink}>Decks</Link>
         </nav>
 
         <div className={styles.right}>

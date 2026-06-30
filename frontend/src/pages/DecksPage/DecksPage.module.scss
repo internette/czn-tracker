@@ -1,0 +1,145 @@
+@use '../../styles/tokens' as *;
+
+.container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: $space-xl;
+}
+
+.header {
+  margin-bottom: $space-lg;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 500;
+  color: #e5e7eb;
+  margin: 0 0 4px;
+}
+
+.subtitle {
+  font-size: 12px;
+  color: #6b7199;
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: $space-md;
+}
+
+.deck {
+  background: #111425;
+  border: 0.5px solid #252b42;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.deckHeader {
+  display: flex;
+  align-items: center;
+  gap: $space-md;
+  padding: $space-md;
+  border-bottom: 0.5px solid #252b42;
+}
+
+.deckCharacterImage {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  background-image: var(--img);
+  background-size: cover;
+  background-position: center;
+  background-color: #0b1220;
+  flex-shrink: 0;
+}
+
+.deckInfo {
+  min-width: 0;
+}
+
+.deckName {
+  font-size: 14px;
+  font-weight: 600;
+  color: #e5e7eb;
+  margin: 0 0 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.deckMeta {
+  font-size: 11px;
+  color: #6b7199;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+  gap: 6px;
+  padding: $space-md;
+}
+
+.cardImage {
+  aspect-ratio: 1;
+  background-image: var(--img);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #0b1220;
+  border-radius: 6px;
+  border: 0.5px solid #252b42;
+}
+
+.cardImagePlaceholder {
+  aspect-ratio: 1;
+  background: #0b1220;
+  border-radius: 6px;
+  border: 0.5px solid #252b42;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: #6b7199;
+}
+
+.empty {
+  text-align: center;
+  color: #6b7199;
+  padding: $space-xl 0;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-sm;
+  margin-top: $space-lg;
+}
+
+.pageBtn {
+  padding: 8px 14px;
+  background: #111425;
+  border: 0.5px solid #252b42;
+  border-radius: 6px;
+  color: #94a3b8;
+  font-size: 13px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+
+  &:hover:not(:disabled) {
+    border-color: #3d4a70;
+    color: #e5e7eb;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}
+
+.pageInfo {
+  font-size: 13px;
+  color: #6b7199;
+}
