@@ -1,7 +1,7 @@
 import { FormEvent, useEffect, useState, CSSProperties } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { getCharacters, createTeam, updateTeam } from '../../api'
-import { Character, User } from '../../types'
+import { getCharacters, getMyDecks, createTeam, updateTeam } from '../../api'
+import { Character, Deck, User } from '../../types'
 import { Button, Grid } from '../../components/ui'
 
 import styles from './TeamBuilderPage.module.scss'
@@ -14,9 +14,11 @@ export default function TeamBuilderPage({ user }: TeamBuilderPageProps) {
   const navigate = useNavigate()
   const location = useLocation()
   const [characters, setCharacters] = useState<Character[]>([])
+  const [decks, setDecks] = useState<Deck[]>([])
   const [showOwnedOnly, setShowOwnedOnly] = useState(false)
   const [loading, setLoading] = useState(false)
   const [selectedIds, setSelectedIds] = useState<string[]>([])
+  const [selectedDecks, setSelectedDecks] = useState<Record<string, string>>({})
   const [teamName, setTeamName] = useState('')
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -36,17 +38,57 @@ export default function TeamBuilderPage({ user }: TeamBuilderPageProps) {
   }, [])
 
   useEffect(() => {
-    if (location.state) {
-      const { selectedIds, teamName, editingTeamId } = location.state as {
-        selectedIds?: string[]
-        teamName?: string
-        editingTeamId?: string | null
+    if (!user) return
+    async function fetchDecks() {
+      try {
+        const myDecks = await getMyDecks()
+        setDecks(myDecks)
+      } catch (err) {
+        console.error('Failed to load decks', err)
       }
-      if (selectedIds) setSelectedIds(selectedIds)
-      if (teamName) setTeamName(teamName)
-      if (editingTeamId !== undefined) setEditingTeamId(editingTeamId)
     }
-  }, [location.state])
+    fetchDecks()
+  }, [user])
+
+  useEffect(() => {
+    const state = location.state as Record<string, unknown> | null
+    if (!state) return
+
+    if (state.fromDeckSelector) {
+      if (state.selectedDecks) setSelectedDecks(state.selectedDecks as Record<string, string>)
+      if (state.selectedIds) setSelectedIds(state.selectedIds as string[])
+      if (state.teamName) setTeamName(state.teamName as string)
+      if (state.editingTeamId !== undefined) setEditingTeamId(state.editingTeamId as string | null)
+      window.history.replaceState({}, document.title)
+      return
+    }
+
+    const {
+      selectedIds,
+      teamName,
+      editingTeamId,
+      deckIds,
+    } = state as {
+      selectedIds?: string[]
+      teamName?: string
+      editingTeamId?: string | null
+      deckIds?: string[]
+    }
+
+    if (selectedIds) setSelectedIds(selectedIds)
+    if (teamName) setTeamName(teamName)
+    if (editingTeamId !== undefined) setEditingTeamId(editingTeamId)
+    if (deckIds && decks.length > 0) {
+      const deckMap: Record<string, string> = {}
+      for (const deckId of deckIds) {
+        const deck = decks.find((d) => d.uid === deckId)
+        if (deck) {
+          deckMap[deck.characterUid] = deckId
+        }
+      }
+      setSelectedDecks(deckMap)
+    }
+  }, [location.state, decks])
 
   async function handleSubmit(event: FormEvent) {
     event.preventDefault()
@@ -61,18 +103,21 @@ export default function TeamBuilderPage({ user }: TeamBuilderPageProps) {
     }
     setSaving(true)
     try {
+      const deckIds = Object.values(selectedDecks)
       if (editingTeamId) {
         await updateTeam(editingTeamId, {
           name: teamName,
           characterIds: selectedIds,
+          deckIds,
         })
         setEditingTeamId(null)
       } else {
-        await createTeam(teamName, selectedIds)
+        await createTeam(teamName, selectedIds, deckIds)
       }
 
       setTeamName('')
       setSelectedIds([])
+      setSelectedDecks({})
       setEditingTeamId(null)
       navigate('/teams')
     } catch (err) {
@@ -88,11 +133,29 @@ export default function TeamBuilderPage({ user }: TeamBuilderPageProps) {
     )
   }
 
+  function handleOpenDeckSelector() {
+    navigate('/teams/build/decks', {
+      state: {
+        selectedIds,
+        selectedDecks,
+        teamName,
+        editingTeamId,
+      },
+    })
+  }
+
   const displayedCharacters = showOwnedOnly && user
     ? user.charactersOwned
     : characters
 
   const attributeTypes = ["passion", "order", "justice", "void", "instinct"]
+
+  function getDeckName(deckId: string): string {
+    const deck = decks.find((d) => d.uid === deckId)
+    return deck?.name ?? ''
+  }
+
+  const deckCount = Object.keys(selectedDecks).length
 
   return (
     <div className={styles.container}>
@@ -159,22 +222,42 @@ export default function TeamBuilderPage({ user }: TeamBuilderPageProps) {
               <p className={styles.teamBuilderCounter}>{selectedIds.length} / 3 selected</p>
               {selectedIds.map(selectedId => {
                 const selectedCharacter = (characters.find(character => character.id === selectedId) ?? user?.charactersOwned.find(character => character.id === selectedId))!
+                const selectedDeckId = selectedDecks[selectedCharacter.id]
                 return (
                   <div className={styles.slotRow} key={selectedCharacter.id}>
                     <span
                       className={styles.characterInTeam}
                       style={{ '--img': `url(${selectedCharacter.imageUrl})` } as CSSProperties}
                     />
-                    <p className={styles.selectedCharacterDetails}>
-                      <span className={styles.teamBuilderCharacterName}>{selectedCharacter.name}</span>
-                      <span className={`${styles.attributeName} ${styles[selectedCharacter.attribute.toLowerCase()]}`}>
-                        {selectedCharacter.attribute}
-                      </span>
-                    </p>
-                    <Button variant="danger" size="sm" ariaLabel="Remove character" onClick={()=> toggleCharacter(selectedCharacter.id)}>&times;</Button>
+                    <div className={styles.slotContent}>
+                      <div className={styles.selectedCharacterDetails}>
+                        <span className={styles.teamBuilderCharacterName}>{selectedCharacter.name}</span>
+                        <span className={`${styles.attributeName} ${styles[selectedCharacter.attribute.toLowerCase()]}`}>
+                          {selectedCharacter.attribute}
+                        </span>
+                      </div>
+                      {user && (
+                        <>
+                          {selectedDeckId && (
+                            <span className={styles.selectedDeckName}>{getDeckName(selectedDeckId)}</span>
+                          )}
+                          <button
+                            type="button"
+                            className={styles.deckLink}
+                            onClick={handleOpenDeckSelector}
+                          >
+                            {selectedDeckId ? 'Change deck' : '+ Select deck'}
+                          </button>
+                        </>
+                      )}
+                    </div>
+                    <Button variant="danger" size="sm" ariaLabel="Remove character" onClick={() => toggleCharacter(selectedCharacter.id)}>&times;</Button>
                   </div>
                 )
               })}
+              {selectedIds.length > 0 && deckCount > 0 && (
+                <p className={styles.deckSummary}>{deckCount} deck{deckCount !== 1 ? 's' : ''} selected</p>
+              )}
               <div className={styles.attributesContainer}>{attributeTypes.map(attrType => {
                 const imgUrl = `/images/elements/${attrType}.webp`;
                 const characterWithAttr = displayedCharacters.filter(character => selectedIds.indexOf(character.uid) > -1 && character.attribute.toLowerCase() === attrType);

@@ -14,6 +14,7 @@ import EditCharacterPage from './pages/EditCharacterPage/EditCharacterPage'
 import AccountPage from './pages/AccountPage/AccountPage'
 import DeckBuilderPage from './pages/DeckBuilderPage/DeckBuilderPage'
 import TeamBuilderPage from './pages/TeamBuilderPage/TeamBuilderPage'
+import DeckSelectorPage from './pages/DeckSelectorPage/DeckSelectorPage'
 import DecksPage from './pages/DecksPage/DecksPage'
 
 function App() {
@@ -51,6 +52,7 @@ function App() {
             <Route path="/characters/:id/edit" element={<EditCharacterPage />} />
             <Route path="/teams" element={<TeamsPage user={user} />} />
             <Route path="/teams/build" element={<TeamBuilderPage user={user} />} />
+            <Route path="/teams/build/decks" element={<DeckSelectorPage user={user} />} />
             <Route path="/teams/:id" element={<TeamsDetailsPage user={user} />} />
             <Route path="/account" element={<AccountPage user={user} />} />
             <Route path="/add-character" element={<AddCharacterPage />} />

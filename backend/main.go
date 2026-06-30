@@ -762,6 +762,7 @@ func (s *Store) CreateTeam(ctx context.Context, input CreateTeamInput, createdBy
 		UID:         uid,
 		Name:        input.Name,
 		Characters:  characters,
+		Decks:       input.DeckIDs,
 		CreatedDate: createdDate,
 		CreatedBy:   createdBy,
 	}, nil
@@ -838,6 +839,7 @@ func (s *Store) ListTeamsByUser(ctx context.Context, createdBy string) ([]Team, 
 			uid,
 			name,
 			character_ids,
+			decks_ids,
 			created_date,
 			created_by
 		FROM teams
@@ -854,11 +856,13 @@ func (s *Store) ListTeamsByUser(ctx context.Context, createdBy string) ([]Team, 
 	for rows.Next() {
 		var team Team
 		var characterIDsJSON string
+		var decksIDsJSON string
 
 		if err := rows.Scan(
 			&team.UID,
 			&team.Name,
 			&characterIDsJSON,
+			&decksIDsJSON,
 			&team.CreatedDate,
 			&team.CreatedBy,
 		); err != nil {
@@ -878,6 +882,12 @@ func (s *Store) ListTeamsByUser(ctx context.Context, createdBy string) ([]Team, 
 
 			team.Characters = append(team.Characters, character)
 		}
+
+		var deckIDs []string
+		if decksIDsJSON != "" {
+			_ = json.Unmarshal([]byte(decksIDsJSON), &deckIDs)
+		}
+		team.Decks = deckIDs
 
 		teams = append(teams, team)
 	}

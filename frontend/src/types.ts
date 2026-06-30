@@ -64,6 +64,7 @@ export interface Team {
   uid: string
   name: string
   characters: Character[]
+  decks: string[]
   createdDate: number
   createdBy: string
 }

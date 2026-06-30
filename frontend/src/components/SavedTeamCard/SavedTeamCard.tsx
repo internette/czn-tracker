@@ -71,6 +71,9 @@ export default function SavedTeamCard({ team, onDelete, onEdit, onView }: SavedT
               className={`${styles.attributeIcon} ${styles['attributeIcon--active']}`}
             />
           ))}
+          {team.decks && team.decks.length > 0 && (
+            <small className={styles.deckCount}>{team.decks.length} deck{team.decks.length !== 1 ? 's' : ''}</small>
+          )}
         </div>
 
         <span onClick={(e) => e.stopPropagation()}>

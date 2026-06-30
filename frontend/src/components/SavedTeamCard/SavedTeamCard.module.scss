@@ -120,6 +120,12 @@
   }
 }
 
+.deckCount {
+  color: $color-text-muted;
+  font-size: 0.75rem;
+  margin-left: $space-xs;
+}
+
 .attributeIcon--active {
   opacity: 1;
 }

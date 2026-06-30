@@ -108,16 +108,16 @@ export async function getMyTeams(userId: string): Promise<Team[]> {
   return request(`/api/teams?createdBy=${userId}`)
 }
 
-export async function createTeam(name: string, characterIds: string[]): Promise<Team> {
+export async function createTeam(name: string, characterIds: string[], deckIds?: string[]): Promise<Team> {
   return request('/api/teams', {
     method: 'POST',
-    body: JSON.stringify({ name, characterIds }),
+    body: JSON.stringify({ name, characterIds, deckIds }),
   })
 }
 
 export async function updateTeam(
   uid: string,
-  input: { name?: string; characterIds?: string[] }
+  input: { name?: string; characterIds?: string[]; deckIds?: string[] }
 ): Promise<Team> {
   return request(`/api/teams/${uid}`, {
     method: 'PUT',

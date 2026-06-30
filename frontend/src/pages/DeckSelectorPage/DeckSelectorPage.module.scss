@@ -1,66 +1,52 @@
 @use '../../styles/tokens' as *;
 
 .container {
-  max-width: $container-max-width;
+  max-width: 48rem;
   margin: 0 auto;
   padding: $space-xl;
-}
-
-.backLink {
-  color: #60a5fa;
-  text-decoration: none;
-  display: inline-block;
-  margin-bottom: $space-md;
 }
 
 .pageHeader {
   margin-bottom: $space-xl;
 }
 
-.titleRow {
-  display: flex;
-  align-items: center;
-  gap: $space-md;
-  margin-bottom: $space-xs;
-}
-
-.teamTitle {
-  font-size: 2rem;
+.title {
+  font-size: 1.5rem;
   font-weight: 700;
   color: $color-text-primary;
+  margin: 0 0 $space-xs;
+}
+
+.subtitle {
+  color: $color-text-muted;
   margin: 0;
 }
 
-.teamMeta {
-  color: $color-text-muted;
-  display: block;
-}
-
-.sectionTitle {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: $color-text-primary;
-  margin-bottom: $space-md;
-}
-
-.characterGrid {
-  display: grid;
-  gap: $space-md;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-}
-
-.characterCard {
+.characterList {
   display: flex;
-  gap: $space-md;
-  border: 1px solid $color-border-light;
-  border-radius: $radius-md;
-  padding: $space-md;
-  background-color: $color-background-secondary;
+  flex-direction: column;
+  gap: $space-lg;
 }
 
-.characterImage {
-  width: 6rem;
-  height: 6rem;
+.characterSection {
+  background: $color-background-secondary;
+  border: 1px solid $color-border-light;
+  border-radius: $radius-lg;
+  padding: $space-md;
+}
+
+.characterHeader {
+  display: flex;
+  align-items: center;
+  gap: $space-md;
+  margin-bottom: $space-md;
+  padding-bottom: $space-md;
+  border-bottom: 1px solid $color-border;
+}
+
+.characterAvatar {
+  width: 3rem;
+  height: 3rem;
   border-radius: $radius-sm;
   background-image: var(--img);
   background-size: cover;
@@ -85,24 +71,19 @@
   }
 }
 
-.characterInfo {
+.characterMeta {
   display: flex;
   flex-direction: column;
   gap: $space-xs;
-  min-width: 0;
 }
 
 .characterName {
   font-weight: 600;
   color: $color-text-primary;
-  text-decoration: none;
   font-size: 1rem;
-  &:hover {
-    color: $color-accent;
-  }
 }
 
-.badge {
+.attributeBadge {
   font-size: 0.75rem;
   font-weight: 600;
   padding: 0.125rem 0.5rem;
@@ -130,34 +111,60 @@
   }
 }
 
-.characterDetails {
+.deckList {
   display: flex;
-  flex-wrap: wrap;
-  gap: $space-xs $space-md;
-  font-size: 0.8125rem;
-  color: $color-text-muted;
+  flex-direction: column;
+  gap: $space-xs;
 }
 
-.deckInfo {
+.deckOption {
   display: flex;
   align-items: center;
-  gap: $space-xs;
-  margin-top: $space-xs;
-  padding-top: $space-xs;
-  border-top: 1px solid $color-border;
-  font-size: 0.8125rem;
+  justify-content: space-between;
+  width: 100%;
+  background: $color-background;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  padding: $space-sm $space-md;
+  color: $color-text-primary;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+  text-align: left;
+
+  &:hover {
+    border-color: $color-accent;
+    background-color: rgba($color-accent, 0.05);
+  }
 }
 
-.deckLabel {
-  color: $color-text-muted;
+.deckOptionSelected {
+  border-color: $color-accent;
+  background-color: rgba($color-accent, 0.1);
+  box-shadow: 0 0 0 1px $color-accent;
+}
+
+.deckOptionName {
   font-weight: 600;
+  font-size: 0.875rem;
 }
 
-.deckName {
-  color: $color-accent-light;
-}
-
-.deckCardCount {
+.deckOptionMeta {
   color: $color-text-muted;
   font-size: 0.75rem;
+}
+
+.emptyDecks {
+  color: $color-text-muted;
+  font-size: 0.8125rem;
+  margin: 0;
+  padding: $space-sm $space-md;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: $space-md;
+  margin-top: $space-xl;
+  padding-top: $space-lg;
+  border-top: 1px solid $color-border;
 }
