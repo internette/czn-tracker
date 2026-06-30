@@ -107,9 +107,61 @@ type Team struct {
 	UID         string      `json:"uid"`
 	Name        string      `json:"name"`
 	Characters  []Character `json:"characters"`
-	Decks       []string    `json:"decks"`
+	Decks       []Deck      `json:"decks"`
 	CreatedDate string      `json:"createdDate"`
 	CreatedBy   string      `json:"createdBy"`
+}
+
+// fetchDecksByUIDs fetches all Decks by their UIDs and returns a map[uid]Deck
+func (s *Store) fetchDecksByUIDs(ctx context.Context, uids []string) (map[string]Deck, error) {
+	if len(uids) == 0 {
+		return map[string]Deck{}, nil
+	}
+
+	placeholders := make([]string, len(uids))
+	args := make([]interface{}, len(uids))
+	for i, uid := range uids {
+		placeholders[i] = "?"
+		args[i] = uid
+	}
+
+	query := fmt.Sprintf(`
+		SELECT uid, name, character_uid, card_ids, created_by, created_date
+		FROM decks
+		WHERE uid IN (%s)
+	`, strings.Join(placeholders, ","))
+
+	rows, err := s.db.QueryContext(ctx, query, args...)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	deckMap := make(map[string]Deck)
+
+	for rows.Next() {
+		var deck Deck
+		var cardIDsJSON string
+
+		if err := rows.Scan(
+			&deck.UID,
+			&deck.Name,
+			&deck.CharacterUID,
+			&cardIDsJSON,
+			&deck.CreatedBy,
+			&deck.CreatedDate,
+		); err != nil {
+			return nil, err
+		}
+
+		if cardIDsJSON != "" {
+			_ = json.Unmarshal([]byte(cardIDsJSON), &deck.CardIDs)
+		}
+
+		deckMap[deck.UID] = deck
+	}
+
+	return deckMap, rows.Err()
 }
 
 type CardTag struct {
@@ -757,12 +809,25 @@ func (s *Store) CreateTeam(ctx context.Context, input CreateTeamInput, createdBy
 
 		characters = append(characters, character)
 	}
+	var decks []Deck
+	if len(input.DeckIDs) > 0 {
+		deckMap, err := s.fetchDecksByUIDs(ctx, input.DeckIDs)
+		if err != nil {
+			return Team{}, err
+		}
+
+		for _, id := range input.DeckIDs {
+			if deck, ok := deckMap[id]; ok {
+				decks = append(decks, deck)
+			}
+		}
+	}
 
 	return Team{
 		UID:         uid,
 		Name:        input.Name,
 		Characters:  characters,
-		Decks:       input.DeckIDs,
+		Decks:       decks,
 		CreatedDate: createdDate,
 		CreatedBy:   createdBy,
 	}, nil
@@ -821,7 +886,18 @@ func (s *Store) ListTeams(ctx context.Context) ([]Team, error) {
 		if decksIDsJSON != "" {
 			_ = json.Unmarshal([]byte(decksIDsJSON), &deckIDs)
 		}
-		team.Decks = deckIDs
+		if len(deckIDs) > 0 {
+			deckMap, err := s.fetchDecksByUIDs(ctx, deckIDs)
+			if err != nil {
+				return nil, err
+			}
+
+			for _, id := range deckIDs {
+				if deck, ok := deckMap[id]; ok {
+					team.Decks = append(team.Decks, deck)
+				}
+			}
+		}
 
 		teams = append(teams, team)
 	}
@@ -887,7 +963,18 @@ func (s *Store) ListTeamsByUser(ctx context.Context, createdBy string) ([]Team, 
 		if decksIDsJSON != "" {
 			_ = json.Unmarshal([]byte(decksIDsJSON), &deckIDs)
 		}
-		team.Decks = deckIDs
+		if len(deckIDs) > 0 {
+			deckMap, err := s.fetchDecksByUIDs(ctx, deckIDs)
+			if err != nil {
+				return nil, err
+			}
+
+			for _, id := range deckIDs {
+				if deck, ok := deckMap[id]; ok {
+					team.Decks = append(team.Decks, deck)
+				}
+			}
+		}
 
 		teams = append(teams, team)
 	}
@@ -948,7 +1035,18 @@ func (s *Store) GetTeamByID(ctx context.Context, uid string) (Team, error) {
 	if decksIDsJSON != "" {
 		_ = json.Unmarshal([]byte(decksIDsJSON), &deckIDs)
 	}
-	team.Decks = deckIDs
+	if len(deckIDs) > 0 {
+		deckMap, err := s.fetchDecksByUIDs(ctx, deckIDs)
+		if err != nil {
+			return Team{}, err
+		}
+
+		for _, id := range deckIDs {
+			if deck, ok := deckMap[id]; ok {
+				team.Decks = append(team.Decks, deck)
+			}
+		}
+	}
 
 	return team, nil
 }
@@ -1954,11 +2052,23 @@ func main() {
 			characters = append(characters, character)
 		}
 
+		var decks []Deck
+		if len(newDecks) > 0 {
+			deckMap, err := store.fetchDecksByUIDs(c.Request.Context(), newDecks)
+			if err == nil {
+				for _, id := range newDecks {
+					if deck, ok := deckMap[id]; ok {
+						decks = append(decks, deck)
+					}
+				}
+			}
+		}
+
 		c.JSON(http.StatusOK, Team{
 			UID:         id,
 			Name:        newName,
 			Characters:  characters,
-			Decks:       newDecks,
+			Decks:       decks,
 			CreatedDate: "",
 		})
 	})

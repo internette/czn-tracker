@@ -160,6 +160,90 @@
   padding: $space-sm $space-md;
 }
 
+.cardsSection {
+  margin-top: $space-md;
+  padding-top: $space-md;
+  border-top: 1px solid $color-border;
+}
+
+.cardsTitle {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: $color-text-muted;
+  margin: 0 0 $space-sm;
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: $space-xs;
+}
+
+.cardItem {
+  display: flex;
+  align-items: center;
+  gap: $space-xs;
+  background: $color-background;
+  border: 1px solid $color-border;
+  border-radius: $radius-sm;
+  padding: $space-xs;
+}
+
+.cardImage {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: $radius-sm;
+  background-image: var(--img);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  flex-shrink: 0;
+}
+
+.cardImagePlaceholder {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: $radius-sm;
+  background: $color-background-secondary;
+  border: 1px solid $color-border;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-text-muted;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+.cardInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  min-width: 0;
+}
+
+.cardName {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: $color-text-primary;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cardMeta {
+  font-size: 0.6875rem;
+  color: $color-text-muted;
+}
+
+.cardTag {
+  font-size: 0.625rem;
+  color: $color-accent-light;
+  background-color: rgba($color-accent, 0.1);
+  padding: 0.0625rem 0.3125rem;
+  border-radius: 0.1875rem;
+  align-self: flex-start;
+}
+
 .footer {
   display: flex;
   justify-content: flex-end;

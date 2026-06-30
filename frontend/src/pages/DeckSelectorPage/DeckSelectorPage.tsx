@@ -1,7 +1,7 @@
 import { CSSProperties, useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { getCharacters, getMyDecks } from '../../api'
-import { Character, Deck, User } from '../../types'
+import { getCharacters, getMyDecks, getCardsByCharacter } from '../../api'
+import { Card as CardType, Character, Deck, User } from '../../types'
 import { Button, LoadingState } from '../../components/ui'
 import styles from './DeckSelectorPage.module.scss'
 
@@ -15,6 +15,7 @@ export default function DeckSelectorPage({ user }: DeckSelectorPageProps) {
 
   const [characters, setCharacters] = useState<Character[]>([])
   const [decks, setDecks] = useState<Deck[]>([])
+  const [cardsByCharacter, setCardsByCharacter] = useState<Record<string, CardType[]>>({})
   const [selectedDecks, setSelectedDecks] = useState<Record<string, string>>({})
   const [selectedIds, setSelectedIds] = useState<string[]>([])
   const [teamName, setTeamName] = useState('')
@@ -43,12 +44,31 @@ export default function DeckSelectorPage({ user }: DeckSelectorPageProps) {
         ])
         setCharacters(allChars)
         setDecks(myDecks)
+
+        const charactersInTeam = user
+          ? allChars.filter((c) => location.state && (location.state as Record<string, unknown>).selectedIds
+            ? (location.state as { selectedIds: string[] }).selectedIds.includes(c.id)
+            : false)
+          : []
+
+        const cardMap: Record<string, CardType[]> = {}
+        await Promise.all(
+          charactersInTeam.map(async (c) => {
+            try {
+              const result = await getCardsByCharacter(c.id)
+              cardMap[c.id] = result.cards
+            } catch {
+              cardMap[c.id] = []
+            }
+          }),
+        )
+        setCardsByCharacter(cardMap)
       } catch (err) {
         console.error('Failed to load data', err)
       }
     }
     load()
-  }, [user])
+  }, [user]) // eslint-disable-line react-hooks/exhaustive-deps
 
   function handleSelectDeck(characterId: string, deckId: string) {
     setSelectedDecks((prev) => {
@@ -78,6 +98,11 @@ export default function DeckSelectorPage({ user }: DeckSelectorPageProps) {
     return decks.filter((d) => d.characterUid === characterId)
   }
 
+  function getDeckCards(deck: Deck): CardType[] {
+    const charCards = cardsByCharacter[deck.characterUid] ?? []
+    return charCards.filter((c) => deck.cardIds.includes(c.uid))
+  }
+
   const selectedCharacters = characters.filter((c) => selectedIds.includes(c.id))
 
   return (
@@ -94,6 +119,8 @@ export default function DeckSelectorPage({ user }: DeckSelectorPageProps) {
           {selectedCharacters.map((character) => {
             const charDecks = getDecksForCharacter(character.uid)
             const selectedDeckId = selectedDecks[character.id]
+            const selectedDeck = selectedDeckId ? decks.find((d) => d.uid === selectedDeckId) : null
+            const deckCards = selectedDeck ? getDeckCards(selectedDeck) : []
 
             return (
               <div key={character.id} className={styles.characterSection}>
@@ -135,6 +162,33 @@ export default function DeckSelectorPage({ user }: DeckSelectorPageProps) {
                     </button>
                   ))}
                 </div>
+
+                {selectedDeck && deckCards.length > 0 && (
+                  <div className={styles.cardsSection}>
+                    <h4 className={styles.cardsTitle}>Cards in {selectedDeck.name}</h4>
+                    <div className={styles.cardsGrid}>
+                      {deckCards.map((card) => (
+                        <div key={card.uid} className={styles.cardItem}>
+                          {card.imageUrl ? (
+                            <div
+                              className={styles.cardImage}
+                              style={{ '--img': `url(${card.imageUrl})` } as CSSProperties}
+                            />
+                          ) : (
+                            <div className={styles.cardImagePlaceholder}>?</div>
+                          )}
+                          <div className={styles.cardInfo}>
+                            <span className={styles.cardName}>{card.name}</span>
+                            <span className={styles.cardMeta}>{card.type} &middot; AP {card.apCost}</span>
+                            {card.tags && card.tags.length > 0 && (
+                              <span className={styles.cardTag}>{card.tags[0].tagName}</span>
+                            )}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             )
           })}
