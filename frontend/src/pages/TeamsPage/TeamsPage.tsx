@@ -47,7 +47,7 @@ export default function TeamsPage({ user }: TeamsPageProps) {
         selectedIds: team.characters.map((c) => c.id),
         teamName: team.name,
         editingTeamId: team.uid,
-        deckIds: team.decks ?? [],
+        deckIds: (team.decks ?? []).map((d) => d.uid),
       },
     })
   }

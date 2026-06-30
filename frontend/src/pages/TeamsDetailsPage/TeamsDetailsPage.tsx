@@ -58,14 +58,15 @@ export default function TeamsDetailsPage({ user }: TeamsDetailsPageProps) {
         selectedIds: team.characters.map((c) => c.id),
         teamName: team.name,
         editingTeamId: team.uid,
-        deckIds: team.decks ?? [],
+        deckIds: (team.decks ?? []).map((d) => d.uid),
       },
     })
   }
 
   function getDeckForCharacter(character: { uid: string; id: string }): Deck | undefined {
+    const teamDeckUids = new Set((team.decks ?? []).map((d) => d.uid))
     return decks.find(
-      (d) => team.decks?.includes(d.uid) && d.characterUid === character.uid,
+      (d) => teamDeckUids.has(d.uid) && d.characterUid === character.uid,
     )
   }
 

@@ -5,8 +5,23 @@ import { Card as CardType, Character, Deck, User } from '../../types'
 import { Button, LoadingState } from '../../components/ui'
 import styles from './DeckSelectorPage.module.scss'
 
+const affinityColors: Record<string, string> = {
+  passion: '#e74c3c',
+  order: '#3498db',
+  justice: '#f1c40f',
+  void: '#9b59b6',
+  instinct: '#2ecc71',
+}
+
 interface DeckSelectorPageProps {
   user: User | null
+}
+
+function getDeckAffinitySummary(deck: Deck, cardsByCharacter: Record<string, CardType[]>): string[] {
+  const charCards = cardsByCharacter[deck.characterUid] ?? []
+  const deckCards = charCards.filter((c) => deck.cardIds.includes(c.uid))
+  const affinities = new Set(deckCards.map((c) => c.affinity?.toLowerCase()).filter(Boolean))
+  return Array.from(affinities)
 }
 
 export default function DeckSelectorPage({ user }: DeckSelectorPageProps) {
@@ -140,27 +155,49 @@ export default function DeckSelectorPage({ user }: DeckSelectorPageProps) {
                 <div className={styles.deckList}>
                   <button
                     type="button"
-                    className={`${styles.deckOption} ${!selectedDeckId ? styles.deckOptionSelected : ''}`}
+                    className={`${styles.noDeckOption} ${!selectedDeckId ? styles.noDeckOptionSelected : ''}`}
                     onClick={() => handleSelectDeck(character.id, '')}
                   >
-                    <span className={styles.deckOptionName}>No deck</span>
+                    No deck selected
                   </button>
                   {charDecks.length === 0 && (
                     <p className={styles.emptyDecks}>No decks saved for this character.</p>
                   )}
-                  {charDecks.map((deck) => (
-                    <button
-                      key={deck.uid}
-                      type="button"
-                      className={`${styles.deckOption} ${selectedDeckId === deck.uid ? styles.deckOptionSelected : ''}`}
-                      onClick={() => handleSelectDeck(character.id, deck.uid)}
-                    >
-                      <span className={styles.deckOptionName}>{deck.name}</span>
-                      <span className={styles.deckOptionMeta}>
-                        {deck.cardIds.length} card{deck.cardIds.length !== 1 ? 's' : ''}
-                      </span>
-                    </button>
-                  ))}
+                  {charDecks.map((deck) => {
+                    const affinities = getDeckAffinitySummary(deck, cardsByCharacter)
+                    return (
+                      <button
+                        key={deck.uid}
+                        type="button"
+                        className={`${styles.deckOption} ${selectedDeckId === deck.uid ? styles.deckOptionSelected : ''}`}
+                        onClick={() => handleSelectDeck(character.id, deck.uid)}
+                      >
+                        <div className={styles.deckOptionChars}>
+                          <div
+                            className={styles.deckOptionAvatar}
+                            style={{ '--img': `url(${character.imageUrl})` } as CSSProperties}
+                          />
+                        </div>
+                        <div className={styles.deckOptionInfo}>
+                          <span className={styles.deckOptionName}>{deck.name}</span>
+                          <span className={styles.deckOptionMeta}>
+                            {deck.cardIds.length} card{deck.cardIds.length !== 1 ? 's' : ''}
+                          </span>
+                        </div>
+                        {affinities.length > 0 && (
+                          <div className={styles.deckOptionAffinities}>
+                            {affinities.map((aff) => (
+                              <span
+                                key={aff}
+                                className={styles.affinityDot}
+                                style={{ '--affinity-color': affinityColors[aff] || '#555' } as CSSProperties}
+                              />
+                            ))}
+                          </div>
+                        )}
+                      </button>
+                    )
+                  })}
                 </div>
 
                 {selectedDeck && deckCards.length > 0 && (
@@ -177,11 +214,34 @@ export default function DeckSelectorPage({ user }: DeckSelectorPageProps) {
                           ) : (
                             <div className={styles.cardImagePlaceholder}>?</div>
                           )}
-                          <div className={styles.cardInfo}>
-                            <span className={styles.cardName}>{card.name}</span>
-                            <span className={styles.cardMeta}>{card.type} &middot; AP {card.apCost}</span>
-                            {card.tags && card.tags.length > 0 && (
-                              <span className={styles.cardTag}>{card.tags[0].tagName}</span>
+                          <div className={styles.cardBody}>
+                            <div className={styles.cardNameRow}>
+                              <span className={styles.cardName}>{card.name}</span>
+                              <span
+                                className={styles.cardAffinity}
+                                style={{ '--affinity-color': affinityColors[card.affinity?.toLowerCase()] || '#555' } as CSSProperties}
+                              >
+                                {card.affinity}
+                              </span>
+                            </div>
+                            <div className={styles.cardMeta}>
+                              <span className={styles.cardType}>{card.type}</span>
+                              {card.subType && <span className={styles.cardSubType}>{card.subType}</span>}
+                              <span className={styles.cardApCost}>AP {card.apCost}</span>
+                            </div>
+                            {card.tags && card.tags.length > 0 && card.tags[0].tagName && (
+                              <div className={styles.cardMeta}>
+                                <span className={styles.cardType}>{card.tags[0].tagName}</span>
+                              </div>
+                            )}
+                            {card.effect && card.effect.length > 0 && (
+                              <ul className={styles.cardEffects}>
+                                {card.effect.slice(0, 2).map((eff, i) => (
+                                  <li key={i} className={`${styles.cardEffect} ${styles.cardEffectClamped}`}>
+                                    {eff}
+                                  </li>
+                                ))}
+                              </ul>
                             )}
                           </div>
                         </div>

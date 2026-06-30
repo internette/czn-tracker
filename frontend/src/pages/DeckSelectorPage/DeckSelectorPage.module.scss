@@ -1,7 +1,7 @@
 @use '../../styles/tokens' as *;
 
 .container {
-  max-width: 48rem;
+  max-width: 64rem;
   margin: 0 auto;
   padding: $space-xl;
 }
@@ -120,7 +120,7 @@
 .deckOption {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: $space-sm;
   width: 100%;
   background: $color-background;
   border: 1px solid $color-border;
@@ -143,6 +143,31 @@
   box-shadow: 0 0 0 1px $color-accent;
 }
 
+.deckOptionChars {
+  display: flex;
+  align-items: center;
+  gap: $space-xs;
+}
+
+.deckOptionAvatar {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: $radius-sm;
+  background-image: var(--img);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: $color-background;
+  flex-shrink: 0;
+}
+
+.deckOptionInfo {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
 .deckOptionName {
   font-weight: 600;
   font-size: 0.875rem;
@@ -151,6 +176,46 @@
 .deckOptionMeta {
   color: $color-text-muted;
   font-size: 0.75rem;
+}
+
+.deckOptionAffinities {
+  display: flex;
+  gap: 3px;
+  flex-shrink: 0;
+}
+
+.affinityDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--affinity-color);
+}
+
+.noDeckOption {
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
+  width: 100%;
+  background: transparent;
+  border: 1px dashed $color-border;
+  border-radius: $radius-md;
+  padding: $space-sm $space-md;
+  color: $color-text-muted;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+  text-align: left;
+  font-style: italic;
+
+  &:hover {
+    border-color: $color-accent;
+    color: $color-text-primary;
+  }
+}
+
+.noDeckOptionSelected {
+  border-color: $color-accent;
+  color: $color-text-primary;
+  background-color: rgba($color-accent, 0.05);
 }
 
 .emptyDecks {
@@ -175,37 +240,34 @@
 
 .cardsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: $space-xs;
 }
 
 .cardItem {
   display: flex;
-  align-items: center;
-  gap: $space-xs;
+  flex-direction: column;
   background: $color-background;
   border: 1px solid $color-border;
   border-radius: $radius-sm;
-  padding: $space-xs;
+  overflow: hidden;
 }
 
 .cardImage {
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: $radius-sm;
+  width: 100%;
+  height: 100px;
   background-image: var(--img);
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+  background-color: $color-background;
   flex-shrink: 0;
 }
 
 .cardImagePlaceholder {
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: $radius-sm;
-  background: $color-background-secondary;
-  border: 1px solid $color-border;
+  width: 100%;
+  height: 100px;
+  background: $color-background;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -214,11 +276,18 @@
   flex-shrink: 0;
 }
 
-.cardInfo {
+.cardBody {
+  padding: $space-xs;
   display: flex;
   flex-direction: column;
-  gap: 0.125rem;
-  min-width: 0;
+  gap: 3px;
+}
+
+.cardNameRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: $space-xs;
 }
 
 .cardName {
@@ -228,20 +297,59 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  min-width: 0;
+}
+
+.cardAffinity {
+  font-size: 9px;
+  font-weight: 600;
+  color: #fff;
+  padding: 1px 6px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  background: var(--affinity-color);
+  flex-shrink: 0;
 }
 
 .cardMeta {
-  font-size: 0.6875rem;
-  color: $color-text-muted;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
 }
 
-.cardTag {
-  font-size: 0.625rem;
-  color: $color-accent-light;
-  background-color: rgba($color-accent, 0.1);
-  padding: 0.0625rem 0.3125rem;
-  border-radius: 0.1875rem;
-  align-self: flex-start;
+.cardType,
+.cardSubType,
+.cardApCost {
+  font-size: 10px;
+  color: #6b7199;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 1px 6px;
+  border-radius: 3px;
+}
+
+.cardEffects {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.cardEffect {
+  font-size: 10px;
+  color: #94a3b8;
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cardEffectClamped {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: normal;
 }
 
 .footer {
