@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { getCharacters, getCardsByCharacter, createDeck } from '../../api'
 import { Card, Character, User } from '../../types'
 import { LoadingState } from '../../components/ui'
-import { TextInput } from '../../components/common'
+import { Dropdown, TextInput } from '../../components/common'
 import CardGridItem from './CardGridItem'
 import SidebarCardItem from './SidebarCardItem'
 import styles from './DeckBuilderPage.module.scss'
@@ -108,8 +108,7 @@ export default function DeckBuilderPage({ user }: DeckBuilderPageProps) {
 
       <div className={styles.selector}>
         <label className={styles.label}>Character</label>
-        <select
-          className={styles.select}
+        <Dropdown
           value={selectedCharacter}
           onChange={(e) => setSelectedCharacter(e.target.value)}
         >
@@ -119,7 +118,7 @@ export default function DeckBuilderPage({ user }: DeckBuilderPageProps) {
               {character.name}
             </option>
           ))}
-        </select>
+        </Dropdown>
       </div>
 
       {selectedCharacter && (

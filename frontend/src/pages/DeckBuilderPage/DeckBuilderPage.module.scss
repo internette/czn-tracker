@@ -34,28 +34,6 @@
   margin-bottom: 6px;
 }
 
-.select {
-  width: 100%;
-  max-width: 360px;
-  background: #111425;
-  border: 0.5px solid #252b42;
-  border-radius: 8px;
-  padding: 10px 14px;
-  font-size: 14px;
-  color: #e5e7eb;
-  outline: none;
-  cursor: pointer;
-  transition: border-color 0.15s ease;
-
-  &:hover {
-    border-color: #3d4a70;
-  }
-
-  &:focus {
-    border-color: #3d4a70;
-  }
-}
-
 .search {
   margin-bottom: $space-lg;
 }
