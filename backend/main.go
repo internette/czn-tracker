@@ -937,6 +937,55 @@ func (s *Store) ListDecksByUser(ctx context.Context, createdBy string) ([]Deck, 
 	return decks, nil
 }
 
+func (s *Store) ListDecks(ctx context.Context, limit, offset int) ([]Deck, int, error) {
+	var total int
+	err := s.db.QueryRowContext(ctx, `SELECT COUNT(*) FROM decks`).Scan(&total)
+	if err != nil {
+		return nil, 0, err
+	}
+
+	rows, err := s.db.QueryContext(ctx, `
+		SELECT uid, name, character_uid, card_ids, created_by, created_date
+		FROM decks
+		ORDER BY created_date DESC
+		LIMIT ? OFFSET ?
+	`, limit, offset)
+	if err != nil {
+		return nil, 0, err
+	}
+	defer rows.Close()
+
+	var decks []Deck
+
+	for rows.Next() {
+		var deck Deck
+		var cardIDsJSON string
+
+		if err := rows.Scan(
+			&deck.UID,
+			&deck.Name,
+			&deck.CharacterUID,
+			&cardIDsJSON,
+			&deck.CreatedBy,
+			&deck.CreatedDate,
+		); err != nil {
+			return nil, 0, err
+		}
+
+		if cardIDsJSON != "" {
+			_ = json.Unmarshal([]byte(cardIDsJSON), &deck.CardIDs)
+		}
+
+		decks = append(decks, deck)
+	}
+
+	if err := rows.Err(); err != nil {
+		return nil, 0, err
+	}
+
+	return decks, total, nil
+}
+
 func main() {
 	dbPath := filepath.Join("data", "czn-tracker.db")
 	if err := os.MkdirAll("data", 0755); err != nil {
@@ -1757,6 +1806,37 @@ func main() {
 		}
 
 		c.JSON(http.StatusOK, decks)
+	})
+
+	api.GET("/decks", func(c *gin.Context) {
+		limitStr := c.DefaultQuery("limit", "20")
+		pageStr := c.DefaultQuery("page", "1")
+
+		limit, err := strconv.Atoi(limitStr)
+		if err != nil || limit <= 0 || limit > 100 {
+			limit = 20
+		}
+
+		page, err := strconv.Atoi(pageStr)
+		if err != nil || page <= 0 {
+			page = 1
+		}
+
+		offset := (page - 1) * limit
+
+		decks, total, err := store.ListDecks(c.Request.Context(), limit, offset)
+		if err != nil {
+			log.Printf("Error loading decks: %v", err)
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "failed to load decks"})
+			return
+		}
+
+		c.JSON(http.StatusOK, gin.H{
+			"decks": decks,
+			"page":  page,
+			"limit": limit,
+			"total": total,
+		})
 	})
 
 	port := os.Getenv("PORT")
