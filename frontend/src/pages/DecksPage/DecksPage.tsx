@@ -28,7 +28,7 @@ export default function DecksPage() {
       setLoading(true)
       try {
         const response = await getDecks(page, limit)
-        setDecks(response.decks)
+        setDecks(response.decks ?? [])
         setTotal(response.total)
       } finally {
         setLoading(false)

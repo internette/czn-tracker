@@ -58,7 +58,7 @@ export default function DeckSelectorPage({ user }: DeckSelectorPageProps) {
           user ? getMyDecks() : Promise.resolve([]),
         ])
         setCharacters(allChars)
-        setDecks(myDecks)
+        setDecks(myDecks ?? [])
 
         const charactersInTeam = user
           ? allChars.filter((c) => location.state && (location.state as Record<string, unknown>).selectedIds

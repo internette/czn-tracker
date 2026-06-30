@@ -1140,6 +1140,10 @@ func (s *Store) ListDecksByUser(ctx context.Context, createdBy string) ([]Deck, 
 		return nil, err
 	}
 
+	if decks == nil {
+		return []Deck{}, nil
+	}
+
 	return decks, nil
 }
 
@@ -1189,6 +1193,10 @@ func (s *Store) ListDecks(ctx context.Context, limit, offset int) ([]Deck, int, 
 
 	if err := rows.Err(); err != nil {
 		return nil, 0, err
+	}
+
+	if decks == nil {
+		decks = []Deck{}
 	}
 
 	// Hydrate cards
