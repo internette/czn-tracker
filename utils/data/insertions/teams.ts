@@ -31,6 +31,7 @@ async function setupDatabase() {
             uid TEXT PRIMARY KEY,
             name TEXT NOT NULL,
             character_ids TEXT NOT NULL,
+            decks_ids TEXT NOT NULL,
             created_date TEXT NOT NULL,
             created_by TEXT NOT NULL
         )
