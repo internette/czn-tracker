@@ -40,12 +40,13 @@ export default function DeckBuilderPage({ user }: DeckBuilderPageProps) {
       setCards([])
       return
     }
+    setCards([])
+    setCounts({})
     const fetchCards = async () => {
       try {
         setLoadingCards(true)
         const response = await getCardsByCharacter(selectedCharacter)
         setCards(response.cards)
-        setCounts({})
       } finally {
         setLoadingCards(false)
       }
