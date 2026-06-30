@@ -2,7 +2,7 @@ import { CSSProperties, useEffect, useState } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { getTeam, getMyDecks, getCardsByCharacter } from '../../api'
 import { Card, Character, Deck, Team, User } from '../../types'
-import { LoadingState, Button } from '../../components/ui'
+import { LoadingState, Button, Pill } from '../../components/ui'
 import styles from './TeamsDetailsPage.module.scss'
 
 interface TeamsDetailsPageProps {
@@ -124,9 +124,9 @@ export default function TeamsDetailsPage({ user }: TeamsDetailsPageProps) {
                     <Link to={`/characters/${character.id}`} className={styles.characterName}>
                       {character.name}
                     </Link>
-                    <span className={`${styles.badge} ${styles[character.attribute.toLowerCase()]}`}>
+                    <Pill variant={character.attribute.toLowerCase()}>
                       {character.attribute}
-                    </span>
+                    </Pill>
                   </div>
                   <div className={styles.statsRow}>
                     <span>Tier: {character.tier}</span>

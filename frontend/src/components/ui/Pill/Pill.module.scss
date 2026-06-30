@@ -1,0 +1,34 @@
+@use '../../../styles/tokens' as *;
+
+.pill {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.125rem 0.5rem;
+  border-radius: 999px;
+  align-self: flex-start;
+}
+
+.passion {
+  background-color: rgba($passion-color, 0.2);
+  color: $passion-color;
+}
+
+.instinct {
+  background-color: rgba($instinct-color, 0.2);
+  color: $instinct-color;
+}
+
+.order {
+  background-color: rgba($order-color, 0.2);
+  color: $order-color;
+}
+
+.justice {
+  background-color: rgba($justice-color, 0.2);
+  color: $justice-color;
+}
+
+.void {
+  background-color: rgba($void-color, 0.2);
+  color: $void-color;
+}
