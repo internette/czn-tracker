@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { getCharacters } from '../../api'
 import { Character, User } from '../../types'
-import { Button, Card, Grid, LoadingState, TextInput } from '../../components/ui'
+import { Button, Card, Dropdown, Grid, LoadingState, TextInput } from '../../components/ui'
 import { CharacterCard } from '../../components/common'
 import styles from './CharactersPage.module.scss'
 
@@ -97,8 +97,7 @@ export default function CharactersPage({ user }: CharactersPageProps) {
             onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
-        <select
-          className={styles['characters-page__sort-sel']}
+        <Dropdown
           value={sortMode}
           onChange={(e) => setSortMode(e.target.value)}
         >
@@ -106,7 +105,7 @@ export default function CharactersPage({ user }: CharactersPageProps) {
           <option value="level">Sort: Level</option>
           <option value="rarity">Sort: Rarity</option>
           <option value="name">Sort: Name A–Z</option>
-        </select>
+        </Dropdown>
       </div>
       <div className={styles['characters-page__attribute-filters']}>
         {attributeTypes.map((attr) => (
