@@ -1,157 +1,205 @@
 @use '../../styles/tokens' as *;
 
 .mostUsedCharacters {
-    display: flex;
+  display: flex;
 }
 
 .topCharacterListItem__icon {
-    width: 3rem;
-    height: 3rem;
-    background-image: var(--img);
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: inline-block;
-    border-radius: 0.5rem;
+  width: 3rem;
+  height: 3rem;
+  background-image: var(--img);
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: inline-block;
+  border-radius: 0.5rem;
 }
 
 .topCharactersList {
-    counter-reset: item;
-    list-style: none;
-    padding: 2.5rem 3rem;
-    width: 100%;
-    background-color: $color-background;
-    border: 1px solid $color-border;
+  counter-reset: item;
+  list-style: none;
+  padding: 2.5rem 3rem;
+  width: 100%;
+  background-color: $color-background;
+  border: 1px solid $color-border;
 }
 
 .topCharacterListItem {
-    counter-increment: item;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    border: 1px solid $color-border;
-    border-radius: 0.5rem;
-    padding: 0.6rem 1.25rem;
-    background-color: $color-background-secondary;
-    &::before {
-        content: counter(item);
-        font-size: 0.8rem;
-        font-weight: 600;
-        color: $color-text-muted;
-    }
-    &:not(:last-child) {
-        margin-bottom: 0.75rem;
-    }
+  counter-increment: item;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border: 1px solid $color-border;
+  border-radius: 0.5rem;
+  padding: 0.6rem 1.25rem;
+  background-color: $color-background-secondary;
+  &::before {
+    content: counter(item);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: $color-text-muted;
+  }
+  &:not(:last-child) {
+    margin-bottom: 0.75rem;
+  }
 }
 
 .topCharacterListItem__details {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .topCharacterListItem__attribute {
-    font-weight: 600;
-    &.passion {
-        color: $passion-color;
-    }
-    &.instinct {
-        color: $instinct-color;
-    }
-    &.order {
-        color: $order-color;
-    }
-    &.justice {
-        color: $justice-color;
-    }
-    &.void {
-        color: $void-color;
-    }
+  font-weight: 600;
+  &.passion {
+    color: $passion-color;
+  }
+  &.instinct {
+    color: $instinct-color;
+  }
+  &.order {
+    color: $order-color;
+  }
+  &.justice {
+    color: $justice-color;
+  }
+  &.void {
+    color: $void-color;
+  }
 }
 
 .topCharacterListItem__countDetails {
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .topCharacterListItem__teamCount {
-    color: $color-text-muted;
-    span {
-        color: white;
-    }
+  color: $color-text-muted;
+  span {
+    color: white;
+  }
 }
 
 .topCharacterListItem__percentageBar {
-    height: 0.5rem;
-    width: 8rem;
-    border-radius: 4rem;
-    border: 1px solid $color-border;
-    background-image: var(--grad);
-    &.passion {
-        background-color: $passion-color;
-    }
-    &.instinct {
-        background-color: $instinct-color;
-    }
-    &.order {
-        background-color: $order-color;
-    }
-    &.justice {
-        background-color: $justice-color;
-    }
-    &.void {
-        background-color: $void-color;
-    }
+  height: 0.5rem;
+  width: 8rem;
+  border-radius: 4rem;
+  border: 1px solid $color-border;
+  background-image: var(--grad);
+  &.passion {
+    background-color: $passion-color;
+  }
+  &.instinct {
+    background-color: $instinct-color;
+  }
+  &.order {
+    background-color: $order-color;
+  }
+  &.justice {
+    background-color: $justice-color;
+  }
+  &.void {
+    background-color: $void-color;
+  }
 }
 
 .deckGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: $space-md;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: $space-md;
 }
 
 .deckTile {
-    display: flex;
-    gap: $space-md;
-    background: $color-background;
-    border: 1px solid $color-border;
-    border-radius: 10px;
-    overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: #111425;
+  border: 0.5px solid #252b42;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-.deckTileImage {
-    width: 100px;
-    flex-shrink: 0;
-    background-image: var(--img);
-    background-size: cover;
-    background-position: center;
-    background-color: $color-background-secondary;
+.deckTileHeader {
+  display: flex;
+  align-items: center;
+  gap: $space-md;
+  padding: $space-md;
+  border-bottom: 0.5px solid #252b42;
 }
 
-.deckTileBody {
-    flex: 1;
-    padding: $space-md $space-md $space-md 0;
-    min-width: 0;
+.deckTileCharacterImage {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  background-image: var(--img);
+  background-size: cover;
+  background-position: center;
+  background-color: #0b1220;
+  flex-shrink: 0;
+}
+
+.deckTileInfo {
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .deckTileName {
-    font-size: 14px;
-    font-weight: 600;
-    color: $color-text-primary;
-    margin: 0 0 $space-xs;
+  font-size: 14px;
+  font-weight: 600;
+  color: #e5e7eb;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.deckTileCardList {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
+.deckTileMeta {
+  font-size: 11px;
+  color: #6b7199;
+  margin: 0;
 }
 
-.deckTileCardItem {
-    font-size: 12px;
-    color: $color-text-muted;
-    line-height: 1.4;
+.deckTileCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(56px, 1fr));
+  gap: 6px;
+  padding: $space-md;
+}
+
+.deckTileCard {
+  display: flex;
+  flex-direction: column;
+  background: #0b1220;
+  border: 0.5px solid #252b42;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.deckTileCardImage {
+  width: 100%;
+  aspect-ratio: 1;
+  background-image: var(--img);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #0b1220;
+}
+
+.deckTileCardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 4px;
+}
+
+.deckTileCardName {
+  font-size: 10px;
+  font-weight: 500;
+  color: #e5e7eb;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

@@ -161,18 +161,41 @@ export default function AccountPage({ user }: AccountPageProps) {
               const character = charactersMap[deck.characterUid]
               return (
                 <div key={deck.uid} className={styles.deckTile}>
-                  <div
-                    className={styles.deckTileImage}
-                    style={{ '--img': `url(${character?.imageUrl || ''})` } as CSSProperties}
-                  />
-                  <div className={styles.deckTileBody}>
-                    <h3 className={styles.deckTileName}>{deck.name}</h3>
-                    <ul className={styles.deckTileCardList}>
-                      {deck.cardIds.map((cardUid) => {
+                  <div className={styles.deckTileHeader}>
+                    <div
+                      className={styles.deckTileCharacterImage}
+                      style={{ '--img': `url(${character?.imageUrl || ''})` } as CSSProperties}
+                    />
+                    <div className={styles.deckTileInfo}>
+                      <h3 className={styles.deckTileName}>{deck.name}</h3>
+                      <p className={styles.deckTileMeta}>
+                        {character?.name || 'Unknown character'} &middot; {deck.cardIds.length} card{deck.cardIds.length !== 1 ? 's' : ''}
+                      </p>
+                    </div>
+                  </div>
+                  <div className={styles.deckTileCards}>
+                    {deck.cardIds.length > 0 ? (
+                      deck.cardIds.map((cardUid) => {
                         const card = cardsMap[cardUid]
-                        return <li key={cardUid} className={styles.deckTileCardItem}>{card?.name || cardUid}</li>
-                      })}
-                    </ul>
+                        return (
+                          <div key={cardUid} className={styles.deckTileCard}>
+                            {card?.imageUrl ? (
+                              <div
+                                className={styles.deckTileCardImage}
+                                style={{ '--img': `url(${card.imageUrl})` } as CSSProperties}
+                              />
+                            ) : (
+                              <div className={styles.deckTileCardImage} />
+                            )}
+                            <div className={styles.deckTileCardBody}>
+                              <span className={styles.deckTileCardName}>{card?.name || cardUid.slice(0, 8)}</span>
+                            </div>
+                          </div>
+                        )
+                      })
+                    ) : (
+                      <p>No cards</p>
+                    )}
                   </div>
                 </div>
               )
