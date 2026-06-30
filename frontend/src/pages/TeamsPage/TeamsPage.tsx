@@ -51,8 +51,8 @@ export default function TeamsPage({ user }: TeamsPageProps) {
     <div>
       <div className={styles.container}>
         <section className={styles.pageHeader}>
-          <Link to="/" className={styles.backLink}>← Back to characters</Link>
           <h2 className={styles.sectionTitle}>Teams</h2>
+          <p>Go to the <Link to="/teams/build">Team Builder</Link> to create your own team.</p>
         </section>
         <section className={styles.savedTeamsSection}>
           {teams.length === 0 ? (
