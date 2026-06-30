@@ -107,6 +107,7 @@ type Team struct {
 	UID         string      `json:"uid"`
 	Name        string      `json:"name"`
 	Characters  []Character `json:"characters"`
+	Decks       []string    `json:"decks"`
 	CreatedDate string      `json:"createdDate"`
 	CreatedBy   string      `json:"createdBy"`
 }
@@ -132,11 +133,13 @@ type Card struct {
 type CreateTeamInput struct {
 	Name         string   `json:"name"`
 	CharacterIDs []string `json:"characterIds"`
+	DeckIDs      []string `json:"deckIds"`
 }
 
 type UpdateTeamInput struct {
 	Name         string   `json:"name"`
 	CharacterIDs []string `json:"characterIds"`
+	DeckIDs      []string `json:"deckIds"`
 }
 
 type DeckCard struct {
@@ -721,17 +724,26 @@ func (s *Store) CreateTeam(ctx context.Context, input CreateTeamInput, createdBy
 	}
 
 	createdDate := time.Now().UTC().Format(time.RFC3339)
+	decksIDs, _ := json.Marshal(input.DeckIDs)
 
 	_, err = s.db.ExecContext(ctx, `
 		INSERT INTO teams (
 			uid,
 			name,
 			character_ids,
+			decks_ids,
 			created_date,
 			created_by
 		)
-		VALUES (?, ?, ?, ?, ?)
-	`, uid, input.Name, string(characterIDs), createdDate, createdBy)
+		VALUES (?, ?, ?, ?, ?, ?)
+	`,
+		uid,
+		input.Name,
+		string(characterIDs),
+		string(decksIDs),
+		createdDate,
+		createdBy,
+	)
 	if err != nil {
 		return Team{}, err
 	}
@@ -761,6 +773,7 @@ func (s *Store) ListTeams(ctx context.Context) ([]Team, error) {
 			uid,
 			name,
 			character_ids,
+			decks_ids,
 			created_date,
 			created_by
 		FROM teams
@@ -776,11 +789,13 @@ func (s *Store) ListTeams(ctx context.Context) ([]Team, error) {
 	for rows.Next() {
 		var team Team
 		var characterIDsJSON string
+		var decksIDsJSON string
 
 		if err := rows.Scan(
 			&team.UID,
 			&team.Name,
 			&characterIDsJSON,
+			&decksIDsJSON,
 			&team.CreatedDate,
 			&team.CreatedBy,
 		); err != nil {
@@ -800,6 +815,12 @@ func (s *Store) ListTeams(ctx context.Context) ([]Team, error) {
 
 			team.Characters = append(team.Characters, character)
 		}
+
+		var deckIDs []string
+		if decksIDsJSON != "" {
+			_ = json.Unmarshal([]byte(decksIDsJSON), &deckIDs)
+		}
+		team.Decks = deckIDs
 
 		teams = append(teams, team)
 	}
@@ -875,12 +896,14 @@ func (s *Store) ListTeamsByUser(ctx context.Context, createdBy string) ([]Team, 
 func (s *Store) GetTeamByID(ctx context.Context, uid string) (Team, error) {
 	var team Team
 	var characterIDsJSON string
+	var decksIDsJSON string
 
 	err := s.db.QueryRowContext(ctx, `
 		SELECT
 			uid,
 			name,
 			character_ids,
+			decks_ids,
 			created_date,
 			created_by
 		FROM teams
@@ -889,6 +912,7 @@ func (s *Store) GetTeamByID(ctx context.Context, uid string) (Team, error) {
 		&team.UID,
 		&team.Name,
 		&characterIDsJSON,
+		&decksIDsJSON,
 		&team.CreatedDate,
 		&team.CreatedBy,
 	)
@@ -909,6 +933,12 @@ func (s *Store) GetTeamByID(ctx context.Context, uid string) (Team, error) {
 
 		team.Characters = append(team.Characters, character)
 	}
+
+	var deckIDs []string
+	if decksIDsJSON != "" {
+		_ = json.Unmarshal([]byte(decksIDsJSON), &deckIDs)
+	}
+	team.Decks = deckIDs
 
 	return team, nil
 }
@@ -1830,13 +1860,14 @@ func main() {
 		}
 
 		var existingName string
-		var existingJSON string
+		var existingCharactersJSON string
+		var existingDecksJSON string
 
 		err := store.db.QueryRowContext(c.Request.Context(), `
-			SELECT name, character_ids
+			SELECT name, character_ids, decks_ids
 			FROM teams
 			WHERE uid = ?
-		`, id).Scan(&existingName, &existingJSON)
+		`, id).Scan(&existingName, &existingCharactersJSON, &existingDecksJSON)
 
 		if err == sql.ErrNoRows {
 			c.JSON(http.StatusNotFound, gin.H{"error": "team not found"})
@@ -1849,8 +1880,13 @@ func main() {
 		}
 
 		var existingIDs []string
-		if existingJSON != "" {
-			_ = json.Unmarshal([]byte(existingJSON), &existingIDs)
+		if existingCharactersJSON != "" {
+			_ = json.Unmarshal([]byte(existingCharactersJSON), &existingIDs)
+		}
+
+		var existingDecks []string
+		if existingDecksJSON != "" {
+			_ = json.Unmarshal([]byte(existingDecksJSON), &existingDecks)
 		}
 
 		newName := existingName
@@ -1861,6 +1897,11 @@ func main() {
 		newIDs := existingIDs
 		if input.CharacterIDs != nil {
 			newIDs = input.CharacterIDs
+		}
+
+		newDecks := existingDecks
+		if input.DeckIDs != nil {
+			newDecks = input.DeckIDs
 		}
 
 		if len(newIDs) == 0 {
@@ -1878,11 +1919,13 @@ func main() {
 			return
 		}
 
+		updatedDecksJSON, _ := json.Marshal(newDecks)
+
 		_, err = store.db.ExecContext(c.Request.Context(), `
 			UPDATE teams
-			SET name = ?, character_ids = ?
+			SET name = ?, character_ids = ?, decks_ids = ?
 			WHERE uid = ?
-		`, newName, string(updatedJSON), id)
+		`, newName, string(updatedJSON), string(updatedDecksJSON), id)
 
 		if err != nil {
 			log.Printf("Error updating team: %v", err)
@@ -1905,6 +1948,7 @@ func main() {
 			UID:         id,
 			Name:        newName,
 			Characters:  characters,
+			Decks:       newDecks,
 			CreatedDate: "",
 		})
 	})

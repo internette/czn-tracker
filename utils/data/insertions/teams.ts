@@ -41,6 +41,10 @@ async function setupDatabase() {
         ALTER TABLE teams ADD COLUMN created_by TEXT NOT NULL DEFAULT ''
     `).catch(() => {});
 
+    await dbRun(`
+        ALTER TABLE teams ADD COLUMN decks_ids TEXT NOT NULL DEFAULT ''
+    `).catch(() => {});
+
     console.log("Teams table created");
 }
 
