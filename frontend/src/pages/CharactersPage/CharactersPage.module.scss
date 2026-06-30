@@ -81,22 +81,7 @@
   }
 
   &__search-input {
-    width: 100%;
-    background: #111425;
-    border: 0.5px solid #252b42;
-    border-radius: 8px;
-    padding: 7px 12px 7px 32px;
-    font-size: 12px;
-    color: #e5e7eb;
-    outline: none;
-
-    &::placeholder {
-      color: #3a4060;
-    }
-
-    &:focus {
-      border-color: #3d4a70;
-    }
+    padding-left: 32px;
   }
 
   &__attribute-filters {
