@@ -1,6 +1,7 @@
-import { useEffect, useState, CSSProperties } from 'react'
+import { useEffect, useState } from 'react'
 import { getDecks, getCharacters } from '../../api'
 import { Character, Deck } from '../../types'
+import DeckCard from '../../components/DeckCard/DeckCard'
 import styles from './DecksPage.module.scss'
 
 export default function DecksPage() {
@@ -51,47 +52,13 @@ export default function DecksPage() {
       ) : (
         <>
           <div className={styles.grid}>
-            {decks.map((deck) => {
-              const character = characters[deck.characterUid]
-              const cards = deck.cards ?? []
-              return (
-                <div key={deck.uid} className={styles.deck}>
-                  <div className={styles.deckHeader}>
-                    <div
-                      className={styles.deckCharacterImage}
-                      style={{ '--img': `url(${character?.imageUrl || ''})` } as CSSProperties}
-                    />
-                    <div className={styles.deckInfo}>
-                      <h3 className={styles.deckName}>{deck.name}</h3>
-                      <p className={styles.deckMeta}>
-                        {character?.name || 'Unknown character'} &middot; {cards.length} card{cards.length !== 1 ? 's' : ''}
-                      </p>
-                      <p className={styles.deckMeta}>By: {deck.createdBy}</p>
-                      <p className={styles.deckMeta}>Created On: {deck.createdDate}</p>
-                    </div>
-                  </div>
-                  <div className={styles.cards}>
-                    {cards.length > 0 ? (
-                      cards.map((card) =>
-                        card.imageUrl ? (
-                          <div
-                            key={card.uid}
-                            className={styles.cardImage}
-                            style={{ '--img': `url(${card.imageUrl})` } as CSSProperties}
-                          />
-                        ) : (
-                          <div key={card.uid} className={styles.cardImagePlaceholder}>
-                            ?
-                          </div>
-                        ),
-                      )
-                    ) : (
-                      <p className={styles.empty}>No cards</p>
-                    )}
-                  </div>
-                </div>
-              )
-            })}
+            {decks.map((deck) => (
+              <DeckCard
+                key={deck.uid}
+                deck={deck}
+                character={characters[deck.characterUid]}
+              />
+            ))}
           </div>
 
           {totalPages > 1 && (
