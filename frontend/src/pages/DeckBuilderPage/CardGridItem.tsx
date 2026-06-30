@@ -1,5 +1,6 @@
 import { CSSProperties } from 'react'
 import { Card } from '../../types'
+import { Button } from '../../components/ui'
 import styles from './CardGridItem.module.scss'
 
 interface CardGridItemProps {
@@ -47,21 +48,13 @@ export default function CardGridItem({ card, count, affinityColors, onIncrement,
         )}
       </div>
       <div className={styles.counter}>
-        <button
-          type="button"
-          className={styles.counterBtn}
-          onClick={() => onDecrement(card.uid)}
-        >
+        <Button variant="secondary" size="sm" ariaLabel="Decrement" onClick={() => onDecrement(card.uid)}>
           &minus;
-        </button>
+        </Button>
         <span className={styles.counterValue}>{count}</span>
-        <button
-          type="button"
-          className={styles.counterBtn}
-          onClick={() => onIncrement(card.uid)}
-        >
+        <Button variant="secondary" size="sm" ariaLabel="Increment" onClick={() => onIncrement(card.uid)}>
           +
-        </button>
+        </Button>
       </div>
     </div>
   )

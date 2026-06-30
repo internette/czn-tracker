@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react'
 import { getCharacters, getCardsByCharacter, createDeck } from '../../api'
 import { Card, Character, User } from '../../types'
-import { LoadingState } from '../../components/ui'
-import { Dropdown, TextInput } from '../../components/ui'
+import { Button, Dropdown, LoadingState, TextInput } from '../../components/ui'
 import CardGridItem from './CardGridItem'
 import SidebarCardItem from './SidebarCardItem'
 import styles from './DeckBuilderPage.module.scss'
@@ -185,9 +184,9 @@ export default function DeckBuilderPage({ user }: DeckBuilderPageProps) {
               <p className={styles.sidebarEmpty}>No cards selected yet.</p>
             )}
           </div>
-          <button type="button" className={styles.saveDeckBtn} onClick={handleSave} disabled={saving}>
+          <Button variant="primary" onClick={handleSave} disabled={saving}>
             {saving ? 'Saving...' : 'Save Deck'}
-          </button>
+          </Button>
         </aside>
       </div>
     </div>

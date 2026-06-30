@@ -180,36 +180,8 @@
   }
 }
 
-.removeSelectedCharacter {
-  background: none;
-  color: $color-text-muted;
-  border: 1px solid $color-text-muted;
-  border-radius: 0.3125rem;
-  padding: 0.3rem 0.6rem;
-  margin-left: auto;
-  font-size: 1.1rem;
-}
-
 .teamBuilderCounter {
   color: $color-text-muted;
-}
-
-.saveButton {
-  width: 100%;
-  margin-top: $space-lg;
-  border-radius: $radius-lg;
-  padding: $space-sm;
-  background: linear-gradient(135deg, $color-accent 0%, $color-accent-light 100%);
-  color: #fff;
-  border: none;
-  font-weight: 700;
-  cursor: pointer;
-  transition: opacity 0.2s ease;
-
-  &:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
 }
 
 .selectedCharacterDetails {

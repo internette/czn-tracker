@@ -16,7 +16,23 @@
 }
 
 .teamHeaderDetails {
+  flex: 1;
   overflow: hidden;
+}
+
+.deleteBtn {
+  flex-shrink: 0;
+  align-self: flex-start;
+  opacity: 0.5;
+  transition: opacity 0.15s ease;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.editButton {
+  margin-left: auto;
 }
 
 .teamTitle {
@@ -83,28 +99,6 @@
   display: flex;
   gap: 0.3125rem;
   align-items: center;
-}
-
-.editButton {
-  color: $color-text-muted;
-  background: none;
-  border: 1px solid $color-border-light;
-  border-radius: $radius-sm;
-  display: inline-block;
-  padding: $space-sm;
-  margin-left: auto;
-  cursor: pointer;
-}
-
-.deleteButton {
-  margin-left: auto;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 0.4375rem;
-  border: 1px solid $color-border-light;
-  background: transparent;
-  color: $color-text-muted;
-  cursor: pointer;
 }
 
 .attributeIcon {

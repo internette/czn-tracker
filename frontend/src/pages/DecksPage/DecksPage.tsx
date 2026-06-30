@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { getDecks, getCharacters } from '../../api'
 import { Character, Deck } from '../../types'
+import { Button } from '../../components/ui'
 import DeckCard from '../../components/DeckCard/DeckCard'
 import styles from './DecksPage.module.scss'
 
@@ -63,23 +64,15 @@ export default function DecksPage() {
 
           {totalPages > 1 && (
             <div className={styles.pagination}>
-              <button
-                className={styles.pageBtn}
-                disabled={page <= 1}
-                onClick={() => setPage((p) => p - 1)}
-              >
+              <Button variant="secondary" size="sm" disabled={page <= 1} onClick={() => setPage((p) => p - 1)}>
                 Previous
-              </button>
+              </Button>
               <span className={styles.pageInfo}>
                 Page {page} of {totalPages}
               </span>
-              <button
-                className={styles.pageBtn}
-                disabled={page >= totalPages}
-                onClick={() => setPage((p) => p + 1)}
-              >
+              <Button variant="secondary" size="sm" disabled={page >= totalPages} onClick={() => setPage((p) => p + 1)}>
                 Next
-              </button>
+              </Button>
             </div>
           )}
         </>

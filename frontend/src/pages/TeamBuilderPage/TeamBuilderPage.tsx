@@ -2,7 +2,7 @@ import { FormEvent, useEffect, useState, CSSProperties } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { getCharacters, createTeam, updateTeam } from '../../api'
 import { Character, User } from '../../types'
-import { Grid } from '../../components/ui'
+import { Button, Grid } from '../../components/ui'
 
 import styles from './TeamBuilderPage.module.scss'
 
@@ -171,7 +171,7 @@ export default function TeamBuilderPage({ user }: TeamBuilderPageProps) {
                         {selectedCharacter.attribute}
                       </span>
                     </p>
-                    <button type="button" onClick={()=> toggleCharacter(selectedCharacter.id)} className={styles.removeSelectedCharacter}>&times;</button>
+                    <Button variant="danger" size="sm" ariaLabel="Remove character" onClick={()=> toggleCharacter(selectedCharacter.id)}>&times;</Button>
                   </div>
                 )
               })}
@@ -182,9 +182,9 @@ export default function TeamBuilderPage({ user }: TeamBuilderPageProps) {
                 return (<img key={attrType} src={imgUrl} className={`${styles.attributeIcon}${isPresent ? ' ' + styles['attributeIcon--active'] : ''}`}/>)
               })}</div>
               {
-              <button className={styles.saveButton} type="submit" disabled={saving || selectedIds.length < 3}>
+              <Button variant="primary" type="submit" disabled={saving || selectedIds.length < 3}>
                 {saving ? 'Saving...' : (editingTeamId ? 'Update team' : 'Create team')}
-              </button>
+              </Button>
               }
             </aside>
           </div>

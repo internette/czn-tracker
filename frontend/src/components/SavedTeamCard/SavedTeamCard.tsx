@@ -1,5 +1,6 @@
 import { CSSProperties } from 'react'
 import { Team } from "../../types"
+import { Button } from "../ui"
 import styles from "./SavedTeamCard.module.scss"
 
 interface SavedTeamCardProps {
@@ -24,13 +25,9 @@ export default function SavedTeamCard({ team, onDelete, onEdit }: SavedTeamCardP
           <small className={styles.teamCreator}>By: {team.createdBy.length > 0 ? team.createdBy : 'anonymous'}</small>
           <small className={styles.teamDate}>{friendlyDate}</small>
         </div>
-        <button
-          type="button"
-          className={styles.deleteButton}
-          onClick={() => onDelete(team.uid)}
-        >
+        <Button variant="secondary" size="sm" className={styles.deleteBtn} ariaLabel="Delete team" onClick={() => onDelete(team.uid)}>
           &times;
-        </button>
+        </Button>
       </div>
 
       <div className={styles.teamCharactersRow}>
@@ -54,13 +51,9 @@ export default function SavedTeamCard({ team, onDelete, onEdit }: SavedTeamCardP
           ))}
         </div>
 
-        <button
-          type="button"
-          className={styles.editButton}
-          onClick={() => onEdit(team)}
-        >
+        <Button variant="secondary" size="sm" className={styles.editButton} onClick={() => onEdit(team)}>
           Edit
-        </button>
+        </Button>
       </div>
     </div>
   )

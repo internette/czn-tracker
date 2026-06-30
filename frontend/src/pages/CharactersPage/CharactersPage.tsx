@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { getCharacters } from '../../api'
 import { Character, User } from '../../types'
-import { Card, Grid, LoadingState } from '../../components/ui'
+import { Button, Card, Grid, LoadingState } from '../../components/ui'
 import { CharacterCard } from '../../components/common'
 import styles from './CharactersPage.module.scss'
 
@@ -110,26 +110,29 @@ export default function CharactersPage({ user }: CharactersPageProps) {
       </div>
       <div className={styles['characters-page__attribute-filters']}>
         {attributeTypes.map((attr) => (
-          <button
+          <Button
             key={attr}
-            type="button"
-            className={`${styles['characters-page__attribute-filter']} ${attributeFilter === attr ? styles.active : ''}`}
+            variant="secondary"
+            size="sm"
+            active={attributeFilter === attr}
+            ariaLabel={attr}
             onClick={() =>
               setAttributeFilter((prev) => (prev === attr ? null : attr))
             }
           >
             <img src={`/images/elements/${attr}.webp`}/>
-          </button>
+          </Button>
         ))}
-        <button
-            type="button"
-            className={`${styles['characters-page__attribute-filter']} ${attributeFilter === null ? styles.active : ''}`}
+        <Button
+            variant="secondary"
+            size="sm"
+            active={attributeFilter === null}
             onClick={() =>
               setAttributeFilter(null)
             }
           >
             All
-          </button>
+          </Button>
       </div>
       <p className={styles['characters-page__result-count']}>
         Showing {filteredCharacters.length} out of {characters.length}
